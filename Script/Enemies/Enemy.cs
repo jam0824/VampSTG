@@ -18,54 +18,43 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        var playerObj = GameObject.Find("Player");
+        var playerObj = GameObject.FindWithTag("Player");
         if (playerObj != null)
             playerTransform = playerObj.transform;
     }
 
     void Update()
+{
+    if (playerTransform == null) return;
+
+    // ─── 移動 ───
+    Vector3 toPlayer = playerTransform.position - transform.position;
+    //toPlayer.y = 0f;
+    float dist = toPlayer.magnitude;
+    if (dist > stopDistance)
     {
-        if (playerTransform == null) return;
-
-        // ─── 移動（省略） ───
-        Vector3 toPlayer = playerTransform.position - transform.position;
-        //toPlayer.y = 0;
-        float dist = toPlayer.magnitude;
-        if (dist > stopDistance)
-        {
-            float step = moveSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, step);
-        }
-
-        // ─── 回転 ───
-        Vector3 dir = toPlayer.normalized;
-        dir.y = 0;
-
-        // 1) プレイヤーが「完全に後ろ（180°）」に回ったら回転開始
-        float dot = Vector3.Dot(transform.forward, dir);
-        if (!isTurning && dot < 0f)
-        {
-            isTurning = true;
-        }
-
-        // 2) 回転中はずっとQuaternion.RotateTowardsでターゲット方向へ
-        if (isTurning)
-        {
-            Quaternion targetRot = Quaternion.LookRotation(dir);
-            transform.rotation = Quaternion.RotateTowards(
-                transform.rotation,
-                targetRot,
-                rotateSpeed * Time.deltaTime
-            );
-
-            // 3) 十分に向き直せたらフラグオフ
-            float angleLeft = Quaternion.Angle(transform.rotation, targetRot);
-            if (angleLeft < 0.5f)  // 0.5°未満になったら完了とみなす
-            {
-                isTurning = false;
-            }
-        }
+        float step = moveSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, step);
     }
+
+    // ─── 常にプレイヤー方向を向く ───
+    if (toPlayer.sqrMagnitude > 0.001f) // プレイヤーと同位置だとQuaternion.LookRotationでエラーになるので念のため
+    {
+        // y成分を無視して水平方向だけで向きを計算
+        Vector3 dir = toPlayer.normalized;
+
+        // 目標回転
+        Quaternion targetRot = Quaternion.LookRotation(dir);
+
+        // スムーズに回転
+        transform.rotation = Quaternion.RotateTowards(
+            transform.rotation,
+            targetRot,
+            rotateSpeed * Time.deltaTime
+        );
+    }
+}
+
 
     void OnTriggerEnter(Collider other)
     {

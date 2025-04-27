@@ -12,8 +12,9 @@ public sealed class HomingMissle : BaseProjectile
     protected override void AddForce()
     {
 		if(target == null){
+            GameObject targetGameObj = GameObject.FindGameObjectWithTag(targetTag);
+            if(targetGameObj == null) return;
 			target = GameObject.FindGameObjectWithTag(targetTag).transform;
-			if(target == null) return;
 		}
         // ターゲットとの差分を計算し、X成分は無視（0固定）
         Vector3 diff = target.position - position;
