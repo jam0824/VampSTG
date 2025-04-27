@@ -10,6 +10,9 @@ public class PlayerManager : MonoBehaviour
     public float invincibilityDuration = 2f;   // 無敵時間（秒）
     public float blinkInterval        = 0.1f; // 点滅間隔（秒）
 
+    [Header("エフェクトのオフセット")]
+    [SerializeField] private float effectOffset = 0.7f;
+
     private bool isInvincible = false;
     private Collider playerCollider;
     private int playerLayer;
@@ -33,6 +36,7 @@ public class PlayerManager : MonoBehaviour
             var cfg = other.GetComponent<ConfigItem>();
             Debug.Log("アイテムゲット：" + cfg.itemType);
             playerItemManager.getItem(cfg.itemType);
+            EffectController.Instance.PlayPowerUp(gameObject.transform.position);
             Destroy(other.gameObject);
             return;
         }
@@ -49,6 +53,9 @@ public class PlayerManager : MonoBehaviour
 
     void Damage(){
         hp--;
+        Vector3 pos = gameObject.transform.position;
+        pos.y += effectOffset;
+        EffectController.Instance.PlayHitToPlayer(pos);
     }
 
     private IEnumerator InvincibilityCoroutine()

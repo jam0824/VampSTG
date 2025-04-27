@@ -47,5 +47,13 @@ MonoBehaviour:
   smallExplosions:
   - {fileID: 6156958366680951671, guid: e4f62bd3eef8d2e42862fdb2bc2198a5, type: 3}
   - {fileID: 8376879617656387828, guid: e58ac241efc81fb46a9d3a12883a3977, type: 3}
-  smallExplosionSe: {fileID: 8300000, guid: f989b4936778dd243a9e465e73074b66, type: 3}
+  smallExplosionSes:
+  - {fileID: 8300000, guid: f989b4936778dd243a9e465e73074b66, type: 3}
+  - {fileID: 8300000, guid: 63debebfee8e76445aad418b97131899, type: 3}
   smallExplosionSeVolume: 0.5
+  powerUp: {fileID: 8567252811922625434, guid: c7a327c118100584197858f482a2a517, type: 3}
+  powerUpSe: {fileID: 8300000, guid: e555c55beb292c540b78ceddc4229c9c, type: 3}
+  powerUpSeVol: 0.6
+  hitPlayer: {fileID: 3079065092045439660, guid: 07be13eb868ee45489f5452568f5c6b1, type: 3}
+  hitPlayerSe: {fileID: 8300000, guid: 51e9ffa5c373d5747b13abb086e5d572, type: 3}
+  hitPlayerVol: 1

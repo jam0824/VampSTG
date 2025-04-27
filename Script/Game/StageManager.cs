@@ -79,9 +79,9 @@ public class StageManager : MonoBehaviour
         // XZ平面のランダム方向
         Vector2 circle = Random.insideUnitCircle.normalized;
         float distance = Random.Range(minDistance, maxDistance);
-        Vector3 offset = new Vector3(0f, circle.y,circle.x) * distance;
+        Vector3 spawnPos = new Vector3(0f, circle.y,circle.x) * distance;
 
-        Vector3 spawnPos = playerTransform.position + offset;
+        //Vector3 spawnPos = playerTransform.position + offset;
         GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
         AddItem(enemy);
     }

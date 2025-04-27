@@ -49,8 +49,8 @@ MonoBehaviour:
   items:
   - {fileID: 8981956440422478563, guid: 37574d0bfc5140940915c68c50c238c9, type: 3}
   spawnCount: 3
-  minDistance: 5
-  maxDistance: 15
+  minDistance: 8
+  maxDistance: 10
   initialInterval: 5
   minInterval: 0.5
   decayRate: 0.05

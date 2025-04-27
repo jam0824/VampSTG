@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
     void enemyDie(){
         Vector3 pos = gameObject.transform.position;
         if(offsetExplosionY != 0) pos.y += offsetExplosionY;
-        ExplosionController.Instance.PlaySmallExplosion(pos, gameObject.transform.rotation);
+        EffectController.Instance.PlaySmallExplosion(pos, gameObject.transform.rotation);
         ApearItem(item);
         Destroy(gameObject);
     }
