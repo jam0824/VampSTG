@@ -14,10 +14,16 @@ public class RotateWithPause : MonoBehaviour,IItem
     [Tooltip("回転後に待機する秒数")]
     public float waitTime = 1f;
     public float WaitTimeDeltaPerLevel = 0.2f;
+    public float waitForShot = 0.5f;    //撃つまでに照準さだめるなどの待ち時間
 
     public string itemType{get;} = "sniper";
     public GameObject bullet;
     public int batteryLevel{get;set;} = 0;
+    [Header("効果音")]
+    [SerializeField] private AudioClip bulletSe;
+    [SerializeField] private float bulletSeVolume = 0.5f;
+    [SerializeField] private AudioClip reloadSe;
+    [SerializeField] private float reloadSeVolume = 0.5f;
 
 
     public void getItem(){
@@ -108,12 +114,15 @@ public class RotateWithPause : MonoBehaviour,IItem
                 yield return null;
             }
 
+            yield return new WaitForSeconds(waitForShot);
             foreach (Transform t in GetChildTransforms())
             {
                 Instantiate(bullet, t.position, t.rotation);
             }
+            SoundManager.Instance.PlaySE(bulletSe, bulletSeVolume);
             // 指定秒だけ待機
             yield return new WaitForSeconds(waitTime);
+            SoundManager.Instance.PlaySE(reloadSe, reloadSeVolume);
         }
     }
 

@@ -11,6 +11,7 @@ public class VulcanCanon : MonoBehaviour, IItem
 
     public int pauseAfterShots = 50;      // 何発撃ったらポーズ
     public float pauseDuration = 1f;      // ポーズ時間（秒）
+    [Header("効果音")]
     [SerializeField] private AudioClip bulletSe;
     [SerializeField] private float bulletSeVolume = 0.5f;
     [SerializeField] private AudioClip reloadSe;

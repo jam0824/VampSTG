@@ -52,7 +52,7 @@ MonoBehaviour:
   anglePerStep: 45
   waitTime: 1
   WaitTimeDeltaPerLevel: 0.2
-  bullet: {fileID: 7405841139875714034, guid: 41e085b53c9a7e64e8912559cede0066, type: 3}
+  bullet: {fileID: 5323963158053952258, guid: b93f2b65aefbed34aa6a9dc8e8274991, type: 3}
 --- !u!1001 &2317077273100686080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -401,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c8573db8e30e916479a705831bd5040c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
