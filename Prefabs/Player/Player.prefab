@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 465488582238728130}
   - component: {fileID: 2899351110658590237}
   - component: {fileID: 7986447064055498157}
+  - component: {fileID: 4535974100090043010}
   m_Layer: 11
   m_Name: Core
   m_TagString: Untagged
@@ -102,12 +103,25 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4535974100090043010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328445315273392680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a15e5c88759474eab26c5a9d4c625b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 7873144817663714877}
 --- !u!1 &427439597709105502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,6 +2293,10 @@ PrefabInstance:
     - target: {fileID: 4577731634235584641, guid: 36195fbb8cbd33c4bbd7ba47fbba5695, type: 3}
       propertyPath: m_Name
       value: MissilBattery
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577731634235584641, guid: 36195fbb8cbd33c4bbd7ba47fbba5695, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7638108249706152646, guid: 36195fbb8cbd33c4bbd7ba47fbba5695, type: 3}
       propertyPath: m_LocalPosition.x

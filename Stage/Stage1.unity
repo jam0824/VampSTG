@@ -1051,15 +1051,7 @@ PrefabInstance:
     - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
       propertyPath: progressBar
       value: 
-      objectReference: {fileID: 2585764038165362781}
-    - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
-      propertyPath: enemies.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
-      propertyPath: 'enemies.Array.data[1]'
-      value: 
-      objectReference: {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
+      objectReference: {fileID: 2585764038165362782}
     - target: {fileID: 6890006149486929664, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
       propertyPath: m_Name
       value: StageManager
@@ -1166,11 +1158,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ead723749184c64486cbbaa6734e91e, type: 3}
---- !u!1 &2585764038165362781 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2841230778263238651, guid: 1ead723749184c64486cbbaa6734e91e, type: 3}
+--- !u!114 &2585764038165362782 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8397051649631852089, guid: 1ead723749184c64486cbbaa6734e91e, type: 3}
   m_PrefabInstance: {fileID: 2585764038165362780}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a00180383eec441b1843555faa46e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3880997129337351000
 PrefabInstance:
   m_ObjectHideFlags: 0

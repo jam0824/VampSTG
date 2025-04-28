@@ -43,15 +43,13 @@ public class PlayerManager : MonoBehaviour
             
             return;
         }
+    }
 
-        // ——————————————
-        // 敵ヒット時（無敵中はスキップ）
-        // ——————————————
-        if (other.CompareTag("Enemy") && !isInvincible)
-        {
-            Damage();
-            StartCoroutine(InvincibilityCoroutine());
-        }
+    // CoreがEnemyとHitしたときに呼ばれる
+    public void HitEnemy(){
+        if(isInvincible) return;
+        Damage();
+        StartCoroutine(InvincibilityCoroutine());
     }
 
     void Damage(){
