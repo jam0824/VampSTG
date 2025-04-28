@@ -34,7 +34,8 @@ public class BaseProjectile : MonoBehaviour
         thisTransform = transform;
         position = thisTransform.position;
         startX = position.x;
-        target = GameObject.FindGameObjectWithTag(targetTag).transform;
+        GameObject targetObj = GameObject.FindGameObjectWithTag(targetTag);
+        if(targetObj != null) target = targetObj.transform;
 
         AddInitialVelocity();
         StartCoroutine(DestroyTimer(lifeTime));

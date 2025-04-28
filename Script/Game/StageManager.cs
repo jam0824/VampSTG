@@ -3,6 +3,8 @@ using System.Collections;
 
 public class StageManager : MonoBehaviour
 {
+    [Header("Stage Settings")]
+    [SerializeField] float stageAllSecond = 180f;
     [Header("Enemy Settings")]
     [SerializeField] GameObject[] enemies;      // スポーンする敵プレハブ
     [SerializeField] GameObject[] items;
@@ -19,6 +21,9 @@ public class StageManager : MonoBehaviour
 
     [Header("Item Settings")]
     [SerializeField] float batteryDropRate = 0.1f;
+    
+    [Header("UI Settings")]
+    [SerializeField] ProgressBar progressBar;
 
     Transform playerTransform;
     float elapsedTime;   // ゲーム起動からの経過時間
@@ -32,6 +37,7 @@ public class StageManager : MonoBehaviour
             Debug.LogError("Player オブジェクトが見つかりません");
 
         elapsedTime = 0f;
+
         StartCoroutine(SpawnRoutine());
     }
 
@@ -39,6 +45,10 @@ public class StageManager : MonoBehaviour
     {
         // 経過時間をカウント
         elapsedTime += Time.deltaTime;
+        float per = elapsedTime/stageAllSecond;
+        progressBar.DrawProgressBar(per);
+        progressBar.DrawPlayerIcon(per);
+
     }
 
     /// <summary>

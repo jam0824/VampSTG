@@ -22,27 +22,29 @@ public class ProgressBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         elapsedTime += Time.deltaTime;
         float per = elapsedTime / allTime;
-        DrawProgressBar(per, barAllLength);
-        DrawPlayerIcon(per, wayAllLength);
+        DrawProgressBar(per);
+        DrawPlayerIcon(per);
+        */
         
     }
 
-    public void DrawProgressBar(float perProgress, float spriteAllLength){
+    public void DrawProgressBar(float perProgress){
         // プログレスバーの長さを変更
         float perLeft = 1.0f - perProgress;
         Vector3 scale = bar.transform.localScale;
-        scale.x = spriteAllLength * perLeft;
+        scale.x = this.barAllLength * perLeft;
         bar.transform.localScale = scale;
 
         //プログレスバーの描画位置を調整
-        float offset = spriteAllLength * perProgress;
+        float offset = this.barAllLength * perProgress;
         Vector3 pos = bar.transform.position;
         pos.z = offset * 2;
         bar.transform.position = pos;
     }
-    public void DrawPlayerIcon(float perProgress, float wayAllLength){
+    public void DrawPlayerIcon(float perProgress){
         float offset = perProgress * wayAllLength;
         Vector3 pos = playerIcon.transform.position;
         pos.z = defaultIconZ + offset;

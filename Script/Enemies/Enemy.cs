@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public GameObject item{get;set;} = null;
 
     Transform playerTransform;
-    bool isTurning = false;
+    bool isDead = false;
 
     void Start()
     {
@@ -60,9 +60,11 @@ public class Enemy : MonoBehaviour
     {
         if (!other.CompareTag("PlayerBullet")) return;
         if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
+        if (isDead) return;
 
         hp = hit(bullet, hp);
         if (hp <= 0) enemyDie();
+        
     }
 
     int hit(ConfigPlayerBullet bullet, int enemyHp){
@@ -73,6 +75,7 @@ public class Enemy : MonoBehaviour
     }
 
     void enemyDie(){
+        isDead = true;
         Vector3 pos = gameObject.transform.position;
         if(offsetExplosionY != 0) pos.y += offsetExplosionY;
         EffectController.Instance.PlaySmallExplosion(pos, gameObject.transform.rotation);

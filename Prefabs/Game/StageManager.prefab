@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f89f1671d2b3545945e41af0b14d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageAllSecond: 180
   enemies:
   - {fileID: 4421325519823360605, guid: 60fdd8ee8370240488ad7e11dd20730e, type: 3}
+  - {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
   items:
   - {fileID: 8981956440422478563, guid: 37574d0bfc5140940915c68c50c238c9, type: 3}
   - {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
@@ -56,3 +58,4 @@ MonoBehaviour:
   minInterval: 0.5
   decayRate: 0.05
   batteryDropRate: 0.1
+  progressBar: {fileID: 0}

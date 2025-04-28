@@ -34,10 +34,13 @@ public class PlayerManager : MonoBehaviour
         if (other.CompareTag("Item"))
         {
             var cfg = other.GetComponent<ConfigItem>();
+            if(cfg.isGet) return;
+            cfg.isGet = true;
             Debug.Log("アイテムゲット：" + cfg.itemType);
             playerItemManager.getItem(cfg.itemType);
-            EffectController.Instance.PlayPowerUp(gameObject.transform.position);
             Destroy(other.gameObject);
+            EffectController.Instance.PlayPowerUp(gameObject.transform.position);
+            
             return;
         }
 
