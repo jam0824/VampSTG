@@ -1,0 +1,78 @@
+using UnityEngine;
+
+public class NWayShooter : MonoBehaviour
+{
+    [Header("Bullet Settings")]
+    public GameObject bulletPrefab;    // 弾のプレハブ（Rigidbody 必須）
+    public Transform firePoint;        // 発射位置
+    public float bulletSpeed = 10f;    // 弾速
+    public float bulletLifeTime = 5f;  // 自動消滅までの時間
+
+    [Header("Shot Settings")]
+    public int numberOfBullets = 5;     // NWay の “N”
+    public float totalSpreadAngle = 60f; // 全体の拡散角度（度）
+
+    [Header("Target")]
+    public Transform core;           // プレイヤー Transform
+
+    void Start()
+    {
+        if (core == null)
+        {
+            var p = GameObject.FindGameObjectWithTag("Core");
+            if (p != null) core = p.transform;
+        }
+    }
+
+    /// <summary>
+    /// NWay 弾を一度だけ発射する
+    /// </summary>
+    public void FireNWay()
+    {
+        if (bulletPrefab == null || firePoint == null || core == null) return;
+
+        // プレイヤーへのベクトルを取得し、X成分を無視 → ZY平面に投影
+        Vector3 toPlayer = core.position - firePoint.transform.position;
+        toPlayer.x = 0f;
+
+        // ZY平面上の基準角度（度単位）
+        float baseAngle = Mathf.Atan2(toPlayer.y, toPlayer.z) * Mathf.Rad2Deg;
+
+        // 弾が 1 発だけなら、プレイヤー方向へ直撃
+        if (numberOfBullets <= 1)
+        {
+            ShootBullet(baseAngle);
+        }
+        else
+        {
+            // 各弾の間隔
+            float angleStep = totalSpreadAngle / (numberOfBullets - 1);
+            // 中央の弾インデックス（int 型の割り算で自動切り捨て）
+            int midIndex = (numberOfBullets - 1) / 2;
+            // 中央の弾が baseAngle になるように、最初の弾角度を調整
+            float startAngle = baseAngle - angleStep * midIndex;
+
+            for (int i = 0; i < numberOfBullets; i++)
+            {
+                float angle = startAngle + angleStep * i;
+                ShootBullet(angle);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 単発で弾を生成し、指定角度で撃つ
+    /// </summary>
+    void ShootBullet(float angleDeg)
+    {
+        float rad = angleDeg * Mathf.Deg2Rad;
+        Vector3 dir = new Vector3(0f, Mathf.Sin(rad), Mathf.Cos(rad)).normalized;
+
+        GameObject b = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(dir));
+        if (b.TryGetComponent<Rigidbody>(out var rb))
+        {
+            rb.linearVelocity = dir * bulletSpeed;
+        }
+        Destroy(b, bulletLifeTime);
+    }
+}
