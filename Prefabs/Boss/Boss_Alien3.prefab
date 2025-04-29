@@ -6325,10 +6325,11 @@ GameObject:
   - component: {fileID: 4828259298255229807}
   - component: {fileID: 7852732057032231318}
   - component: {fileID: 7130847832425349484}
+  - component: {fileID: 5918019327519531230}
   - component: {fileID: 3447881138633404940}
   - component: {fileID: 5020800367174951737}
   m_Layer: 7
-  m_Name: BaseMesh_Alien
+  m_Name: Boss_Alien3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6343,7 +6344,7 @@ Transform:
   m_GameObject: {fileID: 2115093931770627527}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.9848078, z: 0, w: 0.17364825}
-  m_LocalPosition: {x: 0, y: -6.44, z: 7}
+  m_LocalPosition: {x: 0.39, y: -6.43, z: 5.93}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6392,12 +6393,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa152abcbc22c44f8177d16da599a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5000
+  hp: 1000
   animator: {fileID: 7852732057032231318}
   triggerNames:
-  - attack1_r
   - attack1_l
-  attackInterval: 2
+  attackInterval: 5
+  bossHpBar: {fileID: 0}
+  scatterShooter: {fileID: 5918019327519531230}
+--- !u!114 &5918019327519531230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115093931770627527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3454439554667490533, guid: 4142eadfc104ea9498c8556c35af2dc1, type: 3}
+  firePoint: {fileID: 4983878326917827414}
+  bulletLifeTime: 10
+  bulletCount: 10
+  scatterAngle: 60
+  minBulletSpeed: 1
+  maxBulletSpeed: 3
+  player: {fileID: 0}
 --- !u!114 &3447881138633404940
 MonoBehaviour:
   m_ObjectHideFlags: 0

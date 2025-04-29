@@ -4,6 +4,7 @@ using System.Collections;
 public class Boss : MonoBehaviour
 {
     [SerializeField] int hp = 500;
+    int maxHp = 500;
 
     [Tooltip("Animator コンポーネント（Inspector でセット、未設定なら同じオブジェクトを自動取得）")]
     public Animator animator;
@@ -13,8 +14,10 @@ public class Boss : MonoBehaviour
     
     [Tooltip("何秒おきに攻撃アニメを発動するか")]
     public float attackInterval = 2f;
+    [Header("UI Settings")]
+    [SerializeField] BossHpBar bossHpBar;
 
-    public NWayShooter nWay;
+    public ScatterShooter scatterShooter;
 
     private int nextIndex = 0;
     private bool isDead = false;
@@ -25,9 +28,20 @@ public class Boss : MonoBehaviour
     {
         if (animator == null)
             animator = GetComponent<Animator>();
+        this.maxHp = hp;
         SetTagName(tagName);
         
         StartCoroutine(AttackLoop());
+    }
+
+    void Update()
+    {
+        DrawHpBar();
+    }
+
+    void DrawHpBar(){
+        float per = ((float)maxHp - (float)hp)/ (float)maxHp;
+        bossHpBar.DrawHpBar(per);
     }
 
     void SetTagName(string tagName){
@@ -47,7 +61,8 @@ public class Boss : MonoBehaviour
             // 次はインデックスを +1（配列長でループ）
             nextIndex = (nextIndex + 1) % triggerNames.Length;
 
-            nWay.FireNWay();
+            yield return new WaitForSeconds(1.4f);
+            scatterShooter.FireScatter();
 
             // 指定秒数待機
             yield return new WaitForSeconds(attackInterval);

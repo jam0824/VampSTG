@@ -1,13 +1,10 @@
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 
 public class ProgressBar : MonoBehaviour
 {
     [Header("Progress Bar")]
     [SerializeField] GameObject bar;
     [SerializeField] float barAllLength = 3f;
-    float allTime = 3f * 60f;
-    private float elapsedTime = 0f;
     [Header("Player Icon")]
     [SerializeField] GameObject playerIcon;
     [SerializeField] float wayAllLength = 12f;

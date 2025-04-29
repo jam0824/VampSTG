@@ -67,8 +67,9 @@ public class NWayShooter : MonoBehaviour
     {
         float rad = angleDeg * Mathf.Deg2Rad;
         Vector3 dir = new Vector3(0f, Mathf.Sin(rad), Mathf.Cos(rad)).normalized;
-
-        GameObject b = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(dir));
+        Vector3 firePointPos = firePoint.position;
+        firePointPos.x = 0;
+        GameObject b = Instantiate(bulletPrefab, firePointPos, Quaternion.LookRotation(dir));
         if (b.TryGetComponent<Rigidbody>(out var rb))
         {
             rb.linearVelocity = dir * bulletSpeed;
