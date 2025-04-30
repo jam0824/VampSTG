@@ -10,6 +10,7 @@ public class BossAlien3 : MonoBehaviour
     public Animator animator;
     [Header("攻撃ポイント")]
     [SerializeField] ScatterShooter acidAttackPoint;
+    [SerializeField] ScatterShooter handAttackPoint;
 
     [Tooltip("攻撃トリガー名（交互に発火させる）")]
     public string[] triggerNames;
@@ -91,7 +92,7 @@ public class BossAlien3 : MonoBehaviour
         // 1.4秒待機(手がちょうどいいところに来る時間)
         yield return new WaitForSeconds(1.4f);
         // 発射処理
-        scatterShooter.FireScatter();
+        handAttackPoint.FireScatter();
     }
     private IEnumerator AttackHeadCoroutine()
     {
