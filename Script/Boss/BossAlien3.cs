@@ -11,6 +11,9 @@ public class BossAlien3 : MonoBehaviour
     [Header("攻撃ポイント")]
     [SerializeField] ScatterShooter acidAttackPoint;
     [SerializeField] ScatterShooter handAttackPoint;
+    [SerializeField] RandomBulletShooter[] directionAttacks;
+    [Header("背中から出す弾の待ち時間(フレーム)")]
+    [SerializeField] int directionAttackTime = 300;
 
     [Tooltip("攻撃トリガー名（交互に発火させる）")]
     public string[] triggerNames;
@@ -114,6 +117,7 @@ public class BossAlien3 : MonoBehaviour
         float targetZ = currentZ > 0f ? -6f : 6f;
         Vector3 targetPos = new Vector3(transform.position.x, transform.position.y, targetZ);
 
+        int flameCount = 1;
         // 3. 毎フレーム少しずつ移動
         while (Mathf.Abs(transform.position.z - targetZ) > 0.01f)
         {
@@ -122,6 +126,13 @@ public class BossAlien3 : MonoBehaviour
                 targetPos,
                 moveSpeed * Time.deltaTime
             );
+            //ショット
+            if(flameCount % directionAttackTime == 0) {
+                foreach(RandomBulletShooter shooter in directionAttacks){
+                    shooter.Fire();
+                }
+            }
+            flameCount++;
             yield return null;
         }
 
