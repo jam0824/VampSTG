@@ -6395,9 +6395,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1000
   animator: {fileID: 7852732057032231318}
+  acidAttackPoint: {fileID: 4490637292647504100}
   triggerNames:
   - attack1_l
-  attackInterval: 5
+  attackInterval: 2
+  moveSpeed: 1
+  turnDuration: 3
   bossHpBar: {fileID: 0}
   scatterShooter: {fileID: 5918019327519531230}
 --- !u!114 &5918019327519531230
@@ -24104,6 +24107,7 @@ Transform:
   - {fileID: 683309008448888398}
   - {fileID: 2350612674544874486}
   - {fileID: 5128417250908099846}
+  - {fileID: 2848041032526738577}
   m_Father: {fileID: 2445720707867175020}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3297801656283379614
@@ -25538,6 +25542,58 @@ MonoBehaviour:
     modifyNameEnabled: 0
   modified: 0
   modifiedChildren: 0
+--- !u!1 &7449822824623243548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2848041032526738577}
+  - component: {fileID: 4490637292647504100}
+  m_Layer: 0
+  m_Name: AcidAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2848041032526738577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7449822824623243548}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000040524432, y: -0.5714295, z: 0.8206512, w: -0.000020945783}
+  m_LocalPosition: {x: -0, y: 0.193, z: 0}
+  m_LocalScale: {x: 0.16666672, y: 0.16666675, z: 0.16666664}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1124811619987445154}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4490637292647504100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7449822824623243548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2494194811549328558, guid: 0a720fd36bd740e4590f9b68cb8e90ee, type: 3}
+  firePoint: {fileID: 2848041032526738577}
+  bulletLifeTime: 5
+  bulletCount: 10
+  scatterAngle: 120
+  minBulletSpeed: 1
+  maxBulletSpeed: 2
+  player: {fileID: 0}
 --- !u!1 &7464865061504724895
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,13 +1,15 @@
 using UnityEngine;
 using System.Collections;
 
-public class Boss : MonoBehaviour
+public class BossAlien3 : MonoBehaviour
 {
     [SerializeField] int hp = 500;
     int maxHp = 500;
 
     [Tooltip("Animator コンポーネント（Inspector でセット、未設定なら同じオブジェクトを自動取得）")]
     public Animator animator;
+    [Header("攻撃ポイント")]
+    [SerializeField] ScatterShooter acidAttackPoint;
 
     [Tooltip("攻撃トリガー名（交互に発火させる）")]
     public string[] triggerNames;
@@ -95,6 +97,9 @@ public class Boss : MonoBehaviour
     {
         // トリガー発火
         animator.SetTrigger("attack3");
+        //攻撃がいいタイミングになるまでの時間
+        yield return new WaitForSeconds(1.15f);
+        acidAttackPoint.FireScatter();
         //次の行動までのマージン
         yield return new WaitForSeconds(1f);
     }
