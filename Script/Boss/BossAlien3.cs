@@ -147,45 +147,54 @@ public class BossAlien3 : MonoBehaviour
         StopAllCoroutines();
 
         // 他のトリガーをリセット（念のため）
+        /*
         animator.ResetTrigger("attack1_l");
         animator.ResetTrigger("attack3");
         animator.ResetTrigger("walk");
         animator.ResetTrigger("stopWalk");
+        */
 
         // 死亡アニメ再生
         animator.SetTrigger("dead");
         StartCoroutine(RandomExplosionCoroutine());
+        StartCoroutine(FadeOut());
 
         // 必要ならスクリプト自体を無効化
         this.enabled = false;
 
+    }
+
+    private IEnumerator FadeOut(){
+        //フェードアウトまでの待ち時間
+        yield return new WaitForSeconds(3f);
         //フェードアウト処理
-        fader.FadeToWhite(() => {
-           
+        fader.FadeToWhite(() =>
+        {
+            //ここにシーン変更
         });
-
-
     }
 
-    private IEnumerator RandomExplosionCoroutine(){
+    private IEnumerator RandomExplosionCoroutine()
+    {
 
-    for(int i = 0; i < 50; i++){
-        Vector3 pos = transform.position;
-        pos.x = 1f; //少し画面の手前に出す
-        // y は 0 ～ 6 の範囲
-        pos.y = Random.value * screenHeight;
-        // z を ±1 の範囲でランダムにずらす
-        float zOffset = (Random.value - 0.5f) * 2f; 
-        pos.z += zOffset;
+        for (int i = 0; i < 50; i++)
+        {
+            Vector3 pos = transform.position;
+            pos.x = 1f; //少し画面の手前に出す
+                        // y は 0 ～ 6 の範囲
+            pos.y = Random.value * screenHeight;
+            // z を ±1 の範囲でランダムにずらす
+            float zOffset = (Random.value - 0.5f) * 2f;
+            pos.z += zOffset;
 
-        // エフェクト
-        EffectController.Instance.PlayLargeExplosion(
-            pos,
-            transform.rotation
-        );
-        yield return new WaitForSeconds(0.1f);
+            // エフェクト
+            EffectController.Instance.PlayLargeExplosion(
+                pos,
+                transform.rotation
+            );
+            yield return new WaitForSeconds(0.1f);
+        }
     }
-}
 
     // 以下は既存のまま
     void DrawHpBar()
