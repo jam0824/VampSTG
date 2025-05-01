@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     Transform playerTransform;
     bool isDead = false;
+    int fromBossDamage = 5; //敵キャラがボスにあたった時のダメージ
 
     void Start()
     {
@@ -57,13 +58,15 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("PlayerBullet")) return;
-        if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
         if (isDead) return;
-
-        hp = hit(bullet, hp);
+        if(other.CompareTag("Boss")){
+            hp -= fromBossDamage;
+        }
+        else if(other.CompareTag("PlayerBullet")){
+            if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
+            hp = hit(bullet, hp);
+        }
         if (hp <= 0) enemyDie();
-        
     }
 
     int hit(ConfigPlayerBullet bullet, int enemyHp){

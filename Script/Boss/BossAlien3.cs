@@ -15,9 +15,6 @@ public class BossAlien3 : MonoBehaviour
     [Header("背中から出す弾の待ち時間(フレーム)")]
     [SerializeField] int directionAttackTime = 300;
 
-    [Tooltip("攻撃トリガー名（交互に発火させる）")]
-    public string[] triggerNames;
-
     [Tooltip("何秒おきに攻撃アニメを発動するか")]
     public float attackInterval = 2f;
     [SerializeField] private float moveSpeed = 1.0f;      // z=6 → z=-6 に移動する速さ
@@ -25,12 +22,9 @@ public class BossAlien3 : MonoBehaviour
     [Header("UI Settings")]
     [SerializeField] BossHpBar bossHpBar;
 
-    public ScatterShooter scatterShooter;
-
-    private int nextIndex = 0;
     private bool isDead = false;
 
-    private string tagName = "Enemy";
+    private string tagName = "Boss";    // オブジェクト全体に付加するタグ
 
     void Start()
     {
@@ -66,6 +60,7 @@ public class BossAlien3 : MonoBehaviour
         while (true)
         {
             float r = Random.value;  // 0.0～1.0 のランダム値
+            if(isDead) yield return null;
 
             if (r < 0.4f)
             {
@@ -96,6 +91,7 @@ public class BossAlien3 : MonoBehaviour
         yield return new WaitForSeconds(1.4f);
         // 発射処理
         handAttackPoint.FireScatter();
+        yield return null;
     }
     private IEnumerator AttackHeadCoroutine()
     {
@@ -106,6 +102,7 @@ public class BossAlien3 : MonoBehaviour
         acidAttackPoint.FireScatter();
         //次の行動までのマージン
         yield return new WaitForSeconds(1f);
+        yield return null;
     }
     private IEnumerator AttackMoveCoroutine()
     {
@@ -153,6 +150,7 @@ public class BossAlien3 : MonoBehaviour
             );
             yield return null;
         }
+        yield return null;
     }
 
 
@@ -164,7 +162,7 @@ public class BossAlien3 : MonoBehaviour
         if (isDead) return;
 
         hp = hit(bullet, hp);
-        if (hp <= 0) enemyDie();
+        if (hp <= 0) enemyDie(other.gameObject.transform);
 
     }
 
@@ -176,12 +174,14 @@ public class BossAlien3 : MonoBehaviour
         return enemyHp;
     }
 
-    void enemyDie()
+    void enemyDie(Transform bulletTransform)
     {
         isDead = true;
-        Vector3 pos = gameObject.transform.position;
-        EffectController.Instance.PlaySmallExplosion(pos, gameObject.transform.rotation);
-        Destroy(gameObject);
+        StopCoroutine(AttackLoop());
+        animator.SetTrigger("dead");
+        
+        Vector3 pos = bulletTransform.transform.position;
+        EffectController.Instance.PlayLargeExplosion(pos, bulletTransform.transform.rotation);
     }
 
 }

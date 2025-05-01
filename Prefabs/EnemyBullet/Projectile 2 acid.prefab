@@ -14617,7 +14617,7 @@ GameObject:
   - component: {fileID: 1903445581657874169}
   m_Layer: 0
   m_Name: Projectile 2 acid
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

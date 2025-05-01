@@ -7,18 +7,20 @@ public class PlayerCore : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy")){
+        if (other != null && playerManager != null &&
+        (other.CompareTag("Enemy") || other.CompareTag("Boss")))
+        {
             playerManager.HitEnemy();
         }
     }

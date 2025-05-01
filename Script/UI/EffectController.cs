@@ -10,6 +10,11 @@ public class EffectController : MonoBehaviour
     [SerializeField] AudioClip[] smallExplosionSes;
     [SerializeField] float smallExplosionSeVolume = 0.5f;
 
+    [Header("Large Explosion")]
+    [SerializeField] GameObject[] largeExplosions;
+    [SerializeField] AudioClip[] largeExplosionSes;
+    [SerializeField] float largeExplosionSeVolume = 0.8f;
+
     [Header("Effect")]
     [SerializeField] GameObject powerUp;
     [SerializeField] AudioClip powerUpSe;
@@ -37,10 +42,28 @@ public class EffectController : MonoBehaviour
     }
 
     public void PlaySmallExplosion(Vector3 pos, Quaternion rot){
-        int objindex = Random.Range(0, smallExplosions.Length);
-        int seIndex = Random.Range(0, smallExplosionSes.Length);
-        Instantiate(smallExplosions[objindex], pos, rot);
-        SoundManager.Instance.PlaySE(smallExplosionSes[seIndex], smallExplosionSeVolume);
+        PlayExplosion(
+            pos, 
+            rot,
+            smallExplosions,
+            smallExplosionSes,
+            smallExplosionSeVolume);
+    }
+
+    public void PlayLargeExplosion(Vector3 pos, Quaternion rot){
+        PlayExplosion(
+            pos, 
+            rot, 
+            largeExplosions, 
+            largeExplosionSes, 
+            largeExplosionSeVolume);
+    }
+
+    void PlayExplosion(Vector3 pos, Quaternion rot, GameObject[] explosions, AudioClip[] clips, float vol){
+        int objindex = Random.Range(0, explosions.Length);
+        int seIndex = Random.Range(0, clips.Length);
+        Instantiate(explosions[objindex], pos, rot);
+        SoundManager.Instance.PlaySE(clips[seIndex], vol);
     }
 
     public void PlayPowerUp(Vector3 pos){
