@@ -15,6 +15,7 @@ public class BossAlien3 : MonoBehaviour
     [SerializeField] private float moveSpeed = 1.0f;
     [SerializeField] private float turnDuration = 1.0f;
     [SerializeField] BossHpBar bossHpBar;
+    [SerializeField] private ScreenFader fader;
 
     private bool isDead = false;
     private Coroutine attackLoopCoroutine;
@@ -157,6 +158,11 @@ public class BossAlien3 : MonoBehaviour
 
         // 必要ならスクリプト自体を無効化
         this.enabled = false;
+
+        //フェードアウト処理
+        fader.FadeToWhite(() => {
+           
+        });
 
 
     }
