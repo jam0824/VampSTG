@@ -6,182 +6,191 @@ public class BossAlien3 : MonoBehaviour
     [SerializeField] int hp = 500;
     int maxHp = 500;
 
-    [Tooltip("Animator コンポーネント（Inspector でセット、未設定なら同じオブジェクトを自動取得）")]
     public Animator animator;
-    [Header("攻撃ポイント")]
     [SerializeField] ScatterShooter acidAttackPoint;
     [SerializeField] ScatterShooter handAttackPoint;
     [SerializeField] RandomBulletShooter[] directionAttacks;
-    [Header("背中から出す弾の待ち時間(フレーム)")]
     [SerializeField] int directionAttackTime = 300;
-
-    [Tooltip("何秒おきに攻撃アニメを発動するか")]
     public float attackInterval = 2f;
-    [SerializeField] private float moveSpeed = 1.0f;      // z=6 → z=-6 に移動する速さ
-    [SerializeField] private float turnDuration = 1.0f;   // 180°回転にかける時間
-    [Header("UI Settings")]
+    [SerializeField] private float moveSpeed = 1.0f;
+    [SerializeField] private float turnDuration = 1.0f;
     [SerializeField] BossHpBar bossHpBar;
 
     private bool isDead = false;
+    private Coroutine attackLoopCoroutine;
+    private string tagName = "Boss";
 
-    private string tagName = "Boss";    // オブジェクト全体に付加するタグ
+    private float screenHeight = 6f;
 
     void Start()
     {
         if (animator == null)
             animator = GetComponent<Animator>();
-        this.maxHp = hp;
+        maxHp = hp;
         SetTagName(tagName);
 
-        StartCoroutine(AttackLoop());
+        // コルーチンを保持しておく
+        attackLoopCoroutine = StartCoroutine(AttackLoop());
     }
 
     void Update()
     {
+        if (isDead) return;          // 死亡後はUpdate処理をすべてキャンセル
         DrawHpBar();
-    }
-
-    void DrawHpBar()
-    {
-        float per = ((float)maxHp - (float)hp) / (float)maxHp;
-        bossHpBar.DrawHpBar(per);
-    }
-
-    void SetTagName(string tagName)
-    {
-        foreach (Transform t in GetComponentsInChildren<Transform>(includeInactive: true))
-        {
-            t.gameObject.tag = tagName;
-        }
     }
 
     private IEnumerator AttackLoop()
     {
-        while (true)
+        // 生存中だけループ
+        while (!isDead)
         {
-            float r = Random.value;  // 0.0～1.0 のランダム値
-            if(isDead) yield return null;
-
+            float r = Random.value;
             if (r < 0.4f)
-            {
-                // 45% の確率で左腕攻撃
                 yield return AttackLeftArmCoroutine();
-            }
-            else if (r < 0.80f)
-            {
-                // 次の 45%（合計 90%）で頭攻撃
+            else if (r < 0.8f)
                 yield return AttackHeadCoroutine();
-            }
             else
-            {
-                // 残りの 10% で移動
                 yield return AttackMoveCoroutine();
-            }
 
-            // 次の攻撃まで指定秒数待機
             yield return new WaitForSeconds(attackInterval);
         }
     }
 
     private IEnumerator AttackLeftArmCoroutine()
     {
-        // トリガー発火
+        if (isDead) yield break;
         animator.SetTrigger("attack1_l");
-        // 1.4秒待機(手がちょうどいいところに来る時間)
         yield return new WaitForSeconds(1.4f);
-        // 発射処理
+        if (isDead) yield break;
         handAttackPoint.FireScatter();
-        yield return null;
     }
+
     private IEnumerator AttackHeadCoroutine()
     {
-        // トリガー発火
+        if (isDead) yield break;
         animator.SetTrigger("attack3");
-        //攻撃がいいタイミングになるまでの時間
         yield return new WaitForSeconds(1.15f);
+        if (isDead) yield break;
         acidAttackPoint.FireScatter();
-        //次の行動までのマージン
         yield return new WaitForSeconds(1f);
-        yield return null;
     }
+
     private IEnumerator AttackMoveCoroutine()
     {
-        // 1. 歩き出しアニメーション
+        if (isDead) yield break;
         animator.SetTrigger("walk");
 
-        // 2. 現在の z に応じて行き先を決定（z > 0 → -6、z <= 0 → +6）
         float currentZ = transform.position.z;
         float targetZ = currentZ > 0f ? -6f : 6f;
         Vector3 targetPos = new Vector3(transform.position.x, transform.position.y, targetZ);
 
-        int flameCount = 1;
-        // 3. 毎フレーム少しずつ移動
+        int frameCount = 0;
         while (Mathf.Abs(transform.position.z - targetZ) > 0.01f)
         {
+            if (isDead) yield break;
+
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 targetPos,
                 moveSpeed * Time.deltaTime
             );
-            //ショット
-            if(flameCount % directionAttackTime == 0) {
-                foreach(RandomBulletShooter shooter in directionAttacks){
+
+            if (frameCount % directionAttackTime == 0)
+            {
+                foreach (var shooter in directionAttacks)
+                {
                     shooter.Fire();
                 }
             }
-            flameCount++;
+
+            frameCount++;
             yield return null;
         }
 
-        // 4. 歩き停止アニメーション
+        if (isDead) yield break;
         animator.SetTrigger("stopWalk");
 
-        // 5. ゆっくり 180° 回転
         Quaternion startRot = transform.rotation;
         Quaternion endRot = startRot * Quaternion.Euler(0f, 180f, 0f);
         float elapsed = 0f;
         while (elapsed < turnDuration)
         {
+            if (isDead) yield break;
+
             elapsed += Time.deltaTime;
-            transform.rotation = Quaternion.Slerp(
-                startRot,
-                endRot,
-                elapsed / turnDuration
-            );
+            transform.rotation = Quaternion.Slerp(startRot, endRot, elapsed / turnDuration);
             yield return null;
         }
-        yield return null;
     }
-
-
 
     void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("PlayerBullet")) return;
+        if (!other.CompareTag("PlayerBullet") || isDead) return;
         if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
-        if (isDead) return;
 
-        hp = hit(bullet, hp);
-        if (hp <= 0) enemyDie(other.gameObject.transform);
+        hp -= bullet.getDamage();
+        if (bullet.hitSe != null)
+            SoundManager.Instance.PlaySE(bullet.hitSe, bullet.hitSeVolume);
 
+        if (hp <= 0)
+            Die(other.transform);
     }
 
-    int hit(ConfigPlayerBullet bullet, int enemyHp)
-    {
-        enemyHp -= bullet.getDamage();
-        AudioClip hitSe = bullet.hitSe;
-        if (hitSe != null) SoundManager.Instance.PlaySE(bullet.hitSe, bullet.hitSeVolume);
-        return enemyHp;
-    }
-
-    void enemyDie(Transform bulletTransform)
+    private void Die(Transform hitPoint)
     {
         isDead = true;
-        StopCoroutine(AttackLoop());
+
+        // 進行中のコルーチンをすべて止める
+        if (attackLoopCoroutine != null)
+            StopCoroutine(attackLoopCoroutine);
+        StopAllCoroutines();
+
+        // 他のトリガーをリセット（念のため）
+        animator.ResetTrigger("attack1_l");
+        animator.ResetTrigger("attack3");
+        animator.ResetTrigger("walk");
+        animator.ResetTrigger("stopWalk");
+
+        // 死亡アニメ再生
         animator.SetTrigger("dead");
-        
-        Vector3 pos = bulletTransform.transform.position;
-        EffectController.Instance.PlayLargeExplosion(pos, bulletTransform.transform.rotation);
+        StartCoroutine(RandomExplosionCoroutine());
+
+        // 必要ならスクリプト自体を無効化
+        this.enabled = false;
+
+
     }
 
+    private IEnumerator RandomExplosionCoroutine(){
+
+    for(int i = 0; i < 50; i++){
+        Vector3 pos = transform.position;
+        pos.x = 1f; //少し画面の手前に出す
+        // y は 0 ～ 6 の範囲
+        pos.y = Random.value * screenHeight;
+        // z を ±1 の範囲でランダムにずらす
+        float zOffset = (Random.value - 0.5f) * 2f; 
+        pos.z += zOffset;
+
+        // エフェクト
+        EffectController.Instance.PlayLargeExplosion(
+            pos,
+            transform.rotation
+        );
+        yield return new WaitForSeconds(0.1f);
+    }
+}
+
+    // 以下は既存のまま
+    void DrawHpBar()
+    {
+        float per = (maxHp - hp) / (float)maxHp;
+        bossHpBar.DrawHpBar(per);
+    }
+
+    void SetTagName(string tag)
+    {
+        foreach (Transform t in GetComponentsInChildren<Transform>(includeInactive: true))
+            t.gameObject.tag = tag;
+    }
 }
