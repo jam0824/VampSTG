@@ -17,6 +17,9 @@ public class BossAlien3 : MonoBehaviour
     [SerializeField] BossHpBar bossHpBar;
     [SerializeField] private ScreenFader fader;
 
+    [SerializeField] private float entryStartZ = 10f;  // 登場開始位置（Inspectorで調整可）
+    [SerializeField] private float entryEndZ   = 6f;   // 登場終了位置（Inspectorで調整可）
+
     private bool isDead = false;
     private Coroutine attackLoopCoroutine;
     private string tagName = "Boss";
@@ -25,13 +28,7 @@ public class BossAlien3 : MonoBehaviour
 
     void Start()
     {
-        if (animator == null)
-            animator = GetComponent<Animator>();
-        maxHp = hp;
-        SetTagName(tagName);
-
-        // コルーチンを保持しておく
-        attackLoopCoroutine = StartCoroutine(AttackLoop());
+        
     }
 
     void Update()
@@ -40,15 +37,60 @@ public class BossAlien3 : MonoBehaviour
         DrawHpBar();
     }
 
+    /// <summary>
+    /// 外部から呼び出して、登場演出を開始します
+    /// </summary>
+    public void PlayEntry()
+    {
+        if (animator == null)
+            animator = GetComponent<Animator>();
+        maxHp = hp;
+        SetTagName(tagName);
+
+        // もし他のコルーチンが動いていたらクリア
+        StopAllCoroutines();
+
+        // 初期位置をセット
+        Vector3 pos = transform.position;
+        pos.z = entryStartZ;
+        transform.position = pos;
+
+        // 登場コルーチンを開始
+        StartCoroutine(EntryCoroutine());
+    }
+
+    private IEnumerator EntryCoroutine()
+    {
+        // 歩行アニメ
+        animator.SetTrigger("walk");
+        Vector3 targetPos = new Vector3(transform.position.x, transform.position.y, entryEndZ);
+
+        while (Mathf.Abs(transform.position.z - entryEndZ) > 0.01f)
+        {
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                targetPos,
+                moveSpeed * Time.deltaTime
+            );
+            yield return null;
+        }
+
+        // 歩行停止アニメ
+        animator.SetTrigger("stopWalk");
+        yield return new WaitForSeconds(attackInterval);
+        // 登場完了したら攻撃ループを開始
+        attackLoopCoroutine = StartCoroutine(AttackLoop());
+    }
+
     private IEnumerator AttackLoop()
     {
         // 生存中だけループ
         while (!isDead)
         {
             float r = Random.value;
-            if (r < 0.4f)
+            if (r < 0.45f)
                 yield return AttackLeftArmCoroutine();
-            else if (r < 0.8f)
+            else if (r < 0.9f)
                 yield return AttackHeadCoroutine();
             else
                 yield return AttackMoveCoroutine();

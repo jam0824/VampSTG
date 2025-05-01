@@ -20,6 +20,8 @@ public class StageManager : MonoBehaviour
 
     [Header("Item Settings")]
     [SerializeField] float batteryDropRate = 0.1f;
+    [Header("Boss")]
+    [SerializeField] GameObject boss;
     
     [Header("UI Settings")]
     [SerializeField] ProgressBar progressBar;
@@ -29,6 +31,7 @@ public class StageManager : MonoBehaviour
     StageWave nowStageWave = null;
     float allElapsedTime = 0f;   // ゲーム起動からの経過時間
     float waveElapsedTime = 0f;
+    bool isBoss = false;
 
     void Start()
     {
@@ -51,7 +54,12 @@ public class StageManager : MonoBehaviour
         allElapsedTime += Time.deltaTime;
         waveElapsedTime += Time.deltaTime;
         DrawProgressBar(allElapsedTime, stageAllSecond);
+        if((allElapsedTime >= stageAllSecond)&&(!isBoss)) AppearBoss();
+    }
 
+    void AppearBoss(){
+        isBoss = true;
+        boss.GetComponent<BossAlien3>().PlayEntry();
     }
 
     void CheckWave(float allElapsedTime){

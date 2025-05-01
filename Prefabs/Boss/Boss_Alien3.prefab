@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8393693862262100415}
   m_Layer: 7
   m_Name: spine_02.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 2147296462705363459}
   m_Layer: 7
   m_Name: cc_ten6_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 3558501358823012688}
   m_Layer: 7
   m_Name: teeth
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 3792322651091448943}
   m_Layer: 0
   m_Name: Coll.cc_tenD.007
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 252512327640154355}
   m_Layer: 7
   m_Name: cc_mouth2_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -731,7 +731,7 @@ GameObject:
   - component: {fileID: 3277381848819994435}
   m_Layer: 7
   m_Name: cc_tenD.003
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 1557011244742142485}
   m_Layer: 7
   m_Name: shoulder.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1017,7 +1017,7 @@ GameObject:
   - component: {fileID: 42901159471812145}
   m_Layer: 0
   m_Name: Coll.cc_tenD.039
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1084,7 +1084,7 @@ GameObject:
   - component: {fileID: 6261677978692376551}
   m_Layer: 7
   m_Name: arm_stretch.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 72522597020622620}
   m_Layer: 0
   m_Name: Coll.index3.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1294,7 +1294,7 @@ GameObject:
   - component: {fileID: 1581486146462901773}
   m_Layer: 7
   m_Name: cc_tenD.004
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1434,7 +1434,7 @@ GameObject:
   - component: {fileID: 6770773347863044911}
   m_Layer: 7
   m_Name: ring3.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1575,7 +1575,7 @@ GameObject:
   - component: {fileID: 8781893096959952235}
   m_Layer: 0
   m_Name: Coll.cc_tongue.002
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1643,7 +1643,7 @@ GameObject:
   - component: {fileID: 6910790218212618727}
   m_Layer: 0
   m_Name: Coll.c_tail_04.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1710,7 +1710,7 @@ GameObject:
   - component: {fileID: 853102794814829984}
   m_Layer: 7
   m_Name: cc_ten2_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1851,7 +1851,7 @@ GameObject:
   - component: {fileID: 8001014500284014568}
   m_Layer: 0
   m_Name: Coll.ring1.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1919,7 +1919,7 @@ GameObject:
   - component: {fileID: 8725374134141748643}
   m_Layer: 0
   m_Name: Coll.cc_tenD.002
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1987,7 +1987,7 @@ GameObject:
   - component: {fileID: 7227935611032225013}
   m_Layer: 0
   m_Name: Coll.forearm_stretch.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2054,7 +2054,7 @@ GameObject:
   - component: {fileID: 8994162089189527442}
   m_Layer: 7
   m_Name: ring1_base.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2195,7 +2195,7 @@ GameObject:
   - component: {fileID: 2399834402552217289}
   m_Layer: 7
   m_Name: cc_tenD.023
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2337,7 +2337,7 @@ GameObject:
   - component: {fileID: 8904763269084056719}
   m_Layer: 0
   m_Name: Coll.cc_ten3_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2404,7 +2404,7 @@ GameObject:
   - component: {fileID: 1456931715658363849}
   m_Layer: 7
   m_Name: cc_tenD.020
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2546,7 +2546,7 @@ GameObject:
   - component: {fileID: 7394922047695844203}
   m_Layer: 0
   m_Name: Coll.cc_ten5_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2613,7 +2613,7 @@ GameObject:
   - component: {fileID: 2786680514321854656}
   m_Layer: 7
   m_Name: pinky1_base.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2754,7 +2754,7 @@ GameObject:
   - component: {fileID: 6475090804981294648}
   m_Layer: 7
   m_Name: cc_tongue.005
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2895,7 +2895,7 @@ GameObject:
   - component: {fileID: 1883343717324872922}
   m_Layer: 0
   m_Name: Coll.index1.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2962,7 +2962,7 @@ GameObject:
   - component: {fileID: 69845913964610463}
   m_Layer: 7
   m_Name: c_tail_01.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3103,7 +3103,7 @@ GameObject:
   - component: {fileID: 6659847461709857787}
   m_Layer: 7
   m_Name: cc_ten7_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3244,7 +3244,7 @@ GameObject:
   - component: {fileID: 5932352841672673878}
   m_Layer: 7
   m_Name: body
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3474,7 +3474,7 @@ GameObject:
   - component: {fileID: 680307928721472497}
   m_Layer: 7
   m_Name: cc_tenD.041
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3615,7 +3615,7 @@ GameObject:
   - component: {fileID: 5627536554209098906}
   m_Layer: 7
   m_Name: cc_mouth1_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3755,7 +3755,7 @@ GameObject:
   - component: {fileID: 7130109250260186252}
   m_Layer: 7
   m_Name: cc_tenD.011
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3896,7 +3896,7 @@ GameObject:
   - component: {fileID: 1101982694674084770}
   m_Layer: 7
   m_Name: root.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4044,7 +4044,7 @@ GameObject:
   - component: {fileID: 3625251619646386976}
   m_Layer: 7
   m_Name: ring2.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4185,7 +4185,7 @@ GameObject:
   - component: {fileID: 3057401298416329875}
   m_Layer: 0
   m_Name: DirectionAttack
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4199,7 +4199,7 @@ Transform:
   m_GameObject: {fileID: 1127220121211251946}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0.065, y: 0.26833332, z: 1.4350002}
+  m_LocalPosition: {x: 0.065, y: 0.102, z: 1.435}
   m_LocalScale: {x: 0.16666663, y: 0.16666663, z: 0.16666663}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4219,8 +4219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2416357405354205221, guid: efbf08f5c91c3f7448e64a5879527444, type: 3}
   firePoint: {fileID: 3771707221275399054}
-  baseDirection: {x: 0, y: 0, z: 90}
-  angleVariance: 15
+  baseAngleDeg: 90
+  angleVarianceDeg: 15
   minSpeed: 1
   maxSpeed: 2
 --- !u!1 &1144961990146866449
@@ -4236,7 +4236,7 @@ GameObject:
   - component: {fileID: 2451078868283800845}
   m_Layer: 0
   m_Name: Coll.cc_ten6_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4303,7 +4303,7 @@ GameObject:
   - component: {fileID: 5553592055082231066}
   m_Layer: 7
   m_Name: cc_ten5_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4445,7 +4445,7 @@ GameObject:
   - component: {fileID: 8788818486109367189}
   m_Layer: 0
   m_Name: Coll.shoulder.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4512,7 +4512,7 @@ GameObject:
   - component: {fileID: 5573991577431814841}
   m_Layer: 7
   m_Name: cc_ten13_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4653,7 +4653,7 @@ GameObject:
   - component: {fileID: 5295186944120409025}
   m_Layer: 7
   m_Name: cc_mouth5_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4794,7 +4794,7 @@ GameObject:
   - component: {fileID: 5455130647006278466}
   m_Layer: 0
   m_Name: Coll.pinky2.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4862,7 +4862,7 @@ GameObject:
   - component: {fileID: 2376511258782741765}
   m_Layer: 0
   m_Name: Coll.cc_tongue.001
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4930,7 +4930,7 @@ GameObject:
   - component: {fileID: 1140037167475211351}
   m_Layer: 0
   m_Name: Coll.cc_tenD.008
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4998,7 +4998,7 @@ GameObject:
   - component: {fileID: 8371072520343911467}
   m_Layer: 0
   m_Name: Coll.thumb3.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5066,7 +5066,7 @@ GameObject:
   - component: {fileID: 868144482748448730}
   m_Layer: 0
   m_Name: Coll.cc_tenD.028
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5134,7 +5134,7 @@ GameObject:
   - component: {fileID: 1265155475678723117}
   m_Layer: 0
   m_Name: Coll.cc_ten8_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5202,7 +5202,7 @@ GameObject:
   - component: {fileID: 850163289137652825}
   m_Layer: 0
   m_Name: Coll.cc_mouth2_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5269,7 +5269,7 @@ GameObject:
   - component: {fileID: 2743719667384364210}
   m_Layer: 7
   m_Name: pinky2.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5411,7 +5411,7 @@ GameObject:
   - component: {fileID: 157639709245587491}
   m_Layer: 0
   m_Name: Coll.cc_mouth1_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5478,7 +5478,7 @@ GameObject:
   - component: {fileID: 1996815873802536628}
   m_Layer: 7
   m_Name: cc_tenD.034
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5620,7 +5620,7 @@ GameObject:
   - component: {fileID: 4818472430662072169}
   m_Layer: 0
   m_Name: Coll.middle1.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5688,7 +5688,7 @@ GameObject:
   - component: {fileID: 2219860774602508311}
   m_Layer: 0
   m_Name: Coll.cc_mouth1_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5756,7 +5756,7 @@ GameObject:
   - component: {fileID: 9041575603399857717}
   m_Layer: 0
   m_Name: Coll.cc_tongue.003
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5824,7 +5824,7 @@ GameObject:
   - component: {fileID: 1948108077735841034}
   m_Layer: 0
   m_Name: Coll.cc_ten4_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5892,7 +5892,7 @@ GameObject:
   - component: {fileID: 3395577873946899255}
   m_Layer: 0
   m_Name: Coll.cc_ten10_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5959,7 +5959,7 @@ GameObject:
   - component: {fileID: 1821491197817030491}
   m_Layer: 7
   m_Name: c_tail_03.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6101,7 +6101,7 @@ GameObject:
   - component: {fileID: 8272653003012107303}
   m_Layer: 0
   m_Name: Coll.shoulder.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6169,7 +6169,7 @@ GameObject:
   - component: {fileID: 2733808740697554320}
   m_Layer: 0
   m_Name: Coll.middle2.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6236,7 +6236,7 @@ GameObject:
   - component: {fileID: 4859408475174439454}
   m_Layer: 7
   m_Name: thumb3.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6379,7 +6379,7 @@ GameObject:
   - component: {fileID: 5020800367174951737}
   m_Layer: 7
   m_Name: Boss_Alien3
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6393,7 +6393,7 @@ Transform:
   m_GameObject: {fileID: 2115093931770627527}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.9848078, z: 0, w: 0.17364825}
-  m_LocalPosition: {x: 0.39, y: -6.43, z: 5.93}
+  m_LocalPosition: {x: 0.39, y: -6.43, z: 15}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6442,7 +6442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa152abcbc22c44f8177d16da599a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1000
+  hp: 100
   animator: {fileID: 7852732057032231318}
   acidAttackPoint: {fileID: 4490637292647504100}
   handAttackPoint: {fileID: 5570477149632252128}
@@ -6450,13 +6450,14 @@ MonoBehaviour:
   - {fileID: 3057401298416329875}
   - {fileID: 5055700195590726256}
   - {fileID: 6448492820709332508}
-  triggerNames:
-  - attack1_l
+  directionAttackTime: 500
   attackInterval: 2
   moveSpeed: 1
   turnDuration: 3
   bossHpBar: {fileID: 0}
-  scatterShooter: {fileID: 0}
+  fader: {fileID: 0}
+  entryStartZ: 15
+  entryEndZ: 6
 --- !u!114 &3447881138633404940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6552,7 +6553,7 @@ GameObject:
   - component: {fileID: 3024374621653265879}
   m_Layer: 7
   m_Name: cc_tenD.032
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6694,7 +6695,7 @@ GameObject:
   - component: {fileID: 7592308471819997886}
   m_Layer: 0
   m_Name: Coll.cc_mouth5_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6761,7 +6762,7 @@ GameObject:
   - component: {fileID: 4273634419586506927}
   m_Layer: 7
   m_Name: thumb1.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6902,7 +6903,7 @@ GameObject:
   - component: {fileID: 144751607273415401}
   m_Layer: 7
   m_Name: cc_ten10_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7043,7 +7044,7 @@ GameObject:
   - component: {fileID: 2026247675223019517}
   m_Layer: 0
   m_Name: Coll.cc_mouth5_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7110,7 +7111,7 @@ GameObject:
   - component: {fileID: 7002479339518594806}
   m_Layer: 7
   m_Name: pinky3.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7251,7 +7252,7 @@ GameObject:
   - component: {fileID: 1619740944185075100}
   m_Layer: 0
   m_Name: Coll.pinky1.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7318,7 +7319,7 @@ GameObject:
   - component: {fileID: 6941129875448885714}
   m_Layer: 7
   m_Name: thumb1.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7460,7 +7461,7 @@ GameObject:
   - component: {fileID: 5810708411137081964}
   m_Layer: 0
   m_Name: Coll.cc_ten9_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7527,7 +7528,7 @@ GameObject:
   - component: {fileID: 4783517900723674506}
   m_Layer: 7
   m_Name: cc_tenD.012
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7669,7 +7670,7 @@ GameObject:
   - component: {fileID: 8315971304924500826}
   m_Layer: 0
   m_Name: Coll.cc_tenD.020
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7736,7 +7737,7 @@ GameObject:
   - component: {fileID: 7729796349510397070}
   m_Layer: 7
   m_Name: middle2.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7877,7 +7878,7 @@ GameObject:
   - component: {fileID: 5192441269139938202}
   m_Layer: 7
   m_Name: cc_tenD.024
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8018,7 +8019,7 @@ GameObject:
   - component: {fileID: 6813548540579686170}
   m_Layer: 7
   m_Name: cc_tenD.014
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8158,7 +8159,7 @@ GameObject:
   - component: {fileID: 5375639360980659492}
   m_Layer: 7
   m_Name: arm_stretch.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8301,7 +8302,7 @@ GameObject:
   - component: {fileID: 1694871489268906831}
   m_Layer: 0
   m_Name: Coll.cc_tenD.015
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8368,7 +8369,7 @@ GameObject:
   - component: {fileID: 6049042522235015286}
   m_Layer: 7
   m_Name: cc_ten3_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8510,7 +8511,7 @@ GameObject:
   - component: {fileID: 1756922640450455131}
   m_Layer: 0
   m_Name: Coll.cc_tenD.010
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8578,7 +8579,7 @@ GameObject:
   - component: {fileID: 8541800619360899671}
   m_Layer: 0
   m_Name: Coll.pinky2.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8646,7 +8647,7 @@ GameObject:
   - component: {fileID: 7084818843630010377}
   m_Layer: 0
   m_Name: Coll.c_tail_02.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8714,7 +8715,7 @@ GameObject:
   - component: {fileID: 7716586055670828864}
   m_Layer: 0
   m_Name: Coll.cc_tenD.006
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8782,7 +8783,7 @@ GameObject:
   - component: {fileID: 1073338925994379242}
   m_Layer: 0
   m_Name: Coll.cc_tongue.005
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8850,7 +8851,7 @@ GameObject:
   - component: {fileID: 4193904234580301228}
   m_Layer: 0
   m_Name: Coll.cc_tenD.037
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8918,7 +8919,7 @@ GameObject:
   - component: {fileID: 4374155567291643112}
   m_Layer: 0
   m_Name: Coll.spine_03.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8986,7 +8987,7 @@ GameObject:
   - component: {fileID: 6509003560485405493}
   m_Layer: 0
   m_Name: Coll.cc_ten12_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9053,7 +9054,7 @@ GameObject:
   - component: {fileID: 5667258501851299969}
   m_Layer: 7
   m_Name: forearm_twist.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9193,7 +9194,7 @@ GameObject:
   - component: {fileID: 7711136231098573596}
   m_Layer: 7
   m_Name: thumb3.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9334,7 +9335,7 @@ GameObject:
   - component: {fileID: 6358992005628832207}
   m_Layer: 0
   m_Name: Coll.cc_tenD.033
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9402,7 +9403,7 @@ GameObject:
   - component: {fileID: 3199657384965825381}
   m_Layer: 0
   m_Name: Coll.ring3.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9469,7 +9470,7 @@ GameObject:
   - component: {fileID: 6448492820709332508}
   m_Layer: 0
   m_Name: DirectionAttack (2)
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9483,7 +9484,7 @@ Transform:
   m_GameObject: {fileID: 2956592020317658592}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0.065, y: 0.123333275, z: 0.84166676}
+  m_LocalPosition: {x: 0.065, y: -0.019, z: 0.842}
   m_LocalScale: {x: 0.16666663, y: 0.16666663, z: 0.16666663}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9503,8 +9504,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2416357405354205221, guid: efbf08f5c91c3f7448e64a5879527444, type: 3}
   firePoint: {fileID: 1281687335591353084}
-  baseDirection: {x: 0, y: 0, z: 90}
-  angleVariance: 15
+  baseAngleDeg: 90
+  angleVarianceDeg: 15
   minSpeed: 1
   maxSpeed: 2
 --- !u!1 &3049447800276978094
@@ -9519,7 +9520,7 @@ GameObject:
   - component: {fileID: 3704449925841263028}
   m_Layer: 7
   m_Name: cc_tenD.026
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9661,7 +9662,7 @@ GameObject:
   - component: {fileID: 5020264836630493422}
   m_Layer: 0
   m_Name: Coll.cc_tenD.009
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9728,7 +9729,7 @@ GameObject:
   - component: {fileID: 2073538796832046502}
   m_Layer: 7
   m_Name: cc_tenD.035
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9869,7 +9870,7 @@ GameObject:
   - component: {fileID: 4371447647866131353}
   m_Layer: 7
   m_Name: c_tail_04.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10011,7 +10012,7 @@ GameObject:
   - component: {fileID: 4310905902051133884}
   m_Layer: 0
   m_Name: Coll.ring3.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10078,7 +10079,7 @@ GameObject:
   - component: {fileID: 3897012520511897901}
   m_Layer: 7
   m_Name: cc_tenD
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10219,7 +10220,7 @@ GameObject:
   - component: {fileID: 8096111394258603102}
   m_Layer: 7
   m_Name: cc_ten12_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10360,7 +10361,7 @@ GameObject:
   - component: {fileID: 4931157878611960984}
   m_Layer: 0
   m_Name: Coll.c_tail_05.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10428,7 +10429,7 @@ GameObject:
   - component: {fileID: 578776485714223511}
   m_Layer: 0
   m_Name: Coll.middle3.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10494,7 +10495,7 @@ GameObject:
   - component: {fileID: 6084627296909536855}
   m_Layer: 7
   m_Name: root
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10531,7 +10532,7 @@ GameObject:
   - component: {fileID: 6302650990234402167}
   m_Layer: 0
   m_Name: Coll.cc_tongue
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10598,7 +10599,7 @@ GameObject:
   - component: {fileID: 7468793143463550786}
   m_Layer: 7
   m_Name: middle3.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10738,7 +10739,7 @@ GameObject:
   - component: {fileID: 2578260731472789528}
   m_Layer: 7
   m_Name: cc_ten11_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10879,7 +10880,7 @@ GameObject:
   - component: {fileID: 14627770090612267}
   m_Layer: 7
   m_Name: cc_tenD.038
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11021,7 +11022,7 @@ GameObject:
   - component: {fileID: 8140445235520598409}
   m_Layer: 0
   m_Name: Coll.cc_ten3_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11088,7 +11089,7 @@ GameObject:
   - component: {fileID: 4873060516872915787}
   m_Layer: 7
   m_Name: jaw
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11319,7 +11320,7 @@ GameObject:
   - component: {fileID: 4111557159785455297}
   m_Layer: 0
   m_Name: Coll.middle1.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11386,7 +11387,7 @@ GameObject:
   - component: {fileID: 7627226699856869026}
   m_Layer: 7
   m_Name: cc_tenD.013
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11527,7 +11528,7 @@ GameObject:
   - component: {fileID: 6012135023386721488}
   m_Layer: 7
   m_Name: cc_ten12_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11668,7 +11669,7 @@ GameObject:
   - component: {fileID: 6643783759245504156}
   m_Layer: 0
   m_Name: Coll.arm_stretch.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11735,7 +11736,7 @@ GameObject:
   - component: {fileID: 1551396825317092527}
   m_Layer: 7
   m_Name: pinky3.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11876,7 +11877,7 @@ GameObject:
   - component: {fileID: 4438751381166135695}
   m_Layer: 0
   m_Name: Coll.forearm_twist.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11944,7 +11945,7 @@ GameObject:
   - component: {fileID: 2773518110378429696}
   m_Layer: 0
   m_Name: Coll.cc_tenD.023
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12011,7 +12012,7 @@ GameObject:
   - component: {fileID: 3695236754319582276}
   m_Layer: 7
   m_Name: cc_ten2_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12152,7 +12153,7 @@ GameObject:
   - component: {fileID: 5091647461557930247}
   m_Layer: 0
   m_Name: Coll.cc_tenD.036
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12219,7 +12220,7 @@ GameObject:
   - component: {fileID: 4604881953262229617}
   m_Layer: 7
   m_Name: cc_ten6_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12359,7 +12360,7 @@ GameObject:
   - component: {fileID: 5500715435629126247}
   m_Layer: 7
   m_Name: spine_03.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12503,7 +12504,7 @@ GameObject:
   - component: {fileID: 8931802313779924109}
   m_Layer: 0
   m_Name: Coll.cc_tenD.019
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12571,7 +12572,7 @@ GameObject:
   - component: {fileID: 8039719643913277277}
   m_Layer: 0
   m_Name: Coll.forearm_twist.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12639,7 +12640,7 @@ GameObject:
   - component: {fileID: 3038817761712916717}
   m_Layer: 0
   m_Name: Coll.cc_tenD.018
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12707,7 +12708,7 @@ GameObject:
   - component: {fileID: 6227854859484200687}
   m_Layer: 0
   m_Name: Coll.cc_ten7_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12775,7 +12776,7 @@ GameObject:
   - component: {fileID: 3704870173480575211}
   m_Layer: 0
   m_Name: Coll.cc_tenD.041
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12843,7 +12844,7 @@ GameObject:
   - component: {fileID: 9031266750697307561}
   m_Layer: 0
   m_Name: Coll.hand.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12910,7 +12911,7 @@ GameObject:
   - component: {fileID: 7527478960145702042}
   m_Layer: 7
   m_Name: ring3.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13051,7 +13052,7 @@ GameObject:
   - component: {fileID: 1017133130829683493}
   m_Layer: 0
   m_Name: Coll.pinky1.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13119,7 +13120,7 @@ GameObject:
   - component: {fileID: 4226147447906870125}
   m_Layer: 0
   m_Name: Coll.cc_tenD.011
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13187,7 +13188,7 @@ GameObject:
   - component: {fileID: 2135622271504374057}
   m_Layer: 0
   m_Name: Coll.thumb2.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13254,7 +13255,7 @@ GameObject:
   - component: {fileID: 604688790885944098}
   m_Layer: 7
   m_Name: index1_base.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13395,7 +13396,7 @@ GameObject:
   - component: {fileID: 541969512151981192}
   m_Layer: 7
   m_Name: cc_tongue.002
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13536,7 +13537,7 @@ GameObject:
   - component: {fileID: 6649546656195288530}
   m_Layer: 7
   m_Name: index1.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13677,7 +13678,7 @@ GameObject:
   - component: {fileID: 8632480900309733700}
   m_Layer: 7
   m_Name: cc_ten1_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13818,7 +13819,7 @@ GameObject:
   - component: {fileID: 5211081886836535341}
   m_Layer: 7
   m_Name: c_tail_02.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13960,7 +13961,7 @@ GameObject:
   - component: {fileID: 1425399096520164364}
   m_Layer: 0
   m_Name: Coll.cc_tenD.034
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14027,7 +14028,7 @@ GameObject:
   - component: {fileID: 8864299291810766705}
   m_Layer: 7
   m_Name: spine_01.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14168,7 +14169,7 @@ GameObject:
   - component: {fileID: 5620001857531671698}
   m_Layer: 7
   m_Name: cc_tenD.002
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14310,7 +14311,7 @@ GameObject:
   - component: {fileID: 9218949011480454543}
   m_Layer: 0
   m_Name: Coll.index1.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14378,7 +14379,7 @@ GameObject:
   - component: {fileID: 4882440953110277746}
   m_Layer: 0
   m_Name: Coll.middle3.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14445,7 +14446,7 @@ GameObject:
   - component: {fileID: 319144164608006685}
   m_Layer: 7
   m_Name: ring1.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14587,7 +14588,7 @@ GameObject:
   - component: {fileID: 7498815801542634804}
   m_Layer: 0
   m_Name: Coll.cc_ten14_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14654,7 +14655,7 @@ GameObject:
   - component: {fileID: 904024613293536627}
   m_Layer: 7
   m_Name: cc_tenD.028
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14795,7 +14796,7 @@ GameObject:
   - component: {fileID: 6771457635165826332}
   m_Layer: 0
   m_Name: Coll.cc_tenD.001
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14862,7 +14863,7 @@ GameObject:
   - component: {fileID: 6290087465397637751}
   m_Layer: 7
   m_Name: ten
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15092,7 +15093,7 @@ GameObject:
   - component: {fileID: 4491805521971936673}
   m_Layer: 7
   m_Name: forearm_stretch.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15235,7 +15236,7 @@ GameObject:
   - component: {fileID: 8033217946086822306}
   m_Layer: 0
   m_Name: Coll.cc_tenD.012
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15302,7 +15303,7 @@ GameObject:
   - component: {fileID: 5055700195590726256}
   m_Layer: 0
   m_Name: DirectionAttack (1)
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15316,7 +15317,7 @@ Transform:
   m_GameObject: {fileID: 4425987273061764857}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 0.065, y: 0.20333326, z: 1.0766668}
+  m_LocalPosition: {x: 0.065, y: 0.044, z: 1.077}
   m_LocalScale: {x: 0.16666663, y: 0.16666663, z: 0.16666663}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15336,8 +15337,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2416357405354205221, guid: efbf08f5c91c3f7448e64a5879527444, type: 3}
   firePoint: {fileID: 5555667346016014280}
-  baseDirection: {x: 0, y: 0, z: 90}
-  angleVariance: 15
+  baseAngleDeg: 90
+  angleVarianceDeg: 15
   minSpeed: 1
   maxSpeed: 2
 --- !u!1 &4466476255582775323
@@ -15353,7 +15354,7 @@ GameObject:
   - component: {fileID: 2638398549173437740}
   m_Layer: 0
   m_Name: Coll.c_tail_00.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15421,7 +15422,7 @@ GameObject:
   - component: {fileID: 8759253040477524279}
   m_Layer: 0
   m_Name: Coll.cc_tenD.014
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15488,7 +15489,7 @@ GameObject:
   - component: {fileID: 1434306957861408181}
   m_Layer: 7
   m_Name: cc_mouth2_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15629,7 +15630,7 @@ GameObject:
   - component: {fileID: 1978979692013188967}
   m_Layer: 0
   m_Name: Coll.cc_tenD.032
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15697,7 +15698,7 @@ GameObject:
   - component: {fileID: 8024315262564177566}
   m_Layer: 0
   m_Name: Coll.cc_ten9_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15765,7 +15766,7 @@ GameObject:
   - component: {fileID: 596665146452947751}
   m_Layer: 0
   m_Name: Coll.cc_tenD.016
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15832,7 +15833,7 @@ GameObject:
   - component: {fileID: 1158260186856812959}
   m_Layer: 7
   m_Name: cc_ten14_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15973,7 +15974,7 @@ GameObject:
   - component: {fileID: 5972754371259550819}
   m_Layer: 0
   m_Name: Coll.cc_tenD.013
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16041,7 +16042,7 @@ GameObject:
   - component: {fileID: 6623520454506704966}
   m_Layer: 0
   m_Name: Coll.ring1.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16108,7 +16109,7 @@ GameObject:
   - component: {fileID: 5758729476400035435}
   m_Layer: 7
   m_Name: middle3.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16249,7 +16250,7 @@ GameObject:
   - component: {fileID: 2712154716814252536}
   m_Layer: 0
   m_Name: Coll.cc_ten5_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16316,7 +16317,7 @@ GameObject:
   - component: {fileID: 1514782873352999976}
   m_Layer: 7
   m_Name: middle1.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16458,7 +16459,7 @@ GameObject:
   - component: {fileID: 2677614177602556165}
   m_Layer: 0
   m_Name: Coll.cc_ten2_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16525,7 +16526,7 @@ GameObject:
   - component: {fileID: 1594367798030409153}
   m_Layer: 7
   m_Name: ring1_base.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16666,7 +16667,7 @@ GameObject:
   - component: {fileID: 3059857396043369618}
   m_Layer: 7
   m_Name: cc_tenD.009
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16806,7 +16807,7 @@ GameObject:
   - component: {fileID: 3916108717979317529}
   m_Layer: 7
   m_Name: middle1.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16948,7 +16949,7 @@ GameObject:
   - component: {fileID: 4718743277573191162}
   m_Layer: 0
   m_Name: Coll.cc_tenD.022
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17016,7 +17017,7 @@ GameObject:
   - component: {fileID: 3155607465528692379}
   m_Layer: 0
   m_Name: Coll.ring2.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17083,7 +17084,7 @@ GameObject:
   - component: {fileID: 5376321306266445035}
   m_Layer: 7
   m_Name: hand.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17229,7 +17230,7 @@ GameObject:
   - component: {fileID: 2186861574469874810}
   m_Layer: 0
   m_Name: Coll.thumb1.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17296,7 +17297,7 @@ GameObject:
   - component: {fileID: 2705936311353437006}
   m_Layer: 7
   m_Name: miniten
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17527,7 +17528,7 @@ GameObject:
   - component: {fileID: 8238651054831768279}
   m_Layer: 0
   m_Name: Coll.pinky1_base.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17594,7 +17595,7 @@ GameObject:
   - component: {fileID: 3330093483139058661}
   m_Layer: 7
   m_Name: cc_mouth1_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17734,7 +17735,7 @@ GameObject:
   - component: {fileID: 7083190927823514432}
   m_Layer: 7
   m_Name: index1.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17876,7 +17877,7 @@ GameObject:
   - component: {fileID: 7552838408799895434}
   m_Layer: 0
   m_Name: Coll.cc_ten14_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17943,7 +17944,7 @@ GameObject:
   - component: {fileID: 6944385623913859001}
   m_Layer: 7
   m_Name: cc_ten8_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18084,7 +18085,7 @@ GameObject:
   - component: {fileID: 1047967842018727068}
   m_Layer: 0
   m_Name: Coll.ring1_base.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18152,7 +18153,7 @@ GameObject:
   - component: {fileID: 2403833960918834487}
   m_Layer: 0
   m_Name: Coll.cc_ten8_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18220,7 +18221,7 @@ GameObject:
   - component: {fileID: 5344356319035840}
   m_Layer: 0
   m_Name: Coll.arm_twist.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18287,7 +18288,7 @@ GameObject:
   - component: {fileID: 1535249694762397088}
   m_Layer: 7
   m_Name: cc_tenD.021
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18428,7 +18429,7 @@ GameObject:
   - component: {fileID: 1947200214934838387}
   m_Layer: 7
   m_Name: ring2.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18569,7 +18570,7 @@ GameObject:
   - component: {fileID: 7542304051045547626}
   m_Layer: 7
   m_Name: cc_ten14_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18710,7 +18711,7 @@ GameObject:
   - component: {fileID: 8971187081556915439}
   m_Layer: 0
   m_Name: Coll.spine_01.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18777,7 +18778,7 @@ GameObject:
   - component: {fileID: 5576473223942495832}
   m_Layer: 7
   m_Name: middle1_base.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18918,7 +18919,7 @@ GameObject:
   - component: {fileID: 7848689101552083993}
   m_Layer: 7
   m_Name: middle1_base.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19060,7 +19061,7 @@ GameObject:
   - component: {fileID: 3760096651620747265}
   m_Layer: 0
   m_Name: Coll.cc_tenD
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19127,7 +19128,7 @@ GameObject:
   - component: {fileID: 4947910036472031102}
   m_Layer: 7
   m_Name: cc_tenD.010
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19269,7 +19270,7 @@ GameObject:
   - component: {fileID: 7948903206641034953}
   m_Layer: 0
   m_Name: Coll.cc_tenD.025
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19337,7 +19338,7 @@ GameObject:
   - component: {fileID: 312934855417704181}
   m_Layer: 0
   m_Name: Coll.index1_base.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19405,7 +19406,7 @@ GameObject:
   - component: {fileID: 702795337629887007}
   m_Layer: 0
   m_Name: Coll.index2.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19473,7 +19474,7 @@ GameObject:
   - component: {fileID: 7423179832826647456}
   m_Layer: 0
   m_Name: Coll.hand.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19540,7 +19541,7 @@ GameObject:
   - component: {fileID: 7195017206753526649}
   m_Layer: 7
   m_Name: cc_tenD.037
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19681,7 +19682,7 @@ GameObject:
   - component: {fileID: 8876391045238112576}
   m_Layer: 7
   m_Name: cc_tenD.018
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19822,7 +19823,7 @@ GameObject:
   - component: {fileID: 5584279071705497688}
   m_Layer: 7
   m_Name: cc_tenD.033
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19962,7 +19963,7 @@ GameObject:
   - component: {fileID: 6046894357885084904}
   m_Layer: 7
   m_Name: cc_ten1_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20103,7 +20104,7 @@ GameObject:
   - component: {fileID: 9012773986777410849}
   m_Layer: 7
   m_Name: forearm_twist.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20243,7 +20244,7 @@ GameObject:
   - component: {fileID: 5570477149632252128}
   m_Layer: 0
   m_Name: HandAttack
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20296,7 +20297,7 @@ GameObject:
   - component: {fileID: 8003780627384347180}
   m_Layer: 0
   m_Name: Coll.forearm_stretch.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20363,7 +20364,7 @@ GameObject:
   - component: {fileID: 6912166400360910769}
   m_Layer: 7
   m_Name: index2.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20505,7 +20506,7 @@ GameObject:
   - component: {fileID: 2487503645070214118}
   m_Layer: 0
   m_Name: Coll.middle2.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20572,7 +20573,7 @@ GameObject:
   - component: {fileID: 1841634561119460400}
   m_Layer: 7
   m_Name: thumb2.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20714,7 +20715,7 @@ GameObject:
   - component: {fileID: 4742365559792172668}
   m_Layer: 0
   m_Name: Coll.cc_tenD.031
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20781,7 +20782,7 @@ GameObject:
   - component: {fileID: 571109491271320241}
   m_Layer: 7
   m_Name: cc_tenD.039
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20922,7 +20923,7 @@ GameObject:
   - component: {fileID: 7366991950653093724}
   m_Layer: 0
   m_Name: Coll.cc_tenD.021
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20989,7 +20990,7 @@ GameObject:
   - component: {fileID: 3408760961245143728}
   m_Layer: 7
   m_Name: cc_tenD.025
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21130,7 +21131,7 @@ GameObject:
   - component: {fileID: 6243877761679752276}
   m_Layer: 7
   m_Name: pinky1.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21271,7 +21272,7 @@ GameObject:
   - component: {fileID: 1663844779569288161}
   m_Layer: 7
   m_Name: cc_tenD.016
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21412,7 +21413,7 @@ GameObject:
   - component: {fileID: 5814118325649975279}
   m_Layer: 7
   m_Name: cc_ten5_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21553,7 +21554,7 @@ GameObject:
   - component: {fileID: 1101511020205017709}
   m_Layer: 7
   m_Name: index3.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21693,7 +21694,7 @@ GameObject:
   - component: {fileID: 2718083787579875202}
   m_Layer: 7
   m_Name: cc_tenD.031
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21835,7 +21836,7 @@ GameObject:
   - component: {fileID: 2341530823976107063}
   m_Layer: 0
   m_Name: Coll.cc_tenD.026
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21903,7 +21904,7 @@ GameObject:
   - component: {fileID: 2147456553019440537}
   m_Layer: 0
   m_Name: Coll.cc_tongue.004
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21971,7 +21972,7 @@ GameObject:
   - component: {fileID: 6962673975805412577}
   m_Layer: 0
   m_Name: Coll.cc_ten13_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22039,7 +22040,7 @@ GameObject:
   - component: {fileID: 8050168113449483857}
   m_Layer: 0
   m_Name: Coll.cc_mouth2_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22107,7 +22108,7 @@ GameObject:
   - component: {fileID: 4932654375584046819}
   m_Layer: 0
   m_Name: Coll.cc_ten6_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22174,7 +22175,7 @@ GameObject:
   - component: {fileID: 2883269724025690507}
   m_Layer: 7
   m_Name: cc_tenD.030
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22315,7 +22316,7 @@ GameObject:
   - component: {fileID: 4669871828897337911}
   m_Layer: 7
   m_Name: cc_tenD.008
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22456,7 +22457,7 @@ GameObject:
   - component: {fileID: 7168477583148154834}
   m_Layer: 7
   m_Name: pinky1_base.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22597,7 +22598,7 @@ GameObject:
   - component: {fileID: 6767894458427873122}
   m_Layer: 7
   m_Name: index2.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22738,7 +22739,7 @@ GameObject:
   - component: {fileID: 2390161538982939540}
   m_Layer: 7
   m_Name: cc_ten11_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22879,7 +22880,7 @@ GameObject:
   - component: {fileID: 4870828019037717455}
   m_Layer: 7
   m_Name: index1_base.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23020,7 +23021,7 @@ GameObject:
   - component: {fileID: 4441517976407120867}
   m_Layer: 7
   m_Name: middle2.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23162,7 +23163,7 @@ GameObject:
   - component: {fileID: 8458846047110337181}
   m_Layer: 0
   m_Name: Coll.cc_ten1_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23230,7 +23231,7 @@ GameObject:
   - component: {fileID: 8804177785208045841}
   m_Layer: 0
   m_Name: Coll.pinky1_base.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23298,7 +23299,7 @@ GameObject:
   - component: {fileID: 8158842295897004253}
   m_Layer: 0
   m_Name: Coll.ring2.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23365,7 +23366,7 @@ GameObject:
   - component: {fileID: 938095268779169026}
   m_Layer: 7
   m_Name: cc_ten9_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23507,7 +23508,7 @@ GameObject:
   - component: {fileID: 6860697777183302017}
   m_Layer: 0
   m_Name: Coll.thumb1.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23575,7 +23576,7 @@ GameObject:
   - component: {fileID: 4623093777134560740}
   m_Layer: 0
   m_Name: Coll.cc_ten1_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23643,7 +23644,7 @@ GameObject:
   - component: {fileID: 2159383682187496262}
   m_Layer: 0
   m_Name: Coll.cc_ten10_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23710,7 +23711,7 @@ GameObject:
   - component: {fileID: 368319268966025126}
   m_Layer: 7
   m_Name: cc_ten10_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23851,7 +23852,7 @@ GameObject:
   - component: {fileID: 683588009825693873}
   m_Layer: 0
   m_Name: Coll.pinky3.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23919,7 +23920,7 @@ GameObject:
   - component: {fileID: 7591124712045940299}
   m_Layer: 0
   m_Name: Coll.cc_ten11_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23986,7 +23987,7 @@ GameObject:
   - component: {fileID: 6804281778902968442}
   m_Layer: 7
   m_Name: cc_tenD.027
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24127,7 +24128,7 @@ GameObject:
   - component: {fileID: 4797571369868448840}
   m_Layer: 0
   m_Name: Coll.cc_tenD.005
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24195,7 +24196,7 @@ GameObject:
   - component: {fileID: 4268818523208260380}
   m_Layer: 0
   m_Name: Coll.spine_02.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24262,7 +24263,7 @@ GameObject:
   - component: {fileID: 3297801656283379614}
   m_Layer: 7
   m_Name: c_tail_05.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24418,7 +24419,7 @@ GameObject:
   - component: {fileID: 1682095248966124824}
   m_Layer: 7
   m_Name: cc_tenD.005
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24559,7 +24560,7 @@ GameObject:
   - component: {fileID: 8711464980155592244}
   m_Layer: 7
   m_Name: c_tail_00.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24700,7 +24701,7 @@ GameObject:
   - component: {fileID: 4496033788328689523}
   m_Layer: 7
   m_Name: arm_twist.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24841,7 +24842,7 @@ GameObject:
   - component: {fileID: 4687054205574673782}
   m_Layer: 0
   m_Name: Coll.cc_tenD.035
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24909,7 +24910,7 @@ GameObject:
   - component: {fileID: 6018566751655849356}
   m_Layer: 0
   m_Name: Coll.thumb3.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24977,7 +24978,7 @@ GameObject:
   - component: {fileID: 8983048424048181339}
   m_Layer: 0
   m_Name: Coll.pinky3.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25044,7 +25045,7 @@ GameObject:
   - component: {fileID: 915006546763799378}
   m_Layer: 7
   m_Name: index3.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25185,7 +25186,7 @@ GameObject:
   - component: {fileID: 620969072302957012}
   m_Layer: 0
   m_Name: Coll.c_tail_01.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25253,7 +25254,7 @@ GameObject:
   - component: {fileID: 1722615947610577217}
   m_Layer: 0
   m_Name: Coll.cc_tenD.030
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25320,7 +25321,7 @@ GameObject:
   - component: {fileID: 4114777466616203056}
   m_Layer: 7
   m_Name: cc_ten13_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25461,7 +25462,7 @@ GameObject:
   - component: {fileID: 8262100434911637845}
   m_Layer: 7
   m_Name: cc_tenD.036
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25602,7 +25603,7 @@ GameObject:
   - component: {fileID: 8260840443106512412}
   m_Layer: 7
   m_Name: cc_tongue.001
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25743,7 +25744,7 @@ GameObject:
   - component: {fileID: 4490637292647504100}
   m_Layer: 0
   m_Name: AcidAttack
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25796,7 +25797,7 @@ GameObject:
   - component: {fileID: 6055949910885362195}
   m_Layer: 0
   m_Name: Coll.ring1_base.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25863,7 +25864,7 @@ GameObject:
   - component: {fileID: 3071287647391589987}
   m_Layer: 7
   m_Name: cc_ten4_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26004,7 +26005,7 @@ GameObject:
   - component: {fileID: 7733889862011538058}
   m_Layer: 0
   m_Name: Coll.cc_ten4_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26071,7 +26072,7 @@ GameObject:
   - component: {fileID: 7173497224895594388}
   m_Layer: 7
   m_Name: cc_tenD.007
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26213,7 +26214,7 @@ GameObject:
   - component: {fileID: 5431970204833212252}
   m_Layer: 0
   m_Name: Coll.c_tail_03.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26280,7 +26281,7 @@ GameObject:
   - component: {fileID: 7213954463219034185}
   m_Layer: 7
   m_Name: cc_mouth5_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26420,7 +26421,7 @@ GameObject:
   - component: {fileID: 5761176494234198579}
   m_Layer: 7
   m_Name: cc_tenD.022
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26562,7 +26563,7 @@ GameObject:
   - component: {fileID: 7495386606113884956}
   m_Layer: 0
   m_Name: Coll.index1_base.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26629,7 +26630,7 @@ GameObject:
   - component: {fileID: 7994199560211388724}
   m_Layer: 7
   m_Name: shoulder.l
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26773,7 +26774,7 @@ GameObject:
   - component: {fileID: 937999514701812420}
   m_Layer: 7
   m_Name: cc_ten3_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26915,7 +26916,7 @@ GameObject:
   - component: {fileID: 1533854909752974149}
   m_Layer: 0
   m_Name: Coll.index3.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26982,7 +26983,7 @@ GameObject:
   - component: {fileID: 5543259707278124069}
   m_Layer: 7
   m_Name: cc_tenD.017
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27123,7 +27124,7 @@ GameObject:
   - component: {fileID: 3280228328511472737}
   m_Layer: 7
   m_Name: ring1.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27264,7 +27265,7 @@ GameObject:
   - component: {fileID: 1893310700399723384}
   m_Layer: 7
   m_Name: pinky2.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27406,7 +27407,7 @@ GameObject:
   - component: {fileID: 2974411147986443098}
   m_Layer: 0
   m_Name: Coll.cc_tenD.004
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27473,7 +27474,7 @@ GameObject:
   - component: {fileID: 2295638989167959090}
   m_Layer: 7
   m_Name: forearm_stretch.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27616,7 +27617,7 @@ GameObject:
   - component: {fileID: 200522716916308041}
   m_Layer: 0
   m_Name: Coll.thumb2.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27683,7 +27684,7 @@ GameObject:
   - component: {fileID: 6262129510599041674}
   m_Layer: 7
   m_Name: cc_tenD.029
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27824,7 +27825,7 @@ GameObject:
   - component: {fileID: 2482802158663924978}
   m_Layer: 7
   m_Name: cc_tenD.001
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27965,7 +27966,7 @@ GameObject:
   - component: {fileID: 8232673875982372632}
   m_Layer: 7
   m_Name: cc_tenD.040
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28107,7 +28108,7 @@ GameObject:
   - component: {fileID: 7525984377043038169}
   m_Layer: 0
   m_Name: Coll.middle1_base.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28174,7 +28175,7 @@ GameObject:
   - component: {fileID: 5124605766143775333}
   m_Layer: 7
   m_Name: arm_twist.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28314,7 +28315,7 @@ GameObject:
   - component: {fileID: 1799734132005800526}
   m_Layer: 7
   m_Name: tongue
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28544,7 +28545,7 @@ GameObject:
   - component: {fileID: 5850517095049666174}
   m_Layer: 7
   m_Name: neck
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28774,7 +28775,7 @@ GameObject:
   - component: {fileID: 531195699208941300}
   m_Layer: 7
   m_Name: cc_ten9_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28916,7 +28917,7 @@ GameObject:
   - component: {fileID: 1622627382789414657}
   m_Layer: 0
   m_Name: Coll.cc_tenD.017
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28984,7 +28985,7 @@ GameObject:
   - component: {fileID: 6282144548372387382}
   m_Layer: 0
   m_Name: Coll.cc_ten2_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29052,7 +29053,7 @@ GameObject:
   - component: {fileID: 90800373490342991}
   m_Layer: 0
   m_Name: Coll.cc_tenD.027
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29120,7 +29121,7 @@ GameObject:
   - component: {fileID: 4019592838153412307}
   m_Layer: 0
   m_Name: Coll.cc_ten13_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29187,7 +29188,7 @@ GameObject:
   - component: {fileID: 7618460964327415252}
   m_Layer: 7
   m_Name: hand.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29334,7 +29335,7 @@ GameObject:
   - component: {fileID: 2041969614979389533}
   m_Layer: 0
   m_Name: Coll.cc_tenD.040
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29401,7 +29402,7 @@ GameObject:
   - component: {fileID: 6285546729028900092}
   m_Layer: 7
   m_Name: cc_tenD.019
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29542,7 +29543,7 @@ GameObject:
   - component: {fileID: 5522266055479177462}
   m_Layer: 7
   m_Name: headten
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29773,7 +29774,7 @@ GameObject:
   - component: {fileID: 7827903592167434671}
   m_Layer: 0
   m_Name: Coll.cc_ten11_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29840,7 +29841,7 @@ GameObject:
   - component: {fileID: 3089539782426945873}
   m_Layer: 7
   m_Name: cc_tenD.006
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29982,7 +29983,7 @@ GameObject:
   - component: {fileID: 2397778198804242483}
   m_Layer: 0
   m_Name: Coll.cc_tenD.003
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30050,7 +30051,7 @@ GameObject:
   - component: {fileID: 1363890406259415523}
   m_Layer: 0
   m_Name: Coll.index2.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30117,7 +30118,7 @@ GameObject:
   - component: {fileID: 8474582369828866833}
   m_Layer: 7
   m_Name: cc_ten4_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30258,7 +30259,7 @@ GameObject:
   - component: {fileID: 7481283206903683897}
   m_Layer: 0
   m_Name: Coll.middle1_base.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30325,7 +30326,7 @@ GameObject:
   - component: {fileID: 4562281932548874494}
   m_Layer: 7
   m_Name: pinky1.r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30467,7 +30468,7 @@ GameObject:
   - component: {fileID: 5918205361178924176}
   m_Layer: 0
   m_Name: Coll.cc_ten7_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30534,7 +30535,7 @@ GameObject:
   - component: {fileID: 8915617883680598966}
   m_Layer: 7
   m_Name: cc_tenD.015
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30675,7 +30676,7 @@ GameObject:
   - component: {fileID: 8107341138748231351}
   m_Layer: 7
   m_Name: thumb2.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30817,7 +30818,7 @@ GameObject:
   - component: {fileID: 1370201604163911660}
   m_Layer: 0
   m_Name: Coll.arm_twist.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30885,7 +30886,7 @@ GameObject:
   - component: {fileID: 8023626327360729112}
   m_Layer: 0
   m_Name: Coll.cc_ten12_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30952,7 +30953,7 @@ GameObject:
   - component: {fileID: 2847781017931200042}
   m_Layer: 7
   m_Name: cc_ten7_l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31094,7 +31095,7 @@ GameObject:
   - component: {fileID: 3471233876441725066}
   m_Layer: 0
   m_Name: Coll.arm_stretch.l
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31161,7 +31162,7 @@ GameObject:
   - component: {fileID: 67035776859339110}
   m_Layer: 7
   m_Name: cc_tongue.004
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31302,7 +31303,7 @@ GameObject:
   - component: {fileID: 8862395533750338387}
   m_Layer: 7
   m_Name: cc_ten8_r
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31443,7 +31444,7 @@ GameObject:
   - component: {fileID: 4552996138212031729}
   m_Layer: 0
   m_Name: Coll.cc_tenD.029
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31511,7 +31512,7 @@ GameObject:
   - component: {fileID: 3803436323529199449}
   m_Layer: 0
   m_Name: Coll.root.x
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31578,7 +31579,7 @@ GameObject:
   - component: {fileID: 803903280248020241}
   m_Layer: 7
   m_Name: cc_tongue.003
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31720,7 +31721,7 @@ GameObject:
   - component: {fileID: 4763872184088682386}
   m_Layer: 0
   m_Name: Coll.cc_tenD.038
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31788,7 +31789,7 @@ GameObject:
   - component: {fileID: 5502472643322926377}
   m_Layer: 0
   m_Name: Coll.cc_tenD.024
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31855,7 +31856,7 @@ GameObject:
   - component: {fileID: 4208617734540063557}
   m_Layer: 7
   m_Name: cc_tongue
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
