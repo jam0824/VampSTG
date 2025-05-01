@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class BossAlien3 : MonoBehaviour
+public class BossAlien3 : MonoBehaviour, IBoss
 {
     [SerializeField] int hp = 500;
     int maxHp = 500;

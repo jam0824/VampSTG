@@ -57,9 +57,11 @@ public class StageManager : MonoBehaviour
         if((allElapsedTime >= stageAllSecond)&&(!isBoss)) AppearBoss();
     }
 
+    //ボス登場
     void AppearBoss(){
         isBoss = true;
-        boss.GetComponent<BossAlien3>().PlayEntry();
+        boss.SetActive(true);
+        boss.GetComponent<IBoss>().PlayEntry();
     }
 
     void CheckWave(float allElapsedTime){
