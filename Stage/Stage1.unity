@@ -250,11 +250,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7873144817663714877, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
+      propertyPath: hp
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873144817663714877, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 407295954}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
+--- !u!95 &407295954 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8107785962584032513, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
+  m_PrefabInstance: {fileID: 407295953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &515625331
 PrefabInstance:
   m_ObjectHideFlags: 0

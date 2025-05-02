@@ -151,4 +151,9 @@ public class RotateWithPause : MonoBehaviour,IItem
         gameObject.SetActive(isActive);
         return gameObject.activeSelf;
     }
+
+    public bool StopAllCoroutine(){
+        StopAllCoroutines();
+        return true;
+    }
 }

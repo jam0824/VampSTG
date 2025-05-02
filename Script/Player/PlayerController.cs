@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
     private bool facingRight = true;
-    private bool flippedThisFrame;
+
+    private bool canMove = true;
 
     void Awake()
     {
@@ -19,12 +20,27 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        flippedThisFrame = false;
+        if(!canMove) return;
 
         float zInput = Input.GetAxis("Horizontal");
         float yInput = Input.GetAxis("Vertical");
         bool isShooting = Input.GetKey(KeyCode.Z) || Input.GetButton("Fire1");
 
+        // “前進”／“後退”を向いている方向基準で判定
+        bool movingForward  = (facingRight && zInput >= 0f)  || (!facingRight && zInput < 0f);
+        bool movingBackward = (facingRight && zInput < 0f)  || (!facingRight && zInput > 0f);
+
+        // アニメーション
+        if (movingForward)
+        {
+            animator.SetTrigger("Front");
+        }
+        if (isShooting && movingBackward)
+        {
+            animator.SetTrigger("Back");
+        }
+
+        // 向き転換（撃っていないときのみ）
         if (!isShooting)
         {
             if (zInput > 0f && !facingRight)
@@ -33,20 +49,14 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(SmoothTurn(180f));
         }
 
+        // 移動
         Vector3 delta = new Vector3(0f, yInput, zInput) * speed * Time.deltaTime;
         transform.Translate(delta, Space.World);
-
-        if (!flippedThisFrame)
-        {
-            animator.SetFloat("Vertical", zInput);
-            animator.SetFloat("Horizontal", yInput);
-        }
     }
 
     private IEnumerator SmoothTurn(float targetYAngle)
     {
         facingRight = (targetYAngle == 0f);
-        flippedThisFrame = true;
 
         Quaternion startRot = transform.rotation;
         Quaternion endRot   = Quaternion.Euler(0f, targetYAngle, 0f);
@@ -61,5 +71,9 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.rotation = endRot;
+    }
+
+    public void SetCanMove(bool isOkMove){
+        canMove = isOkMove;
     }
 }

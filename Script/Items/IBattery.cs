@@ -9,5 +9,7 @@ public interface IItem
 
     bool SetActive(bool isActive);
 
+    bool StopAllCoroutine();
+
     
 }

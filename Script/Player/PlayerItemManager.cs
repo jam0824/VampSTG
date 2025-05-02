@@ -28,6 +28,13 @@ public class PlayerItemManager : MonoBehaviour
         }
     }
 
+    //全ての登録されているBatteryのCoroutineをoffにする
+    public void StopAllCoroutine(){
+        foreach(GameObject item in items){
+            item.gameObject.GetComponent<IItem>().StopAllCoroutine();
+        }
+    }
+
 
 
 }
