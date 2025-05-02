@@ -250,24 +250,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7873144817663714877, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: hp
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7873144817663714877, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 407295954}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
---- !u!95 &407295954 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8107785962584032513, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-  m_PrefabInstance: {fileID: 407295953}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &515625331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -857,6 +844,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
+      propertyPath: bgm
+      value: 
+      objectReference: {fileID: 8300000, guid: 5204c75a8de57524c8d1646333158adb, type: 3}
+    - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
       propertyPath: boss
       value: 
       objectReference: {fileID: 1934417816}
@@ -1048,10 +1039,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5180994085286907504, guid: cb7db47088b6b0f41afe001c63785153, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7799509291873949079, guid: cb7db47088b6b0f41afe001c63785153, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 774eb4b8007bcc94e99e1e7143729106, type: 3}
+    - target: {fileID: 7799509291873949079, guid: cb7db47088b6b0f41afe001c63785153, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8013047653062192507, guid: cb7db47088b6b0f41afe001c63785153, type: 3}
       propertyPath: m_Name
       value: UISet
       objectReference: {fileID: 0}
+    - target: {fileID: 9087890273380740545, guid: cb7db47088b6b0f41afe001c63785153, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eb0d6ebedc66dde4c9a7fa1a5f807b65, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -1889,9 +1889,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3c658dc898d244395bf4ae07a3d1d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
+  hp: 3
   playerController: {fileID: 8602325983194490352}
   playerItemManager: {fileID: 97010161282439108}
+  animator: {fileID: 8107785962584032513}
   invincibilityDuration: 3
   blinkInterval: 0.1
   effectOffset: 0.7
@@ -2073,6 +2074,11 @@ Transform:
 --- !u!4 &7971124700925509240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5724407623402997480, guid: 8bc7b4917901c2644b0d1a7d62d601e8, type: 3}
+  m_PrefabInstance: {fileID: 2444946390245767312}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8107785962584032513 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 8bc7b4917901c2644b0d1a7d62d601e8, type: 3}
   m_PrefabInstance: {fileID: 2444946390245767312}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8184136850671854737 stripped
