@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] int hp = 10;
+    [SerializeField] public int hp = 10;
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float rotateSpeed = 90f;   // 度/秒
     [SerializeField] float stopDistance = 0.5f;
@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        var playerObj = GameObject.FindWithTag("Player");
+        var playerObj = GameObject.FindWithTag("Core");
         if (playerObj != null)
             playerTransform = playerObj.transform;
     }
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
 
     // ─── 移動 ───
     Vector3 toPlayer = playerTransform.position - transform.position;
-    //toPlayer.y = 0f;
+    toPlayer.x = 0f;
     float dist = toPlayer.magnitude;
     if (dist > stopDistance)
     {
@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
             rotateSpeed * Time.deltaTime
         );
     }
+    if((!isDead)&&(hp <= 0)) enemyDie();
 }
 
 

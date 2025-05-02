@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1006812573579030016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8475350446013804348}
+  m_Layer: 0
+  m_Name: EnemyPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8475350446013804348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006812573579030016}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7429783784471402077}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5155735918464174703
 GameObject:
   m_ObjectHideFlags: 0
@@ -52,6 +83,58 @@ MonoBehaviour:
   initialInterval: 4
   minInterval: 0.5
   decayRate: 0.05
+--- !u!1 &5516105139317428606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7865859925202180276}
+  - component: {fileID: 7143740435370521640}
+  m_Layer: 0
+  m_Name: Wave4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7865859925202180276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516105139317428606}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7429783784471402077}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7143740435370521640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516105139317428606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWaveTime: 181
+  endWaveTime: 1000
+  enemies:
+  - {fileID: 4421325519823360605, guid: 60fdd8ee8370240488ad7e11dd20730e, type: 3}
+  spawnCount: 1
+  initialInterval: 5
+  minInterval: 4
+  decayRate: 0.001
 --- !u!1 &6890006149486929664
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,9 +165,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2346092664529206051}
   - {fileID: 8760079295645255791}
   - {fileID: 1031839497462699739}
   - {fileID: 3294632304797332546}
+  - {fileID: 7865859925202180276}
+  - {fileID: 8475350446013804348}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1265748096016672506
@@ -99,13 +185,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f89f1671d2b3545945e41af0b14d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageAllSecond: 180
+  stageAllSecond: 30
   items:
   - {fileID: 8981956440422478563, guid: 37574d0bfc5140940915c68c50c238c9, type: 3}
   - {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
   minDistance: 8
   maxDistance: 10
+  enemyPool: {fileID: 1006812573579030016}
   batteryDropRate: 0.1
+  boss: {fileID: 0}
+  bgm: {fileID: 8300000, guid: bc00dc9759882034aa9f592b412dc84b, type: 3}
+  bgmVol: 0.5
   progressBar: {fileID: 0}
 --- !u!1 &6980402567258987309
 GameObject:
@@ -212,3 +302,65 @@ MonoBehaviour:
   initialInterval: 3
   minInterval: 0.5
   decayRate: 0.05
+--- !u!1001 &4070163085603389300
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7429783784471402077}
+    m_Modifications:
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761889992866206521, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_Name
+      value: FadeOut
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+--- !u!4 &2346092664529206051 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+  m_PrefabInstance: {fileID: 4070163085603389300}
+  m_PrefabAsset: {fileID: 0}

@@ -19,17 +19,19 @@ public class BossAlien3 : MonoBehaviour, IBoss
 
     [SerializeField] private float entryStartZ = 10f;  // 登場開始位置（Inspectorで調整可）
     [SerializeField] private float entryEndZ   = 6f;   // 登場終了位置（Inspectorで調整可）
+    [SerializeField] private StageManager stageManager;
+    [Header("BGM")]
+    [SerializeField] AudioClip bgm;
+    [SerializeField] float bgmVol = 0.8f;
 
     private bool isDead = false;
+    private bool isStart = false;   //スタート演出が終わったか
     private Coroutine attackLoopCoroutine;
     private string tagName = "Boss";
 
     private float screenHeight = 6f;
+    private PlayerManager playerManager;
 
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -44,6 +46,7 @@ public class BossAlien3 : MonoBehaviour, IBoss
     {
         if (animator == null)
             animator = GetComponent<Animator>();
+        playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         maxHp = hp;
         SetTagName(tagName);
 
@@ -61,6 +64,11 @@ public class BossAlien3 : MonoBehaviour, IBoss
 
     private IEnumerator EntryCoroutine()
     {
+        //少し待ち。静けさ。
+        yield return new WaitForSeconds(5f);
+
+        bossHpBar.StartFadeIn(3f);  // HPバー表示
+
         // 歩行アニメ
         animator.SetTrigger("walk");
         Vector3 targetPos = new Vector3(transform.position.x, transform.position.y, entryEndZ);
@@ -77,7 +85,9 @@ public class BossAlien3 : MonoBehaviour, IBoss
 
         // 歩行停止アニメ
         animator.SetTrigger("stopWalk");
+        SoundManager.Instance.PlayBGM(bgm, bgmVol);
         yield return new WaitForSeconds(attackInterval);
+        isStart = true;
         // 登場完了したら攻撃ループを開始
         attackLoopCoroutine = StartCoroutine(AttackLoop());
     }
@@ -168,6 +178,7 @@ public class BossAlien3 : MonoBehaviour, IBoss
 
     void OnTriggerEnter(Collider other)
     {
+        if(!isStart) return;    //スタート演出が終わるまでダメージは受けない
         if (!other.CompareTag("PlayerBullet") || isDead) return;
         if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
 
@@ -182,20 +193,8 @@ public class BossAlien3 : MonoBehaviour, IBoss
     private void Die(Transform hitPoint)
     {
         isDead = true;
-
-        // 進行中のコルーチンをすべて止める
-        if (attackLoopCoroutine != null)
-            StopCoroutine(attackLoopCoroutine);
-        StopAllCoroutines();
-
-        // 他のトリガーをリセット（念のため）
-        /*
-        animator.ResetTrigger("attack1_l");
-        animator.ResetTrigger("attack3");
-        animator.ResetTrigger("walk");
-        animator.ResetTrigger("stopWalk");
-        */
-
+        StopEverything();
+        
         // 死亡アニメ再生
         animator.SetTrigger("dead");
         StartCoroutine(RandomExplosionCoroutine());
@@ -204,6 +203,24 @@ public class BossAlien3 : MonoBehaviour, IBoss
         // 必要ならスクリプト自体を無効化
         this.enabled = false;
 
+    }
+
+    private void StopEverything(){
+        playerManager.AllBatteryActiveFalse();  //全てのBatteryを止める
+        stageManager.SetSpawnEnemyFlag(false); //敵の出現を止める
+        stageManager.KillAllEnemies();  //雑魚敵を全て消す
+        SoundManager.Instance.StopBGM();    //BGMを消す
+        // 進行中のコルーチンをすべて止める
+        if (attackLoopCoroutine != null)
+            StopCoroutine(attackLoopCoroutine);
+        StopAllCoroutines();
+        // 他のトリガーをリセット（念のため）
+        /*
+        animator.ResetTrigger("attack1_l");
+        animator.ResetTrigger("attack3");
+        animator.ResetTrigger("walk");
+        animator.ResetTrigger("stopWalk");
+        */
     }
 
     private IEnumerator FadeOut(){
@@ -242,7 +259,7 @@ public class BossAlien3 : MonoBehaviour, IBoss
     void DrawHpBar()
     {
         float per = (maxHp - hp) / (float)maxHp;
-        bossHpBar.DrawHpBar(per);
+        bossHpBar.DrawBar(per);
     }
 
     void SetTagName(string tag)

@@ -11,8 +11,11 @@ public class SoundManager : MonoBehaviour
     [Header("AudioSource の親にする Transform (任意)")]
     [SerializeField] private Transform audioRoot;
 
-    // プール
-    private List<AudioSource> pool = new List<AudioSource>();
+    // SE 用プール
+    private List<AudioSource> sePool = new List<AudioSource>();
+
+    // BGM 用 AudioSource
+    private AudioSource bgmSource;
 
     private void Awake()
     {
@@ -22,6 +25,7 @@ public class SoundManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             InitializePool();
+            InitializeBGMSource();
         }
         else
         {
@@ -34,19 +38,26 @@ public class SoundManager : MonoBehaviour
     {
         for (int i = 0; i < initialPoolSize; i++)
         {
-            CreateNewSource();
+            sePool.Add(CreateNewSource("SE_Source", loop: false));
         }
     }
 
-    // 新規 AudioSource を作ってプールに加える
-    private AudioSource CreateNewSource()
+    // BGM 用 AudioSource を生成
+    private void InitializeBGMSource()
     {
-        GameObject go = new GameObject("SE_Source");
+        bgmSource = CreateNewSource("BGM_Source", loop: true);
+        bgmSource.playOnAwake = false;
+        bgmSource.volume = 1f;
+    }
+
+    // 新規 AudioSource を作って返す
+    private AudioSource CreateNewSource(string name, bool loop)
+    {
+        GameObject go = new GameObject(name);
         if (audioRoot != null) go.transform.SetParent(audioRoot);
         AudioSource src = go.AddComponent<AudioSource>();
-        // 必要に応じてデフォルト設定（3D/2D、ループ、spatialBlend など）をここで行う
         src.playOnAwake = false;
-        pool.Add(src);
+        src.loop = loop;
         return src;
     }
 
@@ -60,15 +71,93 @@ public class SoundManager : MonoBehaviour
         if (clip == null) return;
 
         // 再生中でないソースを探す
-        AudioSource src = pool.Find(s => !s.isPlaying);
+        AudioSource src = sePool.Find(s => !s.isPlaying);
         if (src == null)
         {
-            // 全部使用中 → 新規作成
-            src = CreateNewSource();
+            // 全部使用中 → 新規作成してプールに追加
+            src = CreateNewSource("SE_Source", loop: false);
+            sePool.Add(src);
         }
 
-        src.clip   = clip;
+        src.clip = clip;
         src.volume = volume;
         src.Play();
+    }
+
+    /// <summary>
+    /// BGM を再生（ループ再生）。
+    /// </summary>
+    /// <param name="clip">再生する AudioClip</param>
+    /// <param name="volume">音量 (0〜1)</param>
+    public void PlayBGM(AudioClip clip, float volume = 1f)
+    {
+        if (clip == null) return;
+        if (bgmSource.clip == clip && bgmSource.isPlaying)
+        {
+            // 同じBGMが既に再生中なら何もしない
+            return;
+        }
+        bgmSource.clip = clip;
+        bgmSource.volume = volume;
+        bgmSource.Play();
+    }
+
+    /// <summary>
+    /// BGM を停止する。
+    /// </summary>
+    public void StopBGM()
+    {
+        if (bgmSource.isPlaying)
+        {
+            bgmSource.Stop();
+        }
+    }
+
+    /// <summary>
+    /// BGM のフェードイン再生（コルーチンで制御）。
+    /// </summary>
+    public void PlayBGMWithFadeIn(AudioClip clip, float targetVolume, float duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(FadeInCoroutine(clip, targetVolume, duration));
+    }
+
+    private IEnumerator<YieldInstruction> FadeInCoroutine(AudioClip clip, float targetVolume, float duration)
+    {
+        bgmSource.clip = clip;
+        bgmSource.volume = 0f;
+        bgmSource.Play();
+
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            bgmSource.volume = Mathf.Lerp(0f, targetVolume, elapsed / duration);
+            yield return null;
+        }
+        bgmSource.volume = targetVolume;
+    }
+
+    /// <summary>
+    /// BGM のフェードアウト後停止。
+    /// </summary>
+    public void StopBGMWithFadeOut(float duration)
+    {
+        StopAllCoroutines();
+        StartCoroutine(FadeOutCoroutine(duration));
+    }
+
+    private IEnumerator<YieldInstruction> FadeOutCoroutine(float duration)
+    {
+        float startVolume = bgmSource.volume;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            bgmSource.volume = Mathf.Lerp(startVolume, 0f, elapsed / duration);
+            yield return null;
+        }
+        bgmSource.Stop();
+        bgmSource.volume = startVolume;
     }
 }

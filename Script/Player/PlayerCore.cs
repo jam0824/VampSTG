@@ -19,7 +19,7 @@ public class PlayerCore : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other != null && playerManager != null &&
-        (other.CompareTag("Enemy") || other.CompareTag("Boss")))
+        (other.CompareTag("Enemy") || other.CompareTag("Boss") || other.CompareTag("EnemyBullet")))
         {
             playerManager.HitEnemy();
         }

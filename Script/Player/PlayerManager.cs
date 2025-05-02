@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
     private Collider playerCollider;
     private int playerLayer;
     private int enemyLayer;
+    private int oldHp = 0;
 
     void Start()
     {
@@ -24,6 +25,21 @@ public class PlayerManager : MonoBehaviour
         // レイヤー名はプロジェクト側で設定しておくこと
         playerLayer = LayerMask.NameToLayer("Player");
         enemyLayer  = LayerMask.NameToLayer("Enemy");
+        
+    }
+
+    void Update()
+    {
+        if(oldHp != hp){
+            //HPの表示
+            UIManager.Instance.SetHp(hp);
+            oldHp = hp;
+        }
+    }
+
+    //全ての攻撃をoffにする
+    public void AllBatteryActiveFalse(){
+        playerItemManager.AllBatteryActiveFalse();
     }
 
     void OnTriggerEnter(Collider other)

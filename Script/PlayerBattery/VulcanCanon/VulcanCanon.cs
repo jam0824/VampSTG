@@ -136,4 +136,9 @@ public class VulcanCanon : MonoBehaviour, IItem
             return false;
         }
     }
+
+    public bool SetActive(bool isActive){
+        gameObject.SetActive(isActive);
+        return gameObject.activeSelf;
+    }
 }

@@ -21,6 +21,13 @@ public class PlayerItemManager : MonoBehaviour
         
     }
 
+    //全ての登録されている兵器をoffにする
+    public void AllBatteryActiveFalse(){
+        foreach(GameObject item in items){
+            item.gameObject.GetComponent<IItem>().SetActive(false);
+        }
+    }
+
 
 
 }

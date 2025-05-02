@@ -5,6 +5,9 @@ using System.Collections;
 public class ScreenFader : MonoBehaviour
 {
     [SerializeField] private Image whiteImage;  // Inspectorで割り当て
+    [SerializeField] private Image gekimetsuImage;
+    [SerializeField] private float gekimetsuVol = 1f;
+    [SerializeField] private AudioClip gekimetsuSe;
     [SerializeField] private float fadeDuration = 1f;
 
     public void FadeToWhite(System.Action onComplete = null)
@@ -25,8 +28,14 @@ public class ScreenFader : MonoBehaviour
             whiteImage.color = new Color(1f, 1f, 1f, a);
             yield return null;
         }
-
         whiteImage.color = new Color(1f, 1f, 1f, targetAlpha);
+
+        //撃滅表示
+        yield return new WaitForSeconds(1f);
+        SoundManager.Instance.PlaySE(gekimetsuSe, gekimetsuVol);
+        gekimetsuImage.color = new Color(1f,1f,1f,1f);
+
+        yield return new WaitForSeconds(3f);
 
         onComplete?.Invoke();
     }

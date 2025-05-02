@@ -6383,7 +6383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4828259298255229807
 Transform:
   m_ObjectHideFlags: 0
@@ -6442,7 +6442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa152abcbc22c44f8177d16da599a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 5000
   animator: {fileID: 7852732057032231318}
   acidAttackPoint: {fileID: 4490637292647504100}
   handAttackPoint: {fileID: 5570477149632252128}
@@ -6458,6 +6458,9 @@ MonoBehaviour:
   fader: {fileID: 0}
   entryStartZ: 15
   entryEndZ: 6
+  stageManager: {fileID: 0}
+  bgm: {fileID: 8300000, guid: ac3b2ee5270f78f409e1a8e13ab49c65, type: 3}
+  bgmVol: 0.5
 --- !u!114 &3447881138633404940
 MonoBehaviour:
   m_ObjectHideFlags: 0

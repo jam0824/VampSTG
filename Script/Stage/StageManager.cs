@@ -13,6 +13,7 @@ public class StageManager : MonoBehaviour
     [Header("Spawn Radius")]
     [SerializeField] float minDistance = 5f;    // プレイヤーから最低この距離以上
     [SerializeField] float maxDistance = 15f;   // プレイヤーから最大この距離以内
+    [SerializeField] GameObject enemyPool;  //敵をまとめる場所
 
     float initialInterval = 5f;    // ゲーム開始直後のスポーン間隔（秒）
     float minInterval = 0.5f;      // 最短スポーン間隔（秒）
@@ -22,7 +23,10 @@ public class StageManager : MonoBehaviour
     [SerializeField] float batteryDropRate = 0.1f;
     [Header("Boss")]
     [SerializeField] GameObject boss;
-    
+    [Header("BGM")]
+    [SerializeField] AudioClip bgm;
+    [SerializeField] float bgmVol = 0.8f;
+
     [Header("UI Settings")]
     [SerializeField] ProgressBar progressBar;
 
@@ -32,6 +36,7 @@ public class StageManager : MonoBehaviour
     float allElapsedTime = 0f;   // ゲーム起動からの経過時間
     float waveElapsedTime = 0f;
     bool isBoss = false;
+    bool isSpawnEnemy = true;
 
     void Start()
     {
@@ -40,6 +45,8 @@ public class StageManager : MonoBehaviour
             playerTransform = playerObj.transform;
         else
             Debug.LogError("Player オブジェクトが見つかりません");
+
+        SoundManager.Instance.PlayBGM(bgm, bgmVol);
 
         stageWaves = GetChildStageWave();
 
@@ -53,23 +60,36 @@ public class StageManager : MonoBehaviour
         // 経過時間をカウント
         allElapsedTime += Time.deltaTime;
         waveElapsedTime += Time.deltaTime;
-        DrawProgressBar(allElapsedTime, stageAllSecond);
-        if((allElapsedTime >= stageAllSecond)&&(!isBoss)) AppearBoss();
+        //時間前まではProgressBarを描画
+        if(allElapsedTime < stageAllSecond) DrawProgressBar(allElapsedTime, stageAllSecond);
+        if ((allElapsedTime >= stageAllSecond) && (!isBoss)) AppearBoss();
     }
 
     //ボス登場
-    void AppearBoss(){
+    void AppearBoss()
+    {
         isBoss = true;
         boss.SetActive(true);
         boss.GetComponent<IBoss>().PlayEntry();
+        SoundManager.Instance.StopBGMWithFadeOut(2f);
+        progressBar.StartFadeOut(1f);
     }
 
-    void CheckWave(float allElapsedTime){
-        foreach(StageWave stageWave in stageWaves){
+    public void SetSpawnEnemyFlag(bool isSpawn)
+    {
+        isSpawnEnemy = isSpawn;
+    }
+
+    void CheckWave(float allElapsedTime)
+    {
+        foreach (StageWave stageWave in stageWaves)
+        {
             //全体の経過時間がstagewaveの開始時間終了時間以内に収まっていたら
-            if((stageWave.startWaveTime <= allElapsedTime) && (stageWave.endWaveTime >= allElapsedTime)){
+            if ((stageWave.startWaveTime <= allElapsedTime) && (stageWave.endWaveTime >= allElapsedTime))
+            {
                 //wave切り替え
-                if(nowStageWave != stageWave){
+                if (nowStageWave != stageWave)
+                {
                     this.nowStageWave = stageWave;
                     InitWave(stageWave);
                     return;
@@ -78,7 +98,8 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    void InitWave(StageWave stageWave){
+    void InitWave(StageWave stageWave)
+    {
         Debug.Log("ウェーブ初期化");
         this.enemies = stageWave.enemies;
         this.spawnCount = stageWave.spawnCount;
@@ -88,13 +109,14 @@ public class StageManager : MonoBehaviour
         this.waveElapsedTime = 0f;
     }
 
-    void DrawProgressBar(float elapsedTime, float stageAllSecond){
-        float per = elapsedTime/stageAllSecond;
-        progressBar.DrawProgressBar(per);
+    void DrawProgressBar(float elapsedTime, float stageAllSecond)
+    {
+        float per = elapsedTime / stageAllSecond;
+        progressBar.DrawBar(per);
         progressBar.DrawPlayerIcon(per);
     }
 
-    
+
 
     /// <summary>
     /// コルーチンで繰り返しスポーン
@@ -103,6 +125,12 @@ public class StageManager : MonoBehaviour
     {
         while (true)
         {
+            // フラグが false なら毎フレームここで止める
+            if (!isSpawnEnemy)
+            {
+                yield return null;
+                continue;
+            }
             CheckWave(allElapsedTime);
             // 一度に spawnCount 体ずつスポーン
             for (int i = 0; i < spawnCount; i++)
@@ -134,15 +162,17 @@ public class StageManager : MonoBehaviour
         // XZ平面のランダム方向
         Vector2 circle = Random.insideUnitCircle.normalized;
         float distance = Random.Range(minDistance, maxDistance);
-        Vector3 spawnPos = new Vector3(0f, circle.y,circle.x) * distance;
+        Vector3 spawnPos = new Vector3(0f, circle.y, circle.x) * distance;
 
         //Vector3 spawnPos = playerTransform.position + offset;
         GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
         AddItem(enemy);
+        enemy.transform.SetParent(enemyPool.transform); //親をEnemyPoolにする
     }
 
-    void AddItem(GameObject enemy){
-        if(Random.value > batteryDropRate) return;
+    void AddItem(GameObject enemy)
+    {
+        if (Random.value > batteryDropRate) return;
         int index = Random.Range(0, items.Length);
         enemy.GetComponent<Enemy>().item = items[index];
 
@@ -156,5 +186,27 @@ public class StageManager : MonoBehaviour
         return GetComponentsInChildren<StageWave>()
                .Where(t => t != transform)
                .ToArray();
+    }
+
+    /// <summary>
+    /// enemyPool 配下のすべての Enemy の hp を 0 にする
+    /// </summary>
+    public void KillAllEnemies()
+    {
+        if (enemyPool == null)
+        {
+            Debug.LogWarning("enemyPool がアサインされていません");
+            return;
+        }
+
+        // 子オブジェクトを順に走査
+        foreach (Transform child in enemyPool.transform)
+        {
+            var enemyComp = child.GetComponent<Enemy>();
+            if (enemyComp != null)
+            {
+                enemyComp.hp = 0;
+            }
+        }
     }
 }
