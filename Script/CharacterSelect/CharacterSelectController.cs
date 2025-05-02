@@ -15,6 +15,12 @@ public class CharacterSelectController : MonoBehaviour
     public Transform previewContainer;
     public TMP_Text descriptionText;
 
+    [Header("Stats UI")]
+    public Transform lifeStarContainer;   // LifeStars オブジェクト
+    public Transform powerStarContainer;  // PowerStars オブジェクト
+    public Transform speedStarContainer;  // SpeedStars オブジェクト
+    public GameObject starPrefab;         // StarIcon Prefab
+
     // 現在何番が選ばれているか
     int currentIndex = -1;
     GameObject currentPreview;
@@ -55,15 +61,36 @@ public class CharacterSelectController : MonoBehaviour
     {
         currentIndex = index;
 
-        // プレビュー更新
+        // --- プレビューと説明 ---
         if (currentPreview) Destroy(currentPreview);
-        //currentPreview = Instantiate(characters[index].previewPrefab, previewContainer);
         currentPreview = Instantiate(characters[index].previewPrefab);
-        //currentPreview.transform.localPosition = Vector3.zero;
-        //currentPreview.transform.localRotation = Quaternion.identity;
-        //currentPreview.transform.localScale = Vector3.one * 5f;  // 必要に応じて調整
+        /*
+        currentPreview.transform.localPosition = Vector3.zero;
+        currentPreview.transform.localRotation = Quaternion.identity;
+        // 必要であればスケールもリセット
+        currentPreview.transform.localScale = Vector3.one * 5f;
+        */
 
-        // 説明文更新
         descriptionText.text = characters[index].description;
+
+        // --- 星アイコンの更新 ---
+        UpdateStars(lifeStarContainer, characters[index].life);
+        UpdateStars(powerStarContainer, characters[index].power);
+        UpdateStars(speedStarContainer, characters[index].speed);
+    }
+
+    // 指定したコンテナに starPrefab を count 個並べる
+    void UpdateStars(Transform container, int count)
+    {
+        // 1) 既存の星を全削除
+        foreach (Transform child in container)
+        {
+            Destroy(child.gameObject);
+        }
+        // 2) count 個の星を生成
+        for (int i = 0; i < count; i++)
+        {
+            Instantiate(starPrefab, container);
+        }
     }
 }
