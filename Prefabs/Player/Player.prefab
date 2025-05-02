@@ -1890,6 +1890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
+  playerController: {fileID: 8602325983194490352}
   playerItemManager: {fileID: 97010161282439108}
   invincibilityDuration: 3
   blinkInterval: 0.1

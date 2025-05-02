@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public int hp = 5;
+    public PlayerController playerController;
     public PlayerItemManager playerItemManager;
 
     [Header("無敵フレーム設定")]
@@ -18,6 +19,7 @@ public class PlayerManager : MonoBehaviour
     private int playerLayer;
     private int enemyLayer;
     private int oldHp = 0;
+    private bool isDead = false;
 
     void Start()
     {
@@ -65,6 +67,7 @@ public class PlayerManager : MonoBehaviour
     public void HitEnemy(){
         if(isInvincible) return;
         Damage();
+        if(hp < 0) StartCoroutine(Death());
         StartCoroutine(InvincibilityCoroutine());
     }
 
@@ -74,6 +77,8 @@ public class PlayerManager : MonoBehaviour
         pos.y += effectOffset;
         EffectController.Instance.PlayHitToPlayer(pos);
     }
+
+    
 
     private IEnumerator InvincibilityCoroutine()
     {
@@ -103,5 +108,15 @@ public class PlayerManager : MonoBehaviour
         // 敵とのレイヤー衝突を再度有効化
         Physics.IgnoreLayerCollision(playerLayer, enemyLayer, false);
         isInvincible = false;
+    }
+
+    //ゲームオーバー
+    private IEnumerator Death(){
+        isDead = true;
+        SoundManager.Instance.StopBGM();
+        ScreenFader screenFader = GameObject.Find("ScreenFader").GetComponent<ScreenFader>();
+        yield return new WaitForSeconds(0.5f);
+        screenFader.FadeToBlack();
+
     }
 }

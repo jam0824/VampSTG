@@ -119,6 +119,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &173457836
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1797746710980953175, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761889992866206521, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+      propertyPath: m_Name
+      value: ScreenFader
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+--- !u!114 &173457837 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1002433397208480642, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+  m_PrefabInstance: {fileID: 173457836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae70b770374cdb7419eb76bc52911132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &241173424 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3473019288236579521, guid: cb7db47088b6b0f41afe001c63785153, type: 3}
@@ -475,7 +543,7 @@ PrefabInstance:
     - target: {fileID: 7130847832425349484, guid: db0f86ff692bd7149aefc9665b87a80a, type: 3}
       propertyPath: fader
       value: 
-      objectReference: {fileID: 1108511668}
+      objectReference: {fileID: 173457837}
     - target: {fileID: 7130847832425349484, guid: db0f86ff692bd7149aefc9665b87a80a, type: 3}
       propertyPath: bossHpBar
       value: 
@@ -551,17 +619,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 347732498541914689, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
   m_PrefabInstance: {fileID: 407295953}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1108511668 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3861067159381034230, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
-  m_PrefabInstance: {fileID: 2016150025}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae70b770374cdb7419eb76bc52911132, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1121780354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -794,6 +851,14 @@ PrefabInstance:
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 2585764038165362782}
+    - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
+      propertyPath: stageAllSecond
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861067159381034230, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
+      propertyPath: blackImage
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6890006149486929664, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
       propertyPath: m_Name
       value: StageManager
@@ -1111,3 +1176,4 @@ SceneRoots:
   - {fileID: 616374529}
   - {fileID: 6146186332977005561}
   - {fileID: 703128539}
+  - {fileID: 173457836}
