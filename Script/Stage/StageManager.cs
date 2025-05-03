@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class StageManager : MonoBehaviour
 {
@@ -39,12 +40,13 @@ public class StageManager : MonoBehaviour
     float waveElapsedTime = 0f;
     bool isBoss = false;
     bool isSpawnEnemy = true;
+    GameManager gm;
 
     void Start()
     {
         //PlayerModelを作成
-        Instantiate(playerModel);
-
+        InstantiatePlayerModel();
+        
         var playerObj = GameObject.FindWithTag("Core");
         if (playerObj != null)
             playerTransform = playerObj.transform;
@@ -60,8 +62,20 @@ public class StageManager : MonoBehaviour
         StartCoroutine(SpawnRoutine());
     }
 
+    //モデル作成
+    void InstantiatePlayerModel(){
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if(gm != null){
+            Debug.Log("モデル作成");
+            Instantiate(gm.selectedCharacter.playModel);
+        }
+    }
+
     void Update()
     {
+        if(gm == null){
+            InstantiatePlayerModel();
+        }
         // 経過時間をカウント
         allElapsedTime += Time.deltaTime;
         waveElapsedTime += Time.deltaTime;

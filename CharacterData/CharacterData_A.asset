@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: "A\u5B50"
   previewPrefab: {fileID: 6423744637772038115, guid: 60c93494b193a1d4fb314814060a562f, type: 3}
+  playModel: {fileID: 8992174652003795561, guid: 1f1bf5ea0d88b254baa460c3ef7e0d33, type: 3}
   life: 3
   power: 3
   speed: 3
