@@ -53,13 +53,15 @@ public class SoundManager : MonoBehaviour
     // 新規 AudioSource を作って返す
     private AudioSource CreateNewSource(string name, bool loop)
     {
-        GameObject go = new GameObject(name);
-        if (audioRoot != null) go.transform.SetParent(audioRoot);
-        AudioSource src = go.AddComponent<AudioSource>();
+        var go = new GameObject(name);
+        // audioRoot が null のときは必ずこの.transform（＝SoundManager本体）を親に
+        go.transform.SetParent(audioRoot != null ? audioRoot : this.transform);
+        var src = go.AddComponent<AudioSource>();
         src.playOnAwake = false;
         src.loop = loop;
         return src;
     }
+
 
     /// <summary>
     /// SE を再生。既存の空いている AudioSource がなければ新規作成する。

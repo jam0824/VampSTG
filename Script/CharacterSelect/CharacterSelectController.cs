@@ -22,6 +22,14 @@ public class CharacterSelectController : MonoBehaviour
     public Transform speedStarContainer;  // SpeedStars オブジェクト
     public GameObject starPrefab;         // StarIcon Prefab
 
+    [Header("BGM")]
+    [SerializeField] private AudioClip bgm;
+    [SerializeField] private float bgmVol;
+
+    [Header("SE")]
+    [SerializeField] private AudioClip se;
+    [SerializeField] private float seVol = 1f;
+
     // 現在何番が選ばれているか
     int currentIndex = -1;
     GameObject currentPreview;
@@ -38,6 +46,10 @@ public class CharacterSelectController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(iconButtons[0].gameObject);
         // 初回描画のため OnSelect を実行
         OnSelect(0);
+        StartBgm();
+    }
+    void StartBgm(){
+        SoundManager.Instance.PlayBGM(bgm, bgmVol);
     }
 
     void Update()
@@ -79,6 +91,8 @@ public class CharacterSelectController : MonoBehaviour
         UpdateStars(lifeStarContainer, characters[index].life);
         UpdateStars(powerStarContainer, characters[index].power);
         UpdateStars(speedStarContainer, characters[index].speed);
+
+        SoundManager.Instance.PlaySE(se, seVol);
     }
 
     // 指定したコンテナに starPrefab を count 個並べる
