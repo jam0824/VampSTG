@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] public int hp = 10;
+    [SerializeField] public float hp = 10;
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float rotateSpeed = 90f;   // 度/秒
     [SerializeField] float stopDistance = 0.1f;
@@ -70,7 +70,7 @@ public class Enemy : MonoBehaviour
         if (hp <= 0) enemyDie();
     }
 
-    int hit(ConfigPlayerBullet bullet, int enemyHp){
+    float hit(ConfigPlayerBullet bullet, float enemyHp){
         enemyHp -= bullet.getDamage();
         AudioClip hitSe = bullet.hitSe;
         if(hitSe != null) SoundManager.Instance.PlaySE(bullet.hitSe, bullet.hitSeVolume);

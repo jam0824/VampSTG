@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class ConfigPlayerBullet : MonoBehaviour
 {
-    [SerializeField]public int damage = 1;
+    [SerializeField]public float damage = 1;
     [SerializeField]public AudioClip hitSe;
     [SerializeField]public float hitSeVolume;
 
-    public int getDamage(){
+    public float getDamage(){
         return damage;
     }
-    public void setDamage(int damageValue){
+    public void setDamage(float damageValue){
         damage = damageValue;
     }
 }

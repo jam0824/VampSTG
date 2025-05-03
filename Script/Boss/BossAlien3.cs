@@ -3,8 +3,8 @@ using System.Collections;
 
 public class BossAlien3 : MonoBehaviour, IBoss
 {
-    [SerializeField] int hp = 500;
-    int maxHp = 500;
+    [SerializeField] float hp = 500;
+    float maxHp = 500;
 
     public Animator animator;
     [SerializeField] ScatterShooter acidAttackPoint;
