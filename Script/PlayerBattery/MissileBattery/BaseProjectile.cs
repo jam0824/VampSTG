@@ -30,7 +30,7 @@ public class BaseProjectile : MonoBehaviour
 
     void Start()
     {
-		player = GameObject.FindWithTag("Player");
+		player = GameObject.FindWithTag("Core");
         thisTransform = transform;
         position = thisTransform.position;
         startX = position.x;

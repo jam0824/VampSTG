@@ -20,7 +20,7 @@ public class ScatterShooter : MonoBehaviour
     {
         if (player == null)
         {
-            var p = GameObject.FindGameObjectWithTag("Player");
+            var p = GameObject.FindGameObjectWithTag("Core");
             if (p != null) player = p.transform;
         }
     }

@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour
     public int hp = 5;
     public PlayerController playerController;
     public PlayerItemManager playerItemManager;
-    public Animator animator;
+    
 
     [Header("無敵フレーム設定")]
     public float invincibilityDuration = 2f;   // 無敵時間（秒）
@@ -21,6 +21,8 @@ public class PlayerManager : MonoBehaviour
     private int enemyLayer;
     private int oldHp = 0;
     private bool isDead = false;
+    private GameObject playerModel;
+    private Animator animator;
 
     void Start()
     {
@@ -33,6 +35,13 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+        //PlayerModelを取得できるまでループさせる
+        if(playerModel == null){
+            playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
+            animator = playerModel.GetComponent<Animator>();
+        }
+        if(playerModel == null) return;
+
         if (oldHp != hp)
         {
             //HPの表示
@@ -64,6 +73,12 @@ public class PlayerManager : MonoBehaviour
 
             return;
         }
+
+        if (other != null &&
+        (other.CompareTag("Enemy") || other.CompareTag("Boss") || other.CompareTag("EnemyBullet")))
+        {
+            HitEnemy();
+        }
     }
 
     // CoreがEnemyとHitしたときに呼ばれる
@@ -93,7 +108,7 @@ public class PlayerManager : MonoBehaviour
         Physics.IgnoreLayerCollision(playerLayer, enemyLayer, true);
 
         // 点滅用に自キャラの Renderer を取得
-        var renderers = GetComponentsInChildren<Renderer>();
+        var renderers = playerModel.GetComponentsInChildren<Renderer>();
         float elapsed = 0f;
 
         while (elapsed < invincibilityDuration)

@@ -1,26 +1,30 @@
 using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
     [Tooltip("回転にかける時間（秒）")]
     public float turnDuration = 0.2f;
+    
+    [Header("CoreのPlayerModelセットのオフセット")]
+    public Vector3 playerModelOffset;
 
     private Animator animator;
     private bool facingRight = true;
 
     private bool canMove = true;
-
-    void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
+    private GameObject playerModel;
 
     void Update()
     {
+        //PlayerModelを取得できるまでループさせる
+        if(playerModel == null){
+            playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
+            animator = playerModel.GetComponent<Animator>();
+        }
         if(!canMove) return;
+        if(playerModel == null) return;
 
         float zInput = Input.GetAxis("Horizontal");
         float yInput = Input.GetAxis("Vertical");
@@ -51,14 +55,18 @@ public class PlayerController : MonoBehaviour
 
         // 移動
         Vector3 delta = new Vector3(0f, yInput, zInput) * speed * Time.deltaTime;
-        transform.Translate(delta, Space.World);
+
+        transform.Translate(delta, Space.World);    //Coreの移動
+        Vector3 pos = transform.position;
+        pos += playerModelOffset;
+        playerModel.transform.position = pos;
     }
 
     private IEnumerator SmoothTurn(float targetYAngle)
     {
         facingRight = (targetYAngle == 0f);
 
-        Quaternion startRot = transform.rotation;
+        Quaternion startRot = playerModel.transform.rotation;
         Quaternion endRot   = Quaternion.Euler(0f, targetYAngle, 0f);
         float elapsed = 0f;
 
@@ -66,11 +74,13 @@ public class PlayerController : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             float t = Mathf.SmoothStep(0f, 1f, elapsed / turnDuration);
-            transform.rotation = Quaternion.Slerp(startRot, endRot, t);
+            playerModel.transform.rotation = Quaternion.Slerp(startRot, endRot, t);
+            transform.transform.rotation = playerModel.transform.rotation;
             yield return null;
         }
 
-        transform.rotation = endRot;
+        playerModel.transform.rotation = endRot;
+        transform.transform.rotation = endRot;
     }
 
     public void SetCanMove(bool isOkMove){

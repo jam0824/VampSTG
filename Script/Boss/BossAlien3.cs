@@ -46,7 +46,7 @@ public class BossAlien3 : MonoBehaviour, IBoss
     {
         if (animator == null)
             animator = GetComponent<Animator>();
-        playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        playerManager = GameObject.FindGameObjectWithTag("Core").GetComponent<PlayerManager>();
         maxHp = hp;
         SetTagName(tagName);
 

@@ -5,7 +5,7 @@ public class PlayerEffectObj : MonoBehaviour
     //プレイヤーに追従するだけのオブジェクト
     //プレイヤーの点滅でエフェクトがerrorになるので作成
 
-    private GameObject player;
+    private GameObject core;
     void Start()
     {
         
@@ -14,10 +14,10 @@ public class PlayerEffectObj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player == null){
-            player = GameObject.FindWithTag("Player");
+        if(core == null){
+            core = GameObject.FindWithTag("Core");
         }
-        gameObject.transform.position = player.gameObject.transform.position;
+        gameObject.transform.position = core.gameObject.transform.position;
         
     }
 }

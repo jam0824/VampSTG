@@ -40,7 +40,7 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
-        var playerObj = GameObject.FindWithTag("Player");
+        var playerObj = GameObject.FindWithTag("Core");
         if (playerObj != null)
             playerTransform = playerObj.transform;
         else

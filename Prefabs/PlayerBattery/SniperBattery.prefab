@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8722445075276658253}
@@ -52,7 +52,12 @@ MonoBehaviour:
   anglePerStep: 45
   waitTime: 1
   WaitTimeDeltaPerLevel: 0.2
+  waitForShot: 0.5
   bullet: {fileID: 5323963158053952258, guid: b93f2b65aefbed34aa6a9dc8e8274991, type: 3}
+  bulletSe: {fileID: 8300000, guid: 75e7fae4a2e83bd4aadd089a718c99aa, type: 3}
+  bulletSeVolume: 0.5
+  reloadSe: {fileID: 8300000, guid: 656881e5eb6e3fd458f15a5dd2936053, type: 3}
+  reloadSeVolume: 0.5
 --- !u!1001 &2317077273100686080
 PrefabInstance:
   m_ObjectHideFlags: 0
