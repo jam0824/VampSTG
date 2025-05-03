@@ -329,7 +329,7 @@ MonoBehaviour:
   hp: 3
   moveSpeed: 1
   rotateSpeed: 90
-  stopDistance: 0.5
+  stopDistance: 0.1
   explosion: {fileID: 6156958366680951671, guid: e4f62bd3eef8d2e42862fdb2bc2198a5, type: 3}
   offsetExplosionY: 0.5
 --- !u!54 &1430964494029674762
