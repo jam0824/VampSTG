@@ -13,6 +13,7 @@ public class CharacterSelectController : MonoBehaviour
     [Header("UI")]
     public Button[] iconButtons;
     public Transform previewContainer;
+    public TMP_Text nameText;
     public TMP_Text descriptionText;
 
     [Header("Stats UI")]
@@ -72,6 +73,7 @@ public class CharacterSelectController : MonoBehaviour
         */
 
         descriptionText.text = characters[index].description;
+        nameText.text = characters[index].characterName;
 
         // --- 星アイコンの更新 ---
         UpdateStars(lifeStarContainer, characters[index].life);
