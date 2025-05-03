@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78481c4f69c28cc41aeffacc26cc4c90, type: 3}
+  m_Name: Stage1
+  m_EditorClassIdentifier: 
+  missionTitle:
+  - 'Stage1 : Annihilate Enemy Forces Assaulting the Mars Base'
+  - "Stage1 : \u706B\u661F\u57FA\u5730\u306B\u8972\u6765\u3057\u305F\u6575\u3092\u6483\u6EC5\u305B\u3088"
+  sceneName: Stage1
+  previewImage: {fileID: 0}
+  difficulity: 2
+  description:
+  - "0001 Mars Outpost: Enemy forces have infiltrated, inflicting heavy damage. Concentrate
+    all firepower to annihilate. A large energy signature near the core marks the
+    main hostile\u2014acquire and destroy with firepower. Mission is top priority;
+    commence now."
+  - "0001\u706B\u661F\u524D\u54E8\u57FA\u5730\u306B\u3066\u6575\u8972\u6483\u90E8\u968A\u306E\u4FB5\u5165\u3092\u53D7\u3051\u3001\u57FA\u5730\u306F\u751A\u5927\u306A\u88AB\u5BB3\u3092\u88AB\u3063\u3066\u3044\u308B\u3002\u76F4\u3061\u306B\u5168\u706B\u529B\u6226\u529B\u3092\u7D50\u96C6\u3057\u3001\u5727\u5012\u7684\u306A\u706B\u529B\u3067\u6575\u52E2\u529B\u3092\u6483\u6EC5\u305B\u3088\u3002\u306A\u304A\u3001\u57FA\u5730\u4E2D\u5FC3\u90E8\u4ED8\u8FD1\u306B\u304A\u3044\u3066\u5927\u578B\u30A8\u30CD\u30EB\u30AE\u30FC\u53CD\u5FDC\u3092\u4F34\u3046\u6575\u4E3B\u529B\u304C\u78BA\u8A8D\u3055\u308C\u3066\u3044\u308B\u3002\u6A19\u7684\u3092\u78BA\u5B9F\u306B\u6355\u6349\u3057\u3001\u706B\u529B\u5236\u5727\u306B\u3088\u3063\u3066\u78BA\u5B9F\u306B\u6483\u7834\u3092\u5B8C\u9042\u305B\u3088\u3002\u4EFB\u52D9\u5B8C\u9042\u3092\u6700\u512A\u5148\u3068\u3057\u3001\u5373\u6642\u884C\u52D5\u3092\u958B\u59CB\u305B\u3088\u3002"

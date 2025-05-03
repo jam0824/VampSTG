@@ -2100,6 +2100,10 @@ MonoBehaviour:
   powerStarContainer: {fileID: 5321402734235888095}
   speedStarContainer: {fileID: 7842578991513897954}
   starPrefab: {fileID: 5474373893891294234, guid: 84de78b0dd0a55e46a82f5aa0a81c59c, type: 3}
+  bgm: {fileID: 8300000, guid: 5b691245dfb0aca40984fb567db9c4e7, type: 3}
+  bgmVol: 0.8
+  se: {fileID: 8300000, guid: cad1f85814f2e764b902ddc3565c25d2, type: 3}
+  seVol: 1
 --- !u!1 &8109209964552605169
 GameObject:
   m_ObjectHideFlags: 0

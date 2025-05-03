@@ -5,21 +5,19 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System;
 
-public class CharacterSelectController : MonoBehaviour
+public class StageSelectController : MonoBehaviour
 {
     [Header("Data")]
-    public CharacterData[] characters;
+    public StageData[] stages;
 
     [Header("UI")]
     public Button[] iconButtons;
-    public Transform previewContainer;
-    public TMP_Text nameText;
+    public Image missionImage;
+    public TMP_Text missionText;
     public TMP_Text descriptionText;
 
     [Header("Stats UI")]
-    public Transform lifeStarContainer;   // LifeStars オブジェクト
-    public Transform powerStarContainer;  // PowerStars オブジェクト
-    public Transform speedStarContainer;  // SpeedStars オブジェクト
+    public Transform difficultyStarContainer;   // LifeStars オブジェクト
     public GameObject starPrefab;         // StarIcon Prefab
 
     [Header("BGM")]
@@ -32,10 +30,12 @@ public class CharacterSelectController : MonoBehaviour
 
     // 現在何番が選ばれているか
     int currentIndex = -1;
-    GameObject currentPreview;
+    GameManager gm;
 
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         // ボタンクリック時も OnSelect を呼ぶ
         for (int i = 0; i < iconButtons.Length; i++)
         {
@@ -46,7 +46,6 @@ public class CharacterSelectController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(iconButtons[0].gameObject);
         // 初回描画のため OnSelect を実行
         OnSelect(0);
-        StartBgm();
     }
     void StartBgm(){
         SoundManager.Instance.PlayBGM(bgm, bgmVol);
@@ -54,6 +53,10 @@ public class CharacterSelectController : MonoBehaviour
 
     void Update()
     {
+        //GameManagerが見つからなかったら探す。それでも見つからなかったら何もしない
+        if(gm == null) gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if(gm == null) return;
+
         // 1) フォーカス変更を検知して自動的に OnSelect
         var selected = EventSystem.current.currentSelectedGameObject;
         int newIndex = Array.FindIndex(iconButtons, b => b.gameObject == selected);
@@ -65,8 +68,8 @@ public class CharacterSelectController : MonoBehaviour
         // 2) 決定ボタンで次のシーンへ
         if (Input.GetButtonDown("Submit"))
         {
-            GameManager.Instance.selectedCharacter = characters[currentIndex];
-            SceneManager.LoadScene("StageSelect");
+            string sceneName = stages[currentIndex].sceneName;
+            SceneManager.LoadScene(sceneName);
         }
     }
 
@@ -75,22 +78,13 @@ public class CharacterSelectController : MonoBehaviour
         currentIndex = index;
 
         // --- プレビューと説明 ---
-        if (currentPreview) Destroy(currentPreview);
-        currentPreview = Instantiate(characters[index].previewPrefab);
-        /*
-        currentPreview.transform.localPosition = Vector3.zero;
-        currentPreview.transform.localRotation = Quaternion.identity;
-        // 必要であればスケールもリセット
-        currentPreview.transform.localScale = Vector3.one * 5f;
-        */
 
-        descriptionText.text = characters[index].description;
-        nameText.text = characters[index].characterName;
+        descriptionText.text = stages[index].description[gm.languageIndex];
+        missionText.text = stages[index].missionTitle[gm.languageIndex];
+        if(stages[index].previewImage != null) missionImage.sprite = stages[index].previewImage;
 
         // --- 星アイコンの更新 ---
-        UpdateStars(lifeStarContainer, characters[index].life);
-        UpdateStars(powerStarContainer, characters[index].power);
-        UpdateStars(speedStarContainer, characters[index].speed);
+        UpdateStars(difficultyStarContainer, stages[index].difficulty);
 
         SoundManager.Instance.PlaySE(se, seVol);
     }
