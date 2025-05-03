@@ -5,7 +5,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int hp = 10;
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float rotateSpeed = 90f;   // 度/秒
-    [SerializeField] float stopDistance = 0.5f;
+    [SerializeField] float stopDistance = 0.1f;
 
     [SerializeField] GameObject explosion;
     [SerializeField] float offsetExplosionY = 0f;

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CharacterData_B
   m_EditorClassIdentifier: 
   characterName: "B\u5B50"
-  previewPrefab: {fileID: 7650030400307863065, guid: 69fff6d822c7d984f952b04cb5b6bd48, type: 3}
+  previewPrefab: {fileID: 5662266376515120017, guid: cf6687fbdac07394392e1c011e9b386a, type: 3}
   life: 3
   power: 2
   speed: 4
