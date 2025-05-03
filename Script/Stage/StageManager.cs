@@ -29,6 +29,8 @@ public class StageManager : MonoBehaviour
 
     [Header("UI Settings")]
     [SerializeField] ProgressBar progressBar;
+    [Header("PlayerModel")]
+    [SerializeField] public GameObject playerModel;
 
     Transform playerTransform;
     StageWave[] stageWaves;
@@ -40,6 +42,9 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
+        //PlayerModelを作成
+        Instantiate(playerModel);
+
         var playerObj = GameObject.FindWithTag("Core");
         if (playerObj != null)
             playerTransform = playerObj.transform;

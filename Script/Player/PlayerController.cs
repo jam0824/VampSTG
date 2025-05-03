@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
         //PlayerModelを取得できるまでループさせる
         if(playerModel == null){
             playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
+        }
+        if(playerModel != null){
             animator = playerModel.GetComponent<Animator>();
         }
         if(!canMove) return;

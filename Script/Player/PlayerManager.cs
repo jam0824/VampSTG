@@ -38,6 +38,8 @@ public class PlayerManager : MonoBehaviour
         //PlayerModelを取得できるまでループさせる
         if(playerModel == null){
             playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
+        }
+        if(playerModel != null){
             animator = playerModel.GetComponent<Animator>();
         }
         if(playerModel == null) return;

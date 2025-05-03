@@ -344,7 +344,7 @@ MonoBehaviour:
   playerItemManager: {fileID: 368391769}
   invincibilityDuration: 3
   blinkInterval: 0.1
-  effectOffset: 0.7
+  effectOffset: 0
 --- !u!114 &368391772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,82 +360,6 @@ MonoBehaviour:
   speed: 5
   turnDuration: 0.2
   playerModelOffset: {x: 0, y: -0.87, z: 0}
---- !u!1001 &407295953
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2766486381072326523, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2766486381072326523, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2766486381072326523, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2766486381072326523, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2766486381072326523, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2766486381072326523, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2766486381072326523, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2766486381072326523, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2766486381072326523, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2766486381072326523, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3255917917215507905, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_Name
-      value: kagerou
-      objectReference: {fileID: 0}
-    - target: {fileID: 3255917917215507905, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: m_TagString
-      value: PlayerModel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4535974100090043010, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: playerManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7873144817663714877, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8602325983194490352, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-    - {fileID: 7873144817663714877, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-    - {fileID: 97010161282439108, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 328445315273392680, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-    - {fileID: 3782883794007952240, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-    - {fileID: 715527207231986882, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-    - {fileID: 7871888392259053313, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 13c207ae1fea37e498703e04f82fd901, type: 3}
 --- !u!1001 &515625331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1268,6 +1192,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1934417816}
     - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 6155718885946839314, guid: f62125caa80af5d41a500d2cf1f61c69, type: 3}
+    - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 2585764038165362782}
@@ -1599,7 +1527,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1908217490}
-  - {fileID: 407295953}
   - {fileID: 6737252030203735263}
   - {fileID: 515625331}
   - {fileID: 878189672}
