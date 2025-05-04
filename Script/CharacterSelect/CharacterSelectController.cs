@@ -28,25 +28,30 @@ public class CharacterSelectController : MonoBehaviour
 
     [Header("SE")]
     [SerializeField] private AudioClip se;
+    [SerializeField] private AudioClip decisionSe;
     [SerializeField] private float seVol = 1f;
 
     // 現在何番が選ばれているか
     int currentIndex = -1;
     GameObject currentPreview;
+    GameManager gm;
 
     void Start()
     {
-        // ボタンクリック時も OnSelect を呼ぶ
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        // ■ フォーカス変更時だけ OnSelect を呼ぶ
         for (int i = 0; i < iconButtons.Length; i++)
         {
             int idx = i;
-            iconButtons[i].onClick.AddListener(() => OnSelect(idx));
+            // クリックしたときは ConfirmSelection
+            iconButtons[i].onClick.AddListener(() => ConfirmSelection(idx));
         }
         // 最初は 0 番目を明示的に選択
         EventSystem.current.SetSelectedGameObject(iconButtons[0].gameObject);
         // 初回描画のため OnSelect を実行
         OnSelect(0);
-        StartBgm();
+        //StartBgm();
     }
     void StartBgm(){
         SoundManager.Instance.PlayBGM(bgm, bgmVol);
@@ -54,6 +59,10 @@ public class CharacterSelectController : MonoBehaviour
 
     void Update()
     {
+        //GameManagerが見つからなかったら探す。それでも見つからなかったら何もしない
+        if(gm == null) gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        if(gm == null) return;
+
         // 1) フォーカス変更を検知して自動的に OnSelect
         var selected = EventSystem.current.currentSelectedGameObject;
         int newIndex = Array.FindIndex(iconButtons, b => b.gameObject == selected);
@@ -65,8 +74,7 @@ public class CharacterSelectController : MonoBehaviour
         // 2) 決定ボタンで次のシーンへ
         if (Input.GetButtonDown("Submit"))
         {
-            GameManager.Instance.selectedCharacter = characters[currentIndex];
-            SceneManager.LoadScene("StageSelect");
+            ConfirmSelection(currentIndex);
         }
     }
 
@@ -84,8 +92,8 @@ public class CharacterSelectController : MonoBehaviour
         currentPreview.transform.localScale = Vector3.one * 5f;
         */
 
-        descriptionText.text = characters[index].description;
-        nameText.text = characters[index].characterName;
+        descriptionText.text = characters[index].description[gm.languageIndex];
+        nameText.text = characters[index].characterName[gm.languageIndex];
 
         // --- 星アイコンの更新 ---
         UpdateStars(lifeStarContainer, characters[index].life);
@@ -93,6 +101,15 @@ public class CharacterSelectController : MonoBehaviour
         UpdateStars(speedStarContainer, characters[index].speed);
 
         SoundManager.Instance.PlaySE(se, seVol);
+    }
+
+    // クリック or Submit で呼ばれる → 決定音 + 遷移
+    void ConfirmSelection(int index)
+    {
+        currentIndex = index;
+        SoundManager.Instance.PlaySE(decisionSe, seVol);
+        GameManager.Instance.selectedCharacter = characters[currentIndex];
+        SceneManager.LoadScene("StageSelect");
     }
 
     // 指定したコンテナに starPrefab を count 個並べる

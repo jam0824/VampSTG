@@ -31,16 +31,17 @@ public class StageSelectController : MonoBehaviour
     // 現在何番が選ばれているか
     int currentIndex = -1;
     GameManager gm;
+    bool isFirstTime = true;
 
     void Start()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-        // ボタンクリック時も OnSelect を呼ぶ
+        // 決定時はConfirmSelectionを呼ぶ
         for (int i = 0; i < iconButtons.Length; i++)
         {
             int idx = i;
-            iconButtons[i].onClick.AddListener(() => OnSelect(idx));
+            iconButtons[i].onClick.AddListener(() => ConfirmSelection(idx));
         }
         // 最初は 0 番目を明示的に選択
         EventSystem.current.SetSelectedGameObject(iconButtons[0].gameObject);
@@ -68,8 +69,7 @@ public class StageSelectController : MonoBehaviour
         // 2) 決定ボタンで次のシーンへ
         if (Input.GetButtonDown("Submit"))
         {
-            string sceneName = stages[currentIndex].sceneName;
-            SceneManager.LoadScene(sceneName);
+            ConfirmSelection(currentIndex);
         }
     }
 
@@ -85,8 +85,15 @@ public class StageSelectController : MonoBehaviour
 
         // --- 星アイコンの更新 ---
         UpdateStars(difficultyStarContainer, stages[index].difficulty);
+        if(!isFirstTime) SoundManager.Instance.PlaySE(se, seVol);
+        else isFirstTime = true;
+    }
 
-        SoundManager.Instance.PlaySE(se, seVol);
+    void ConfirmSelection(int index)
+    {
+        currentIndex = index;
+        string sceneName = stages[currentIndex].sceneName;
+        SceneManager.LoadScene(sceneName);
     }
 
     // 指定したコンテナに starPrefab を count 個並べる

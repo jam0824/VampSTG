@@ -882,6 +882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemVulcanCanon
       objectReference: {fileID: 0}
+    - target: {fileID: 8981956440422478563, guid: 37574d0bfc5140940915c68c50c238c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -916,6 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a12491ab96ab542aaeb45101f2165f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  languageIndex: 0
   selectedCharacter: {fileID: 11400000, guid: b020568e1acdbc349bd26598efb70e3f, type: 2}
 --- !u!4 &1161182313
 Transform:
@@ -983,6 +988,10 @@ PrefabInstance:
     - target: {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
       propertyPath: m_Name
       value: ItemSniperBattery
+      objectReference: {fileID: 0}
+    - target: {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

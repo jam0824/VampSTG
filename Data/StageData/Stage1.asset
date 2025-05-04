@@ -16,8 +16,8 @@ MonoBehaviour:
   - 'Stage1 : Annihilate Enemy Forces Assaulting the Mars Base'
   - "Stage1 : \u706B\u661F\u57FA\u5730\u306B\u8972\u6765\u3057\u305F\u6575\u3092\u6483\u6EC5\u305B\u3088"
   sceneName: Stage1
-  previewImage: {fileID: 0}
-  difficulity: 2
+  previewImage: {fileID: 21300000, guid: f0324b8caba5f8441896e99600b41904, type: 3}
+  difficulty: 2
   description:
   - "0001 Mars Outpost: Enemy forces have infiltrated, inflicting heavy damage. Concentrate
     all firepower to annihilate. A large energy signature near the core marks the
