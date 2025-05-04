@@ -93,7 +93,9 @@ public class StageSelectController : MonoBehaviour
     {
         currentIndex = index;
         string sceneName = stages[currentIndex].sceneName;
-        SceneManager.LoadScene(sceneName);
+        GameManager.Instance.selectedStageSceneName = sceneName;
+        SoundManager.Instance.StopBGMWithFadeOut(0.5f);
+        FadeManager.FadeToScene("ChangeToStage", FadeColor.Black);
     }
 
     // 指定したコンテナに starPrefab を count 個並べる

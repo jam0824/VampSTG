@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
     public int languageIndex = 0;
     [Header("選択されているキャラクター")]
     public CharacterData selectedCharacter;
+    [Header("選択されているステージのシーン名")]
+    public string selectedStageSceneName;
 
     [Header("音量")]
     public float globalBgmVol = 0.6f;
