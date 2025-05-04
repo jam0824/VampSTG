@@ -34,11 +34,9 @@ public class CharacterSelectController : MonoBehaviour
     // 現在何番が選ばれているか
     int currentIndex = -1;
     GameObject currentPreview;
-    GameManager gm;
 
     void Start()
     {
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         // ■ フォーカス変更時だけ OnSelect を呼ぶ
         for (int i = 0; i < iconButtons.Length; i++)
@@ -59,9 +57,6 @@ public class CharacterSelectController : MonoBehaviour
 
     void Update()
     {
-        //GameManagerが見つからなかったら探す。それでも見つからなかったら何もしない
-        if(gm == null) gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        if(gm == null) return;
 
         // 1) フォーカス変更を検知して自動的に OnSelect
         var selected = EventSystem.current.currentSelectedGameObject;
@@ -92,8 +87,8 @@ public class CharacterSelectController : MonoBehaviour
         currentPreview.transform.localScale = Vector3.one * 5f;
         */
 
-        descriptionText.text = characters[index].description[gm.languageIndex];
-        nameText.text = characters[index].characterName[gm.languageIndex];
+        descriptionText.text = characters[index].description[GameManager.Instance.languageIndex];
+        nameText.text = characters[index].characterName[GameManager.Instance.languageIndex];
 
         // --- 星アイコンの更新 ---
         UpdateStars(lifeStarContainer, characters[index].life);
@@ -109,7 +104,8 @@ public class CharacterSelectController : MonoBehaviour
         currentIndex = index;
         SoundManager.Instance.PlaySE(decisionSe, seVol);
         GameManager.Instance.selectedCharacter = characters[currentIndex];
-        SceneManager.LoadScene("StageSelect");
+        FadeManager.FadeToScene("StageSelect", FadeColor.Black);
+        //SceneManager.LoadScene("StageSelect");
     }
 
     // 指定したコンテナに starPrefab を count 個並べる
