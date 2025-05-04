@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
     [Header("選択されているキャラクター")]
     public CharacterData selectedCharacter;
 
+    [Header("音量")]
+    public float globalBgmVol = 0.6f;
+    public float globalSeVol = 1f;
+
     void Awake()
     {
         if (Instance == null)

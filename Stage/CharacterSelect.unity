@@ -572,6 +572,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 572412596067478770, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      propertyPath: bgmVol
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 572412596067478770, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
       propertyPath: decisionSe
       value: 
       objectReference: {fileID: 8300000, guid: a8575bc1b702b3a468236d83cb3c410b, type: 3}

@@ -51,7 +51,7 @@ public class CharacterSelectController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(iconButtons[0].gameObject);
         // 初回描画のため OnSelect を実行
         OnSelect(0);
-        //StartBgm();
+        StartBgm();
     }
     void StartBgm(){
         SoundManager.Instance.PlayBGM(bgm, bgmVol);

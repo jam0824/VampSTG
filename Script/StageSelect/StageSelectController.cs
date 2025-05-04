@@ -86,7 +86,7 @@ public class StageSelectController : MonoBehaviour
         // --- 星アイコンの更新 ---
         UpdateStars(difficultyStarContainer, stages[index].difficulty);
         if(!isFirstTime) SoundManager.Instance.PlaySE(se, seVol);
-        else isFirstTime = true;
+        else isFirstTime = false;
     }
 
     void ConfirmSelection(int index)

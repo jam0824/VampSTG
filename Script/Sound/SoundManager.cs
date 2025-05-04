@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class SoundManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class SoundManager : MonoBehaviour
 
     // BGM 用 AudioSource
     private AudioSource bgmSource;
+
+    private GameManager gm;
 
     private void Awake()
     {
@@ -62,6 +65,9 @@ public class SoundManager : MonoBehaviour
         return src;
     }
 
+    private void LoadGameManager(){
+        if(gm == null) gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
 
     /// <summary>
     /// SE を再生。既存の空いている AudioSource がなければ新規作成する。
@@ -70,6 +76,7 @@ public class SoundManager : MonoBehaviour
     /// <param name="volume">音量 (0〜1)</param>
     public void PlaySE(AudioClip clip, float volume = 1f)
     {
+        LoadGameManager();
         if (clip == null) return;
 
         // 再生中でないソースを探す
@@ -82,7 +89,7 @@ public class SoundManager : MonoBehaviour
         }
 
         src.clip = clip;
-        src.volume = volume;
+        if(gm != null) src.volume = volume * gm.globalSeVol;
         src.Play();
     }
 
@@ -93,6 +100,7 @@ public class SoundManager : MonoBehaviour
     /// <param name="volume">音量 (0〜1)</param>
     public void PlayBGM(AudioClip clip, float volume = 1f)
     {
+        LoadGameManager();
         if (clip == null) return;
         if (bgmSource.clip == clip && bgmSource.isPlaying)
         {
@@ -100,8 +108,9 @@ public class SoundManager : MonoBehaviour
             return;
         }
         bgmSource.clip = clip;
-        bgmSource.volume = volume;
+        bgmSource.volume = volume * gm.globalBgmVol;
         bgmSource.Play();
+        
     }
 
     /// <summary>
@@ -120,7 +129,9 @@ public class SoundManager : MonoBehaviour
     /// </summary>
     public void PlayBGMWithFadeIn(AudioClip clip, float targetVolume, float duration)
     {
+        LoadGameManager();
         StopAllCoroutines();
+        targetVolume *= gm.globalBgmVol;
         StartCoroutine(FadeInCoroutine(clip, targetVolume, duration));
     }
 
