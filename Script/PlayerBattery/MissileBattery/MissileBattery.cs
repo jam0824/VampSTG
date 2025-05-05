@@ -57,6 +57,7 @@ public class MissileBattery : BaseBattery
     void level1()
     {
         batteryLevel += 1;
+        gameObject.SetActive(true);
         StartCoroutine(AutoShoot());
     }
     void level2()

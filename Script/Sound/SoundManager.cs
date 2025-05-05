@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 
 public class SoundManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private int initialPoolSize = 10;
     [Header("AudioSource の親にする Transform (任意)")]
     [SerializeField] private Transform audioRoot;
+    [Header("SE再生数上限")]
+    [SerializeField] private int maxSimultaneousSE = 10;
+    [SerializeField] private int maxSameAudioClip = 3;
 
     // SE 用プール
     private List<AudioSource> sePool = new List<AudioSource>();
@@ -68,21 +72,28 @@ public class SoundManager : MonoBehaviour
     /// </summary>
     /// <param name="clip">再生する AudioClip</param>
     /// <param name="volume">音量 (0〜1)</param>
-    public void PlaySE(AudioClip clip, float volume = 1f)
+    public void PlaySE(AudioClip clip, float volume = 1f, int priority = 0)
     {
         if (clip == null) return;
 
-        // 再生中でないソースを探す
+        // ①全体の同時再生数チェック
+        int playingCount = sePool.Count(s => s.isPlaying);
+        if (playingCount >= maxSimultaneousSE) return; // ここで上限越えたら無視
+
+        // ②クリップごとの同時再生数チェック（必要なら）
+        int sameClipCount = sePool.Count(s => s.isPlaying && s.clip == clip);
+        if (sameClipCount >= maxSameAudioClip) return; // 同じクリップは３つまで
+
+        // 以下は既存実装と同じ
         AudioSource src = sePool.Find(s => !s.isPlaying);
         if (src == null)
         {
-            // 全部使用中 → 新規作成してプールに追加
-            src = CreateNewSource("SE_Source", loop: false);
+            src = CreateNewSource("SE_Source", false);
             sePool.Add(src);
         }
-
         src.clip = clip;
         src.volume = volume * GameManager.Instance.globalSeVol;
+        src.priority = priority;  // Unity の priority も活用可
         src.Play();
     }
 
@@ -102,7 +113,7 @@ public class SoundManager : MonoBehaviour
         bgmSource.clip = clip;
         bgmSource.volume = volume * GameManager.Instance.globalBgmVol;
         bgmSource.Play();
-        
+
     }
 
     /// <summary>
