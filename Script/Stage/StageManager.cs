@@ -44,7 +44,7 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
-        
+        GameManager.Instance.ResetStageSaveData();  //スコアなどのリセット
         var playerObj = GameObject.FindWithTag("Core");
         if (playerObj != null)
             playerTransform = playerObj.transform;

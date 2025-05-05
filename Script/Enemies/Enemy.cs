@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] public float hp = 10;
+    private float maxHp = 10;
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float rotateSpeed = 90f;   // 度/秒
     [SerializeField] float stopDistance = 0.1f;
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
         var playerObj = GameObject.FindWithTag("Core");
         if (playerObj != null)
             playerTransform = playerObj.transform;
+        maxHp = hp;
     }
 
     void Update()
@@ -86,6 +88,8 @@ public class Enemy : MonoBehaviour
         Vector3 pos = gameObject.transform.position;
         if(offsetExplosionY != 0) pos.y += offsetExplosionY;
         EffectController.Instance.PlaySmallExplosion(pos, gameObject.transform.rotation);
+        AddKillCount();
+        AddScore(maxHp);
         ApearItem(item);
         Destroy(gameObject);
     }
@@ -96,4 +100,14 @@ public class Enemy : MonoBehaviour
         Instantiate(objItem, pos, gameObject.transform.rotation);
         Debug.Log("アイテム出現");
     }
+
+    void AddKillCount(){
+        GameManager.Instance.killCount++;
+        GameManager.Instance.allKillCount++;
+    }
+
+    void AddScore(float maxHp){
+        GameManager.Instance.AddScore(maxHp);
+    }
+
 }

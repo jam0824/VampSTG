@@ -30,4 +30,9 @@ public abstract class BaseBattery : MonoBehaviour, IItem
         StopAllCoroutines();
         return true;
     }
+
+    protected void AddBulletCount(){
+        GameManager.Instance.bulletCount++;
+        GameManager.Instance.allBulletCount++;
+    }
 }

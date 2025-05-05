@@ -209,6 +209,8 @@ public class BossAlien3 : MonoBehaviour, IBoss
         animator.SetTrigger("dead");
         StartCoroutine(RandomExplosionCoroutine());
         StartCoroutine(FadeOut());
+        AddKillCount();
+        AddScore(maxHp);
 
         // 必要ならスクリプト自体を無効化
         this.enabled = false;
@@ -289,5 +291,14 @@ public class BossAlien3 : MonoBehaviour, IBoss
     {
         foreach (Transform t in GetComponentsInChildren<Transform>(includeInactive: true))
             if (t.gameObject.name != missileTargetName) t.gameObject.tag = tag;
+    }
+
+    void AddKillCount(){
+        GameManager.Instance.killCount++;
+        GameManager.Instance.allKillCount++;
+    }
+
+    void AddScore(float maxHp){
+        GameManager.Instance.AddScore(maxHp);
     }
 }

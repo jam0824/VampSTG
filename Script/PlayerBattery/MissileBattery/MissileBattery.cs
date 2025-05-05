@@ -123,7 +123,7 @@ public class MissileBattery : BaseBattery
             {
                 Instantiate(bullet, t.position, t.rotation);
                 SoundManager.Instance.PlaySE(bulletSe, bulletSeVolume);
-
+                AddBulletCount();
                 yield return new WaitForSeconds(bulletBulletInterval);
             }
             yield return new WaitForSeconds(bulletSetInterval);

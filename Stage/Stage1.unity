@@ -635,7 +635,15 @@ MonoBehaviour:
   minZ: -9
   maxY: 6
   minY: -4
+  scoreMagnification: 100
+  itemMagnification: 1000
   playerCore: {fileID: 0}
+  killCount: 0
+  allKillCount: 0
+  score: 0
+  bulletCount: 0
+  allBulletCount: 0
+  itemCount: 0
 --- !u!4 &1161182313
 Transform:
   m_ObjectHideFlags: 0

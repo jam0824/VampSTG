@@ -122,6 +122,7 @@ public class VulcanCanon : BaseBattery
             foreach (Transform t in GetChildTransforms())
             {
                 Instantiate(bullet, t.position, t.rotation);
+                AddBulletCount();
             }
             SoundManager.Instance.PlaySE(bulletSe, bulletSeVolume);
             bulletCount++;
