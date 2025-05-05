@@ -832,7 +832,7 @@ PrefabInstance:
       objectReference: {fileID: 2585764038165362782}
     - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
       propertyPath: stageAllSecond
-      value: 180
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
       propertyPath: items.Array.size
