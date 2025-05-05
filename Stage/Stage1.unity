@@ -588,10 +588,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemVulcanCanon
       objectReference: {fileID: 0}
-    - target: {fileID: 8981956440422478563, guid: 37574d0bfc5140940915c68c50c238c9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -702,10 +698,6 @@ PrefabInstance:
     - target: {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
       propertyPath: m_Name
       value: ItemSniperBattery
-      objectReference: {fileID: 0}
-    - target: {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

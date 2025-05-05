@@ -125,6 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalDuration: 10
   peakHeight: 2
+  moveSpeed: 8
+  stopDistance: 0.1
 --- !u!114 &1584905867682235059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: Vulcan
+  isGet: 0
 --- !u!54 &1298409642269104052
 Rigidbody:
   m_ObjectHideFlags: 0

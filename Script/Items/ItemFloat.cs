@@ -9,7 +9,7 @@ public class ItemFloat : MonoBehaviour
     [Tooltip("頂点（最高点）の高さ（ワールド単位）")]
     public float peakHeight = 2f;
     [Header("PlayerCoreに寄ってくる時のパラメーター")]
-    public float moveSpeed = 5f;
+    public float moveSpeed = 8f;
     public float stopDistance = 0.1f;
 
     private Vector3 _startPos;
@@ -38,6 +38,10 @@ public class ItemFloat : MonoBehaviour
             float yOffset = parabola * peakHeight;
 
             transform.position = _startPos + Vector3.up * yOffset;
+
+            //画面の下までいったら消える。カメラ外時に処理しないのは上に飛んで画面外になることもあるため下限で処理
+            if(transform.position.y < (GameManager.Instance.minY - 1f)) 
+                Destroy(gameObject);
         }
         else
         {

@@ -152,6 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalDuration: 10
   peakHeight: 2
+  moveSpeed: 8
+  stopDistance: 0.1
 --- !u!114 &3905568110025477688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,3 +167,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: Sniper
+  isGet: 0

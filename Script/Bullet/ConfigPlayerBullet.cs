@@ -17,4 +17,10 @@ public class ConfigPlayerBullet : MonoBehaviour
     public void setDamage(float damageValue){
         damage = damageValue;
     }
+
+    //カメラに映らなくなった瞬間に呼ばれる
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

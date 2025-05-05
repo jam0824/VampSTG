@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalDuration: 10
   peakHeight: 2
-  moveSpeed: 5
+  moveSpeed: 8
   stopDistance: 0.1
 --- !u!114 &8715797130873290806
 MonoBehaviour:
