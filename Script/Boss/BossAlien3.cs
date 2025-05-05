@@ -24,13 +24,13 @@ public class BossAlien3 : MonoBehaviour, IBoss
     [SerializeField] AudioClip bgm;
     [SerializeField] float bgmVol = 0.8f;
     [Header("ホーミングミサイルのターゲットオブジェクトのname")]
-    [SerializeField]private string missileTargetName = "MissileTarget";
+    [SerializeField] private string missileTargetName = "MissileTarget";
 
     private bool isDead = false;
     private bool isStart = false;   //スタート演出が終わったか
     private Coroutine attackLoopCoroutine;
     private string tagName = "Boss";
-    
+
 
     private float screenHeight = 6f;
     private PlayerManager playerManager;
@@ -190,8 +190,8 @@ public class BossAlien3 : MonoBehaviour, IBoss
             SoundManager.Instance.PlaySE(bullet.hitSe, bullet.hitSeVolume);
         if (bullet.triggerEffect != null)
         {
-            Instantiate(bullet.triggerEffect, 
-                other.gameObject.transform.position, 
+            Instantiate(bullet.triggerEffect,
+                other.gameObject.transform.position,
                 other.gameObject.transform.rotation);
         }
         if (bullet.isDestroy) Destroy(other.gameObject);
@@ -258,11 +258,22 @@ public class BossAlien3 : MonoBehaviour, IBoss
             float zOffset = (Random.value - 0.5f) * 2f;
             pos.z += zOffset;
 
-            // エフェクト
-            EffectController.Instance.PlayLargeExplosion(
-                pos,
-                transform.rotation
-            );
+            //ランダム爆発
+            float r = Random.value;
+            if (r < 0.3)
+            {
+                EffectController.Instance.PlaySmallExplosion(pos,transform.rotation);
+
+            }
+            else if (r < 0.6)
+            {
+                EffectController.Instance.PlayMiddleExplosion(pos,transform.rotation);
+            }
+            else
+            {
+                EffectController.Instance.PlayLargeExplosion(pos,transform.rotation);
+            }
+
             yield return new WaitForSeconds(0.1f);
         }
     }
@@ -277,6 +288,6 @@ public class BossAlien3 : MonoBehaviour, IBoss
     void SetTagName(string tag)
     {
         foreach (Transform t in GetComponentsInChildren<Transform>(includeInactive: true))
-            if(t.gameObject.name != missileTargetName )t.gameObject.tag = tag;
+            if (t.gameObject.name != missileTargetName) t.gameObject.tag = tag;
     }
 }

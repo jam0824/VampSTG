@@ -493,7 +493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1728734414301923596, guid: 6040f625da83d5a4dbc2fb739e0c7d83, type: 3}
       propertyPath: maxSimultaneousSE
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8971736159576262417, guid: 6040f625da83d5a4dbc2fb739e0c7d83, type: 3}
       propertyPath: m_LocalPosition.x
