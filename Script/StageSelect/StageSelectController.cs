@@ -26,6 +26,7 @@ public class StageSelectController : MonoBehaviour
 
     [Header("SE")]
     [SerializeField] private AudioClip se;
+    [SerializeField] private AudioClip decisionSe;
     [SerializeField] private float seVol = 1f;
 
     // 現在何番が選ばれているか
@@ -91,6 +92,7 @@ public class StageSelectController : MonoBehaviour
 
     void ConfirmSelection(int index)
     {
+        SoundManager.Instance.PlaySE(decisionSe, seVol);
         currentIndex = index;
         string sceneName = stages[currentIndex].sceneName;
         GameManager.Instance.selectedStageSceneName = sceneName;

@@ -25,8 +25,24 @@ public class RotateWithPause : MonoBehaviour,IItem
     [SerializeField] private AudioClip reloadSe;
     [SerializeField] private float reloadSeVolume = 0.5f;
 
+    public float powerMagnification = 1f;
+    private ConfigPlayerBullet configPlayerBullet;
 
-    public void getItem(){
+    void Start()
+    {
+        configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
+    }
+
+    void SetMagnification(float magnification){
+        //攻撃力倍率を取得し、bullet側にセット
+        powerMagnification = magnification;
+        if(configPlayerBullet == null) configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
+        configPlayerBullet.powerMagnification = powerMagnification;
+    }
+
+
+    public void getItem(float magnification){
+        SetMagnification(magnification);
         switch(batteryLevel){
             case 0:
                 level1();

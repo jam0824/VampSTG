@@ -20,6 +20,7 @@ MonoBehaviour:
   life: 3
   power: 3
   speed: 3
+  initialItem: Vulcan
   description:
   - KAGEROU
   - "\u967D\u708E"

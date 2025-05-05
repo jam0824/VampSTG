@@ -20,6 +20,7 @@ MonoBehaviour:
   life: 3
   power: 2
   speed: 4
+  initialItem: Sniper
   description:
   - AMAGATSU
   - "\u5929\u5150"

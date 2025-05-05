@@ -651,33 +651,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2827942209405259890, guid: 8dc9a293e07f7074aabb74223de35a69, type: 3}
-      propertyPath: m_Transition
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2827942209405259890, guid: 8dc9a293e07f7074aabb74223de35a69, type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 35b263ca75c769b46b1290f8d1953677, type: 3}
-    - target: {fileID: 2827942209405259890, guid: 8dc9a293e07f7074aabb74223de35a69, type: 3}
-      propertyPath: m_SpriteState.m_DisabledSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f0324b8caba5f8441896e99600b41904, type: 3}
-    - target: {fileID: 2827942209405259890, guid: 8dc9a293e07f7074aabb74223de35a69, type: 3}
-      propertyPath: m_SpriteState.m_SelectedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 35b263ca75c769b46b1290f8d1953677, type: 3}
-    - target: {fileID: 2827942209405259890, guid: 8dc9a293e07f7074aabb74223de35a69, type: 3}
-      propertyPath: m_SpriteState.m_HighlightedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 35b263ca75c769b46b1290f8d1953677, type: 3}
     - target: {fileID: 9194915009078309774, guid: 8dc9a293e07f7074aabb74223de35a69, type: 3}
       propertyPath: m_Name
       value: StageMainCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3875667949977271356, guid: 8dc9a293e07f7074aabb74223de35a69, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dc9a293e07f7074aabb74223de35a69, type: 3}

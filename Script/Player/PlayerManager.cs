@@ -15,6 +15,9 @@ public class PlayerManager : MonoBehaviour
     [Header("エフェクトのオフセット")]
     [SerializeField] private float effectOffset = 0.7f;
 
+    [Header("星と倍率のオフセット(星3が1倍)")]
+    [SerializeField] private float baseStarOffset = 3f;
+
     private bool isInvincible = false;
     private Collider playerCollider;
     private int playerLayer;
@@ -24,6 +27,10 @@ public class PlayerManager : MonoBehaviour
     private GameObject playerModel;
     private Animator animator;
 
+    public float powerMagnification = 1f;
+    public float speedMagnification = 1f;
+
+
     void Start()
     {
         playerCollider = GetComponent<Collider>();
@@ -31,6 +38,18 @@ public class PlayerManager : MonoBehaviour
         playerLayer = LayerMask.NameToLayer("Player");
         enemyLayer = LayerMask.NameToLayer("Enemy");
 
+        InitializePlayer();
+
+    }
+
+    //CharacterDataのパラメーター反映
+    void InitializePlayer(){
+        CharacterData characterData = GameManager.Instance.selectedCharacter;
+        hp = characterData.life;
+        powerMagnification = characterData.power / baseStarOffset;
+        speedMagnification = characterData.speed / baseStarOffset;
+        playerController.speed *= speedMagnification;
+        playerItemManager.getItem(characterData.initialItem, powerMagnification);
     }
 
     void Update()
@@ -69,7 +88,7 @@ public class PlayerManager : MonoBehaviour
             if (cfg.isGet) return;
             cfg.isGet = true;
             Debug.Log("アイテムゲット：" + cfg.itemType);
-            playerItemManager.getItem(cfg.itemType);
+            playerItemManager.getItem(cfg.itemType, powerMagnification);
             Destroy(other.gameObject);
             EffectController.Instance.PlayPowerUp(gameObject.transform.position);
 

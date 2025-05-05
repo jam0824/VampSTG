@@ -34,6 +34,7 @@ public class CharacterSelectController : MonoBehaviour
     // 現在何番が選ばれているか
     int currentIndex = -1;
     GameObject currentPreview;
+    bool isFirstTime = true;
 
     void Start()
     {
@@ -95,7 +96,8 @@ public class CharacterSelectController : MonoBehaviour
         UpdateStars(powerStarContainer, characters[index].power);
         UpdateStars(speedStarContainer, characters[index].speed);
 
-        SoundManager.Instance.PlaySE(se, seVol);
+        if(!isFirstTime) SoundManager.Instance.PlaySE(se, seVol);
+        else isFirstTime = false;
     }
 
     // クリック or Submit で呼ばれる → 決定音 + 遷移

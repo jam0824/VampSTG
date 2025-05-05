@@ -13,6 +13,8 @@ public class CharacterData : ScriptableObject
     public int life;
     public int power;
     public int speed;
+    [Header("初期装備")]
+    public string initialItem;
     [Header("説明:0英語1日本語")]
     [TextArea] public string[] description; // 説明テキスト
 }

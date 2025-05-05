@@ -5,7 +5,7 @@ public interface IItem
 {
     string itemType{get;}
     int batteryLevel{get; set;}
-    void getItem();
+    void getItem(float powerMagnification);
 
     bool SetActive(bool isActive);
 
