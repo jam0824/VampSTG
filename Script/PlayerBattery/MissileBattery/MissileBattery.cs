@@ -21,10 +21,7 @@ public class MissileBattery : BaseBattery
     public override float powerMagnification{get;set;} = 1f;
     public override ConfigPlayerBullet configPlayerBullet{get;set;}
 
-	void Start()
-	{
-        StartCoroutine(AutoShoot());
-	}
+
     public override void getItem(float magnification){
         SetMagnification(magnification);
         switch (batteryLevel)

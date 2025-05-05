@@ -5,11 +5,11 @@ public class ItemFloat : MonoBehaviour
 {
     [Header("移動設定")]
     [Tooltip("上下あわせた移動にかける総時間（秒）")]
-    public float totalDuration = 3f;
+    public float totalDuration = 10f;
     [Tooltip("頂点（最高点）の高さ（ワールド単位）")]
-    public float peakHeight = 1f;
+    public float peakHeight = 2f;
     [Header("PlayerCoreに寄ってくる時のパラメーター")]
-    public float moveSpeed = 3f;
+    public float moveSpeed = 5f;
     public float stopDistance = 0.1f;
 
     private Vector3 _startPos;
