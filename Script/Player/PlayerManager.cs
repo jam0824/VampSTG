@@ -31,8 +31,10 @@ public class PlayerManager : MonoBehaviour
     public float powerMagnification = 1f;
     public float speedMagnification = 1f;
 
+
     void Start()
     {
+        playerModel = Instantiate(GameManager.Instance.selectedCharacter.playModel);  //PlayerModelを作成
         GameManager.Instance.playerCore = gameObject;
         playerCollider = GetComponent<Collider>();
         // レイヤー名はプロジェクト側で設定しておくこと

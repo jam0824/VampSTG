@@ -44,8 +44,6 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
-        //PlayerModelを作成
-        InstantiatePlayerModel();
         
         var playerObj = GameObject.FindWithTag("Core");
         if (playerObj != null)
@@ -62,20 +60,8 @@ public class StageManager : MonoBehaviour
         StartCoroutine(SpawnRoutine());
     }
 
-    //モデル作成
-    void InstantiatePlayerModel(){
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        if(gm != null){
-            Debug.Log("モデル作成");
-            Instantiate(gm.selectedCharacter.playModel);
-        }
-    }
-
     void Update()
     {
-        if(gm == null){
-            InstantiatePlayerModel();
-        }
         // 経過時間をカウント
         allElapsedTime += Time.deltaTime;
         waveElapsedTime += Time.deltaTime;
