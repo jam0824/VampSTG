@@ -9,6 +9,8 @@ public class CharacterData : ScriptableObject
     public GameObject previewPrefab;      // 3D モデルのプレハブ
     [Header("ゲーム中で使うモデル")]
     public GameObject playModel;
+    [Header("モデルにCore配置のオフセット")]
+    public Vector3 playerModelOffset;
     [Header("パラメーター")]
     public int life;
     public int power;

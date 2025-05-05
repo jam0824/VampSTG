@@ -54,6 +54,7 @@ public class PlayerManager : MonoBehaviour
         speedMagnification = characterData.speed / baseStarOffset;
         playerController.speed *= speedMagnification;
         sc.radius *= characterData.pickupRange / baseStarOffset;
+        playerController.playerModelOffset = characterData.playerModelOffset;
         playerItemManager.getItem(characterData.initialItem, powerMagnification);
     }
 

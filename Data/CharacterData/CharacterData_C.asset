@@ -17,6 +17,7 @@ MonoBehaviour:
   - "C\u5B50"
   previewPrefab: {fileID: 7085209118935320611, guid: 89d7c4f8e6117f645847d44fa104770b, type: 3}
   playModel: {fileID: 0}
+  playerModelOffset: {x: 0, y: -0.87, z: 0}
   life: 4
   power: 1
   speed: 5
