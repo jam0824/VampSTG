@@ -19552,6 +19552,7 @@ GameObject:
   - component: {fileID: 8607921791138985096}
   - component: {fileID: 924479988519085387}
   - component: {fileID: 1860252587409460441}
+  - component: {fileID: -193466888135947707}
   m_Layer: 0
   m_Name: FX_explosion_air_02_a
   m_TagString: Untagged
@@ -24473,6 +24474,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-193466888135947707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2725187962972586772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1eeee752173cd74583cd4a2bfaeb920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deleteTime: 2
 --- !u!1 &3096903971227318792
 GameObject:
   m_ObjectHideFlags: 0

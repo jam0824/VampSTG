@@ -5,6 +5,9 @@ public abstract class BaseBattery : MonoBehaviour, IItem
     public abstract string itemType{get;}
     public abstract int batteryLevel{get; set;}
     public abstract void getItem(float powerMagnification);
+    public abstract float powerMagnification{get; set;}
+    public abstract ConfigPlayerBullet configPlayerBullet{get;set;}
+
 
     protected bool SetActiveChild(string childName){
         Transform child = transform.Find(childName);

@@ -1,41 +1,46 @@
 using UnityEngine;
 using System.Collections;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class VulcanCanon : BaseBattery
 {
     public override string itemType => "vulcan";
-    public GameObject bullet;
-    public override int batteryLevel{get;set;} = 0;
+    [SerializeField] public GameObject bullet;
+    public override int batteryLevel { get; set; } = 0;
     public float bulletInterval = 0.1f;   // 通常の連射間隔
 
     public int pauseAfterShots = 50;      // 何発撃ったらポーズ
     public float pauseDuration = 1f;      // ポーズ時間（秒）
-    public float powerMagnification = 1f;
+    public override float powerMagnification { get; set; } = 1f;
     [Header("効果音")]
     [SerializeField] private AudioClip bulletSe;
     [SerializeField] private float bulletSeVolume = 0.5f;
     [SerializeField] private AudioClip reloadSe;
     [SerializeField] private float reloadSeVolume = 0.5f;
 
-    private ConfigPlayerBullet configPlayerBullet;
+    public override ConfigPlayerBullet configPlayerBullet { get; set; }
 
     void Start()
     {
         configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
     }
-
-    void SetMagnification(float magnification){
+    protected void SetMagnification(float magnification)
+    {
         //攻撃力倍率を取得し、bullet側にセット
         powerMagnification = magnification;
-        if(configPlayerBullet == null) configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
+        if (configPlayerBullet == null) configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
         configPlayerBullet.powerMagnification = powerMagnification;
     }
 
-    public override void getItem(float magnification){
+
+
+    public override void getItem(float magnification)
+    {
         SetMagnification(magnification);
 
-        switch(batteryLevel){
+        switch (batteryLevel)
+        {
             case 0:
                 level1();
                 break;
@@ -59,41 +64,49 @@ public class VulcanCanon : BaseBattery
                 break;
             case 7:
                 level8();
-                break; 
+                break;
             default:
-                break;          
+                break;
         }
 
     }
-    void level1(){
+    void level1()
+    {
         batteryLevel += 1;
         StartCoroutine(AutoShoot());
     }
-    void level2(){
+    void level2()
+    {
         batteryLevel += 1;
         SetActiveChild("Battery2");
     }
-    void level3(){
+    void level3()
+    {
         batteryLevel += 1;
         pauseAfterShots += 50;
     }
-    void level4(){
+    void level4()
+    {
         batteryLevel += 1;
         SetActiveChild("Battery3");
     }
-    void level5(){
+    void level5()
+    {
         batteryLevel += 1;
         SetActiveChild("Battery4");
     }
-    void level6(){
+    void level6()
+    {
         batteryLevel += 1;
         pauseAfterShots += 50;
     }
-    void level7(){
+    void level7()
+    {
         batteryLevel += 1;
         SetActiveChild("Battery5");
     }
-    void level8(){
+    void level8()
+    {
         batteryLevel += 1;
         SetActiveChild("Battery6");
         SetActiveChild("Battery7");

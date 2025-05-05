@@ -55,12 +55,6 @@ public class BaseProjectile : MonoBehaviour
                 break;    // 見つかったらループを抜ける
             }
         }
-
-        // 最後に見つからなかった場合の処理
-        if (targetObj == null)
-        {
-            Debug.LogWarning("どのタグにも一致するオブジェクトが見つかりませんでした。");
-        }
         return targetObj;
     }
 

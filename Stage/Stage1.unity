@@ -774,9 +774,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919627100966430625, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_Name
+      value: Battery3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919627100966430625, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363626648447613638, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_Name
+      value: Battery7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363626648447613638, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4575332177928448130, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
       propertyPath: spawnCount
-      value: 8
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741037262320250869, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_Name
+      value: Battery1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712028160598290745, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_Name
+      value: Battery6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712028160598290745, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252655770822640153, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_Name
+      value: Battery5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252655770822640153, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870799783604680647, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_Name
+      value: Battery2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7870799783604680647, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294828451787236840, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_Name
+      value: Battery4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8294828451787236840, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352505727794487172, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_Name
+      value: Battery8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352505727794487172, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
