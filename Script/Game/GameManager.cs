@@ -13,6 +13,14 @@ public class GameManager : MonoBehaviour
     public float globalBgmVol = 0.6f;
     public float globalSeVol = 1f;
 
+    [Header("移動範囲")]
+    public float maxZ = 9f;
+    public float minZ = -9f;
+    public float maxY = 6f;
+    public float minY = -4f;
+
+    public GameObject playerCore;
+
     void Awake()
     {
         if (Instance == null)

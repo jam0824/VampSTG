@@ -20,6 +20,8 @@ public class CharacterSelectController : MonoBehaviour
     public Transform lifeStarContainer;   // LifeStars オブジェクト
     public Transform powerStarContainer;  // PowerStars オブジェクト
     public Transform speedStarContainer;  // SpeedStars オブジェクト
+    public Transform picupStarContainer;  // PicupRangeStars オブジェクト
+
     public GameObject starPrefab;         // StarIcon Prefab
 
     [Header("BGM")]
@@ -95,6 +97,7 @@ public class CharacterSelectController : MonoBehaviour
         UpdateStars(lifeStarContainer, characters[index].life);
         UpdateStars(powerStarContainer, characters[index].power);
         UpdateStars(speedStarContainer, characters[index].speed);
+        UpdateStars(picupStarContainer, characters[index].pickupRange);
 
         if(!isFirstTime) SoundManager.Instance.PlaySE(se, seVol);
         else isFirstTime = false;
@@ -113,6 +116,7 @@ public class CharacterSelectController : MonoBehaviour
     // 指定したコンテナに starPrefab を count 個並べる
     void UpdateStars(Transform container, int count)
     {
+        Debug.Log(container.position.y);
         // 1) 既存の星を全削除
         foreach (Transform child in container)
         {

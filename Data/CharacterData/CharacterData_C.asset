@@ -19,7 +19,8 @@ MonoBehaviour:
   playModel: {fileID: 0}
   life: 4
   power: 1
-  speed: 4
+  speed: 5
+  pickupRange: 2
   initialItem: MIssile
   description:
   - CCCCC

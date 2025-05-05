@@ -70,8 +70,15 @@ public class PlayerController : MonoBehaviour
 
         // 移動
         Vector3 delta = new Vector3(0f, yInput, zInput) * speed * Time.deltaTime;
-
         transform.Translate(delta, Space.World);
+
+        // 移動範囲を制限
+        Vector3 clampedPos = transform.position;
+        clampedPos.z = Mathf.Clamp(clampedPos.z, GameManager.Instance.minZ, GameManager.Instance.maxZ);
+        clampedPos.y = Mathf.Clamp(clampedPos.y, GameManager.Instance.minY, GameManager.Instance.maxY);
+        transform.position = clampedPos;
+
+
         Vector3 pos = transform.position + playerModelOffset;
         playerModel.transform.position = pos;
     }

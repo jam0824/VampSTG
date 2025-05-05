@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
     public int hp = 5;
     public PlayerController playerController;
     public PlayerItemManager playerItemManager;
+    public GameObject itemCollectionArea;
     
 
     [Header("無敵フレーム設定")]
@@ -30,25 +31,27 @@ public class PlayerManager : MonoBehaviour
     public float powerMagnification = 1f;
     public float speedMagnification = 1f;
 
-
     void Start()
     {
+        GameManager.Instance.playerCore = gameObject;
         playerCollider = GetComponent<Collider>();
         // レイヤー名はプロジェクト側で設定しておくこと
         playerLayer = LayerMask.NameToLayer("Player");
         enemyLayer = LayerMask.NameToLayer("Enemy");
 
         InitializePlayer();
-
     }
 
     //CharacterDataのパラメーター反映
     void InitializePlayer(){
         CharacterData characterData = GameManager.Instance.selectedCharacter;
+        SphereCollider sc = itemCollectionArea.GetComponent<SphereCollider>();
+ 
         hp = characterData.life;
         powerMagnification = characterData.power / baseStarOffset;
         speedMagnification = characterData.speed / baseStarOffset;
         playerController.speed *= speedMagnification;
+        sc.radius *= characterData.pickupRange / baseStarOffset;
         playerItemManager.getItem(characterData.initialItem, powerMagnification);
     }
 
