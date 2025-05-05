@@ -17,9 +17,9 @@ MonoBehaviour:
   - "\u5929\u5150(AMAGATSU)"
   previewPrefab: {fileID: 5662266376515120017, guid: cf6687fbdac07394392e1c011e9b386a, type: 3}
   playModel: {fileID: 6155718885946839314, guid: f62125caa80af5d41a500d2cf1f61c69, type: 3}
-  life: 3
-  power: 2
-  speed: 4
+  life: 2
+  power: 5
+  speed: 2
   initialItem: Sniper
   description:
   - AMAGATSU

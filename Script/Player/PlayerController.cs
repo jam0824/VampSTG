@@ -18,32 +18,45 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //PlayerModelを取得できるまでループさせる
-        if(playerModel == null){
+        // PlayerModelを取得できるまでループ
+        if (playerModel == null)
+        {
             playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
         }
-        if(playerModel != null){
+        if (playerModel != null && animator == null)
+        {
             animator = playerModel.GetComponent<Animator>();
         }
-        if(!canMove) return;
-        if(playerModel == null) return;
+        if (!canMove || playerModel == null) return;
 
         float zInput = Input.GetAxis("Horizontal");
         float yInput = Input.GetAxis("Vertical");
         bool isShooting = Input.GetKey(KeyCode.Z) || Input.GetButton("Fire1");
 
         // “前進”／“後退”を向いている方向基準で判定
-        bool movingForward  = (facingRight && zInput >= 0f)  || (!facingRight && zInput < 0f);
+        bool movingForward  = (facingRight && zInput > 0f)  || (!facingRight && zInput < 0f);
         bool movingBackward = (facingRight && zInput < 0f)  || (!facingRight && zInput > 0f);
 
+        // 移動判定
+        bool isMoving = Mathf.Abs(zInput) > 0f || Mathf.Abs(yInput) > 0f;
+
         // アニメーション
-        if (movingForward)
+        if (isMoving)
         {
-            animator.SetTrigger("Front");
+            if (movingForward)
+            {
+                animator.SetTrigger("Front");
+            }
+            else if (isShooting && movingBackward)
+            {
+                animator.SetTrigger("Back");
+            }
+            // 他の移動方向アニメーションが必要ならここに追加
         }
-        if (isShooting && movingBackward)
+        else
         {
-            animator.SetTrigger("Back");
+            // 移動していないときは Idle
+            animator.SetTrigger("Idle");
         }
 
         // 向き転換（撃っていないときのみ）
@@ -58,9 +71,8 @@ public class PlayerController : MonoBehaviour
         // 移動
         Vector3 delta = new Vector3(0f, yInput, zInput) * speed * Time.deltaTime;
 
-        transform.Translate(delta, Space.World);    //Coreの移動
-        Vector3 pos = transform.position;
-        pos += playerModelOffset;
+        transform.Translate(delta, Space.World);
+        Vector3 pos = transform.position + playerModelOffset;
         playerModel.transform.position = pos;
     }
 
@@ -77,15 +89,16 @@ public class PlayerController : MonoBehaviour
             elapsed += Time.deltaTime;
             float t = Mathf.SmoothStep(0f, 1f, elapsed / turnDuration);
             playerModel.transform.rotation = Quaternion.Slerp(startRot, endRot, t);
-            transform.transform.rotation = playerModel.transform.rotation;
+            transform.rotation = playerModel.transform.rotation;
             yield return null;
         }
 
         playerModel.transform.rotation = endRot;
-        transform.transform.rotation = endRot;
+        transform.rotation = endRot;
     }
 
-    public void SetCanMove(bool isOkMove){
+    public void SetCanMove(bool isOkMove)
+    {
         canMove = isOkMove;
     }
 }
