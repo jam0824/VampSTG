@@ -6,57 +6,64 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     [Tooltip("回転にかける時間（秒）")]
     public float turnDuration = 0.2f;
-    
+
     [Header("CoreのPlayerModelセットのオフセット")]
     public Vector3 playerModelOffset;
 
+    [Header("Idle時の浮遊設定")]
+    [Tooltip("浮遊の振幅")]
+    public float floatAmplitude = 0.05f;
+    [Tooltip("浮遊の速さ（Hz）")]
+    public float floatFrequency = 0.5f;
+
     private Animator animator;
     private bool facingRight = true;
-
     private bool canMove = true;
     private GameObject playerModel;
+
+    // 現在のアニメーション状態を記録
+    private string lastAnim = string.Empty;
 
     void Update()
     {
         // PlayerModelを取得できるまでループ
         if (playerModel == null)
-        {
             playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
-        }
         if (playerModel != null && animator == null)
-        {
             animator = playerModel.GetComponent<Animator>();
-        }
         if (!canMove || playerModel == null) return;
 
         float zInput = Input.GetAxis("Horizontal");
         float yInput = Input.GetAxis("Vertical");
         bool isShooting = Input.GetKey(KeyCode.Z) || Input.GetButton("Fire1");
 
-        // “前進”／“後退”を向いている方向基準で判定
+        // 向き基準の前進／後退判定
         bool movingForward  = (facingRight && zInput > 0f)  || (!facingRight && zInput < 0f);
         bool movingBackward = (facingRight && zInput < 0f)  || (!facingRight && zInput > 0f);
 
         // 移動判定
         bool isMoving = Mathf.Abs(zInput) > 0f || Mathf.Abs(yInput) > 0f;
 
-        // アニメーション
+        // 新しいアニメーション状態を決定
+        string newAnim = string.Empty;
         if (isMoving)
         {
             if (movingForward)
-            {
-                animator.SetTrigger("Front");
-            }
+                newAnim = "Front";
             else if (isShooting && movingBackward)
-            {
-                animator.SetTrigger("Back");
-            }
-            // 他の移動方向アニメーションが必要ならここに追加
+                newAnim = "Back";
+            // 他の方向アニメーションがあればここで設定
         }
         else
         {
-            // 移動していないときは Idle
-            animator.SetTrigger("Idle");
+            newAnim = "Idle";
+        }
+
+        // 状態が変わったときだけトリガーを叩く
+        if (!string.IsNullOrEmpty(newAnim) && newAnim != lastAnim)
+        {
+            animator.SetTrigger(newAnim);
+            lastAnim = newAnim;
         }
 
         // 向き転換（撃っていないときのみ）
@@ -68,19 +75,24 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(SmoothTurn(180f));
         }
 
-        // 移動
+        // 実際の移動
         Vector3 delta = new Vector3(0f, yInput, zInput) * speed * Time.deltaTime;
         transform.Translate(delta, Space.World);
 
-        // 移動範囲を制限
+        // 移動範囲制限
         Vector3 clampedPos = transform.position;
         clampedPos.z = Mathf.Clamp(clampedPos.z, GameManager.Instance.minZ, GameManager.Instance.maxZ);
         clampedPos.y = Mathf.Clamp(clampedPos.y, GameManager.Instance.minY, GameManager.Instance.maxY);
         transform.position = clampedPos;
 
-
-        Vector3 pos = transform.position + playerModelOffset;
-        playerModel.transform.position = pos;
+        // モデル配置＋停止時の浮遊
+        Vector3 basePos = transform.position + playerModelOffset;
+        if (!isMoving)
+        {
+            float yOffset = Mathf.Sin(Time.time * Mathf.PI * 2f * floatFrequency) * floatAmplitude;
+            basePos.y += yOffset;
+        }
+        playerModel.transform.position = basePos;
     }
 
     private IEnumerator SmoothTurn(float targetYAngle)
