@@ -9949,6 +9949,8 @@ MonoBehaviour:
   damage: 20
   hitSe: {fileID: 0}
   hitSeVolume: 0
+  isDestroy: 0
+  powerMagnification: 1
 --- !u!1 &5545296564608125107
 GameObject:
   m_ObjectHideFlags: 0

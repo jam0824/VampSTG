@@ -66,6 +66,10 @@ public class Enemy : MonoBehaviour
         else if(other.CompareTag("PlayerBullet")){
             if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
             hp = hit(bullet, hp);
+            if(bullet.triggerEffect != null) {
+                Instantiate(bullet.triggerEffect, other.gameObject.transform.position, other.gameObject.transform.rotation);
+            }
+            if(bullet.isDestroy) Destroy(other.gameObject);
         }
         if (hp <= 0) enemyDie();
     }

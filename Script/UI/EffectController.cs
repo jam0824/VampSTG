@@ -10,6 +10,11 @@ public class EffectController : MonoBehaviour
     [SerializeField] AudioClip[] smallExplosionSes;
     [SerializeField] float smallExplosionSeVolume = 0.5f;
 
+    [Header("Middle Explosion")]
+    [SerializeField] GameObject[] middleExplosions;
+    [SerializeField] AudioClip[] middleExplosionSes;
+    [SerializeField] float middleExplosionSeVolume = 0.5f;
+
     [Header("Large Explosion")]
     [SerializeField] GameObject[] largeExplosions;
     [SerializeField] AudioClip[] largeExplosionSes;
@@ -48,6 +53,15 @@ public class EffectController : MonoBehaviour
             smallExplosions,
             smallExplosionSes,
             smallExplosionSeVolume);
+    }
+
+    public void PlayMiddleExplosion(Vector3 pos, Quaternion rot){
+        PlayExplosion(
+            pos, 
+            rot,
+            middleExplosions,
+            middleExplosionSes,
+            middleExplosionSeVolume);
     }
 
     public void PlayLargeExplosion(Vector3 pos, Quaternion rot){

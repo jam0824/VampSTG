@@ -5015,7 +5015,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d54dec29399e6240849d78163eec3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag: Enemy
+  targetTags:
+  - Boss
+  - Enemy
   lifeTime: 5
   initialVelocity: {x: 0, y: 0, z: -10}
   minInitialVelocity: {x: -10, y: -10, z: 0}
@@ -5038,6 +5040,9 @@ MonoBehaviour:
   damage: 10
   hitSe: {fileID: 0}
   hitSeVolume: 0
+  triggerEffect: {fileID: 1635767044557362770, guid: ef5a93fb249cdec4dbc9e8f95f4a4c42, type: 3}
+  isDestroy: 1
+  powerMagnification: 1
 --- !u!54 &3600613793846675964
 Rigidbody:
   m_ObjectHideFlags: 0

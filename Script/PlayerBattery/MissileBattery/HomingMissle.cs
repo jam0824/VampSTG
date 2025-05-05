@@ -12,10 +12,11 @@ public sealed class HomingMissle : BaseProjectile
     protected override void AddForce()
     {
 		if(target == null){
-            GameObject targetGameObj = GameObject.FindGameObjectWithTag(targetTag);
-            if(targetGameObj == null) return;
-			target = GameObject.FindGameObjectWithTag(targetTag).transform;
+            GameObject targetGameObj = GetTargetObj(targetTags);
+            if (targetGameObj != null) target = targetGameObj.transform;
 		}
+        if(target == null) return;
+
         // ターゲットとの差分を計算し、X成分は無視（0固定）
         Vector3 diff = target.position - position;
         diff.x = 0f;
@@ -46,5 +47,14 @@ public sealed class HomingMissle : BaseProjectile
         {
             isHit = true;
         }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        
+        if((other.CompareTag("Enemy")) || (other.CompareTag("Boss"))){
+            EffectController.Instance.PlayMiddleExplosion(transform.position, transform.rotation);
+        }
+        
     }
 }

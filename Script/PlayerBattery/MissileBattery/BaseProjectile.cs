@@ -5,7 +5,7 @@ public class BaseProjectile : MonoBehaviour
 {
     [Header("基本設定")]
     [SerializeField, Tooltip("ターゲットのタグ")]
-    protected string targetTag = "Player";
+    protected string[] targetTags;
     [SerializeField, Min(0.01f), Tooltip("弾の生存時間")]
     float lifeTime = 3f;
 
@@ -26,19 +26,42 @@ public class BaseProjectile : MonoBehaviour
 
     float startX;
 
-	GameObject player;
+    GameObject player;
 
     void Start()
     {
-		player = GameObject.FindWithTag("Core");
+        player = GameObject.FindWithTag("Core");
         thisTransform = transform;
         position = thisTransform.position;
         startX = position.x;
-        GameObject targetObj = GameObject.FindGameObjectWithTag(targetTag);
-        if(targetObj != null) target = targetObj.transform;
+        GameObject targetObj = GetTargetObj(targetTags);
+        if (targetObj != null) target = targetObj.transform;
 
         AddInitialVelocity();
         StartCoroutine(DestroyTimer(lifeTime));
+    }
+
+    protected GameObject GetTargetObj(string[] targetTags)
+    {
+        GameObject targetObj = null;
+        // 配列を順番にループ
+        foreach (var tag in targetTags)
+        {
+            // タグで検索（該当するオブジェクトがなければ null が返る）
+            var obj = GameObject.FindGameObjectWithTag(tag);
+            if (obj != null)
+            {
+                targetObj = obj;
+                break;    // 見つかったらループを抜ける
+            }
+        }
+
+        // 最後に見つからなかった場合の処理
+        if (targetObj == null)
+        {
+            Debug.LogWarning("どのタグにも一致するオブジェクトが見つかりませんでした。");
+        }
+        return targetObj;
     }
 
     void Update()

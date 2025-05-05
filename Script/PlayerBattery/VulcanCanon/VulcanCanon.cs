@@ -2,11 +2,11 @@ using UnityEngine;
 using System.Collections;
 using System.Linq;
 
-public class VulcanCanon : MonoBehaviour, IItem
+public class VulcanCanon : BaseBattery
 {
-    public string itemType{get;} = "vulcan";
+    public override string itemType => "vulcan";
     public GameObject bullet;
-    public int batteryLevel{get;set;} = 0;
+    public override int batteryLevel{get;set;} = 0;
     public float bulletInterval = 0.1f;   // 通常の連射間隔
 
     public int pauseAfterShots = 50;      // 何発撃ったらポーズ
@@ -32,7 +32,7 @@ public class VulcanCanon : MonoBehaviour, IItem
         configPlayerBullet.powerMagnification = powerMagnification;
     }
 
-    public void getItem(float magnification){
+    public override void getItem(float magnification){
         SetMagnification(magnification);
 
         switch(batteryLevel){
@@ -135,27 +135,5 @@ public class VulcanCanon : MonoBehaviour, IItem
         return GetComponentsInChildren<Transform>()
                .Where(t => t != transform)
                .ToArray();
-    }
-
-    private bool SetActiveChild(string childName){
-        Transform child = transform.Find(childName);
-        if (child != null){
-            child.gameObject.SetActive(true);
-            return true;
-        }
-        else{
-            Debug.Log("子オブジェクトは見つかりませんでした。:" + childName);
-            return false;
-        }
-    }
-
-    public bool SetActive(bool isActive){
-        gameObject.SetActive(isActive);
-        return gameObject.activeSelf;
-    }
-
-    public bool StopAllCoroutine(){
-        StopAllCoroutines();
-        return true;
     }
 }

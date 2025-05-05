@@ -18,7 +18,7 @@ public class BossAlien3 : MonoBehaviour, IBoss
     [SerializeField] private ScreenFader fader;
 
     [SerializeField] private float entryStartZ = 10f;  // 登場開始位置（Inspectorで調整可）
-    [SerializeField] private float entryEndZ   = 6f;   // 登場終了位置（Inspectorで調整可）
+    [SerializeField] private float entryEndZ = 6f;   // 登場終了位置（Inspectorで調整可）
     [SerializeField] private StageManager stageManager;
     [Header("BGM")]
     [SerializeField] AudioClip bgm;
@@ -178,13 +178,20 @@ public class BossAlien3 : MonoBehaviour, IBoss
 
     void OnTriggerEnter(Collider other)
     {
-        if(!isStart) return;    //スタート演出が終わるまでダメージは受けない
+        if (!isStart) return;    //スタート演出が終わるまでダメージは受けない
         if (!other.CompareTag("PlayerBullet") || isDead) return;
         if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
 
         hp -= bullet.getDamage();
         if (bullet.hitSe != null)
             SoundManager.Instance.PlaySE(bullet.hitSe, bullet.hitSeVolume);
+        if (bullet.triggerEffect != null)
+        {
+            Instantiate(bullet.triggerEffect, 
+                other.gameObject.transform.position, 
+                other.gameObject.transform.rotation);
+        }
+        if (bullet.isDestroy) Destroy(other.gameObject);
 
         if (hp <= 0)
             Die(other.transform);
@@ -194,7 +201,7 @@ public class BossAlien3 : MonoBehaviour, IBoss
     {
         isDead = true;
         StopEverything();
-        
+
         // 死亡アニメ再生
         animator.SetTrigger("dead");
         StartCoroutine(RandomExplosionCoroutine());
@@ -205,7 +212,8 @@ public class BossAlien3 : MonoBehaviour, IBoss
 
     }
 
-    private void StopEverything(){
+    private void StopEverything()
+    {
         playerManager.AllBatteryActiveFalse();  //全てのBatteryを止める
         stageManager.SetSpawnEnemyFlag(false); //敵の出現を止める
         stageManager.KillAllEnemies();  //雑魚敵を全て消す
@@ -223,7 +231,8 @@ public class BossAlien3 : MonoBehaviour, IBoss
         */
     }
 
-    private IEnumerator FadeOut(){
+    private IEnumerator FadeOut()
+    {
         //フェードアウトまでの待ち時間
         yield return new WaitForSeconds(3f);
         //フェードアウト処理
