@@ -23,11 +23,14 @@ public class BossAlien3 : MonoBehaviour, IBoss
     [Header("BGM")]
     [SerializeField] AudioClip bgm;
     [SerializeField] float bgmVol = 0.8f;
+    [Header("ホーミングミサイルのターゲットオブジェクトのname")]
+    [SerializeField]private string missileTargetName = "MissileTarget";
 
     private bool isDead = false;
     private bool isStart = false;   //スタート演出が終わったか
     private Coroutine attackLoopCoroutine;
     private string tagName = "Boss";
+    
 
     private float screenHeight = 6f;
     private PlayerManager playerManager;
@@ -274,6 +277,6 @@ public class BossAlien3 : MonoBehaviour, IBoss
     void SetTagName(string tag)
     {
         foreach (Transform t in GetComponentsInChildren<Transform>(includeInactive: true))
-            t.gameObject.tag = tag;
+            if(t.gameObject.name != missileTargetName )t.gameObject.tag = tag;
     }
 }

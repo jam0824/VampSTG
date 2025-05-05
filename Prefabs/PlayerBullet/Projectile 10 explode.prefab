@@ -5016,7 +5016,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTags:
-  - Boss
   - Enemy
   lifeTime: 5
   initialVelocity: {x: 0, y: 0, z: -10}
