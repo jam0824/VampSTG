@@ -56,7 +56,7 @@ public class PlayerManager : MonoBehaviour
         playerController.speed *= speedMagnification;
         sc.radius *= characterData.pickupRange / baseStarOffset;
         playerController.playerModelOffset = characterData.playerModelOffset;
-        playerItemManager.getItem(characterData.initialItem, powerMagnification);
+        playerItemManager.getItem(characterData.initialItemData.type, powerMagnification);
         //EquipBatteryForModel();
     }
 

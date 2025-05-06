@@ -15,6 +15,7 @@ public class CharacterSelectController : MonoBehaviour
     public Transform previewContainer;
     public TMP_Text nameText;
     public TMP_Text descriptionText;
+    public Image initialBatteryImage;
 
     [Header("Stats UI")]
     public Transform lifeStarContainer;   // LifeStars オブジェクト
@@ -92,6 +93,8 @@ public class CharacterSelectController : MonoBehaviour
 
         descriptionText.text = characters[index].description[GameManager.Instance.languageIndex];
         nameText.text = characters[index].characterName[GameManager.Instance.languageIndex];
+        ItemData itemData = characters[index].initialItemData;
+        initialBatteryImage.sprite = itemData.itemSprite;
 
         // --- 星アイコンの更新 ---
         UpdateStars(lifeStarContainer, characters[index].life);

@@ -23,6 +23,7 @@ MonoBehaviour:
   speed: 3
   pickupRange: 3
   initialItem: Vulcan
+  initialItemData: {fileID: 11400000, guid: 12f421d8ab7e8374ca34b837c10c5ccf, type: 2}
   description:
   - KAGEROU
   - "\u967D\u708E"

@@ -23,6 +23,7 @@ MonoBehaviour:
   speed: 5
   pickupRange: 2
   initialItem: MIssile
+  initialItemData: {fileID: 11400000, guid: fadf432acc6c8b04b8f7c0fc1a1d3390, type: 2}
   description:
   - CCCCC
   - "C\u5B50"

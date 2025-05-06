@@ -23,6 +23,7 @@ MonoBehaviour:
   speed: 2
   pickupRange: 4
   initialItem: Sniper
+  initialItemData: {fileID: 11400000, guid: 60c0d9061e79d524c8447b03f550de69, type: 2}
   description:
   - AMAGATSU
   - "\u5929\u5150"

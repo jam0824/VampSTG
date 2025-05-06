@@ -17,7 +17,7 @@ public class CharacterData : ScriptableObject
     public int speed;
     public int pickupRange;
     [Header("初期装備")]
-    public string initialItem;
+    public ItemData initialItemData;
     [Header("説明:0英語1日本語")]
     [TextArea] public string[] description; // 説明テキスト
 }
