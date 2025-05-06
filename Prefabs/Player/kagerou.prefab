@@ -310,6 +310,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7117388959024550669}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4623136661243021712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7187912820697916534}
+  m_Layer: 11
+  m_Name: missilePodPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7187912820697916534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4623136661243021712}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.023, z: -0.202}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8611251479048952019}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5504108457346016043
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +402,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 973435729638872520}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7146428718681266110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1535713783978616147}
+  m_Layer: 11
+  m_Name: vulcanPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1535713783978616147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146428718681266110}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.152, z: 0.044}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8611251479048952019}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7351989508340061044
 GameObject:
@@ -1641,6 +1703,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bc7b4917901c2644b0d1a7d62d601e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1535713783978616147}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bc7b4917901c2644b0d1a7d62d601e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7187912820697916534}
     - targetCorrespondingSourceObject: {fileID: 3742407835892290726, guid: 8bc7b4917901c2644b0d1a7d62d601e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5296013572261351253}
@@ -1956,6 +2024,11 @@ Transform:
 --- !u!4 &8601748822548216255 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 528181330172085895, guid: 8bc7b4917901c2644b0d1a7d62d601e8, type: 3}
+  m_PrefabInstance: {fileID: 8073818224543170360}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8611251479048952019 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8bc7b4917901c2644b0d1a7d62d601e8, type: 3}
   m_PrefabInstance: {fileID: 8073818224543170360}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8992174652003795561 stripped

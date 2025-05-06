@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerController playerController;
     public PlayerItemManager playerItemManager;
     public GameObject itemCollectionArea;
-    
+
 
     [Header("無敵フレーム設定")]
     public float invincibilityDuration = 2f;   // 無敵時間（秒）
@@ -45,10 +45,11 @@ public class PlayerManager : MonoBehaviour
     }
 
     //CharacterDataのパラメーター反映
-    void InitializePlayer(){
+    void InitializePlayer()
+    {
         CharacterData characterData = GameManager.Instance.selectedCharacter;
         SphereCollider sc = itemCollectionArea.GetComponent<SphereCollider>();
- 
+
         hp = characterData.life;
         powerMagnification = characterData.power / baseStarOffset;
         speedMagnification = characterData.speed / baseStarOffset;
@@ -56,18 +57,23 @@ public class PlayerManager : MonoBehaviour
         sc.radius *= characterData.pickupRange / baseStarOffset;
         playerController.playerModelOffset = characterData.playerModelOffset;
         playerItemManager.getItem(characterData.initialItem, powerMagnification);
+        //EquipBatteryForModel();
     }
+
+    
 
     void Update()
     {
         //PlayerModelを取得できるまでループさせる
-        if(playerModel == null){
+        if (playerModel == null)
+        {
             playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
         }
-        if(playerModel != null){
+        if (playerModel != null)
+        {
             animator = playerModel.GetComponent<Animator>();
         }
-        if(playerModel == null) return;
+        if (playerModel == null) return;
 
         if (oldHp != hp)
         {
@@ -129,7 +135,8 @@ public class PlayerManager : MonoBehaviour
     /// <summary>
     /// そのステージで死んだ回数。ノーミス判定用
     /// </summary>
-    void SetMiss(){
+    void SetMiss()
+    {
         GameManager.Instance.stageDeadCount++;
     }
 
@@ -177,5 +184,43 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         screenFader.FadeToBlack(GameManager.Instance.whenDeathToSceneName);
 
+    }
+
+    /// <summary>
+    /// Batteryをモデルの位置に配置する
+    /// </summary>
+    public void EquipBatteryForModel()
+    {
+        foreach (GameObject battery in playerItemManager.items)
+        {
+            IItem iitem = battery.GetComponent<IItem>();
+            string type = iitem.itemType;  // 例: "RedBattery", "BlueBattery" など
+
+            // playerModel 以下の全子 Transform（自分自身含む）を一括取得
+            Transform[] allChildren = playerModel.GetComponentsInChildren<Transform>(true);
+
+            // 名前に type を含む最初のものを探す
+            Transform slot = null;
+            foreach (var t in allChildren)
+            {
+                if (t.name.Contains(type))
+                {
+                    slot = t;
+                    break;
+                }
+            }
+
+            if (slot != null)
+            {
+                // スロットにバッテリーをアタッチ
+                battery.transform.SetParent(slot, false);
+                battery.transform.localPosition = Vector3.zero;
+                battery.transform.localRotation = Quaternion.identity;
+            }
+            else
+            {
+                Debug.LogWarning($"型名 '{type}' を含むスロットが見つかりませんでした。");
+            }
+        }
     }
 }

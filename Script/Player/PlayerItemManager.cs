@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerItemManager : MonoBehaviour
 {
     // 全ての装備をここに登録する
-    [SerializeField] protected GameObject[] items;
+    [SerializeField] public GameObject[] items;
 
     //アイテムを取った時、初期アイテムの装備時
     public void getItem(string type, float powerMagnification){
