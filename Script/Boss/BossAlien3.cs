@@ -241,10 +241,7 @@ public class BossAlien3 : MonoBehaviour, IBoss
         //フェードアウトまでの待ち時間
         yield return new WaitForSeconds(3f);
         //フェードアウト処理
-        fader.FadeToWhite(() =>
-        {
-            //ここにシーン変更
-        });
+        fader.FadeToWhite("Result");
     }
 
     private IEnumerator RandomExplosionCoroutine()

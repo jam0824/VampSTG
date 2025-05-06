@@ -113,6 +113,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (isInvincible) return;
         Damage();
+        SetMiss();
         if (hp < 0) StartCoroutine(Death());
         StartCoroutine(InvincibilityCoroutine());
     }
@@ -123,6 +124,13 @@ public class PlayerManager : MonoBehaviour
         Vector3 pos = gameObject.transform.position;
         pos.y += effectOffset;
         EffectController.Instance.PlayHitToPlayer(pos);
+    }
+
+    /// <summary>
+    /// そのステージで死んだ回数。ノーミス判定用
+    /// </summary>
+    void SetMiss(){
+        GameManager.Instance.stageDeadCount++;
     }
 
 
@@ -167,7 +175,7 @@ public class PlayerManager : MonoBehaviour
         SoundManager.Instance.StopBGM();
         ScreenFader screenFader = GameObject.Find("ScreenFader").GetComponent<ScreenFader>();
         yield return new WaitForSeconds(0.5f);
-        screenFader.FadeToBlack();
+        screenFader.FadeToBlack(GameManager.Instance.whenDeathToSceneName);
 
     }
 }

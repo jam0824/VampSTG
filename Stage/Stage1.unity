@@ -198,6 +198,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966dbc7256399054bb4de19657d4440c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &257382968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5255210162855198370, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255210162855198370, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255210162855198370, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255210162855198370, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255210162855198370, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255210162855198370, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255210162855198370, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255210162855198370, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255210162855198370, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255210162855198370, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044165367797186614, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+      propertyPath: m_Name
+      value: FadeManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
 --- !u!1001 &515625331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -463,6 +520,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7130847832425349484, guid: db0f86ff692bd7149aefc9665b87a80a, type: 3}
+      propertyPath: hp
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7130847832425349484, guid: db0f86ff692bd7149aefc9665b87a80a, type: 3}
       propertyPath: fader
       value: 
       objectReference: {fileID: 173457837}
@@ -635,6 +696,7 @@ MonoBehaviour:
   minZ: -9
   maxY: 6
   minY: -4
+  bulletMagnification: 10
   scoreMagnification: 100
   itemMagnification: 1000
   playerCore: {fileID: 0}
@@ -644,6 +706,12 @@ MonoBehaviour:
   bulletCount: 0
   allBulletCount: 0
   itemCount: 0
+  gotItems: []
+  gotCharacters: []
+  highScores: 
+  stageDeadCount: 0
+  noMissBonus: 100000
+  whenDeathToSceneName: CharacterSelect
 --- !u!4 &1161182313
 Transform:
   m_ObjectHideFlags: 0
@@ -834,6 +902,14 @@ PrefabInstance:
       propertyPath: boss
       value: 
       objectReference: {fileID: 1934417816}
+    - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
+      propertyPath: maxDistance
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
+      propertyPath: minDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
       propertyPath: playerModel
       value: 
@@ -1377,3 +1453,4 @@ SceneRoots:
   - {fileID: 173457836}
   - {fileID: 2170180825134048731}
   - {fileID: 1161182313}
+  - {fileID: 257382968}

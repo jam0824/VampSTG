@@ -14,7 +14,8 @@ public class SaveData
     public int itemCount = 0;
     public List<string> gotItems = new List<string>();
     public List<string> gotCharacters = new List<string>();
-    public List<int> highScores = new List<int>();
+    public int[] highScores = new int[20];  // 配列に変更
+
     public int languageIndex = 0;
     public float globalBgmVol = 0.6f;
     public float globalSeVol = 1f;
@@ -24,81 +25,57 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    [Header("言語設定: 0英語/1日本語")]
-    public int languageIndex = 0;
-    [Header("選択されているキャラクター")]
-    public CharacterData selectedCharacter;
-    [Header("選択されているステージのシーン名")]
-    public string selectedStageSceneName;
+    [Header("言語設定: 0英語/1日本語")] public int languageIndex = 0;
+    [Header("選択されているキャラクター")] public CharacterData selectedCharacter;
+    [Header("選択されているステージのシーン名")] public string selectedStageSceneName;
 
-    [Header("音量")]
-    public float globalBgmVol = 0.6f;
+    [Header("音量")] public float globalBgmVol = 0.6f;
     public float globalSeVol = 1f;
 
-    [Header("移動範囲")]
-    public float maxZ = 9f;
+    [Header("移動範囲")] public float maxZ = 9f;
     public float minZ = -9f;
     public float maxY = 6f;
     public float minY = -4f;
 
-    [Header("Score倍率")]
+    [Header("Score倍率")] 
+    public int bulletMagnification = 10;
     public float scoreMagnification = 100f;
     public int itemMagnification = 1000;
 
     public GameObject playerCore;
 
-    [Header("Save系データ")]
+    [Header("Save系データ")] 
     public int killCount = 0;
     public int allKillCount = 0;
     public int score = 0;
     public int bulletCount = 0;
     public int allBulletCount = 0;
     public int itemCount = 0;
-    private List<string> gotItems = new List<string>();
-    private List<string> gotCharacters = new List<string>();
-    private List<int> highScores = new List<int>();
+    public List<string> gotItems = new List<string>();
+    public List<string> gotCharacters = new List<string>();
+    public int[] highScores = new int[20];  // 初期サイズは空配列
+    [Header("Stageで死んだ回数")]
+    public int stageDeadCount = 0;
+    [Header("ノーミスボーナス")]
+    public int noMissBonus = 100000;
+    [Header("死んだときに戻るシーン")]
+    public string whenDeathToSceneName = "CharacterSelect";
 
-    // セーブファイルのフルパス
-    private string SaveFilePath =>
-        Path.Combine(Application.persistentDataPath, "saveData.json");
-
+    private string SaveFilePath => Path.Combine(Application.persistentDataPath, "saveData.json");
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadGame();    // 起動時にロード
+            LoadGame();  // 起動時にロード
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        else Destroy(gameObject);
     }
 
-    /// <summary>
-    /// プレイヤーのスコアを追加
-    /// </summary>
     public void AddScore(float maxHp)
     {
         score += (int)Math.Ceiling(maxHp * scoreMagnification);
-    }
-
-    /// <summary>
-    /// ゲーム終了時に呼ばれる
-    /// </summary>
-    void OnApplicationQuit()
-    {
-        SaveGame();
-    }
-
-    /// <summary>
-    /// アプリがバックグラウンドに回ったときにもセーブ
-    /// </summary>
-    /// <param name="pauseStatus"></param>
-    void OnApplicationPause(bool pauseStatus)
-    {
-        if (pauseStatus) SaveGame();
     }
 
     /// <summary>
@@ -109,27 +86,28 @@ public class GameManager : MonoBehaviour
         score = 0;
         bulletCount = 0;
         itemCount = 0;
+        stageDeadCount = 0;
     }
 
-    /// <summary>現在のフィールド値を JSON にしてファイルに書き込む</summary>
+    void OnApplicationQuit() { SaveGame(); }
+    void OnApplicationPause(bool pauseStatus) { if (pauseStatus) SaveGame(); }
+
     public void SaveGame()
     {
         var data = new SaveData
         {
-            killCount = this.killCount,
-            allKillCount = this.allKillCount,
-            score = this.score,
-            bulletCount = this.bulletCount,
-            allBulletCount = this.allBulletCount,
-            itemCount = this.itemCount,
-            gotItems = new List<string>(this.gotItems),
+            killCount     = this.killCount,
+            allKillCount  = this.allKillCount,
+            score         = this.score,
+            bulletCount   = this.bulletCount,
+            allBulletCount= this.allBulletCount,
+            itemCount     = this.itemCount,
+            gotItems      = new List<string>(this.gotItems),
             gotCharacters = new List<string>(this.gotCharacters),
-            highScores = new List<int>(this.highScores),
-
-            // 追加分マッピング
+            highScores    = (int[])this.highScores.Clone(),  // 配列を複製して渡す
             languageIndex = this.languageIndex,
-            globalBgmVol = this.globalBgmVol,
-            globalSeVol = this.globalSeVol,
+            globalBgmVol  = this.globalBgmVol,
+            globalSeVol   = this.globalSeVol
         };
 
         try
@@ -144,7 +122,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /// <summary>ファイルを読み込んでフィールドに反映する</summary>
     public void LoadGame()
     {
         if (!File.Exists(SaveFilePath))
@@ -163,24 +140,23 @@ public class GameManager : MonoBehaviour
                 return;
             }
 
-            this.killCount = data.killCount;
-            this.allKillCount = data.allKillCount;
-            this.score = data.score;
-            this.bulletCount = data.bulletCount;
+            this.killCount      = data.killCount;
+            this.allKillCount   = data.allKillCount;
+            this.score          = data.score;
+            this.bulletCount    = data.bulletCount;
             this.allBulletCount = data.allBulletCount;
-            this.itemCount = data.itemCount;
+            this.itemCount      = data.itemCount;
 
             this.gotItems.Clear();
             this.gotItems.AddRange(data.gotItems);
             this.gotCharacters.Clear();
             this.gotCharacters.AddRange(data.gotCharacters);
-            this.highScores.Clear();
-            this.highScores.AddRange(data.highScores);
 
-            // 追加分反映
+            this.highScores = data.highScores;  // 配列をそのまま代入
+
             this.languageIndex = data.languageIndex;
-            this.globalBgmVol = data.globalBgmVol;
-            this.globalSeVol = data.globalSeVol;
+            this.globalBgmVol  = data.globalBgmVol;
+            this.globalSeVol   = data.globalSeVol;
 
             Debug.Log($"Game loaded: {SaveFilePath}");
         }
@@ -190,7 +166,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // 以下、gotItems / gotCharacters / highScores を操作するためのメソッド例
     public void AddItem(string itemId)
     {
         if (!gotItems.Contains(itemId))
@@ -202,5 +177,4 @@ public class GameManager : MonoBehaviour
         if (!gotCharacters.Contains(charId))
             gotCharacters.Add(charId);
     }
-
 }

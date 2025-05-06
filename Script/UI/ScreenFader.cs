@@ -18,20 +18,20 @@ public class ScreenFader : MonoBehaviour
     /// <summary>
     /// 白でフェードするメソッド
     /// </summary>
-    public void FadeToWhite(System.Action onComplete = null)
+    public void FadeToWhite(string sceneName)
     {
-        StartCoroutine(FadeWhiteCoroutine(1f, onComplete));
+        StartCoroutine(FadeWhiteCoroutine(1f, sceneName));
     }
 
     /// <summary>
     /// 黒でフェードするメソッド
     /// </summary>
-    public void FadeToBlack(System.Action onComplete = null)
+    public void FadeToBlack(string sceneName)
     {
-        StartCoroutine(FadeBlackCoroutine(1f, onComplete));
+        StartCoroutine(FadeBlackCoroutine(1f, sceneName));
     }
 
-    private IEnumerator FadeWhiteCoroutine(float targetAlpha, System.Action onComplete)
+    private IEnumerator FadeWhiteCoroutine(float targetAlpha, string sceneName)
     {
         float elapsed = 0f;
         Color c = whiteImage.color;
@@ -52,10 +52,11 @@ public class ScreenFader : MonoBehaviour
         gekimetsuImage.color = new Color(1f,1f,1f,1f);
 
         yield return new WaitForSeconds(3f);
-        onComplete?.Invoke();
+        
+        FadeManager.FadeToScene(sceneName, FadeColor.White);
     }
 
-    private IEnumerator FadeBlackCoroutine(float targetAlpha, System.Action onComplete)
+    private IEnumerator FadeBlackCoroutine(float targetAlpha, string sceneName)
     {
         float elapsed = 0f;
         Color c = blackImage.color;
@@ -74,6 +75,8 @@ public class ScreenFader : MonoBehaviour
         SoundManager.Instance.PlaySE(gekimetsuSe, gekimetsuVol);
         deathImage.color = new Color(1f,1f,1f,1f);
 
-        onComplete?.Invoke();
+        yield return new WaitForSeconds(3f);
+
+        FadeManager.FadeToScene(sceneName, FadeColor.Black);
     }
 }
