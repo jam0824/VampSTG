@@ -22,8 +22,9 @@ MonoBehaviour:
   power: 3
   speed: 3
   pickupRange: 3
-  initialItem: Vulcan
   initialItemData: {fileID: 11400000, guid: 12f421d8ab7e8374ca34b837c10c5ccf, type: 2}
   description:
-  - KAGEROU
-  - "\u967D\u708E"
+  - "A rookie who\u2019s been with the military for just three months. She volunteered
+    for service to search for her sister, who went missing on the battlefield. Her
+    starting weapon is the Vulcan."
+  - "\u8ECD\u306B\u914D\u5C5E\u3055\u308C\u3066\u304B\u3089\u307E\u30603\u304B\u6708\u306E\u65B0\u4EBA\u3002\u6226\u5834\u3067\u6D88\u3048\u305F\u59C9\u3092\u63A2\u3059\u305F\u3081\u8ECD\u306B\u5FD7\u9858\u3057\u305F\u3002\u521D\u671F\u88C5\u5099\u306F\u30D0\u30EB\u30AB\u30F3\u3002"

@@ -628,6 +628,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1914435278127446415, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914435278127446415, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 340
+      objectReference: {fileID: 0}
     - target: {fileID: 2546050483863370588, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -800,10 +808,6 @@ PrefabInstance:
     - target: {fileID: 1442290544101285118, guid: ad459c7f773209b48a092bebf828f1eb, type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2224390435553433689, guid: ad459c7f773209b48a092bebf828f1eb, type: 3}
-      propertyPath: languageIndex
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2304635439064154462, guid: ad459c7f773209b48a092bebf828f1eb, type: 3}
       propertyPath: m_LocalPosition.x

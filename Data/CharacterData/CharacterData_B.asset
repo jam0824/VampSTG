@@ -22,8 +22,8 @@ MonoBehaviour:
   power: 5
   speed: 2
   pickupRange: 4
-  initialItem: Sniper
   initialItemData: {fileID: 11400000, guid: 60c0d9061e79d524c8447b03f550de69, type: 2}
   description:
-  - AMAGATSU
-  - "\u5929\u5150"
+  - A friend of KAGEROU who is determined to protect her. He wears firepower-focused
+    armor that slows him down. His initial equipment is a rifle.
+  - "KAGEROU\u306E\u53CB\u4EBA\u3067\u3001\u5F7C\u5973\u306E\u3053\u3068\u3092\u5B88\u308A\u305F\u3044\u3068\u601D\u3063\u3066\u3044\u308B\u3002\u653B\u6483\u529B\u91CD\u8996\u306E\u30A2\u30FC\u30DE\u30FC\u306B\u8EAB\u3092\u5305\u3093\u3067\u3044\u308B\u305F\u3081\u52D5\u304D\u304C\u9045\u3044\u3002\u5F7C\u306E\u521D\u671F\u88C5\u5099\u306F\u30E9\u30A4\u30D5\u30EB\u3002"

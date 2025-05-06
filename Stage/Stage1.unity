@@ -444,10 +444,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7130847832425349484, guid: db0f86ff692bd7149aefc9665b87a80a, type: 3}
-      propertyPath: hp
-      value: 8000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7130847832425349484, guid: db0f86ff692bd7149aefc9665b87a80a, type: 3}
       propertyPath: fader
       value: 
       objectReference: {fileID: 173457837}
@@ -573,10 +569,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemVulcanCanon
       objectReference: {fileID: 0}
-    - target: {fileID: 8981956440422478563, guid: 37574d0bfc5140940915c68c50c238c9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -633,10 +625,6 @@ PrefabInstance:
     - target: {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
       propertyPath: m_Name
       value: ItemSniperBattery
-      objectReference: {fileID: 0}
-    - target: {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -761,10 +749,6 @@ PrefabInstance:
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 2585764038165362782}
-    - target: {fileID: 1265748096016672506, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
-      propertyPath: stageAllSecond
-      value: 180
-      objectReference: {fileID: 0}
     - target: {fileID: 6890006149486929664, guid: 31a275310f9cbeb4f8aa3e23fe6bbe47, type: 3}
       propertyPath: m_Name
       value: StageManager
@@ -1233,10 +1217,6 @@ PrefabInstance:
     - target: {fileID: 8961623587356723185, guid: c619e40ba7453b34598ac44f36ce1cd8, type: 3}
       propertyPath: m_Name
       value: ItemMissileBattery
-      objectReference: {fileID: 0}
-    - target: {fileID: 8961623587356723185, guid: c619e40ba7453b34598ac44f36ce1cd8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

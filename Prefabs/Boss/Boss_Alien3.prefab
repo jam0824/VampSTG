@@ -6443,7 +6443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa152abcbc22c44f8177d16da599a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5000
+  hp: 8000
   animator: {fileID: 7852732057032231318}
   acidAttackPoint: {fileID: 4490637292647504100}
   handAttackPoint: {fileID: 5570477149632252128}
