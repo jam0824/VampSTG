@@ -184,18 +184,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f89f1671d2b3545945e41af0b14d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageAllSecond: 30
+  stageAllSecond: 180
   items:
   - {fileID: 8981956440422478563, guid: 37574d0bfc5140940915c68c50c238c9, type: 3}
   - {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
-  minDistance: 8
-  maxDistance: 10
+  - {fileID: 8961623587356723185, guid: c619e40ba7453b34598ac44f36ce1cd8, type: 3}
+  minDistance: 10
+  maxDistance: 12
   enemyPool: {fileID: 1006812573579030016}
   batteryDropRate: 0.1
   boss: {fileID: 0}
-  bgm: {fileID: 8300000, guid: bc00dc9759882034aa9f592b412dc84b, type: 3}
+  bgm: {fileID: 8300000, guid: 5204c75a8de57524c8d1646333158adb, type: 3}
   bgmVol: 0.5
   progressBar: {fileID: 0}
+  playerModel: {fileID: 6155718885946839314, guid: f62125caa80af5d41a500d2cf1f61c69, type: 3}
 --- !u!1 &6980402567258987309
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,10 +47,29 @@ MonoBehaviour:
   smallExplosions:
   - {fileID: 6156958366680951671, guid: e4f62bd3eef8d2e42862fdb2bc2198a5, type: 3}
   - {fileID: 8376879617656387828, guid: e58ac241efc81fb46a9d3a12883a3977, type: 3}
+  - {fileID: 4274600506451355891, guid: 422d5fc46c949564c9e3d9eda6d4f222, type: 3}
+  - {fileID: 9048271349327133901, guid: 9647bcf456f745a4aa85ec337d23a028, type: 3}
+  - {fileID: 4353231423937122975, guid: 201e4a40957684141ae5e5bcf7dcf774, type: 3}
   smallExplosionSes:
   - {fileID: 8300000, guid: f989b4936778dd243a9e465e73074b66, type: 3}
   - {fileID: 8300000, guid: 63debebfee8e76445aad418b97131899, type: 3}
   smallExplosionSeVolume: 0.5
+  middleExplosions:
+  - {fileID: 2725187962972586772, guid: 50c9d186b8d55db4098cc3cb6151a59c, type: 3}
+  - {fileID: 8916173953662561747, guid: 52e5defc02ec8e64aade669a4ee3a132, type: 3}
+  - {fileID: 3285296770396490573, guid: 136f25e557420d94bad4175a01aea045, type: 3}
+  middleExplosionSes:
+  - {fileID: 8300000, guid: 6adc0a360d333534380f3b03fc8606a9, type: 3}
+  - {fileID: 8300000, guid: c292481f16d4215469d3662bbc46753e, type: 3}
+  middleExplosionSeVolume: 0.6
+  largeExplosions:
+  - {fileID: 4372791679676508842, guid: b9579481182016340992bcb20671656d, type: 3}
+  - {fileID: 2930838607584474356, guid: a87ac8a8c522a4e4b808639d93c15381, type: 3}
+  - {fileID: 6203695833035080722, guid: ea2b52aa0a627b249b3639656590d7fb, type: 3}
+  largeExplosionSes:
+  - {fileID: 8300000, guid: 7485aa402ec934b4f890da9a92f945e8, type: 3}
+  - {fileID: 8300000, guid: 080918ba88a52e845be577a1b0d4433d, type: 3}
+  largeExplosionSeVolume: 0.8
   powerUp: {fileID: 8567252811922625434, guid: c7a327c118100584197858f482a2a517, type: 3}
   powerUpSe: {fileID: 8300000, guid: e555c55beb292c540b78ceddc4229c9c, type: 3}
   powerUpSeVol: 0.6

@@ -6462,6 +6462,7 @@ MonoBehaviour:
   stageManager: {fileID: 0}
   bgm: {fileID: 8300000, guid: ac3b2ee5270f78f409e1a8e13ab49c65, type: 3}
   bgmVol: 0.5
+  missileTargetName: MissileTarget
 --- !u!114 &3447881138633404940
 MonoBehaviour:
   m_ObjectHideFlags: 0
