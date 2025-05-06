@@ -44,7 +44,7 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.ResetStageSaveData();
+        GameManager.Instance.ResetStageSaveData();  //ステージ開始時にリセットすべきデータを全てリセット
         var playerObj = GameObject.FindWithTag("Core");
         if (playerObj != null)
             playerTransform = playerObj.transform;

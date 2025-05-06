@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerItemManager : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerItemManager : MonoBehaviour
             if(type == iitem.itemType){
                 iitem.getItem(powerMagnification);
                 AddItemCount();
+                GetNewItem(type);
                 isFined = true;
             }
         }
@@ -37,6 +39,10 @@ public class PlayerItemManager : MonoBehaviour
 
     void AddItemCount(){
         GameManager.Instance.itemCount++;
+    }
+    
+    void GetNewItem(string type){
+        GameManager.Instance.AddNewItemList(type);
     }
 
 }

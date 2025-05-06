@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;    // ← 追加
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Result : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class Result : MonoBehaviour
     public TMP_Text textItem;
     public TMP_Text textTotalScore;
     public GameObject noMissGameObject;
+    [Header("アンロックアイテム")]
+    public Transform unlockContainer;
+    public GameObject unlockItemImagePrefab;
 
     [Header("次のスコアを表示するまでの時間")]
     public float displayInterval = 0.5f;
@@ -36,6 +40,12 @@ public class Result : MonoBehaviour
         // コルーチンを開始して参照を保持
         displayCoroutine = StartCoroutine(DisplayResult());
         SoundManager.Instance.PlayBGM(bgm, bgmVol);
+        UnlockItems();  //新しく取得したアイテムをアンロックしてしまう
+        DisplayUnlockItem(unlockContainer); //アンロックアイテムを並べる
+    }
+
+    void UnlockItems(){
+        GameManager.Instance.AddNewItemListToGotItems();
     }
 
     void Update()
@@ -52,6 +62,7 @@ public class Result : MonoBehaviour
             }
             else
             {
+                GameManager.Instance.SaveGame();
                 // 2) 演出完了後 → シーン切り替え
                 FadeManager.FadeToScene("CharacterSelect", FadeColor.Black);
             }
@@ -160,5 +171,21 @@ public class Result : MonoBehaviour
         totalScore += addScore;
         string formattedTotalScore = totalScore.ToString("N0");
         textTotalScore.text = $"$ {formattedTotalScore}";
+    }
+
+    // 指定したコンテナに itemPrefab を並べる
+    void DisplayUnlockItem(Transform container)
+    {
+        List<string> items = GameManager.Instance.GetStageGetNewItems();
+        foreach (string itemType in items)
+        {
+            ItemData itemData = GameManager.Instance.itemDataDB.GetItemData(itemType);
+            if(itemData == null){
+                Debug.Log("ItemTypeに合うItemDataがありません : " + itemType);
+                continue;
+            }
+            GameObject item = Instantiate(unlockItemImagePrefab, container);
+            item.GetComponent<Image>().sprite = itemData.itemSprite;
+        }
     }
 }

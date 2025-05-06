@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
     public int bulletCount = 0;
     public int allBulletCount = 0;
     public int itemCount = 0;
-    public List<string> gotItems = new List<string>();
-    public List<string> gotCharacters = new List<string>();
+    public List<string> gotItems = new List<string>();  //ロック解除済みのアイテムリスト
+    public List<string> gotCharacters = new List<string>(); //ロック解除済みのキャラクターリスト
     public int[] highScores = new int[20];  // 初期サイズは空配列
     [Header("Stageで死んだ回数")]
     public int stageDeadCount = 0;
@@ -60,6 +60,10 @@ public class GameManager : MonoBehaviour
     public int noMissBonus = 100000;
     [Header("死んだときに戻るシーン")]
     public string whenDeathToSceneName = "CharacterSelect";
+    [Header("データ系")]
+    public ItemDataDB itemDataDB;
+
+    private List<string> stageGetNewItems = new List<string>();   //そのステージでとった新しいアイテムリスト
 
     private string SaveFilePath => Path.Combine(Application.persistentDataPath, "saveData.json");
     void Awake()
@@ -87,6 +91,7 @@ public class GameManager : MonoBehaviour
         bulletCount = 0;
         itemCount = 0;
         stageDeadCount = 0;
+        stageGetNewItems.Clear();
     }
 
     void OnApplicationQuit() { SaveGame(); }
@@ -166,10 +171,43 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// アンロックアイテムに正式追加
+    /// </summary>
+    /// <param name="itemId"></param>
     public void AddItem(string itemId)
     {
         if (!gotItems.Contains(itemId))
             gotItems.Add(itemId);
+    }
+
+    /// <summary>
+    /// 一時的にアンロックアイテムに追加する。クリア後に正式に追加される。
+    /// </summary>
+    /// <param name="type"></param>
+    public void AddNewItemList(string type){
+        type = type.ToLower();
+        if((!gotItems.Contains(type)) && (!stageGetNewItems.Contains(type))){
+            stageGetNewItems.Add(type);
+            Debug.Log("Unlockのアイテムリストに追加しました : " + type);
+        }
+    }
+
+    /// <summary>
+    /// stageGetNewItemsに含まれるアイテムを全てgotItemsに反映させる
+    /// </summary>
+    public void AddNewItemListToGotItems(){
+        foreach(string unlockedItem in stageGetNewItems){
+            AddItem(unlockedItem);
+        }
+    }
+
+    public List<string> GetStageGetNewItems(){
+        return stageGetNewItems;
+    }
+
+    public void ClearStageGetNewItems(){
+        stageGetNewItems.Clear();
     }
 
     public void AddCharacter(string charId)

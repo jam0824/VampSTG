@@ -29,7 +29,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2473647524830153265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2224390435553433689
@@ -44,4 +45,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a12491ab96ab542aaeb45101f2165f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  languageIndex: 0
   selectedCharacter: {fileID: 0}
+  selectedStageSceneName: 
+  globalBgmVol: 0.6
+  globalSeVol: 1
+  maxZ: 9
+  minZ: -9
+  maxY: 6
+  minY: -4
+  bulletMagnification: 10
+  scoreMagnification: 100
+  itemMagnification: 1000
+  playerCore: {fileID: 0}
+  killCount: 0
+  allKillCount: 0
+  score: 0
+  bulletCount: 0
+  allBulletCount: 0
+  itemCount: 0
+  gotItems: []
+  gotCharacters: []
+  highScores: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  stageDeadCount: 0
+  noMissBonus: 100000
+  whenDeathToSceneName: CharacterSelect
+  itemDataDB: {fileID: 5813662967764959190}
+--- !u!1 &4872403193021134937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2473647524830153265}
+  - component: {fileID: 5813662967764959190}
+  m_Layer: 0
+  m_Name: ItemDataDB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2473647524830153265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4872403193021134937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2304635439064154462}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5813662967764959190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4872403193021134937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7328eb1e597f1ef4a9e3479e8626a635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listItemData:
+  - {fileID: 11400000, guid: fadf432acc6c8b04b8f7c0fc1a1d3390, type: 2}
+  - {fileID: 11400000, guid: 60c0d9061e79d524c8447b03f550de69, type: 2}
+  - {fileID: 11400000, guid: 12f421d8ab7e8374ca34b837c10c5ccf, type: 2}
