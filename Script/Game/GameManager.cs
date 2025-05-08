@@ -14,6 +14,7 @@ public class SaveData
     public int itemCount = 0;
     public List<string> gotItems = new List<string>();
     public List<string> gotCharacters = new List<string>();
+    public List<string> gotStages = new List<string>();
     public int[] highScores = new int[20];  // 配列に変更
 
     public int languageIndex = 0;
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
     public int itemCount = 0;
     public List<string> gotItems = new List<string>();  //ロック解除済みのアイテムリスト
     public List<string> gotCharacters = new List<string>(); //ロック解除済みのキャラクターリスト
+    public List<string> gotStages = new List<string>(); //ロック解除済みのキャラクターリスト
     public int[] highScores = new int[20];  // 初期サイズは空配列
     [Header("Stageで死んだ回数")]
     public int stageDeadCount = 0;
@@ -109,6 +111,7 @@ public class GameManager : MonoBehaviour
             itemCount     = this.itemCount,
             gotItems      = new List<string>(this.gotItems),
             gotCharacters = new List<string>(this.gotCharacters),
+            gotStages     = new List<string>(this.gotStages),
             highScores    = (int[])this.highScores.Clone(),  // 配列を複製して渡す
             languageIndex = this.languageIndex,
             globalBgmVol  = this.globalBgmVol,
@@ -156,6 +159,8 @@ public class GameManager : MonoBehaviour
             this.gotItems.AddRange(data.gotItems);
             this.gotCharacters.Clear();
             this.gotCharacters.AddRange(data.gotCharacters);
+            this.gotCharacters.Clear();
+            this.gotCharacters.AddRange(data.gotStages);
 
             this.highScores = data.highScores;  // 配列をそのまま代入
 
@@ -214,5 +219,11 @@ public class GameManager : MonoBehaviour
     {
         if (!gotCharacters.Contains(charId))
             gotCharacters.Add(charId);
+    }
+
+    public void AddStage(string stageId)
+    {
+        if (!gotStages.Contains(stageId))
+            gotStages.Add(stageId);
     }
 }

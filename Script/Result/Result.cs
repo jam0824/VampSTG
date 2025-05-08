@@ -17,6 +17,8 @@ public class Result : MonoBehaviour
     [Header("アンロックアイテム")]
     public Transform unlockContainer;
     public GameObject unlockItemImagePrefab;
+    [Header("アンロックステージ")]
+    public UnlockManager unlockManager;
 
     [Header("次のスコアを表示するまでの時間")]
     public float displayInterval = 0.5f;
@@ -41,6 +43,7 @@ public class Result : MonoBehaviour
         displayCoroutine = StartCoroutine(DisplayResult());
         SoundManager.Instance.PlayBGM(bgm, bgmVol);
         UnlockItems();  //新しく取得したアイテムをアンロックしてしまう
+        unlockManager.UnlockStage(GameManager.Instance.selectedStageSceneName); //シーンネームを送ることで次のステージをUnlock
         DisplayUnlockItem(unlockContainer); //アンロックアイテムを並べる
     }
 

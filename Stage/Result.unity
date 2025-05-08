@@ -2282,6 +2282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1364909573}
   - component: {fileID: 1364909572}
+  - component: {fileID: 1364909574}
   m_Layer: 0
   m_Name: Result
   m_TagString: Untagged
@@ -2309,6 +2310,7 @@ MonoBehaviour:
   noMissGameObject: {fileID: 107361582}
   unlockContainer: {fileID: 1631176031}
   unlockItemImagePrefab: {fileID: 3495226404612949876, guid: 9fb37dce31367d843a83608b12dbb196, type: 3}
+  unlockManager: {fileID: 1364909574}
   displayInterval: 0.7
   scoreDisplaySe: {fileID: 8300000, guid: cad1f85814f2e764b902ddc3565c25d2, type: 3}
   noMissSe: {fileID: 8300000, guid: 0dcae967238b5e945a2306a3a02cd121, type: 3}
@@ -2330,6 +2332,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1364909574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364909571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127afe30b2ee7e045a0bc87a1a8d6551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1414898542
 GameObject:
   m_ObjectHideFlags: 0

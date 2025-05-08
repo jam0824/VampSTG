@@ -16,7 +16,7 @@ MonoBehaviour:
   - 'Stage2 : 22222'
   - "Stage2 : \u30B9\u30C6\u30FC\u30B82"
   sceneName: Stage1
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 21300000, guid: 5a006f78dfd7edb4fbb9d5bc28361aa5, type: 3}
   difficulty: 3
   description:
   - English text2
