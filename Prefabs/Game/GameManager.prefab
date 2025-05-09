@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   languageIndex: 0
-  selectedCharacter: {fileID: 0}
+  selectedCharacter: {fileID: 11400000, guid: 238d711ebff12ce45a8592d45ef1bba2, type: 2}
   selectedStageSceneName: 
   globalBgmVol: 0.6
   globalSeVol: 1
@@ -55,7 +55,7 @@ MonoBehaviour:
   maxY: 6
   minY: -4
   bulletMagnification: 10
-  scoreMagnification: 100
+  scoreMagnification: 10
   itemMagnification: 1000
   playerCore: {fileID: 0}
   killCount: 0
@@ -66,6 +66,7 @@ MonoBehaviour:
   itemCount: 0
   gotItems: []
   gotCharacters: []
+  gotStages: []
   highScores: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   stageDeadCount: 0
   noMissBonus: 100000
