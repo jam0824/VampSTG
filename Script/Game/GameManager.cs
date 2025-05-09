@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     public int itemCount = 0;
     public List<string> gotItems = new List<string>();  //ロック解除済みのアイテムリスト
     public List<string> gotCharacters = new List<string>(); //ロック解除済みのキャラクターリスト
-    public List<string> gotStages = new List<string>(); //ロック解除済みのキャラクターリスト
+    public List<string> gotStages = new List<string>(); //ロック解除済みのステージリスト
     public int[] highScores = new int[20];  // 初期サイズは空配列
     [Header("Stageで死んだ回数")]
     public int stageDeadCount = 0;
@@ -159,8 +159,8 @@ public class GameManager : MonoBehaviour
             this.gotItems.AddRange(data.gotItems);
             this.gotCharacters.Clear();
             this.gotCharacters.AddRange(data.gotCharacters);
-            this.gotCharacters.Clear();
-            this.gotCharacters.AddRange(data.gotStages);
+            this.gotStages.Clear();
+            this.gotStages.AddRange(data.gotStages);
 
             this.highScores = data.highScores;  // 配列をそのまま代入
 

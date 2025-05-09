@@ -79,7 +79,7 @@ MonoBehaviour:
   endWaveTime: 120
   enemies:
   - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
-  spawnCount: 3
+  spawnCount: 2
   initialInterval: 4
   minInterval: 0.5
   decayRate: 0.05
@@ -198,6 +198,8 @@ MonoBehaviour:
   bgmVol: 0.5
   progressBar: {fileID: 0}
   playerModel: {fileID: 6155718885946839314, guid: f62125caa80af5d41a500d2cf1f61c69, type: 3}
+  allElapsedTime: 0
+  isSpawnEnemey: 1
 --- !u!1 &6980402567258987309
 GameObject:
   m_ObjectHideFlags: 0

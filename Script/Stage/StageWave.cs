@@ -17,6 +17,7 @@ public class StageWave : MonoBehaviour
     [SerializeField] public float decayRate = 0.05f;       // インターバル減少率（秒／秒）
 
     bool isStartCoroutine = false;
+    bool isSpawn  = true;   //外部からのストップ支持の時にこれで止める
     StageManager stageManager = null;
     float waveElapsedTime = 0f;
 
@@ -33,25 +34,33 @@ public class StageWave : MonoBehaviour
 
     void CheckWave(float allElapsedTime){
         if ((!isStartCoroutine) && 
+            (isSpawn) &&
             (startWaveTime <= allElapsedTime) && 
             (endWaveTime >= allElapsedTime))
         {
             isStartCoroutine = true;
             StartCoroutine(SpawnRoutine());
+            Debug.Log("Wave開始 : " + gameObject.name);
         }
         else if((isStartCoroutine) && 
                 (allElapsedTime > endWaveTime))
         {
-            isStartCoroutine = false;
-            StopCoroutine(SpawnRoutine());
+            StopWave();
         }
         //StageManager側で敵出現をストップしたら
         else if((!stageManager.isSpawnEnemey)&&
-                (isStartCoroutine))
+                (isStartCoroutine) &&
+                (isSpawn))
         {
-            isStartCoroutine = false;
-            StopCoroutine(SpawnRoutine());
+            StopWave();
+            isSpawn = false;
         }
+    }
+
+    void StopWave(){
+        isStartCoroutine = false;
+        StopAllCoroutines();
+        Debug.Log("Wave終了 : " + gameObject.name);
     }
 
      /// <summary>
@@ -61,7 +70,6 @@ public class StageWave : MonoBehaviour
     {
         while (true)
         {
-            CheckWave(stageManager.allElapsedTime);
             // 一度に spawnCount 体ずつスポーン
             for (int i = 0; i < spawnCount; i++)
                 SpawnSingleEnemy();
@@ -88,6 +96,7 @@ public class StageWave : MonoBehaviour
     /// </summary>
     void SpawnSingleEnemy()
     {
+        if(!isSpawn) return;
         var prefab = enemies[Random.Range(0, enemies.Length)];
 
         // XZ平面のランダム方向
