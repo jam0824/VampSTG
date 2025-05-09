@@ -220,7 +220,7 @@ public class BossAlien3 : MonoBehaviour, IBoss
     private void StopEverything()
     {
         playerManager.AllBatteryActiveFalse();  //全てのBatteryを止める
-        stageManager.SetSpawnEnemyFlag(false); //敵の出現を止める
+        stageManager.isSpawnEnemey = false; //全ての敵の出現を止める
         stageManager.KillAllEnemies();  //雑魚敵を全て消す
         SoundManager.Instance.StopBGM();    //BGMを消す
         // 進行中のコルーチンをすべて止める
