@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,12 +11,19 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] GameObject explosion;
     [SerializeField] float offsetExplosionY = 0f;
+    [Header("敵弾攻撃するか")]
+    [SerializeField] bool isAttack = false;
+    [SerializeField] float attackInterval = 4f;
+    [SerializeField] float attackAnimationWait = 0.5f;
+    IEnemyShooter enemyShooter;
 
-    public GameObject item{get;set;} = null;
+    public GameObject item { get; set; } = null;
 
     Transform playerTransform;
     bool isDead = false;
     int fromBossDamage = 5; //敵キャラがボスにあたった時のダメージ
+
+    Animator animator;
 
     void Start()
     {
@@ -23,70 +31,89 @@ public class Enemy : MonoBehaviour
         if (playerObj != null)
             playerTransform = playerObj.transform;
         maxHp = hp;
+        if(isAttack) {
+            enemyShooter = GetComponent<IEnemyShooter>();
+            StartCoroutine(AttackCoroutine()); //もし攻撃設定されていたら
+            animator = GetComponent<Animator>();
+        }
     }
 
     void Update()
-{
-    if (playerTransform == null) return;
-
-    // ─── 移動 ───
-    Vector3 toPlayer = playerTransform.position - transform.position;
-    toPlayer.x = 0f;
-    float dist = toPlayer.magnitude;
-    if (dist > stopDistance)
     {
-        float step = moveSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, step);
+        if (playerTransform == null) return;
+
+        // ─── 移動 ───
+        Vector3 toPlayer = playerTransform.position - transform.position;
+        toPlayer.x = 0f;
+        float dist = toPlayer.magnitude;
+        if (dist > stopDistance)
+        {
+            float step = moveSpeed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, step);
+        }
+
+        // ─── 常にプレイヤー方向を向く ───
+        if (toPlayer.sqrMagnitude > 0.001f) // プレイヤーと同位置だとQuaternion.LookRotationでエラーになるので念のため
+        {
+            // y成分を無視して水平方向だけで向きを計算
+            Vector3 dir = toPlayer.normalized;
+
+            // 目標回転
+            Quaternion targetRot = Quaternion.LookRotation(dir);
+
+            // スムーズに回転
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                targetRot,
+                rotateSpeed * Time.deltaTime
+            );
+        }
+        if ((!isDead) && (hp <= 0)) enemyDie();
     }
 
-    // ─── 常にプレイヤー方向を向く ───
-    if (toPlayer.sqrMagnitude > 0.001f) // プレイヤーと同位置だとQuaternion.LookRotationでエラーになるので念のため
-    {
-        // y成分を無視して水平方向だけで向きを計算
-        Vector3 dir = toPlayer.normalized;
-
-        // 目標回転
-        Quaternion targetRot = Quaternion.LookRotation(dir);
-
-        // スムーズに回転
-        transform.rotation = Quaternion.RotateTowards(
-            transform.rotation,
-            targetRot,
-            rotateSpeed * Time.deltaTime
-        );
+    private IEnumerator AttackCoroutine(){
+        while(true){
+            yield return new WaitForSeconds(attackInterval);
+            animator.SetTrigger("Attack");
+            yield return new WaitForSeconds(attackAnimationWait);
+            enemyShooter.Fire();
+        }
     }
-    if((!isDead)&&(hp <= 0)) enemyDie();
-}
 
 
     void OnTriggerEnter(Collider other)
     {
         if (isDead) return;
-        if(other.CompareTag("Boss")){
+        if (other.CompareTag("Boss"))
+        {
             hp -= fromBossDamage;
         }
-        else if(other.CompareTag("PlayerBullet")){
+        else if (other.CompareTag("PlayerBullet"))
+        {
             if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
             hp = hit(bullet, hp);
-            if(bullet.triggerEffect != null) {
+            if (bullet.triggerEffect != null)
+            {
                 Instantiate(bullet.triggerEffect, other.gameObject.transform.position, other.gameObject.transform.rotation);
             }
-            if(bullet.isDestroy) Destroy(other.gameObject);
+            if (bullet.isDestroy) Destroy(other.gameObject);
         }
         if (hp <= 0) enemyDie();
     }
 
-    float hit(ConfigPlayerBullet bullet, float enemyHp){
+    float hit(ConfigPlayerBullet bullet, float enemyHp)
+    {
         enemyHp -= bullet.getDamage();
         AudioClip hitSe = bullet.hitSe;
-        if(hitSe != null) SoundManager.Instance.PlaySE(bullet.hitSe, bullet.hitSeVolume);
+        if (hitSe != null) SoundManager.Instance.PlaySE(bullet.hitSe, bullet.hitSeVolume);
         return enemyHp;
     }
 
-    void enemyDie(){
+    void enemyDie()
+    {
         isDead = true;
         Vector3 pos = gameObject.transform.position;
-        if(offsetExplosionY != 0) pos.y += offsetExplosionY;
+        if (offsetExplosionY != 0) pos.y += offsetExplosionY;
         EffectController.Instance.PlaySmallExplosion(pos, gameObject.transform.rotation);
         AddKillCount();
         AddScore(maxHp);
@@ -94,19 +121,22 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void ApearItem(GameObject objItem){
-        if(objItem == null) return;
+    void ApearItem(GameObject objItem)
+    {
+        if (objItem == null) return;
         Vector3 pos = gameObject.transform.position;
         Instantiate(objItem, pos, gameObject.transform.rotation);
         Debug.Log("アイテム出現");
     }
 
-    void AddKillCount(){
+    void AddKillCount()
+    {
         GameManager.Instance.killCount++;
         GameManager.Instance.allKillCount++;
     }
 
-    void AddScore(float maxHp){
+    void AddScore(float maxHp)
+    {
         GameManager.Instance.AddScore(maxHp);
     }
 

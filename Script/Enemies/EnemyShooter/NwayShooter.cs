@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NWayShooter : MonoBehaviour
+public class NWayShooter : MonoBehaviour,IEnemyShooter
 {
     [Header("Bullet Settings")]
     public GameObject bulletPrefab;    // 弾のプレハブ（Rigidbody 必須）
@@ -27,7 +27,7 @@ public class NWayShooter : MonoBehaviour
     /// <summary>
     /// NWay 弾を一度だけ発射する
     /// </summary>
-    public void FireNWay()
+    public void Fire()
     {
         if (bulletPrefab == null || firePoint == null || core == null) return;
 
@@ -70,6 +70,7 @@ public class NWayShooter : MonoBehaviour
         Vector3 firePointPos = firePoint.position;
         firePointPos.x = 0;
         GameObject b = Instantiate(bulletPrefab, firePointPos, Quaternion.LookRotation(dir));
+        b.GetComponent<IEnemyBullet>().Speed = bulletSpeed; //インターフェイスを通して弾速を変更
         if (b.TryGetComponent<Rigidbody>(out var rb))
         {
             rb.linearVelocity = dir * bulletSpeed;
