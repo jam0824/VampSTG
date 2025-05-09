@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IEnemyBullet
+public interface IBullet
 {
     float Speed{get;set;}
     

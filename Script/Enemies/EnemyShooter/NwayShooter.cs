@@ -70,7 +70,7 @@ public class NWayShooter : MonoBehaviour,IEnemyShooter
         Vector3 firePointPos = firePoint.position;
         firePointPos.x = 0;
         GameObject b = Instantiate(bulletPrefab, firePointPos, Quaternion.LookRotation(dir));
-        b.GetComponent<IEnemyBullet>().Speed = bulletSpeed; //インターフェイスを通して弾速を変更
+        b.GetComponent<IBullet>().Speed = bulletSpeed; //インターフェイスを通して弾速を変更
         if (b.TryGetComponent<Rigidbody>(out var rb))
         {
             rb.linearVelocity = dir * bulletSpeed;
