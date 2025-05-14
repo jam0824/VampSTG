@@ -816,9 +816,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 50
-  moveSpeed: 0.3
+  moveSpeed: 1
   rotateSpeed: 90
-  stopDistance: 2
+  stopDistance: 2.5
   explosion: {fileID: 0}
   offsetExplosionY: 1
   isAttack: 1
