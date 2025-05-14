@@ -34,6 +34,7 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
     // IBoss 実装
     public virtual void PlayEntry()
     {
+        Debug.Log("ボス出現");
         if (animator == null)
             animator = GetComponent<Animator>();
 
@@ -91,8 +92,10 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
 
     protected virtual IEnumerator EntryCoroutine()
     {
+        Debug.Log("出現演出開始");
         // 例：エントリー演出
         yield return new WaitForSeconds(5f);
+        Debug.Log("5秒終わり");
         bossHpBar.StartFadeIn(3f);
         gameObject.SetActive(true);
         SoundManager.Instance.PlayBGM(GetEntryBGM(), GetEntryBGMVolume());

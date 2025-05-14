@@ -16,13 +16,6 @@ public class BossSandWorm : BaseBoss
     protected override AudioClip GetEntryBGM() => bgm;
     protected override float GetEntryBGMVolume() => bgmVol;
 
-    protected override void Start()
-    {
-        base.Start();
-        // 初期非アクティブ化など、固有初期化
-        gameObject.SetActive(false);
-    }
-
     protected override void Update()
     {
         base.Update();
@@ -50,19 +43,16 @@ public class BossSandWorm : BaseBoss
         }
     }
 
-    protected override IEnumerator EntryCoroutine()
-    {
-        // 例：エントリー演出
-        yield return new WaitForSeconds(5f);
-        bossHpBar.StartFadeIn(3f);
-        gameObject.SetActive(true);
-        SoundManager.Instance.PlayBGM(GetEntryBGM(), GetEntryBGMVolume());
-        yield return new WaitForSeconds(attackInterval);
-        isStart = true;
-    }
-
     IEnumerator Attack0Coroutine(){
+        Debug.Log("Attack0Coroutine");
         while(true){
+            float r = Random.value;
+            if(r < 0.5f){
+                animator.SetTrigger("attackBite");
+            }
+            else{
+                animator.SetTrigger("attackSpit");
+            }
             yield return new WaitForSeconds(attackInterval);
         }
     }

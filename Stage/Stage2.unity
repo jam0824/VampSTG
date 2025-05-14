@@ -1165,6 +1165,10 @@ PrefabInstance:
       propertyPath: bossHpBar
       value: 
       objectReference: {fileID: 179951997}
+    - target: {fileID: 370891850176831145, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2870113126874812570, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
