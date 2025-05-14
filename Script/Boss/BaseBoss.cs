@@ -15,6 +15,7 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
 
     protected float maxHp;
     protected PlayerManager playerManager;
+    protected GameObject core;
     protected string tagName = "Boss";
     protected bool isDead = false;
     protected bool isStart = false;
@@ -38,8 +39,8 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
         if (animator == null)
             animator = GetComponent<Animator>();
 
-        playerManager = GameObject.FindGameObjectWithTag("Core")
-                              .GetComponent<PlayerManager>();
+        core = GameObject.FindGameObjectWithTag("Core");
+        playerManager = core.GetComponent<PlayerManager>();
 
         maxHp = hp;
         SetTagName(tagName);

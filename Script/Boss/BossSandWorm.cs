@@ -1,4 +1,3 @@
-// BossSandWorm.cs
 using UnityEngine;
 using System.Collections;
 
@@ -8,34 +7,69 @@ public class BossSandWorm : BaseBoss
     [SerializeField] private AudioClip bgm;
     [SerializeField] private float bgmVol = 0.8f;
 
-    int attackPattern = -1;
+    [Header("向き調整")]
+    [SerializeField] private float rotateSpeed = 5f;   // 回転の滑らかさ
 
-    /// <summary>
-    /// EntryCoroutine の BGM を上書き
-    /// </summary>
+    int attackPattern = -1;
+    bool canRoutate = true;
+
     protected override AudioClip GetEntryBGM() => bgm;
     protected override float GetEntryBGMVolume() => bgmVol;
 
     protected override void Update()
     {
         base.Update();
+
+        // ─── 毎フレーム向き更新 ───
+        UpdateFacing();
+
+        // ─── 攻撃パターン切り替え ───
         SwitchAttackPattern();
     }
 
-    void SwitchAttackPattern(){
+    /// <summary>
+    /// プレイヤーより Z 軸プラス側なら左向き（Y 180°）、マイナス側なら右向き（Y 0°）に滑らかに回転
+    /// </summary>
+    private void UpdateFacing()
+    {
+        if (core == null) return;
+        if(!canRoutate) return;
+
+        // プレイヤーとの差分
+        float diffZ = transform.position.z - core.transform.position.z;
+
+        // 目標回転（Y 180° = 左向き、Y 0° = 右向き）
+        Quaternion targetRot = diffZ > 0
+            ? Quaternion.Euler(0f, 180f, 0f)
+            : Quaternion.Euler(0f, 0f, 0f);
+
+        // 滑らかに補間
+        transform.rotation = Quaternion.Lerp(
+            transform.rotation,
+            targetRot,
+            Time.deltaTime * rotateSpeed
+        );
+    }
+
+    void SwitchAttackPattern()
+    {
         float hpPer = hp / maxHp;
-        if(isStart){
-            if(attackPattern == -1){
+        if (isStart)
+        {
+            if (attackPattern == -1)
+            {
                 attackPattern = 0;
                 StopAllCoroutines();
                 StartCoroutine(Attack0Coroutine());
             }
-            else if((hpPer < 0.66f) && (attackPattern == 0)){
+            else if (hpPer < 0.66f && attackPattern == 0)
+            {
                 attackPattern = 1;
                 StopAllCoroutines();
                 StartCoroutine(Attack1Coroutine());
             }
-            else if((hpPer < 0.33f) && (attackPattern == 1)){
+            else if (hpPer < 0.33f && attackPattern == 1)
+            {
                 attackPattern = 2;
                 StopAllCoroutines();
                 StartCoroutine(Attack2Coroutine());
@@ -43,36 +77,81 @@ public class BossSandWorm : BaseBoss
         }
     }
 
-    IEnumerator Attack0Coroutine(){
+    IEnumerator Attack0Coroutine()
+    {
         Debug.Log("Attack0Coroutine");
-        while(true){
+        while (true)
+        {
             float r = Random.value;
-            if(r < 0.5f){
-                animator.SetTrigger("attackBite");
-            }
-            else{
-                animator.SetTrigger("attackSpit");
-            }
+            animator.SetTrigger(r < 0.5f ? "attackBite" : "attackSpit");
             yield return new WaitForSeconds(attackInterval);
         }
     }
 
-    IEnumerator Attack1Coroutine(){
-        while(true){
+    IEnumerator Attack1Coroutine()
+    {
+        while (true)
+        {
+            // 攻撃間隔待機
+            yield return new WaitForSeconds(attackInterval);
+
+            // HideUnderground をコルーチンとして実行
+            yield return StartCoroutine(HideUnderground());
+        }
+    }
+
+    IEnumerator HideUnderground()
+    {
+        // 元の位置を保持
+        Vector3 originPos = transform.position;
+
+        canRoutate = false; //回転を止める
+        // 1) 隠れるアニメーション
+        animator.SetTrigger("hide");
+        yield return new WaitForSeconds(5f);
+        // 2) 地面下に移動
+        transform.position = new Vector3(originPos.x, -20f, originPos.z);
+        canRoutate = true;  //回転許可
+
+        // 3) ランダム Z 移動
+        float startZ = transform.position.z;
+        float endZ = Random.Range(-8f, 8f);
+        float moveDuration = 1f;
+        float elapsed = 0f;
+        Vector3 pos = transform.position;
+
+        while (elapsed < moveDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / moveDuration);
+            pos.z = Mathf.Lerp(startZ, endZ, t);
+            transform.position = pos;
+            yield return null;
+        }
+
+        // 4) 元の Y に戻す
+        pos = transform.position;
+        pos.y = originPos.y;
+        transform.position = pos;
+
+        canRoutate = false;//回転を止める
+        // 5) 噛みつき＆再出現
+        animator.SetTrigger("underBite");
+        yield return new WaitForSeconds(2f);
+        animator.SetTrigger("appear");
+        yield return new WaitForSeconds(2f);
+        canRoutate = true;//回転許可
+    }
+
+
+    IEnumerator Attack2Coroutine()
+    {
+        while (true)
+        {
             yield return new WaitForSeconds(attackInterval);
         }
     }
 
-    IEnumerator Attack2Coroutine(){
-        while(true){
-            yield return new WaitForSeconds(attackInterval);
-        }
-    }
-
-
-    /// <summary>
-    /// 死亡時の固有演出があれば追加
-    /// </summary>
     public override void Die(Transform hitPoint)
     {
         base.Die(hitPoint);
