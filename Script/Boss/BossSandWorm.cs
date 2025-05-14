@@ -108,7 +108,10 @@ public class BossSandWorm : BaseBoss
         canRoutate = false; //回転を止める
         // 1) 隠れるアニメーション
         animator.SetTrigger("hide");
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
+        canDamage = false;  //無敵にする
+
+        yield return new WaitForSeconds(2f);
         // 2) 地面下に移動
         transform.position = new Vector3(originPos.x, -20f, originPos.z);
         canRoutate = true;  //回転許可
@@ -139,8 +142,10 @@ public class BossSandWorm : BaseBoss
         animator.SetTrigger("underBite");
         yield return new WaitForSeconds(2f);
         animator.SetTrigger("appear");
+        canDamage = true;  //無敵終了
         yield return new WaitForSeconds(2f);
         canRoutate = true;//回転許可
+        
     }
 
 
@@ -151,6 +156,8 @@ public class BossSandWorm : BaseBoss
             yield return new WaitForSeconds(attackInterval);
         }
     }
+
+    
 
     public override void Die(Transform hitPoint)
     {

@@ -19,6 +19,7 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
     protected string tagName = "Boss";
     protected bool isDead = false;
     protected bool isStart = false;
+    protected bool canDamage = true;
     protected Animator animator;
 
     protected virtual void Start()
@@ -54,7 +55,7 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
     /// </summary>
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if (!isStart || isDead) return;
+        if (!isStart || isDead || !canDamage) return;
         if (!other.CompareTag("PlayerBullet")) return;
         if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
 
