@@ -568,6 +568,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6990937734860834568, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
   m_PrefabInstance: {fileID: 3689329455878723750}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &970298173 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4752576346821832676, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
+  m_PrefabInstance: {fileID: 3689329455878723750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1041247753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1067,9 +1072,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 370891850176831145, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
+      propertyPath: lezerObj
+      value: 
+      objectReference: {fileID: 5458672213910473723, guid: 284e9c13b35fed84ea620bb62257f18e, type: 3}
+    - target: {fileID: 370891850176831145, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: bossHpBar
       value: 
       objectReference: {fileID: 179951997}
+    - target: {fileID: 370891850176831145, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 970298173}
+    - target: {fileID: 370891850176831145, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
+      propertyPath: laserPrefab
+      value: 
+      objectReference: {fileID: 5458672213910473723, guid: 284e9c13b35fed84ea620bb62257f18e, type: 3}
     - target: {fileID: 2870113126874812570, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1080,7 +1097,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2870113126874812570, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2870113126874812570, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1112,15 +1129,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4752576346821832676, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.32
+      value: -11.19
       objectReference: {fileID: 0}
     - target: {fileID: 4752576346821832676, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.29
+      value: -2.53
       objectReference: {fileID: 0}
     - target: {fileID: 4752576346821832676, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5587447679999661239, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: bulletSpeed

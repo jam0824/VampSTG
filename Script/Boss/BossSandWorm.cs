@@ -3,6 +3,10 @@ using System.Collections;
 
 public class BossSandWorm : BaseBoss
 {
+    [Header("レーザー発射")]
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private GameObject laserPrefab;
+
     [Header("BGM設定")]
     [SerializeField] private AudioClip bgm;
     [SerializeField] private float bgmVol = 0.8f;
@@ -80,10 +84,18 @@ public class BossSandWorm : BaseBoss
             else if (hpPer < 0.33f && attackPattern == 1)
             {
                 attackPattern = 2;
+                ResetAllFlag();
+                animator.SetTrigger("idle");
                 StopAllCoroutines();
                 StartCoroutine(Attack2Coroutine());
             }
         }
+    }
+
+    void ResetAllFlag()
+    {
+        canDamage = true;
+        canRoutate = true;
     }
 
     IEnumerator Attack0Coroutine()
@@ -100,7 +112,7 @@ public class BossSandWorm : BaseBoss
             {
                 animator.SetTrigger("attackBite");
             }
-            
+
             yield return new WaitForSeconds(attackInterval);
         }
     }
@@ -123,10 +135,38 @@ public class BossSandWorm : BaseBoss
         }
     }
 
+    IEnumerator Attack2Coroutine()
+    {
+        yield return new WaitForSeconds(4.5f);
+        while (true)
+        {
+            float r = Random.value;
+            yield return StartCoroutine(ShotLaser());
+
+            yield return new WaitForSeconds(attackInterval);
+        }
+    }
+
+    IEnumerator ShotLaser()
+    {
+        animator.SetTrigger("attackRoar");
+        yield return new WaitForSeconds(0.8f);
+        GameObject laser = Instantiate(
+            laserPrefab,
+            firePoint.position,
+            firePoint.rotation,
+            firePoint
+        );
+        laser.transform.Rotate(0f, -90f, 0f, Space.Self);
+        yield return new WaitForSeconds(4.5f);
+        laser.GetComponent<Vamp_Hovl_Laser2>().DisablePrepare();
+    }
+
+
     IEnumerator ShotAttack()
     {
         animator.SetTrigger("attackSpit");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
         nWayShooter.Fire();
     }
 
@@ -178,13 +218,6 @@ public class BossSandWorm : BaseBoss
     }
 
 
-    IEnumerator Attack2Coroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(attackInterval);
-        }
-    }
 
 
 
