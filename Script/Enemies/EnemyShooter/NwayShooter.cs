@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NWayShooter : MonoBehaviour,IEnemyShooter
+public class NWayShooter : MonoBehaviour, IEnemyShooter
 {
     [Header("Bullet Settings")]
     public GameObject bulletPrefab;    // 弾のプレハブ（Rigidbody 必須）
@@ -17,11 +17,15 @@ public class NWayShooter : MonoBehaviour,IEnemyShooter
 
     void Start()
     {
-        if (core == null)
-        {
-            var p = GameObject.FindGameObjectWithTag("Core");
-            if (p != null) core = p.transform;
-        }
+        GetCore();
+    }
+
+    void GetCore()
+    {
+        if (core != null) return;
+        var p = GameObject.FindGameObjectWithTag("Core");
+        if (p != null) core = p.transform;
+
     }
 
     /// <summary>
@@ -29,6 +33,7 @@ public class NWayShooter : MonoBehaviour,IEnemyShooter
     /// </summary>
     public void Fire()
     {
+        GetCore();
         if (bulletPrefab == null || firePoint == null || core == null) return;
 
         // プレイヤーへのベクトルを取得し、X成分を無視 → ZY平面に投影

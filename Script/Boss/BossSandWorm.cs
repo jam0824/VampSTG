@@ -10,11 +10,20 @@ public class BossSandWorm : BaseBoss
     [Header("向き調整")]
     [SerializeField] private float rotateSpeed = 5f;   // 回転の滑らかさ
 
+    NWayShooter nWayShooter;
+
     int attackPattern = -1;
     bool canRoutate = true;
 
     protected override AudioClip GetEntryBGM() => bgm;
     protected override float GetEntryBGMVolume() => bgmVol;
+
+    protected override void Start()
+    {
+        base.Start();
+        nWayShooter = GetComponent<NWayShooter>();
+
+    }
 
     protected override void Update()
     {
@@ -33,7 +42,7 @@ public class BossSandWorm : BaseBoss
     private void UpdateFacing()
     {
         if (core == null) return;
-        if(!canRoutate) return;
+        if (!canRoutate) return;
 
         // プレイヤーとの差分
         float diffZ = transform.position.z - core.transform.position.z;
@@ -83,7 +92,15 @@ public class BossSandWorm : BaseBoss
         while (true)
         {
             float r = Random.value;
-            animator.SetTrigger(r < 0.5f ? "attackBite" : "attackSpit");
+            if (r < 0.5f)
+            {
+                yield return StartCoroutine(ShotAttack());
+            }
+            else
+            {
+                animator.SetTrigger("attackBite");
+            }
+            
             yield return new WaitForSeconds(attackInterval);
         }
     }
@@ -92,12 +109,25 @@ public class BossSandWorm : BaseBoss
     {
         while (true)
         {
-            // 攻撃間隔待機
             yield return new WaitForSeconds(attackInterval);
-
-            // HideUnderground をコルーチンとして実行
-            yield return StartCoroutine(HideUnderground());
+            if (Random.value < 0.2f)
+            {
+                // 弾攻撃
+                yield return StartCoroutine(ShotAttack());
+            }
+            else
+            {
+                // 地中隠れ攻撃
+                yield return StartCoroutine(HideUnderground());
+            }
         }
+    }
+
+    IEnumerator ShotAttack()
+    {
+        animator.SetTrigger("attackSpit");
+        yield return new WaitForSeconds(0.5f);
+        nWayShooter.Fire();
     }
 
     IEnumerator HideUnderground()
@@ -110,7 +140,6 @@ public class BossSandWorm : BaseBoss
         animator.SetTrigger("hide");
         yield return new WaitForSeconds(3f);
         canDamage = false;  //無敵にする
-
         yield return new WaitForSeconds(2f);
         // 2) 地面下に移動
         transform.position = new Vector3(originPos.x, -20f, originPos.z);
@@ -145,7 +174,7 @@ public class BossSandWorm : BaseBoss
         canDamage = true;  //無敵終了
         yield return new WaitForSeconds(2f);
         canRoutate = true;//回転許可
-        
+
     }
 
 
@@ -157,7 +186,7 @@ public class BossSandWorm : BaseBoss
         }
     }
 
-    
+
 
     public override void Die(Transform hitPoint)
     {
