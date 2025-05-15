@@ -610,7 +610,7 @@ Transform:
   m_GameObject: {fileID: 337321937585252602}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5, y: -2.16, z: 0}
+  m_LocalPosition: {x: -11.19, y: -2.53, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13431,6 +13431,8 @@ MonoBehaviour:
   bossHpBar: {fileID: 0}
   fader: {fileID: 1002433397208480642, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
   missileTargetName: MissileTarget
+  firePoint: {fileID: 4752576346821832676}
+  laserPrefab: {fileID: 5458672213910473723, guid: 284e9c13b35fed84ea620bb62257f18e, type: 3}
   bgm: {fileID: 8300000, guid: ac3b2ee5270f78f409e1a8e13ab49c65, type: 3}
   bgmVol: 0.8
   rotateSpeed: 5
@@ -13446,11 +13448,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5b556345ff78a469b700a5518e0d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6639797717033042514, guid: 7678888285849f2459e5a6bebe7997c0, type: 3}
+  bulletPrefab: {fileID: 2494194811549328558, guid: 0a720fd36bd740e4590f9b68cb8e90ee, type: 3}
   firePoint: {fileID: 4752576346821832676}
-  bulletSpeed: 3
-  bulletLifeTime: 5
-  numberOfBullets: 8
+  bulletSpeed: 5
+  bulletLifeTime: 10
+  numberOfBullets: 9
   totalSpreadAngle: 90
   core: {fileID: 0}
 --- !u!114 &8930154266625183207

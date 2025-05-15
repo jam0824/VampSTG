@@ -15,9 +15,11 @@ public class BossSandWorm : BaseBoss
     [SerializeField] private float rotateSpeed = 5f;   // 回転の滑らかさ
 
     NWayShooter nWayShooter;
+    ScatterShooter scatterShooter;
 
     int attackPattern = -1;
     bool canRoutate = true;
+    GameObject laser;
 
     protected override AudioClip GetEntryBGM() => bgm;
     protected override float GetEntryBGMVolume() => bgmVol;
@@ -26,18 +28,19 @@ public class BossSandWorm : BaseBoss
     {
         base.Start();
         nWayShooter = GetComponent<NWayShooter>();
+        scatterShooter = GetComponent<ScatterShooter>();
 
     }
 
     protected override void Update()
     {
         base.Update();
-
-        // ─── 毎フレーム向き更新 ───
         UpdateFacing();
-
-        // ─── 攻撃パターン切り替え ───
         SwitchAttackPattern();
+        if ((isDead) && (laser != null))
+        {
+            laser.GetComponent<Vamp_Hovl_Laser2>().DisablePrepare();
+        }
     }
 
     /// <summary>
@@ -110,7 +113,7 @@ public class BossSandWorm : BaseBoss
             }
             else
             {
-                animator.SetTrigger("attackBite");
+                yield return StartCoroutine(ShotScatter());
             }
 
             yield return new WaitForSeconds(attackInterval);
@@ -130,14 +133,16 @@ public class BossSandWorm : BaseBoss
             else
             {
                 // 地中隠れ攻撃
-                yield return StartCoroutine(HideUnderground());
+                yield return StartCoroutine(HideUnderground(false));
             }
         }
     }
 
     IEnumerator Attack2Coroutine()
     {
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(HideUnderground(true));
+        ResetAllFlag();
         while (true)
         {
             float r = Random.value;
@@ -151,7 +156,7 @@ public class BossSandWorm : BaseBoss
     {
         animator.SetTrigger("attackRoar");
         yield return new WaitForSeconds(0.8f);
-        GameObject laser = Instantiate(
+        laser = Instantiate(
             laserPrefab,
             firePoint.position,
             firePoint.rotation,
@@ -170,7 +175,14 @@ public class BossSandWorm : BaseBoss
         nWayShooter.Fire();
     }
 
-    IEnumerator HideUnderground()
+    IEnumerator ShotScatter()
+    {
+        animator.SetTrigger("attackBite");
+        yield return new WaitForSeconds(0.8f);
+        scatterShooter.FireRandomScatter();
+    }
+
+    IEnumerator HideUnderground(bool isInitPos)
     {
         // 元の位置を保持
         Vector3 originPos = transform.position;
@@ -187,7 +199,7 @@ public class BossSandWorm : BaseBoss
 
         // 3) ランダム Z 移動
         float startZ = transform.position.z;
-        float endZ = Random.Range(-8f, 8f);
+        float endZ = (!isInitPos) ? Random.Range(-8f, 8f) : 6f;
         float moveDuration = 1f;
         float elapsed = 0f;
         Vector3 pos = transform.position;
@@ -209,7 +221,9 @@ public class BossSandWorm : BaseBoss
         canRoutate = false;//回転を止める
         // 5) 噛みつき＆再出現
         animator.SetTrigger("underBite");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        scatterShooter.FireRandomScatter();
+        yield return new WaitForSeconds(1f);
         animator.SetTrigger("appear");
         canDamage = true;  //無敵終了
         yield return new WaitForSeconds(2f);
@@ -218,13 +232,4 @@ public class BossSandWorm : BaseBoss
     }
 
 
-
-
-
-    public override void Die(Transform hitPoint)
-    {
-        base.Die(hitPoint);
-        animator.SetTrigger("Die");
-        // 砂虫特有の爆発エフェクトなど
-    }
 }

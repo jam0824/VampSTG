@@ -568,11 +568,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6990937734860834568, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
   m_PrefabInstance: {fileID: 3689329455878723750}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &970298173 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4752576346821832676, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
-  m_PrefabInstance: {fileID: 3689329455878723750}
+--- !u!114 &944687965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944687958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3454439554667490533, guid: 4142eadfc104ea9498c8556c35af2dc1, type: 3}
+  firePoint: {fileID: 1275999538}
+  bulletLifeTime: 30
+  bulletCount: 40
+  scatterAngle: 60
+  minBulletSpeed: 1
+  maxBulletSpeed: 3
+  player: {fileID: 0}
 --- !u!1001 &1041247753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -687,6 +702,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
+--- !u!4 &1275999538 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4752576346821832676, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
+  m_PrefabInstance: {fileID: 3689329455878723750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1304304942
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +957,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65ca48a179bafa8418ca822116eb7087, type: 3}
+--- !u!114 &1952989215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1002433397208480642, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+  m_PrefabInstance: {fileID: 111130361}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae70b770374cdb7419eb76bc52911132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2016173179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1072,21 +1103,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 370891850176831145, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
-      propertyPath: lezerObj
+      propertyPath: fader
       value: 
-      objectReference: {fileID: 5458672213910473723, guid: 284e9c13b35fed84ea620bb62257f18e, type: 3}
+      objectReference: {fileID: 1952989215}
     - target: {fileID: 370891850176831145, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: bossHpBar
       value: 
       objectReference: {fileID: 179951997}
-    - target: {fileID: 370891850176831145, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 970298173}
-    - target: {fileID: 370891850176831145, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
-      propertyPath: laserPrefab
-      value: 
-      objectReference: {fileID: 5458672213910473723, guid: 284e9c13b35fed84ea620bb62257f18e, type: 3}
     - target: {fileID: 2870113126874812570, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1127,46 +1150,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4752576346821832676, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -11.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 4752576346821832676, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 4752576346821832676, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
     - target: {fileID: 5587447679999661239, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: bulletSpeed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5587447679999661239, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: bulletPrefab
       value: 
-      objectReference: {fileID: 2494194811549328558, guid: 0a720fd36bd740e4590f9b68cb8e90ee, type: 3}
+      objectReference: {fileID: 2416357405354205221, guid: efbf08f5c91c3f7448e64a5879527444, type: 3}
     - target: {fileID: 5587447679999661239, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: bulletLifeTime
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5587447679999661239, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: numberOfBullets
-      value: 9
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6990937734860834568, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: m_Name
       value: QuickSandWorm
       objectReference: {fileID: 0}
-    - target: {fileID: 6990937734860834568, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6990937734860834568, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 944687965}
   m_SourcePrefab: {fileID: 100100000, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
 --- !u!1001 &5983785141619348498
 PrefabInstance:

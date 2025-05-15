@@ -54,6 +54,27 @@ public class ScatterShooter : MonoBehaviour
     }
 
     /// <summary>
+    /// プレイヤーを狙わずに、全方向（360°）ランダムな角度・ランダム速度で弾を放出
+    /// </summary>
+    /// <param name="count">発射する弾数。0 以下なら既定の bulletCount を使用。</param>
+    public void FireRandomScatter(int count = 0)
+    {
+        if (bulletPrefab == null || firePoint == null) return;
+
+        // 引数が正の値ならそれを、そうでなければフィールドの bulletCount を使う
+        int total = count > 0 ? count : bulletCount;
+
+        for (int i = 0; i < total; i++)
+        {
+            // 0～360° のランダム角度
+            float randomAngle = Random.Range(0f, 360f);
+            // ランダム速度
+            float speed = Random.Range(minBulletSpeed, maxBulletSpeed);
+            ShootBullet(randomAngle, speed);
+        }
+    }
+
+    /// <summary>
     /// 指定角度・指定速度で単発の弾を生成して飛ばす
     /// </summary>
     void ShootBullet(float angleDeg, float speed)

@@ -1,6 +1,8 @@
 // BaseBoss.cs
 using UnityEngine;
 using System.Collections;
+using UnityEditor.Rendering;
+using Unity.IO.LowLevel.Unsafe;
 
 public abstract class BaseBoss : MonoBehaviour, IBoss
 {
@@ -15,6 +17,7 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
 
     protected float maxHp;
     protected PlayerManager playerManager;
+    protected StageManager stageManager;
     protected GameObject core;
     protected string tagName = "Boss";
     protected bool isDead = false;
@@ -42,6 +45,8 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
 
         core = GameObject.FindGameObjectWithTag("Core");
         playerManager = core.GetComponent<PlayerManager>();
+        var tmp = GameObject.Find("StageManager");
+        stageManager = tmp.GetComponent<StageManager>();
 
         maxHp = hp;
         SetTagName(tagName);
@@ -117,10 +122,67 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
     public virtual void Die(Transform hitPoint)
     {
         isDead = true;
-        // 共通：キルカウント＆スコア加算
+        StopEverything();
+
+        // 死亡アニメ再生
+        animator.SetTrigger("dead");
+        StartCoroutine(RandomExplosionCoroutine());
+        StartCoroutine(FadeOut());
         AddKillCount();
         AddScore(maxHp);
-        // 必要ならフェードアウトなど
+
+        // 必要ならスクリプト自体を無効化
+        this.enabled = false;
+    }
+
+    protected virtual void StopEverything()
+    {
+        playerManager.AllBatteryActiveFalse();  //全てのBatteryを止める
+        stageManager.isSpawnEnemey = false; //全ての敵の出現を止める
+        stageManager.KillAllEnemies();  //雑魚敵を全て消す
+        SoundManager.Instance.StopBGM();    //BGMを消す
+        StopAllCoroutines();
+    }
+
+    protected virtual IEnumerator FadeOut()
+    {
+        //フェードアウトまでの待ち時間
+        yield return new WaitForSeconds(3f);
+        //フェードアウト処理
+        fader.FadeToWhite("Result");
+    }
+
+    protected virtual IEnumerator RandomExplosionCoroutine()
+    {
+
+        for (int i = 0; i < 50; i++)
+        {
+            Vector3 pos = transform.position;
+            pos.x = 1f; //少し画面の手前に出す
+                        // y は 0 ～ 6 の範囲
+            pos.y = Random.value * GameManager.Instance.maxY;
+            // z を ±1 の範囲でランダムにずらす
+            float zOffset = (Random.value - 0.5f) * 2f;
+            pos.z += zOffset;
+
+            //ランダム爆発
+            float r = Random.value;
+            if (r < 0.3)
+            {
+                EffectController.Instance.PlaySmallExplosion(pos,transform.rotation);
+
+            }
+            else if (r < 0.6)
+            {
+                EffectController.Instance.PlayMiddleExplosion(pos,transform.rotation);
+            }
+            else
+            {
+                EffectController.Instance.PlayLargeExplosion(pos,transform.rotation);
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     /// <summary>
