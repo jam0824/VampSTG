@@ -1164,7 +1164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5587447679999661239, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: numberOfBullets
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6990937734860834568, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: m_Name

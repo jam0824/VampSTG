@@ -130,6 +130,7 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
         StartCoroutine(FadeOut());
         AddKillCount();
         AddScore(maxHp);
+        ChangeMuteki();
 
         // 必要ならスクリプト自体を無効化
         this.enabled = false;
@@ -169,16 +170,16 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
             float r = Random.value;
             if (r < 0.3)
             {
-                EffectController.Instance.PlaySmallExplosion(pos,transform.rotation);
+                EffectController.Instance.PlaySmallExplosion(pos, transform.rotation);
 
             }
             else if (r < 0.6)
             {
-                EffectController.Instance.PlayMiddleExplosion(pos,transform.rotation);
+                EffectController.Instance.PlayMiddleExplosion(pos, transform.rotation);
             }
             else
             {
-                EffectController.Instance.PlayLargeExplosion(pos,transform.rotation);
+                EffectController.Instance.PlayLargeExplosion(pos, transform.rotation);
             }
 
             yield return new WaitForSeconds(0.1f);
@@ -221,5 +222,9 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
     public virtual void AddScore(float maxHp)
     {
         GameManager.Instance.AddScore(maxHp);
+    }
+    public virtual void ChangeMuteki()
+    {
+        playerManager.isMuteki = true;
     }
 }

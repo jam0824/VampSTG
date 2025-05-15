@@ -159,7 +159,11 @@ public class BossSandWorm : BaseBoss
             firePoint
         );
         laser.transform.Rotate(0f, -90f, 0f, Space.Self);
-        yield return new WaitForSeconds(4.5f);
+
+        for(int i = 0; i < 45; i++) {
+            scatterShooter.FireRandomScatter(2);
+            yield return new WaitForSeconds(0.1f);
+        }
         laser.GetComponent<Vamp_Hovl_Laser2>().DisablePrepare();
     }
 

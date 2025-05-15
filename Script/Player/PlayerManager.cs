@@ -18,6 +18,8 @@ public class PlayerManager : MonoBehaviour
 
     [Header("星と倍率のオフセット(星3が1倍)")]
     [SerializeField] private float baseStarOffset = 3f;
+    [Header("無敵スイッチ")]
+    [SerializeField] public bool isMuteki = false;
 
     private bool isInvincible = false;
     private Collider playerCollider;
@@ -30,6 +32,7 @@ public class PlayerManager : MonoBehaviour
 
     public float powerMagnification = 1f;
     public float speedMagnification = 1f;
+
 
 
     void Start()
@@ -117,7 +120,7 @@ public class PlayerManager : MonoBehaviour
     // CoreがEnemyとHitしたときに呼ばれる
     public void HitEnemy()
     {
-        if (isInvincible) return;
+        if ((isInvincible)||(isMuteki)) return;
         Damage();
         SetMiss();
         if (hp < 0) StartCoroutine(Death());
