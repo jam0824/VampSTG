@@ -122,7 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d190ab1f5f4e74988335fb0e9e3306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 5
+  hitSe: {fileID: 0}
+  hitSeVolume: 0
+  triggerEffect: {fileID: 0}
+  isDestroy: 1
+  powerMagnification: 1
 --- !u!1 &843298340293988238
 GameObject:
   m_ObjectHideFlags: 0
