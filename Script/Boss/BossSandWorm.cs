@@ -37,10 +37,6 @@ public class BossSandWorm : BaseBoss
         base.Update();
         UpdateFacing();
         SwitchAttackPattern();
-        if ((isDead) && (laser != null))
-        {
-            laser.GetComponent<Vamp_Hovl_Laser2>().DisablePrepare();
-        }
     }
 
     /// <summary>
@@ -229,6 +225,31 @@ public class BossSandWorm : BaseBoss
         yield return new WaitForSeconds(2f);
         canRoutate = true;//回転許可
 
+    }
+
+    public override void Die(Transform hitPoint)
+    {
+        base.Die(hitPoint);
+        ClearFirePointChildrenOnDeath();
+    }
+
+    /// <summary>
+    /// isDead が true かつ firePoint に子がいる場合、
+    /// すべての子オブジェクトを破棄する
+    /// </summary>
+    private void ClearFirePointChildrenOnDeath()
+    {
+        if (!isDead ||
+            firePoint == null ||
+            firePoint.childCount == 0)
+            return;
+
+        // 子を後ろから回して Destroy
+        for (int i = firePoint.childCount - 1; i >= 0; i--)
+        {
+            var child = firePoint.GetChild(i).gameObject;
+            Destroy(child);
+        }
     }
 
 

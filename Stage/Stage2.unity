@@ -585,7 +585,7 @@ MonoBehaviour:
   bulletLifeTime: 30
   bulletCount: 40
   scatterAngle: 60
-  minBulletSpeed: 1
+  minBulletSpeed: 0.5
   maxBulletSpeed: 3
   player: {fileID: 0}
 --- !u!1001 &1041247753
