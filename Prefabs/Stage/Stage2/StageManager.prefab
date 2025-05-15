@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaveTime: 121
-  endWaveTime: 180
+  startWaveTime: 141
+  endWaveTime: 210
   enemies:
   - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
   - {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaveTime: 181
+  startWaveTime: 211
   endWaveTime: 1000
   enemies:
   - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
@@ -136,6 +136,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2142379605358455754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3772932599873889635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2653780540484850345}
+  - component: {fileID: 1065517463961126075}
+  m_Layer: 0
+  m_Name: Wave5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2653780540484850345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772932599873889635}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2142379605358455754}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1065517463961126075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772932599873889635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWaveTime: 60
+  endWaveTime: 1000
+  enemies:
+  - {fileID: 942118780953535470, guid: 037ecf58b34b7e347bc3f2e1e3ed828e, type: 3}
+  spawnCount: 1
+  initialInterval: 20
+  minInterval: 10
+  decayRate: 0.01
 --- !u!1 &4051890712372431027
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,10 +232,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaveTime: 61
-  endWaveTime: 120
+  startWaveTime: 71
+  endWaveTime: 140
   enemies:
   - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
+  - {fileID: 6976266346302352028, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
   spawnCount: 3
   initialInterval: 4
   minInterval: 0.5
@@ -233,10 +286,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startWaveTime: 0
-  endWaveTime: 60
+  endWaveTime: 70
   enemies:
+  - {fileID: 6976266346302352028, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
   - {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
-  spawnCount: 1
+  spawnCount: 2
   initialInterval: 3
   minInterval: 0.5
   decayRate: 0.05
@@ -274,6 +328,7 @@ Transform:
   - {fileID: 6230278199650873298}
   - {fileID: 8871186698269581327}
   - {fileID: 1485445140307832819}
+  - {fileID: 2653780540484850345}
   - {fileID: 5300665393664927994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -289,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f89f1671d2b3545945e41af0b14d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageAllSecond: 180
+  stageAllSecond: 210
   items:
   - {fileID: 8981956440422478563, guid: 37574d0bfc5140940915c68c50c238c9, type: 3}
   - {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
@@ -303,3 +358,5 @@ MonoBehaviour:
   bgmVol: 0.5
   progressBar: {fileID: 0}
   playerModel: {fileID: 6155718885946839314, guid: f62125caa80af5d41a500d2cf1f61c69, type: 3}
+  allElapsedTime: 0
+  isSpawnEnemey: 1

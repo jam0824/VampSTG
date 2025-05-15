@@ -730,6 +730,7 @@ GameObject:
   - component: {fileID: 4118695031299590644}
   - component: {fileID: 2009416249694289471}
   - component: {fileID: 3883060135357518143}
+  - component: {fileID: 7480111222201573791}
   m_Layer: 7
   m_Name: FlyingWormStandard
   m_TagString: Enemy
@@ -815,7 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e079847389c2e41bfbd3cb8208315e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
+  hp: 60
   moveSpeed: 1
   rotateSpeed: 90
   stopDistance: 2.5
@@ -843,6 +844,27 @@ MonoBehaviour:
   numberOfBullets: 5
   totalSpreadAngle: 60
   core: {fileID: 0}
+--- !u!135 &7480111222201573791
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942118780953535470}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1003379580890660643
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,7 +49,9 @@ public class Enemy : MonoBehaviour
         if (dist > stopDistance)
         {
             float step = moveSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, step);
+            Vector3 stepPos = Vector3.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
+            stepPos.x = 0f;
+            transform.position = stepPos;
         }
 
         // ─── 常にプレイヤー方向を向く ───

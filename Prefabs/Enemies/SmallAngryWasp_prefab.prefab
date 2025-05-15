@@ -198,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 620451375227789097}
   - component: {fileID: 7724700679974595333}
-  - component: {fileID: 1823680979264022903}
+  - component: {fileID: 4521621926999676977}
   m_Layer: 7
   m_Name: 1_low
   m_TagString: Untagged
@@ -288,8 +288,8 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0121971145, y: -0.00080318004, z: 0.00007089414}
     m_Extent: {x: 0.10496987, y: 0.04278957, z: 0.043311536}
   m_DirtyAABB: 0
---- !u!136 &1823680979264022903
-CapsuleCollider:
+--- !u!135 &4521621926999676977
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -303,13 +303,11 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.060367323
-  m_Height: 0.22161101
-  m_Direction: 1
+  serializedVersion: 3
+  m_Radius: 0.15
   m_Center: {x: -0.00007089558, y: -0.009064848, z: 0.2449883}
 --- !u!1 &1588025516967934145
 GameObject:
@@ -1427,6 +1425,7 @@ GameObject:
   - component: {fileID: 4231415332359390674}
   - component: {fileID: 3863358013450077061}
   - component: {fileID: 4695751530478955301}
+  - component: {fileID: 1251164348761298127}
   m_Layer: 7
   m_Name: SmallAngryWasp_prefab
   m_TagString: Enemy
@@ -1527,6 +1526,27 @@ MonoBehaviour:
   isAttack: 0
   attackInterval: 4
   attackAnimationWait: 0.5
+--- !u!135 &1251164348761298127
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6976266346302352028}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.15
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &7255374445239452318
 GameObject:
   m_ObjectHideFlags: 0
