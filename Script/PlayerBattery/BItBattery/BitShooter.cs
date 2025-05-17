@@ -5,7 +5,7 @@ public class EnemySeekerShooter : MonoBehaviour
 {
     [Header("ターゲット検索")]
     public string enemyTag = "Enemy";
-    
+
     [Header("ターゲット検索のリトライ数")]
     public float retryCount = 5;
 
@@ -22,6 +22,8 @@ public class EnemySeekerShooter : MonoBehaviour
 
     private Transform core;
     private BitBattery bitBattery;
+    public float powerMagnification = 1f;
+    private PlayerManager playerManager;
 
     // モデルのX軸90度回転補正
     private readonly Quaternion modelOffset = Quaternion.Euler(90f, 0f, 0f);
@@ -31,8 +33,10 @@ public class EnemySeekerShooter : MonoBehaviour
     void Start()
     {
         core = GameObject.FindWithTag("Core").transform;
-        bitBattery = transform.parent.GetComponent<BitBattery>();
-        transform.parent = null;
+        playerManager = core.GetComponent<PlayerManager>();
+        bitBattery = GameObject.Find("BitBattery").GetComponent<BitBattery>();
+        transform.rotation = Quaternion.Euler(90f, 0f, 0f);
+
         AcquireNewTarget();
     }
 
@@ -71,7 +75,7 @@ public class EnemySeekerShooter : MonoBehaviour
                 GameManager.Instance.maxZ - bitBattery.moveOffset
             );
             transform.position = new Vector3(
-                transform.position.x,
+                0,
                 clampedY,
                 clampedZ
             );
@@ -96,12 +100,20 @@ public class EnemySeekerShooter : MonoBehaviour
             fireTimer -= Time.deltaTime;
             if (fireTimer <= 0f)
             {
-                Quaternion fireRot = firePoint.rotation * modelOffset * beamFlip;
-                Instantiate(laserPrefab, firePoint.position, fireRot);
-                SoundManager.Instance.PlaySE(se, seVol);
+                MakeBullet();
                 fireTimer = bitBattery.fireInterval;
             }
         }
+    }
+
+    void MakeBullet()
+    {
+        if (playerManager.isDead) return;
+        Quaternion fireRot = firePoint.rotation * modelOffset * beamFlip;
+        GameObject bullet = Instantiate(laserPrefab, firePoint.position, fireRot);
+        ConfigPlayerBullet configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
+        configPlayerBullet.powerMagnification = playerManager.powerMagnification;
+        SoundManager.Instance.PlaySE(se, seVol);
     }
 
     void AcquireNewTarget()

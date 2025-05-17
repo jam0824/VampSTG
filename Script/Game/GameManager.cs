@@ -183,7 +183,11 @@ public class GameManager : MonoBehaviour
     public void AddItem(string itemId)
     {
         if (!gotItems.Contains(itemId))
+        {
             gotItems.Add(itemId);
+            Debug.Log("正式にアイテムリストに追加しました : " + itemId);
+        }
+            
     }
 
     /// <summary>

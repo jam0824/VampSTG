@@ -7,6 +7,8 @@ public class BitBattery : BaseBattery
 
     public override string itemType => "bit";
     public override int batteryLevel{get;set;} = 0;
+    [Header("ビット")]
+    public GameObject bitPrefab;
 
     [Header("ターゲット検索")]
     // Coreからのターゲット検索半径
@@ -32,6 +34,7 @@ public class BitBattery : BaseBattery
 
     public override void getItem(float magnification)
     {
+        powerMagnification = magnification;
         switch (batteryLevel)
         {
             case 0:
@@ -66,46 +69,55 @@ public class BitBattery : BaseBattery
     {
         batteryLevel += 1;
         gameObject.SetActive(true);
-        SetActiveChildwithObject(firePoints, "PotBit1");
+        MakeBit();
     }
     void level2()
     {
         batteryLevel += 1;
         moveSpeed *= 2;
+        MakeBit();
     }
     void level3()
     {
         batteryLevel += 1;
-        SetActiveChildwithObject(firePoints, "PotBit2");
+        MakeBit();
     }
     void level4()
     {
         batteryLevel += 1;
         moveSpeed = maxMoveSpeed;
+        MakeBit();
     }
     void level5()
     {
         batteryLevel += 1;
-        SetActiveChildwithObject(firePoints, "PotBit3");
+        MakeBit();
     }
     void level6()
     {
         batteryLevel += 1;
         targetRadius = maxTargetRadius;
+        MakeBit();
     }
     void level7()
     {
         batteryLevel += 1;
-        SetActiveChildwithObject(firePoints, "PotBit4");
+        MakeBit();
     }
     void level8()
     {
         batteryLevel += 1;
         fireInterval /= 2;
+        MakeBit();
+    }
+
+    void MakeBit()
+    {
+        Instantiate(bitPrefab, firePoints.transform.position, firePoints.transform.rotation);
     }
 
     /// <summary>
-    /// 敵の GameObject をプールに登録します。
+    /// ターゲットとなった敵の GameObject をプールに登録します。
     /// 呼び出し時に null エントリを一掃し、重複登録を防ぎます。
     /// </summary>
     /// <param name="enemy">追加したい敵の GameObject</param>

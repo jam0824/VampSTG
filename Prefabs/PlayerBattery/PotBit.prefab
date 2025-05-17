@@ -259,13 +259,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTag: Enemy
-  stopDistance: 3
-  moveSpeed: 10
-  moveOffset: 2
-  rotationSpeed: 10
+  retryCount: 5
   laserPrefab: {fileID: 1878987882032996, guid: 776d25009eb357c41bf5b14a5eaa905c, type: 3}
   firePoint: {fileID: 5209130992914983331}
-  fireInterval: 0.5
+  se: {fileID: 8300000, guid: 6f7e0057590be4f4baff4a33f7d0d524, type: 3}
+  seVol: 0.5
+  powerMagnification: 1
 --- !u!1 &3759254215303660333
 GameObject:
   m_ObjectHideFlags: 0

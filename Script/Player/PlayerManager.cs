@@ -26,7 +26,7 @@ public class PlayerManager : MonoBehaviour
     private int playerLayer;
     private int enemyLayer;
     private int oldHp = 0;
-    private bool isDead = false;
+    public bool isDead = false;
     private GameObject playerModel;
     private Animator animator;
 
@@ -120,7 +120,7 @@ public class PlayerManager : MonoBehaviour
     // CoreがEnemyとHitしたときに呼ばれる
     public void HitEnemy()
     {
-        if ((isInvincible)||(isMuteki)) return;
+        if ((isInvincible)||(isMuteki)||(isDead)) return;
         Damage();
         SetMiss();
         if (hp < 0) StartCoroutine(Death());
