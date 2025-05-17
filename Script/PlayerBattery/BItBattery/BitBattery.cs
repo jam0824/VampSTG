@@ -10,10 +10,12 @@ public class BitBattery : BaseBattery
 
     [Header("ターゲット検索")]
     // Coreからのターゲット検索半径
-    public float targetRadius = 8f;
+    public float targetRadius = 4f;
+    public float maxTargetRadius = 6f;
     public float stopDistance = 2f;
     [Header("移動設定")]
     public float moveSpeed = 5f;
+    public float maxMoveSpeed = 15f;
     [Header("画面端からの移動マージン")]
     public float moveOffset = 1f;
     public float rotationSpeed = 90f;
@@ -69,7 +71,7 @@ public class BitBattery : BaseBattery
     void level2()
     {
         batteryLevel += 1;
-        
+        moveSpeed *= 2;
     }
     void level3()
     {
@@ -79,7 +81,7 @@ public class BitBattery : BaseBattery
     void level4()
     {
         batteryLevel += 1;
-        
+        moveSpeed = maxMoveSpeed;
     }
     void level5()
     {
@@ -89,6 +91,7 @@ public class BitBattery : BaseBattery
     void level6()
     {
         batteryLevel += 1;
+        targetRadius = maxTargetRadius;
     }
     void level7()
     {
@@ -98,6 +101,7 @@ public class BitBattery : BaseBattery
     void level8()
     {
         batteryLevel += 1;
+        fireInterval /= 2;
     }
 
     /// <summary>

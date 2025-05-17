@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPoolSize: 10
   audioRoot: {fileID: 0}
-  maxSimultaneousSE: 10
-  maxSameAudioClip: 3
+  maxSimultaneousSE: 20
+  maxSameAudioClip: 8

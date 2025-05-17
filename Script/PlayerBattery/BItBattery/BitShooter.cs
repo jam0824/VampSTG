@@ -32,6 +32,7 @@ public class EnemySeekerShooter : MonoBehaviour
     {
         core = GameObject.FindWithTag("Core").transform;
         bitBattery = transform.parent.GetComponent<BitBattery>();
+        transform.parent = null;
         AcquireNewTarget();
     }
 
@@ -124,6 +125,12 @@ public class EnemySeekerShooter : MonoBehaviour
             currentTarget = null;
             return;
         }
+        if (inRange.Count == 1)
+        {
+            currentTarget = inRange[0].transform;
+            bitBattery.AddEnemy(currentTarget.gameObject);
+            return;
+        }
 
         for (int i = 0; i < retryCount; i++)
         {
@@ -132,7 +139,7 @@ public class EnemySeekerShooter : MonoBehaviour
             currentTarget = candidate.transform;
             // Contains で重複チェック
             if (!bitBattery.targetEnemyPool.Contains(candidate)) break;
-            
+
         }
 
         bitBattery.AddEnemy(currentTarget.gameObject);

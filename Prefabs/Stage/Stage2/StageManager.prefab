@@ -236,7 +236,7 @@ MonoBehaviour:
   endWaveTime: 140
   enemies:
   - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
-  - {fileID: 6976266346302352028, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
+  - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
   spawnCount: 3
   initialInterval: 4
   minInterval: 0.5
@@ -288,7 +288,7 @@ MonoBehaviour:
   startWaveTime: 0
   endWaveTime: 70
   enemies:
-  - {fileID: 6976266346302352028, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
+  - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
   - {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
   spawnCount: 2
   initialInterval: 3
@@ -349,6 +349,7 @@ MonoBehaviour:
   - {fileID: 8981956440422478563, guid: 37574d0bfc5140940915c68c50c238c9, type: 3}
   - {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
   - {fileID: 8961623587356723185, guid: c619e40ba7453b34598ac44f36ce1cd8, type: 3}
+  - {fileID: 6938418429575878011, guid: bbb8611e5f1a19a4e8cc6315e37bab12, type: 3}
   minDistance: 10
   maxDistance: 12
   enemyPool: {fileID: 2168829202611065324}
