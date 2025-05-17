@@ -78,7 +78,7 @@ MonoBehaviour:
   damage: 10
   hitSe: {fileID: 0}
   hitSeVolume: 0
-  triggerEffect: {fileID: 0}
+  triggerEffect: {fileID: 5180228548283051940, guid: 376af5434a17224428ea47d1c72a0753, type: 3}
   isDestroy: 1
   powerMagnification: 1
 --- !u!135 &135219337407746228

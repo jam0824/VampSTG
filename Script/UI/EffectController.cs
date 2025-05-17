@@ -54,22 +54,39 @@ public class EffectController : MonoBehaviour
             smallExplosionSes,
             smallExplosionSeVolume);
     }
+    public void PlaySmallExplosionSeOnly()
+    {
+        PlayExplosionSeOnly(smallExplosionSes,
+            smallExplosionSeVolume);
+    }
 
-    public void PlayMiddleExplosion(Vector3 pos, Quaternion rot){
+    public void PlayMiddleExplosion(Vector3 pos, Quaternion rot)
+    {
         PlayExplosion(
-            pos, 
+            pos,
             rot,
             middleExplosions,
             middleExplosionSes,
             middleExplosionSeVolume);
     }
+    public void PlayMiddleExplosionSeOnly()
+    {
+        PlayExplosionSeOnly(middleExplosionSes,
+            middleExplosionSeVolume);
+    }
 
-    public void PlayLargeExplosion(Vector3 pos, Quaternion rot){
+    public void PlayLargeExplosion(Vector3 pos, Quaternion rot)
+    {
         PlayExplosion(
-            pos, 
-            rot, 
-            largeExplosions, 
-            largeExplosionSes, 
+            pos,
+            rot,
+            largeExplosions,
+            largeExplosionSes,
+            largeExplosionSeVolume);
+    }
+    public void PlayLargeExplosionSeOnly()
+    {
+        PlayExplosionSeOnly(largeExplosionSes,
             largeExplosionSeVolume);
     }
 
@@ -79,9 +96,15 @@ public class EffectController : MonoBehaviour
         Instantiate(explosions[objindex], pos, rot);
         SoundManager.Instance.PlaySE(clips[seIndex], vol);
     }
+    void PlayExplosionSeOnly(AudioClip[] clips, float vol)
+    {
+        int seIndex = Random.Range(0, clips.Length);
+        SoundManager.Instance.PlaySE(clips[seIndex], vol);
+    }
 
-    public void PlayPowerUp(Vector3 pos){
-        setEffectToPlayer(powerUp,pos, powerUpSe, powerUpSeVol);
+    public void PlayPowerUp(Vector3 pos)
+    {
+        setEffectToPlayer(powerUp, pos, powerUpSe, powerUpSeVol);
     }
 
     public void PlayHitToPlayer(Vector3 pos){
