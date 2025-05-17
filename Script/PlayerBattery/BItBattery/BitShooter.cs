@@ -1,20 +1,17 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemySeekerShooter : MonoBehaviour
 {
     [Header("ターゲット検索")]
     public string enemyTag = "Enemy";
-    public float stopDistance = 2f;
-
-    [Header("移動設定")]
-    public float moveSpeed = 5f;
-    public float moveOffset = 1f;
-    public float rotationSpeed = 90f;
+    
+    [Header("ターゲット検索のリトライ数")]
+    public float retryCount = 5;
 
     [Header("射撃設定")]
     public GameObject laserPrefab;
     public Transform firePoint;
-    public float fireInterval = 2f;
 
     [Header("効果音")]
     public AudioClip se;
@@ -23,6 +20,9 @@ public class EnemySeekerShooter : MonoBehaviour
     private Transform currentTarget;
     private float fireTimer = 0f;
 
+    private Transform core;
+    private BitBattery bitBattery;
+
     // モデルのX軸90度回転補正
     private readonly Quaternion modelOffset = Quaternion.Euler(90f, 0f, 0f);
     // ビームの向き180度反転補正
@@ -30,6 +30,8 @@ public class EnemySeekerShooter : MonoBehaviour
 
     void Start()
     {
+        core = GameObject.FindWithTag("Core").transform;
+        bitBattery = transform.parent.GetComponent<BitBattery>();
         AcquireNewTarget();
     }
 
@@ -47,25 +49,25 @@ public class EnemySeekerShooter : MonoBehaviour
         float dist = Vector2.Distance(me2D, tgt2D);
 
         // 移動
-        if (dist > stopDistance)
+        if (dist > bitBattery.stopDistance)
         {
             Vector3 dir = new Vector3(
                 0f,
                 currentTarget.position.y - transform.position.y,
                 currentTarget.position.z - transform.position.z
             ).normalized;
-            transform.position += dir * moveSpeed * Time.deltaTime;
+            transform.position += dir * bitBattery.moveSpeed * Time.deltaTime;
 
             // 画面範囲内にクランプ（Y・Z軸）
             float clampedY = Mathf.Clamp(
                 transform.position.y,
-                GameManager.Instance.minY + moveOffset,
-                GameManager.Instance.maxY - moveOffset
+                GameManager.Instance.minY + bitBattery.moveOffset,
+                GameManager.Instance.maxY - bitBattery.moveOffset
             );
             float clampedZ = Mathf.Clamp(
                 transform.position.z,
-                GameManager.Instance.minZ + moveOffset,
-                GameManager.Instance.maxZ - moveOffset
+                GameManager.Instance.minZ + bitBattery.moveOffset,
+                GameManager.Instance.maxZ - bitBattery.moveOffset
             );
             transform.position = new Vector3(
                 transform.position.x,
@@ -80,47 +82,59 @@ public class EnemySeekerShooter : MonoBehaviour
         if (lookDir.sqrMagnitude > 0.001f)
         {
             Quaternion targetRot = Quaternion.LookRotation(lookDir) * modelOffset;
-            // ここをLerp/Slerpに置き換え
             transform.rotation = Quaternion.Slerp(
-                transform.rotation,     // 現在の回転
-                targetRot,              // 目標の回転
-                rotationSpeed * Time.deltaTime  // 補間係数
+                transform.rotation,
+                targetRot,
+                bitBattery.rotationSpeed * Time.deltaTime
             );
         }
 
         // 射程内なら発射
-        if (dist <= stopDistance && laserPrefab != null && firePoint != null)
+        if (dist <= bitBattery.stopDistance && laserPrefab != null && firePoint != null)
         {
             fireTimer -= Time.deltaTime;
             if (fireTimer <= 0f)
             {
-                // 発射時にはモデル補正＋ビーム反転補正を両方適用
                 Quaternion fireRot = firePoint.rotation * modelOffset * beamFlip;
                 Instantiate(laserPrefab, firePoint.position, fireRot);
                 SoundManager.Instance.PlaySE(se, seVol);
-                fireTimer = fireInterval;
+                fireTimer = bitBattery.fireInterval;
             }
         }
     }
 
     void AcquireNewTarget()
     {
+        // タグで見つかった全ての敵を取得
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-        float bestDist = Mathf.Infinity;
-        Transform bestT = null;
-        Vector2 me2D = new Vector2(transform.position.y, transform.position.z);
 
-        foreach (var e in enemies)
+        // 一定範囲内の敵のみをリストに追加
+        List<GameObject> inRange = new List<GameObject>();
+        foreach (var enemy in enemies)
         {
-            Vector2 e2D = new Vector2(e.transform.position.y, e.transform.position.z);
-            float d = Vector2.Distance(me2D, e2D);
-            if (d < bestDist)
+            if (Vector3.Distance(transform.position, enemy.transform.position) <= bitBattery.targetRadius)
             {
-                bestDist = d;
-                bestT = e.transform;
+                inRange.Add(enemy);
             }
         }
 
-        currentTarget = bestT;
+        // 範囲内の敵がいなければターゲットなし
+        if (inRange.Count == 0)
+        {
+            currentTarget = null;
+            return;
+        }
+
+        for (int i = 0; i < retryCount; i++)
+        {
+            int randomIndex = Random.Range(0, inRange.Count);
+            var candidate = inRange[randomIndex];
+            currentTarget = candidate.transform;
+            // Contains で重複チェック
+            if (!bitBattery.targetEnemyPool.Contains(candidate)) break;
+            
+        }
+
+        bitBattery.AddEnemy(currentTarget.gameObject);
     }
 }
