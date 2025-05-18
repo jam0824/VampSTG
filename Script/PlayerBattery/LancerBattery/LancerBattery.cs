@@ -5,7 +5,7 @@ using System.Linq;
 public class LancerBattery : BaseBattery
 {
 
-    public override string itemType => "lancer";
+    public override string itemType => "lance";
     public override int batteryLevel { get; set; } = 0;
 
     [Header("子オブジェクトroot")]
@@ -27,12 +27,6 @@ public class LancerBattery : BaseBattery
 
     private Transform[] lances; //それぞれのランスのTransformが入っている
 
-    void Start()
-    {
-        lances = GetChildTransforms(firePoint);
-        // デバッグ用。あとで削除
-        StartCoroutine(RotateLoop());
-    }
 
     public override void getItem(float magnification)
     {
@@ -74,6 +68,7 @@ public class LancerBattery : BaseBattery
         batteryLevel += 1;
         gameObject.SetActive(true);
         playerManager = GameObject.FindWithTag("Core").GetComponent<PlayerManager>();
+        lances = GetChildTransforms(firePoint);
         DisplayLance(firePoint, "Battery1");
         StartCoroutine(RotateLoop());
     }
