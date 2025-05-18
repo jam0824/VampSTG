@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     [Header("データ系")]
     public ItemDataDB itemDataDB;
 
-    private List<string> stageGetNewItems = new List<string>();   //そのステージでとった新しいアイテムリスト
+    public List<string> stageGetNewItems = new List<string>();   //そのステージでとった新しいアイテムリスト
 
     private string SaveFilePath => Path.Combine(Application.persistentDataPath, "saveData.json");
     void Awake()
@@ -87,13 +87,15 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// 1ステージごとにリセットされるデータ
     /// </summary>
-    public void ResetStageSaveData(){
+    public void ResetStageSaveData()
+    {
         killCount = 0;
         score = 0;
         bulletCount = 0;
         itemCount = 0;
         stageDeadCount = 0;
         stageGetNewItems.Clear();
+        Debug.Log("ステージデータをリセットしました");
     }
 
     void OnApplicationQuit() { SaveGame(); }

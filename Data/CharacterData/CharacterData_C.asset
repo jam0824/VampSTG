@@ -15,7 +15,7 @@ MonoBehaviour:
   characterName:
   - Bit
   - "\u30D3\u30C3\u30C8"
-  previewPrefab: {fileID: 7085209118935320611, guid: 89d7c4f8e6117f645847d44fa104770b, type: 3}
+  previewPrefab: {fileID: 8402496849701027327, guid: 97dca40ad9191bb45b4a2f0338cc48bc, type: 3}
   playModel: {fileID: 318945797072344529, guid: 1c2847205ee63b949aebe27ee86f4a0c, type: 3}
   playerModelOffset: {x: 0, y: -0.87, z: 0}
   life: 5

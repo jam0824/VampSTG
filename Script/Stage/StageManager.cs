@@ -32,9 +32,13 @@ public class StageManager : MonoBehaviour
     public bool isSpawnEnemey = true;   //敵キャラをspawnするか
 
 
-    void Start()
+    void Awake()
     {
         GameManager.Instance.ResetStageSaveData();  //ステージ開始時にリセットすべきデータを全てリセット
+    }
+    void Start()
+    {
+        
         var playerObj = GameObject.FindWithTag("Core");
         if (playerObj != null)
             playerTransform = playerObj.transform;
