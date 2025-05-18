@@ -184,6 +184,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 191979444085621353, guid: fd3878206c929014992ef1d1cb9d3e1b, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 2551
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156203566392142773, guid: fd3878206c929014992ef1d1cb9d3e1b, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1049600
+      objectReference: {fileID: 0}
     - target: {fileID: 6715489572868318287, guid: fd3878206c929014992ef1d1cb9d3e1b, type: 3}
       propertyPath: m_Name
       value: CameraSet
@@ -461,6 +469,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5813662967764959190, guid: ad459c7f773209b48a092bebf828f1eb, type: 3}
+      propertyPath: listItemData.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813662967764959190, guid: ad459c7f773209b48a092bebf828f1eb, type: 3}
+      propertyPath: 'listItemData.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b0de1b99bd4ed1b48a2844c75b9d8111, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -960,6 +976,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ad3c55af1048945a8f1f1846866f53, type: 3}
+--- !u!1001 &1564962127897277589
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5809333872935966202, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809333872935966202, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809333872935966202, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.582
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809333872935966202, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809333872935966202, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809333872935966202, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809333872935966202, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809333872935966202, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809333872935966202, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809333872935966202, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500224585669835803, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
+      propertyPath: m_Name
+      value: ItemGrenadeBattery
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
 --- !u!1001 &3689329455878723750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1081,6 +1154,14 @@ PrefabInstance:
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 179951996}
+    - target: {fileID: 6387874483152354077, guid: 967796eb33d4eb142a40bd5afb9338cc, type: 3}
+      propertyPath: items.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387874483152354077, guid: 967796eb33d4eb142a40bd5afb9338cc, type: 3}
+      propertyPath: 'items.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8500224585669835803, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
     - target: {fileID: 7167922816531417820, guid: 967796eb33d4eb142a40bd5afb9338cc, type: 3}
       propertyPath: m_Name
       value: StageManager
@@ -1167,3 +1248,4 @@ SceneRoots:
   - {fileID: 179951995}
   - {fileID: 3689329455878723750}
   - {fileID: 7365308680545184201}
+  - {fileID: 1564962127897277589}

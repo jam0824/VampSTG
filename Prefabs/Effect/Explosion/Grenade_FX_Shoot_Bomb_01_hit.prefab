@@ -15014,7 +15014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac39b095164f4f74887143e176cf2a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTerm: 0.1
+  damageTerm: 0.02
 --- !u!114 &2506680793370993442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15027,7 +15027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d190ab1f5f4e74988335fb0e9e3306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   hitSe: {fileID: 0}
   hitSeVolume: 0
   triggerEffect: {fileID: 0}

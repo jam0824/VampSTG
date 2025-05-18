@@ -24,11 +24,7 @@ public class GrenadeBattery : BaseBattery
     public override float powerMagnification { get; set; } = 1f;
     public override ConfigPlayerBullet configPlayerBullet { get; set; }
 
-    void Start()
-    {
-        //デバッグ用。後で消す
-        StartCoroutine(AutoShoot());
-    }
+
 
     public override void getItem(float magnification)
     {
@@ -67,6 +63,7 @@ public class GrenadeBattery : BaseBattery
     {
         batteryLevel += 1;
         gameObject.SetActive(true);
+        SetActiveChildwithObject(firePoint, "Battery1");
         StartCoroutine(AutoShoot());
     }
     void level2()
