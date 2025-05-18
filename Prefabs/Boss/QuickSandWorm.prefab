@@ -13361,6 +13361,7 @@ GameObject:
   - component: {fileID: 8586684658745751705}
   - component: {fileID: 370891850176831145}
   - component: {fileID: 5587447679999661239}
+  - component: {fileID: 8101012529671103837}
   - component: {fileID: 8930154266625183207}
   - component: {fileID: 8885214432400790373}
   m_Layer: 7
@@ -13426,10 +13427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af2f9cc179d5bd4c88b415c43f6e778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 500
+  hp: 10000
   attackInterval: 2
   bossHpBar: {fileID: 0}
-  fader: {fileID: 1002433397208480642, guid: 9e091d1983cf41f4fae3a585fa07080d, type: 3}
+  fader: {fileID: 0}
   missileTargetName: MissileTarget
   firePoint: {fileID: 4752576346821832676}
   laserPrefab: {fileID: 5458672213910473723, guid: 284e9c13b35fed84ea620bb62257f18e, type: 3}
@@ -13448,13 +13449,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f5b556345ff78a469b700a5518e0d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2494194811549328558, guid: 0a720fd36bd740e4590f9b68cb8e90ee, type: 3}
+  bulletPrefab: {fileID: 2416357405354205221, guid: efbf08f5c91c3f7448e64a5879527444, type: 3}
   firePoint: {fileID: 4752576346821832676}
-  bulletSpeed: 5
-  bulletLifeTime: 10
-  numberOfBullets: 9
+  bulletSpeed: 3
+  bulletLifeTime: 30
+  numberOfBullets: 7
   totalSpreadAngle: 90
   core: {fileID: 0}
+--- !u!114 &8101012529671103837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990937734860834568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3454439554667490533, guid: 4142eadfc104ea9498c8556c35af2dc1, type: 3}
+  firePoint: {fileID: 4752576346821832676}
+  bulletLifeTime: 30
+  bulletCount: 40
+  scatterAngle: 60
+  minBulletSpeed: 0.5
+  maxBulletSpeed: 3
+  player: {fileID: 0}
 --- !u!114 &8930154266625183207
 MonoBehaviour:
   m_ObjectHideFlags: 0
