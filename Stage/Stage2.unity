@@ -1020,6 +1020,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuickSandWorm
       objectReference: {fileID: 0}
+    - target: {fileID: 6990937734860834568, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

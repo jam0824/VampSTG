@@ -12,13 +12,13 @@ public class PrisonerCore : MonoBehaviour
     public float totalDuration = 10f;
     [Tooltip("頂点（最高点）の高さ（ワールド単位）")]
     public float peakHeight = 2f;
+    [Header("PlayerCoreに寄ってくる時のパラメーター")]
+    public float moveSpeed = 8f;
+    public float stopDistance = 0.1f;
 
     Transform playerTransform;
     bool isDead = false;
 
-
-    private float _elapsed = 0;
-    private Vector3 _startPos;
 
     void Start()
     {
@@ -36,17 +36,17 @@ public class PrisonerCore : MonoBehaviour
 
         if (isDead)
         {
-            _elapsed += Time.deltaTime;
-            float t = _elapsed / totalDuration;
-            // 放物線（頂点 at t=0.5）: y = -4*(t-0.5)^2 + 1
-            float parabola = -4f * (t - 0.5f) * (t - 0.5f) + 1f;
-            float yOffset = parabola * peakHeight;
-
-            transform.position = _startPos + Vector3.up * yOffset;
-
-            //画面の下までいったら消える。カメラ外時に処理しないのは上に飛んで画面外になることもあるため下限で処理
-            if (transform.position.y < (GameManager.Instance.minY - 1f))
-                Destroy(gameObject);
+            if (playerTransform == null)
+                playerTransform = GameManager.Instance.playerCore.transform;
+            // ─── 移動 ───
+            Vector3 toPlayer = playerTransform.position - transform.position;
+            toPlayer.x = 0f;
+            float dist = toPlayer.magnitude;
+            if (dist > stopDistance)
+            {
+                float step = moveSpeed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, step);
+            }
         }
     }
 
@@ -82,16 +82,11 @@ public class PrisonerCore : MonoBehaviour
     void enemyDie()
     {
         isDead = true;
-
-        // ─── ここから透明化処理 ───────────────────────────
-        // MeshRenderer / SkinnedMeshRenderer の両方に対応させたい場合は
-        // GetComponentsInChildren<Renderer>() を使っても良いです
         var rend = GetComponent<Renderer>();
         if (rend != null)
         {
             MakeMaterialTransparent(rend.material);
         }
-        // ───────────────────────────────────────────────────
 
         transform.parent = null;    // 親を外す
         _startPos = transform.position;
