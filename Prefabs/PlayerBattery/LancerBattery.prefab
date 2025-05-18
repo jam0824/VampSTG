@@ -50,7 +50,7 @@ MonoBehaviour:
   rotationSpeed: 720
   restTime: 1
   bulletSe: {fileID: 0}
-  bulletSeVolume: 0.5
+  bulletSeVolume: 1
 --- !u!1001 &2844309450361739785
 PrefabInstance:
   m_ObjectHideFlags: 0

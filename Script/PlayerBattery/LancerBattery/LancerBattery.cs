@@ -148,6 +148,7 @@ public class LancerBattery : BaseBattery
         while (true)
         {
             ToggleLanceColliders(lances, true); //当たり判定ON
+            SoundManager.Instance.PlaySE(bulletSe, bulletSeVolume);
             yield return StartCoroutine(RotateOneFullTurn());
             ToggleLanceColliders(lances, true); //当たり判定OFF
             yield return new WaitForSeconds(restTime);

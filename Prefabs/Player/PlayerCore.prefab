@@ -808,9 +808,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2846221701262487927, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5325180935244126089, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025012440731434387, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+      propertyPath: bulletSe
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025012440731434387, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+      propertyPath: bulletSeVolume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762126218942278170, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9192453516011549053, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
       propertyPath: m_Name
