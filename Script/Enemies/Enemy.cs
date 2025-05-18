@@ -31,7 +31,8 @@ public class Enemy : MonoBehaviour
         if (playerObj != null)
             playerTransform = playerObj.transform;
         maxHp = hp;
-        if(isAttack) {
+        if (isAttack)
+        {
             enemyShooter = GetComponent<IEnemyShooter>();
             StartCoroutine(AttackCoroutine()); //もし攻撃設定されていたら
             animator = GetComponent<Animator>();
@@ -73,8 +74,10 @@ public class Enemy : MonoBehaviour
         if ((!isDead) && (hp <= 0)) enemyDie();
     }
 
-    private IEnumerator AttackCoroutine(){
-        while(true){
+    private IEnumerator AttackCoroutine()
+    {
+        while (true)
+        {
             yield return new WaitForSeconds(attackInterval);
             animator.SetTrigger("Attack");
             yield return new WaitForSeconds(attackAnimationWait);
@@ -94,9 +97,12 @@ public class Enemy : MonoBehaviour
         {
             if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
             hp = hit(bullet, hp);
+            // 近似的に当たり位置を計算
+            Vector3 hitPoint = other.ClosestPoint(transform.position);
+
             if (bullet.triggerEffect != null)
             {
-                Instantiate(bullet.triggerEffect, other.gameObject.transform.position, other.gameObject.transform.rotation);
+                Instantiate(bullet.triggerEffect, hitPoint, other.gameObject.transform.rotation);
             }
             if (bullet.isDestroy) Destroy(other.gameObject);
         }

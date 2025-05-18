@@ -75,6 +75,8 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
     {
         // HP 減少
         hp -= bullet.getDamage();
+        // 近似的に当たり位置を計算
+        Vector3 hitPoint = other.ClosestPoint(transform.position);
 
         // ヒット SE
         if (bullet.hitSe != null)
@@ -84,7 +86,7 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
         if (bullet.triggerEffect != null)
             Instantiate(
                 bullet.triggerEffect,
-                other.transform.position,
+                hitPoint,
                 other.transform.rotation
             );
 
