@@ -350,6 +350,7 @@ MonoBehaviour:
   - {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
   - {fileID: 8961623587356723185, guid: c619e40ba7453b34598ac44f36ce1cd8, type: 3}
   - {fileID: 6938418429575878011, guid: bbb8611e5f1a19a4e8cc6315e37bab12, type: 3}
+  - {fileID: 8500224585669835803, guid: 62cf8f49a05c80449a6d5e409105b4a1, type: 3}
   minDistance: 10
   maxDistance: 12
   enemyPool: {fileID: 2168829202611065324}

@@ -23,12 +23,12 @@ public class GrenadeBattery : BaseBattery
     [SerializeField] private float bulletSeVolume = 0.5f;
     public override float powerMagnification { get; set; } = 1f;
     public override ConfigPlayerBullet configPlayerBullet { get; set; }
+    private PlayerManager playerManager;
 
 
 
     public override void getItem(float magnification)
     {
-        SetMagnification(magnification);
         switch (batteryLevel)
         {
             case 0:
@@ -63,6 +63,7 @@ public class GrenadeBattery : BaseBattery
     {
         batteryLevel += 1;
         gameObject.SetActive(true);
+        playerManager = GameObject.FindWithTag("Core").GetComponent<PlayerManager>();
         SetActiveChildwithObject(firePoint, "Battery1");
         StartCoroutine(AutoShoot());
     }
@@ -116,13 +117,6 @@ public class GrenadeBattery : BaseBattery
             return false;
         }
     }
-    protected void SetMagnification(float magnification)
-    {
-        //攻撃力倍率を取得し、bullet側にセット
-        powerMagnification = magnification;
-        if (configPlayerBullet == null) configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
-        configPlayerBullet.powerMagnification = powerMagnification;
-    }
 
 
     private IEnumerator AutoShoot()
@@ -144,8 +138,10 @@ public class GrenadeBattery : BaseBattery
 
     void Fire(Transform childTransform)
     {
+        if(playerManager == null) 
+            playerManager = GameObject.FindWithTag("Core").GetComponent<PlayerManager>();
         // プレハブ生成
-        var grenade = Instantiate(bullet, childTransform.position, childTransform.rotation);
+        var grenade = MakeBullet(bullet, childTransform);
         var rb = grenade.GetComponent<Rigidbody>();
 
         // Rigidbody の重力を有効化（Inspector でチェック済みなら不要）
@@ -165,6 +161,14 @@ public class GrenadeBattery : BaseBattery
         // もし瞬間的に速度を変えたいならこちらでもOK
         // rb.AddForce(firePoint.transform.TransformDirection(localVelocity), 
         //             ForceMode.VelocityChange);
+    }
+
+    GameObject MakeBullet(GameObject bullet, Transform childTransform)
+    {
+        var newBullet = Instantiate(bullet, childTransform.position, childTransform.rotation);
+        var configPlayerBullet = newBullet.GetComponent<ConfigPlayerBullet>();
+        configPlayerBullet.powerMagnification = playerManager.powerMagnification;
+        return newBullet;
     }
 
     private Transform[] GetChildTransforms()
