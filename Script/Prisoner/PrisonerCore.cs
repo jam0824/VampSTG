@@ -89,7 +89,6 @@ public class PrisonerCore : MonoBehaviour
         }
 
         transform.parent = null;    // 親を外す
-        _startPos = transform.position;
         Vector3 pos = transform.position;
         if (offsetExplosionY != 0) pos.y += offsetExplosionY;
         EffectController.Instance.PlayLargeExplosion(pos, gameObject.transform.rotation);
