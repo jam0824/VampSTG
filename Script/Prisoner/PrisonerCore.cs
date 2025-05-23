@@ -3,15 +3,13 @@ using UnityEngine.Rendering;  // BlendMode を使うために追加
 
 public class PrisonerCore : MonoBehaviour
 {
+    // タグ名を定義
+    private const string PRISONER_TAG = "Prisoner";
+
     [SerializeField] public float hp = 10;
     private float maxHp = 10;
     [SerializeField] float offsetExplosionY = 0f;
 
-    [Header("移動設定")]
-    [Tooltip("上下あわせた移動にかける総時間（秒）")]
-    public float totalDuration = 10f;
-    [Tooltip("頂点（最高点）の高さ（ワールド単位）")]
-    public float peakHeight = 2f;
     [Header("PlayerCoreに寄ってくる時のパラメーター")]
     public float moveSpeed = 8f;
     public float stopDistance = 0.1f;
@@ -89,6 +87,7 @@ public class PrisonerCore : MonoBehaviour
         }
 
         transform.parent = null;    // 親を外す
+        SetTagToPrisonerRecursive();
         Vector3 pos = transform.position;
         if (offsetExplosionY != 0) pos.y += offsetExplosionY;
         EffectController.Instance.PlayLargeExplosion(pos, gameObject.transform.rotation);
@@ -118,6 +117,16 @@ public class PrisonerCore : MonoBehaviour
     void AddScore(float maxHp)
     {
         GameManager.Instance.AddScore(maxHp);
+    }
+
+    // 自身とすべての子オブジェクトのタグを "Prisoner" に変更するメソッド
+    public void SetTagToPrisonerRecursive()
+    {
+        // includeInactive=true で非アクティブも含める
+        foreach (Transform t in transform.GetComponentsInChildren<Transform>(true))
+        {
+            t.gameObject.tag = PRISONER_TAG;
+        }
     }
 
 }

@@ -15,7 +15,10 @@ public class StageManager : MonoBehaviour
     [SerializeField] public GameObject enemyPool;  //敵をまとめる場所
 
     [Header("Item Settings")]
-    [SerializeField] float batteryDropRate = 0.1f;
+    [SerializeField] float initialDropRate      = 0.10f;    //最初のアイテムドロップ率は10%
+    [SerializeField] float minDropRate          = 0.01f;    //最低のドロップ率は1%
+    [SerializeField] int maxEnemiesForMinRate = 100;    //最低になる時の敵数は100
+
     [Header("Boss")]
     [SerializeField] GameObject boss;
     [Header("BGM")]
@@ -34,7 +37,7 @@ public class StageManager : MonoBehaviour
 
     void Awake()
     {
-        
+
     }
     void Start()
     {
@@ -55,7 +58,7 @@ public class StageManager : MonoBehaviour
         // 経過時間をカウント
         allElapsedTime += Time.deltaTime;
         //時間前まではProgressBarを描画
-        if(allElapsedTime < stageAllSecond) DrawProgressBar(allElapsedTime, stageAllSecond);
+        if (allElapsedTime < stageAllSecond) DrawProgressBar(allElapsedTime, stageAllSecond);
         if ((allElapsedTime >= stageAllSecond) && (!isBoss)) AppearBoss();
     }
 
@@ -76,12 +79,25 @@ public class StageManager : MonoBehaviour
         progressBar.DrawPlayerIcon(per);
     }
 
+    /// <summary>
+    /// 敵にアイテムを付与。敵数に応じて指数関数的にアイテムドロップ率を下げる
+    /// </summary>
+    /// <param name="enemy"></param>
     public void AddItem(GameObject enemy)
     {
-        if (Random.value > batteryDropRate) return;
+        int enemyCount = enemyPool.transform.childCount;
+        float ratio = Mathf.Clamp01(enemyCount / (float)maxEnemiesForMinRate);
+
+        // minRate/initialRate を maxEnemies までに掛け合わせる
+        float scale = minDropRate / initialDropRate;      // =0.01/0.10 = 0.1
+        float dropRate = initialDropRate * Mathf.Pow(scale, ratio);
+        // ratio=0 → dropRate = initialDropRate2
+        // ratio=1 → dropRate = initialDropRate2 * scale = minDropRate2
+
+        if (Random.value >= dropRate) return;
+
         int index = Random.Range(0, items.Length);
         enemy.GetComponent<Enemy>().item = items[index];
-
     }
 
     /// <summary>

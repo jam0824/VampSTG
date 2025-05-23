@@ -25,6 +25,7 @@ public class EnemySeekerShooter : MonoBehaviour
     public float powerMagnification = 1f;
     private PlayerManager playerManager;
 
+
     // モデルのX軸90度回転補正
     private readonly Quaternion modelOffset = Quaternion.Euler(90f, 0f, 0f);
     // ビームの向き180度反転補正
@@ -42,6 +43,8 @@ public class EnemySeekerShooter : MonoBehaviour
 
     void Update()
     {
+        if (!bitBattery.gameObject.activeSelf)
+            gameObject.SetActive(false); //BitBatteryが非アクティブになったらビットも非アクティブにする。ボス後。
         if (currentTarget == null || !currentTarget.gameObject.activeInHierarchy)
         {
             AcquireNewTarget();

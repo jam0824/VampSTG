@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
     public ItemDataDB itemDataDB;
 
     public List<string> stageGetNewItems = new List<string>();   //そのステージでとった新しいアイテムリスト
+    public List<string> stageGetNewCharacters = new List<string>();   //そのステージでとった新しいキャラクターリスト
 
     private string SaveFilePath => Path.Combine(Application.persistentDataPath, "saveData.json");
     void Awake()
@@ -203,6 +204,18 @@ public class GameManager : MonoBehaviour
             Debug.Log("Unlockのアイテムリストに追加しました : " + type);
         }
     }
+    
+    /// <summary>
+    /// 一時的にアンロックキャラクターに追加する。クリア後に正式に追加される。
+    /// </summary>
+    /// <param name="charId"></param>
+    public void AddNewCharacterList(string charId){
+        charId = charId.ToLower();
+        if((!gotCharacters.Contains(charId)) && (!stageGetNewCharacters.Contains(charId))){
+            stageGetNewCharacters.Add(charId);
+            Debug.Log("Unlockのキャラクターリストに追加しました : " + charId);
+        }
+    }
 
     /// <summary>
     /// stageGetNewItemsに含まれるアイテムを全てgotItemsに反映させる
@@ -210,6 +223,15 @@ public class GameManager : MonoBehaviour
     public void AddNewItemListToGotItems(){
         foreach(string unlockedItem in stageGetNewItems){
             AddItem(unlockedItem);
+        }
+    }
+
+    /// <summary>
+    /// stageGetNewCharactersに含まれるキャラクターを全てgotCharactersに反映させる
+    /// </summary>
+    public void AddNewCharacterListToGotCharacters(){
+        foreach(string unlockedCharacter in stageGetNewCharacters){
+            AddCharacter(unlockedCharacter);
         }
     }
 
@@ -221,7 +243,15 @@ public class GameManager : MonoBehaviour
         stageGetNewItems.Clear();
     }
 
-    public void AddCharacter(string charId)
+    public List<string> GetStageGetNewCharacters(){
+        return stageGetNewCharacters;
+    }
+
+    public void ClearStageGetNewCharacters(){
+        stageGetNewCharacters.Clear();
+    }
+
+    private void AddCharacter(string charId)
     {
         if (!gotCharacters.Contains(charId))
             gotCharacters.Add(charId);
