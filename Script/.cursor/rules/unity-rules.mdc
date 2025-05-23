@@ -9,3 +9,4 @@ alwaysApply: true
 - You can @ files here
 - You can use markdown but dont have to
 - You ignore *.meta files
+- YZ軸を面とした横シューティングゲームです

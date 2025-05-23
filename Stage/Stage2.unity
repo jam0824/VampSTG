@@ -976,6 +976,10 @@ PrefabInstance:
       propertyPath: bossHpBar
       value: 
       objectReference: {fileID: 179951997}
+    - target: {fileID: 1242231534963123346, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
+      propertyPath: hp
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2870113126874812570, guid: 43937be2dae420b4ab19876fc05de377, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1037,6 +1041,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1065517463961126075, guid: 967796eb33d4eb142a40bd5afb9338cc, type: 3}
+      propertyPath: 'enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6479299603220299712, guid: 4b855ee56c720b340b64e632251cd1f3, type: 3}
     - target: {fileID: 2142379605358455754, guid: 967796eb33d4eb142a40bd5afb9338cc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

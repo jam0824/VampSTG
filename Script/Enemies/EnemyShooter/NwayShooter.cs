@@ -9,7 +9,7 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
     public float bulletLifeTime = 5f;  // 自動消滅までの時間
 
     [Header("Shot Settings")]
-    public int numberOfBullets = 5;     // NWay の “N”
+    public int numberOfBullets = 5;     // NWay の "N"
     public float totalSpreadAngle = 60f; // 全体の拡散角度（度）
 
     [Header("Target")]
@@ -117,7 +117,13 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
         Vector3 firePointPos = firePoint.position;
         firePointPos.x = 0;
         GameObject b = Instantiate(bulletPrefab, firePointPos, Quaternion.LookRotation(dir));
-        b.GetComponent<IBullet>().Speed = bulletSpeed; //インターフェイスを通して弾速を変更
+        
+        // IBulletコンポーネントがあったら弾速を変更
+        if (b.TryGetComponent<IBullet>(out var bullet))
+        {
+            bullet.Speed = bulletSpeed;
+        }
+        
         if (b.TryGetComponent<Rigidbody>(out var rb))
         {
             rb.linearVelocity = dir * bulletSpeed;

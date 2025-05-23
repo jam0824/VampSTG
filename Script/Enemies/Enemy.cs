@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] bool isAttack = false;
     [SerializeField] float attackInterval = 4f;
     [SerializeField] float attackAnimationWait = 0.5f;
+    [Header("アニメーション")]
+    [SerializeField]Animator animator;
     IEnemyShooter enemyShooter;
 
     public GameObject item { get; set; } = null;
@@ -23,7 +25,7 @@ public class Enemy : MonoBehaviour
     bool isDead = false;
     int fromBossDamage = 5; //敵キャラがボスにあたった時のダメージ
 
-    Animator animator;
+    
 
     void Start()
     {
@@ -35,7 +37,7 @@ public class Enemy : MonoBehaviour
         {
             enemyShooter = GetComponent<IEnemyShooter>();
             StartCoroutine(AttackCoroutine()); //もし攻撃設定されていたら
-            animator = GetComponent<Animator>();
+            if(animator == null) animator = GetComponent<Animator>();
         }
     }
 
