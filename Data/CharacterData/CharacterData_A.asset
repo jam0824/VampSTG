@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb2e5ae5604e24459a0f125e1e92600, type: 3}
   m_Name: CharacterData_A
   m_EditorClassIdentifier: 
+  characterId: Kagerou
   characterName:
   - "\u967D\u708E(KAGEROU)"
   - "\u967D\u708E(KAGEROU)"

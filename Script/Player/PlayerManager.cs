@@ -102,11 +102,17 @@ public class PlayerManager : MonoBehaviour
             var cfg = other.GetComponent<ConfigItem>();
             if (cfg.isGet) return;
             cfg.isGet = true;
-            Debug.Log("アイテムゲット：" + cfg.itemType);
             playerItemManager.getItem(cfg.itemType, powerMagnification);
             Destroy(other.gameObject);
             EffectController.Instance.PlayPowerUp(gameObject.transform.position);
 
+            return;
+        }
+
+        if (other.CompareTag("Prisoner"))
+        {
+            string characterId = CharacterGet(other);
+            Destroy(other.gameObject);
             return;
         }
 
@@ -115,6 +121,13 @@ public class PlayerManager : MonoBehaviour
         {
             HitEnemy();
         }
+    }
+
+    string CharacterGet(Collider other){
+        string characterId = other.GetComponent<PrisonerCore>().GetCharacterId();
+        GameManager.Instance.AddNewCharacterList(characterId);
+        EffectController.Instance.PlayCharacterGet(gameObject.transform.position);
+        return characterId;
     }
 
     // CoreがEnemyとHitしたときに呼ばれる

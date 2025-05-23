@@ -14,6 +14,9 @@ public class PrisonerCore : MonoBehaviour
     public float moveSpeed = 8f;
     public float stopDistance = 0.1f;
 
+    [Header("CharacterData")]
+    [SerializeField] CharacterData characterData;
+
     Transform playerTransform;
     bool isDead = false;
 
@@ -127,6 +130,11 @@ public class PrisonerCore : MonoBehaviour
         {
             t.gameObject.tag = PRISONER_TAG;
         }
+    }
+
+    public string GetCharacterId()
+    {
+        return characterData.characterId;
     }
 
 }

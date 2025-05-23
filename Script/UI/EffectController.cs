@@ -24,6 +24,9 @@ public class EffectController : MonoBehaviour
     [SerializeField] GameObject powerUp;
     [SerializeField] AudioClip powerUpSe;
     [SerializeField] float powerUpSeVol;
+    [SerializeField] GameObject characterGet;
+    [SerializeField] AudioClip characterGetSe;
+    [SerializeField] float characterGetVol;
 
     [Header("Hit to Player")]
     [SerializeField] GameObject hitPlayer;
@@ -105,6 +108,10 @@ public class EffectController : MonoBehaviour
     public void PlayPowerUp(Vector3 pos)
     {
         setEffectToPlayer(powerUp, pos, powerUpSe, powerUpSeVol);
+    }
+    public void PlayCharacterGet(Vector3 pos)
+    {
+        setEffectToPlayer(characterGet, pos, characterGetSe, characterGetVol);
     }
 
     public void PlayHitToPlayer(Vector3 pos){

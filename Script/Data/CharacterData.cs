@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class CharacterData : ScriptableObject
 {
+    [Header("CharacterId")]
+    public string characterId;
     [Header("名前:0英語1日本語")]
     public string[] characterName;
     [Header("プレビュー用のモデル")]
