@@ -19,6 +19,8 @@ public class StageManager : MonoBehaviour
     [SerializeField] float initialDropRate      = 0.10f;    //最初のアイテムドロップ率は10%
     [SerializeField] float minDropRate          = 0.01f;    //最低のドロップ率は1%
     [SerializeField] int maxEnemiesForMinRate = 100;    //最低になる時の敵数は100
+    [Header("Itemドロップ率2倍の期間")]
+    [SerializeField] float itemDropRate2xPeriod = 30f;    //30秒間
 
     [Header("Boss")]
     [SerializeField] GameObject boss;
@@ -97,9 +99,21 @@ public class StageManager : MonoBehaviour
         // ratio=0 → dropRate = initialDropRate2
         // ratio=1 → dropRate = initialDropRate2 * scale = minDropRate2
 
+        //アイテムドロップ率2倍の期間中はドロップ率を2倍にする
+        if (allElapsedTime < itemDropRate2xPeriod)
+        {
+            dropRate *= 2f;
+        }
+        Debug.Log("dropRate: " + dropRate.ToString("F3"));
         if (Random.value >= dropRate) return;
 
         int index = Random.Range(0, items.Count);
+        Debug.Log("ドロップ予定アイテム: " + items[index].type);
+        if(items[index].itemObj == null)
+        {
+            Debug.LogError("アイテムオブジェクトが設定されていません : " + items[index].type);
+            return;
+        }
         enemy.GetComponent<Enemy>().item = items[index].itemObj;
     }
 
