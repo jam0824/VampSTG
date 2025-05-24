@@ -16,7 +16,7 @@ MonoBehaviour:
   - Lance
   - "\u30E9\u30F3\u30B9"
   type: Lance
-  itemObj: {fileID: 0}
+  itemObj: {fileID: 4255712024054305935, guid: 17df085f1c6c88240aad2627ff30fe21, type: 3}
   itemSprite: {fileID: 21300000, guid: adf0673ee7f681a4cb26a25e14077dd3, type: 3}
   damage: 5
   description:

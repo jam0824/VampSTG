@@ -15,7 +15,8 @@ MonoBehaviour:
   missionTitle:
   - 'Stage6 : 66666'
   - "Stage6 : \u30B9\u30C6\u30FC\u30B86"
-  sceneName: Stage1
+  sceneName: Stage6
+  stageIndex: 5
   previewImage: {fileID: 0}
   difficulty: 7
   description:

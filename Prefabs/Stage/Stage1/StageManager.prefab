@@ -78,7 +78,7 @@ MonoBehaviour:
   startWaveTime: 61
   endWaveTime: 120
   enemies:
-  - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
+  - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
   spawnCount: 2
   initialInterval: 4
   minInterval: 0.5
@@ -130,7 +130,7 @@ MonoBehaviour:
   startWaveTime: 181
   endWaveTime: 1000
   enemies:
-  - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
+  - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
   spawnCount: 1
   initialInterval: 5
   minInterval: 2
@@ -193,8 +193,9 @@ MonoBehaviour:
   maxDistance: 12
   enemyPool: {fileID: 1006812573579030016}
   initialDropRate: 0.2
-  minDropRate: 0.05
+  minDropRate: 0.1
   maxEnemiesForMinRate: 50
+  itemDropRate2xPeriod: 60
   boss: {fileID: 0}
   bgm: {fileID: 8300000, guid: 5204c75a8de57524c8d1646333158adb, type: 3}
   bgmVol: 0.5
@@ -301,7 +302,7 @@ MonoBehaviour:
   startWaveTime: 121
   endWaveTime: 180
   enemies:
-  - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
+  - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
   - {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
   spawnCount: 5
   initialInterval: 3
