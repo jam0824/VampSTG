@@ -47,7 +47,7 @@ MonoBehaviour:
   startWaveTime: 141
   endWaveTime: 210
   enemies:
-  - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
+  - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
   - {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
   spawnCount: 4
   initialInterval: 3
@@ -100,7 +100,7 @@ MonoBehaviour:
   startWaveTime: 211
   endWaveTime: 1000
   enemies:
-  - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
+  - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
   spawnCount: 2
   initialInterval: 5
   minInterval: 2
@@ -235,7 +235,7 @@ MonoBehaviour:
   startWaveTime: 71
   endWaveTime: 140
   enemies:
-  - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
+  - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
   - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
   spawnCount: 2
   initialInterval: 4

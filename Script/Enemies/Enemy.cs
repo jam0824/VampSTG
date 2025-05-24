@@ -136,6 +136,10 @@ public class Enemy : MonoBehaviour
     void ApearItem(GameObject objItem)
     {
         if (objItem == null) return;
+        // カメラのZ軸の範囲外にいたらアイテム出現しない
+        if((GameManager.Instance.minZ > transform.position.z) || 
+            (GameManager.Instance.maxZ < transform.position.z)) 
+            return;
         Vector3 pos = gameObject.transform.position;
         Instantiate(objItem, pos, gameObject.transform.rotation);
         Debug.Log("アイテム出現");

@@ -1073,18 +1073,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4575467093445507096, guid: 967796eb33d4eb142a40bd5afb9338cc, type: 3}
-      propertyPath: 'enemies.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
-    - target: {fileID: 5179876654692385269, guid: 967796eb33d4eb142a40bd5afb9338cc, type: 3}
-      propertyPath: 'enemies.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
-    - target: {fileID: 6261401272173851752, guid: 967796eb33d4eb142a40bd5afb9338cc, type: 3}
-      propertyPath: 'enemies.Array.data[0]'
-      value: 
-      objectReference: {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
     - target: {fileID: 6387874483152354077, guid: 967796eb33d4eb142a40bd5afb9338cc, type: 3}
       propertyPath: boss
       value: 
