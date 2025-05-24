@@ -22,7 +22,6 @@ public class BitShooter : MonoBehaviour
 
     private Transform core;
     private BitBattery bitBattery;
-    public float powerMagnification = 1f;
     private PlayerManager playerManager;
     public float damage = 10f;
 
@@ -117,7 +116,6 @@ public class BitShooter : MonoBehaviour
         GameObject bullet = Instantiate(laserPrefab, firePoint.position, fireRot);
         ConfigPlayerBullet configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
         configPlayerBullet.damage = damage;
-        configPlayerBullet.powerMagnification = playerManager.powerMagnification;
         SoundManager.Instance.PlaySE(se, seVol);
     }
 

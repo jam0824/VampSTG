@@ -23,7 +23,7 @@ public class PlayerItemManager : MonoBehaviour
             IItem iitem = item.gameObject.GetComponent<IItem>();
             if (type == iitem.itemType)
             {
-                iitem.getItem(powerMagnification);
+                iitem.getItem();
                 AddItemCount();
                 GetNewItem(type);
                 isFined = true;

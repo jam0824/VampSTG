@@ -6,8 +6,7 @@ public abstract class BaseBattery : MonoBehaviour, IItem
     [SerializeField] private ItemData itemData;
     public abstract string itemType{get;}
     public abstract int batteryLevel{get; set;}
-    public abstract void getItem(float powerMagnification);
-    public abstract float powerMagnification{get; set;}
+    public abstract void getItem();
     public abstract ConfigPlayerBullet configPlayerBullet{get;set;}
     public float damage{get;set;}
 

@@ -12,7 +12,7 @@ public class ConfigPlayerBullet : MonoBehaviour
     public float powerMagnification = 1f;
 
     public float getDamage(){
-        return damage * powerMagnification;
+        return damage * GameManager.Instance.powerMagnification;
     }
     public void setDamage(float damageValue){
         damage = damageValue;

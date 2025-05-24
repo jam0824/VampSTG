@@ -21,14 +21,13 @@ public class LancerBattery : BaseBattery
     [Header("効果音")]
     [SerializeField] private AudioClip bulletSe;
     [SerializeField] private float bulletSeVolume = 0.5f;
-    public override float powerMagnification { get; set; } = 1f;
     public override ConfigPlayerBullet configPlayerBullet { get; set; }
     private PlayerManager playerManager;
 
     private Transform[] lances; //それぞれのランスのTransformが入っている
 
 
-    public override void getItem(float magnification)
+    public override void getItem()
     {
         switch (batteryLevel)
         {
@@ -134,7 +133,6 @@ public class LancerBattery : BaseBattery
         Transform lance = SetActiveChildwithObject(firePoint, objectName);
         var configPlayerBullet = lance.gameObject.GetComponent<ConfigPlayerBullet>();
         configPlayerBullet.damage = damage;
-        configPlayerBullet.powerMagnification = playerManager.powerMagnification;
     }
 
     /// <summary>

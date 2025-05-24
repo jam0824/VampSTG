@@ -12,7 +12,7 @@ public class VulcanCanon : BaseBattery
 
     public int pauseAfterShots = 50;      // 何発撃ったらポーズ
     public float pauseDuration = 1f;      // ポーズ時間（秒）
-    public override float powerMagnification { get; set; } = 1f;
+
     [Header("効果音")]
     [SerializeField] private AudioClip bulletSe;
     [SerializeField] private float bulletSeVolume = 0.5f;
@@ -25,19 +25,11 @@ public class VulcanCanon : BaseBattery
     {
         configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
     }
-    protected void SetMagnification(float magnification)
+
+
+
+    public override void getItem()
     {
-        //攻撃力倍率を取得し、bullet側にセット
-        powerMagnification = magnification;
-        if (configPlayerBullet == null) configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
-        configPlayerBullet.powerMagnification = powerMagnification;
-    }
-
-
-
-    public override void getItem(float magnification)
-    {
-        SetMagnification(magnification);
 
         switch (batteryLevel)
         {

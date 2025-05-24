@@ -26,15 +26,13 @@ public class BitBattery : BaseBattery
 
     [Header("発射ポイントroot")]
     [SerializeField] GameObject firePoints;
-    public override float powerMagnification{get;set;} = 1f;
     public override ConfigPlayerBullet configPlayerBullet{get;set;}
 
     public List<GameObject> targetEnemyPool = new List<GameObject>();
 
 
-    public override void getItem(float magnification)
+    public override void getItem()
     {
-        powerMagnification = magnification;
         switch (batteryLevel)
         {
             case 0:

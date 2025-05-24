@@ -21,13 +21,12 @@ public class GrenadeBattery : BaseBattery
     [Header("効果音")]
     [SerializeField] private AudioClip bulletSe;
     [SerializeField] private float bulletSeVolume = 0.5f;
-    public override float powerMagnification { get; set; } = 1f;
     public override ConfigPlayerBullet configPlayerBullet { get; set; }
     private PlayerManager playerManager;
 
 
 
-    public override void getItem(float magnification)
+    public override void getItem()
     {
         switch (batteryLevel)
         {
@@ -168,7 +167,6 @@ public class GrenadeBattery : BaseBattery
     {
         var newBullet = Instantiate(bullet, childTransform.position, childTransform.rotation);
         var configPlayerBullet = newBullet.GetComponent<ConfigPlayerBullet>();
-        configPlayerBullet.powerMagnification = playerManager.powerMagnification;
         configPlayerBullet.damage = damage;
         return newBullet;
     }

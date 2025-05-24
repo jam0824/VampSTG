@@ -18,12 +18,10 @@ public class MissileBattery : BaseBattery
     [Header("効果音")]
     [SerializeField] private AudioClip bulletSe;
     [SerializeField] private float bulletSeVolume = 0.5f;
-    public override float powerMagnification{get;set;} = 1f;
     public override ConfigPlayerBullet configPlayerBullet{get;set;}
 
 
-    public override void getItem(float magnification){
-        SetMagnification(magnification);
+    public override void getItem(){
         switch (batteryLevel)
         {
             case 0:
@@ -107,13 +105,6 @@ public class MissileBattery : BaseBattery
             Debug.Log("子オブジェクトは見つかりませんでした。:" + childName);
             return false;
         }
-    }
-    protected void SetMagnification(float magnification)
-    {
-        //攻撃力倍率を取得し、bullet側にセット
-        powerMagnification = magnification;
-        if (configPlayerBullet == null) configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
-        configPlayerBullet.powerMagnification = powerMagnification;
     }
 
 

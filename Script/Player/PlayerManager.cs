@@ -56,6 +56,7 @@ public class PlayerManager : MonoBehaviour
 
         hp = characterData.life;
         powerMagnification = characterData.power / baseStarOffset;
+        GameManager.Instance.powerMagnification = powerMagnification;
         speedMagnification = characterData.speed / baseStarOffset;
         playerController.speed *= speedMagnification;
         sc.radius *= characterData.pickupRange / baseStarOffset;

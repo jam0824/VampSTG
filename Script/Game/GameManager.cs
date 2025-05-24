@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour
     public List<string> stageGetNewItems = new List<string>();   //そのステージでとった新しいアイテムリスト
     public List<string> stageGetNewCharacters = new List<string>();   //そのステージでとった新しいキャラクターリスト
 
+    public float powerMagnification = 1f;   //弾から呼び出すためにパワー倍率を保持する
+
     private string SaveFilePath => Path.Combine(Application.persistentDataPath, "saveData.json");
     void Awake()
     {

@@ -24,8 +24,6 @@ public class SniperBattery : BaseBattery
     [SerializeField] private float bulletSeVolume = 0.5f;
     [SerializeField] private AudioClip reloadSe;
     [SerializeField] private float reloadSeVolume = 0.5f;
-
-    public override float powerMagnification { get; set; } = 1f;
     public override ConfigPlayerBullet configPlayerBullet { get; set; }
 
     void Start()
@@ -33,15 +31,7 @@ public class SniperBattery : BaseBattery
         configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
     }
 
-    void SetMagnification(float magnification){
-        //攻撃力倍率を取得し、bullet側にセット
-        powerMagnification = magnification;
-        if(configPlayerBullet == null) configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
-        configPlayerBullet.powerMagnification = powerMagnification;
-    }
-
-    public override void getItem(float magnification){
-        SetMagnification(magnification);
+    public override void getItem(){
         switch(batteryLevel){
             case 0:
                 level1();
