@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Linq;
 
-public class RotateWithPause : MonoBehaviour,IItem
+public class SniperBattery : BaseBattery
 {
     [Header("回転設定")]
     [Tooltip("1秒あたりの回転速度（度/sec）")]
@@ -16,17 +16,17 @@ public class RotateWithPause : MonoBehaviour,IItem
     public float WaitTimeDeltaPerLevel = 0.2f;
     public float waitForShot = 0.5f;    //撃つまでに照準さだめるなどの待ち時間
 
-    public string itemType{get;} = "sniper";
+    public override string itemType => "sniper";
     public GameObject bullet;
-    public int batteryLevel{get;set;} = 0;
+    public override int batteryLevel { get; set; } = 0;
     [Header("効果音")]
     [SerializeField] private AudioClip bulletSe;
     [SerializeField] private float bulletSeVolume = 0.5f;
     [SerializeField] private AudioClip reloadSe;
     [SerializeField] private float reloadSeVolume = 0.5f;
 
-    public float powerMagnification = 1f;
-    private ConfigPlayerBullet configPlayerBullet;
+    public override float powerMagnification { get; set; } = 1f;
+    public override ConfigPlayerBullet configPlayerBullet { get; set; }
 
     void Start()
     {
@@ -40,8 +40,7 @@ public class RotateWithPause : MonoBehaviour,IItem
         configPlayerBullet.powerMagnification = powerMagnification;
     }
 
-
-    public void getItem(float magnification){
+    public override void getItem(float magnification){
         SetMagnification(magnification);
         switch(batteryLevel){
             case 0:
@@ -71,8 +70,8 @@ public class RotateWithPause : MonoBehaviour,IItem
             default:
                 break;          
         }
-
     }
+
     void level1(){
         batteryLevel += 1;
         SetActiveChild("Sniper1");
@@ -151,25 +150,7 @@ public class RotateWithPause : MonoBehaviour,IItem
                .Where(t => t != transform)
                .ToArray();
     }
-    private bool SetActiveChild(string childName){
-        Transform child = transform.Find(childName);
-        if (child != null){
-            child.gameObject.SetActive(true);
-            return true;
-        }
-        else{
-            Debug.Log("子オブジェクトは見つかりませんでした。:" + childName);
-            return false;
-        }
-    }
 
-    public bool SetActive(bool isActive){
-        gameObject.SetActive(isActive);
-        return gameObject.activeSelf;
-    }
-
-    public bool StopAllCoroutine(){
-        StopAllCoroutines();
-        return true;
-    }
+    
+    
 }

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class BaseBattery : MonoBehaviour, IItem
 {
+    [Header("ItemData")]
+    [SerializeField] private ItemData itemData;
     public abstract string itemType{get;}
     public abstract int batteryLevel{get; set;}
     public abstract void getItem(float powerMagnification);
