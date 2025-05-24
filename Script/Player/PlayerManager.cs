@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem.Layouts;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -111,7 +112,7 @@ public class PlayerManager : MonoBehaviour
 
         if (other.CompareTag("Prisoner"))
         {
-            string characterId = CharacterGet(other);
+            string characterId = GetNewCharacter(other);
             Destroy(other.gameObject);
             return;
         }
@@ -123,12 +124,13 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    string CharacterGet(Collider other){
-        string characterId = other.GetComponent<PrisonerCore>().GetCharacterId();
+    string GetNewCharacter(Collider other){
+        string characterId = other.gameObject.GetComponent<PrisonerConfig>().GetCharacterId();
         GameManager.Instance.AddNewCharacterList(characterId);
-        EffectController.Instance.PlayCharacterGet(gameObject.transform.position);
+        EffectController.Instance.PlayCharacterGet(other.gameObject.transform.position);
         return characterId;
     }
+
 
     // CoreがEnemyとHitしたときに呼ばれる
     public void HitEnemy()
