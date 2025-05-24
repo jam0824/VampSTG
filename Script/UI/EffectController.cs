@@ -20,10 +20,12 @@ public class EffectController : MonoBehaviour
     [SerializeField] AudioClip[] largeExplosionSes;
     [SerializeField] float largeExplosionSeVolume = 0.8f;
 
-    [Header("Effect")]
+    [Header("Power Up")]
     [SerializeField] GameObject powerUp;
     [SerializeField] AudioClip powerUpSe;
     [SerializeField] float powerUpSeVol;
+
+    [Header("Character Get")]
     [SerializeField] GameObject characterGet;
     [SerializeField] AudioClip characterGetSe;
     [SerializeField] float characterGetVol;

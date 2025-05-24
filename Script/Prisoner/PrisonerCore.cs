@@ -9,6 +9,11 @@ public class PrisonerCore : MonoBehaviour
 
     [Header("ItemCharcterPrefab")]
     [SerializeField] GameObject itemCharacterPrefab;
+    [Header("item出現時のエフェクト")]
+    [SerializeField] GameObject itemAppearEffect;
+    [SerializeField] float offsetItemAppearEffectY = -1f;
+    [SerializeField] AudioClip itemAppearSe;
+    [SerializeField] float itemAppearSeVolume = 1f;
 
     Transform playerTransform;
     bool isDead = false;
@@ -65,7 +70,14 @@ public class PrisonerCore : MonoBehaviour
         
         Vector3 pos = transform.position;
         if (offsetExplosionY != 0) pos.y += offsetExplosionY;
-        GameObject itemCharacter = Instantiate(itemCharacterPrefab, pos, Quaternion.identity);
+        Instantiate(itemCharacterPrefab, pos, Quaternion.identity);
+
+        pos = transform.position;
+        pos.y += offsetItemAppearEffectY;
+        pos.x = 1f; //手前に表示
+        Instantiate(itemAppearEffect, pos, Quaternion.identity);
+        SoundManager.Instance.PlaySE(itemAppearSe, itemAppearSeVolume);
+
         EffectController.Instance.PlayLargeExplosion(pos, gameObject.transform.rotation);
         AddScore(maxHp);
         Destroy(gameObject);

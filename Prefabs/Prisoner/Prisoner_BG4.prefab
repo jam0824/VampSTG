@@ -169,12 +169,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98fc684e2e01394498a011cb33a86ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 500
-  offsetExplosionY: 0
-  totalDuration: 4
-  peakHeight: 1
-  moveSpeed: 5
-  stopDistance: 0.1
+  hp: 100
+  offsetExplosionY: -1
+  itemCharacterPrefab: {fileID: 9218764245738942672, guid: 6c7685d0fe4d0ed44afb42860986bd9f, type: 3}
+  itemAppearEffect: {fileID: 4332252968653060796, guid: 4325f55faf6fd3643a7c25a2098d6715, type: 3}
+  offsetItemAppearEffectY: -1
+  itemAppearSe: {fileID: 8300000, guid: c8d2ee02ae3fd4c4e87b577f3b126d6b, type: 3}
+  itemAppearSeVolume: 1
 --- !u!1001 &8633767081292899009
 PrefabInstance:
   m_ObjectHideFlags: 0

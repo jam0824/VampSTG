@@ -73,7 +73,7 @@ MonoBehaviour:
   powerUp: {fileID: 8567252811922625434, guid: c7a327c118100584197858f482a2a517, type: 3}
   powerUpSe: {fileID: 8300000, guid: e555c55beb292c540b78ceddc4229c9c, type: 3}
   powerUpSeVol: 0.8
-  characterGet: {fileID: 558292245026669471, guid: 73ad0ed8191481e41a245575984fcc03, type: 3}
+  characterGet: {fileID: 2445349376329638207, guid: c5fec03e001100a458df6fef04507891, type: 3}
   characterGetSe: {fileID: 8300000, guid: 0b595f2c5df15614da40847e475300f6, type: 3}
   characterGetVol: 0.8
   hitPlayer: {fileID: 3079065092045439660, guid: 07be13eb868ee45489f5452568f5c6b1, type: 3}

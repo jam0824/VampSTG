@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
         itemCount = 0;
         stageDeadCount = 0;
         stageGetNewItems.Clear();
+        stageGetNewCharacters.Clear();
         Debug.Log("ステージデータをリセットしました");
     }
 

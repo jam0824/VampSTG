@@ -183,7 +183,7 @@ MonoBehaviour:
   startWaveTime: 60
   endWaveTime: 1000
   enemies:
-  - {fileID: 942118780953535470, guid: 037ecf58b34b7e347bc3f2e1e3ed828e, type: 3}
+  - {fileID: 6479299603220299712, guid: 4b855ee56c720b340b64e632251cd1f3, type: 3}
   spawnCount: 1
   initialInterval: 20
   minInterval: 10
@@ -355,7 +355,9 @@ MonoBehaviour:
   minDistance: 10
   maxDistance: 12
   enemyPool: {fileID: 2168829202611065324}
-  batteryDropRate: 0.1
+  initialDropRate: 0.1
+  minDropRate: 0.01
+  maxEnemiesForMinRate: 100
   boss: {fileID: 0}
   bgm: {fileID: 8300000, guid: 5204c75a8de57524c8d1646333158adb, type: 3}
   bgmVol: 0.5

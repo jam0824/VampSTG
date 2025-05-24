@@ -112,7 +112,7 @@ public class PlayerManager : MonoBehaviour
 
         if (other.CompareTag("Prisoner"))
         {
-            string characterId = GetNewCharacter(other);
+            GetNewCharacter(other);
             Destroy(other.gameObject);
             return;
         }
@@ -124,11 +124,10 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    string GetNewCharacter(Collider other){
+    void GetNewCharacter(Collider other){
         string characterId = other.gameObject.GetComponent<PrisonerConfig>().GetCharacterId();
         GameManager.Instance.AddNewCharacterList(characterId);
         EffectController.Instance.PlayCharacterGet(other.gameObject.transform.position);
-        return characterId;
     }
 
 

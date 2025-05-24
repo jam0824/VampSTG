@@ -19504,6 +19504,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prisoner_BG4
       objectReference: {fileID: 0}
+    - target: {fileID: 5555746543297534857, guid: f2f61bf282586ab4396691ddf7875a11, type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
