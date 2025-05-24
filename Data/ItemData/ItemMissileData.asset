@@ -18,7 +18,7 @@ MonoBehaviour:
   type: Missile
   itemObj: {fileID: 8961623587356723185, guid: c619e40ba7453b34598ac44f36ce1cd8, type: 3}
   itemSprite: {fileID: 21300000, guid: 67cadd86f1ca8de4182ba502d1638a89, type: 3}
-  damage: 10
+  damage: 15
   description:
   - Missile Pod
   - "\u30DF\u30B5\u30A4\u30EB\u30DD\u30C3\u30C9"

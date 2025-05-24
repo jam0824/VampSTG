@@ -18,7 +18,7 @@ MonoBehaviour:
   type: Bit
   itemObj: {fileID: 6938418429575878011, guid: bbb8611e5f1a19a4e8cc6315e37bab12, type: 3}
   itemSprite: {fileID: 21300000, guid: 8dfc05d6107ecca4f934c58805232ac9, type: 3}
-  damage: 3
+  damage: 15
   description:
   - BIt
   - "\u30D3\u30C3\u30C8"

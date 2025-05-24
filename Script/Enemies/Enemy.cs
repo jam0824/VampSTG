@@ -113,7 +113,9 @@ public class Enemy : MonoBehaviour
 
     float hit(ConfigPlayerBullet bullet, float enemyHp)
     {
-        enemyHp -= bullet.getDamage();
+        float damage = bullet.getDamage();
+        Debug.Log("ダメージ：" + damage);
+        enemyHp -= damage;
         AudioClip hitSe = bullet.hitSe;
         if (hitSe != null) SoundManager.Instance.PlaySE(bullet.hitSe, bullet.hitSeVolume);
         return enemyHp;
