@@ -255,6 +255,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &888537562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2216367201125327193, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+  m_PrefabInstance: {fileID: 5450906091552558973}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &888537567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888537562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c669ddbf1bd6a934ebe2bef809056ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: Bit
 --- !u!1 &1436996986
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +734,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2560318572751011543, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 68e12880aee472f4bbc98be4839af63a, type: 3}
+    - target: {fileID: 3198574703273212321, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3198574703273212321, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd16c56ff7d4e4443a84b0a25037bf77, type: 3}
+    - target: {fileID: 3198574703273212321, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 68e12880aee472f4bbc98be4839af63a, type: 3}
+    - target: {fileID: 3198574703273212321, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd16c56ff7d4e4443a84b0a25037bf77, type: 3}
+    - target: {fileID: 3198574703273212321, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd16c56ff7d4e4443a84b0a25037bf77, type: 3}
     - target: {fileID: 4203447679759011906, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -740,6 +782,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5559343696049550838, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559343696049550838, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2d033d92f37242743a078f51212af0b3, type: 3}
     - target: {fileID: 6438784023172354619, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -793,9 +843,13 @@ PrefabInstance:
       value: MainCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 826012367639607746, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2216367201125327193, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 888537567}
   m_SourcePrefab: {fileID: 100100000, guid: 643778def5414b74bbd76925f0e44f73, type: 3}
 --- !u!1001 &7257688696539995090
 PrefabInstance:
