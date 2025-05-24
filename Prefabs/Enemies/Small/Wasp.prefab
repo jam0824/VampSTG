@@ -293,7 +293,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7245121778802613748}
   - component: {fileID: 8096816334194152194}
-  - component: {fileID: 1816672026769057082}
   m_Layer: 7
   m_Name: SmallAngryWasp_prefab
   m_TagString: Untagged
@@ -346,27 +345,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!135 &1816672026769057082
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1251164348761298127, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
-  m_PrefabInstance: {fileID: 5856051378123624912}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2116342453605703958}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.15
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &2202689792837919305
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +880,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.15
+  m_Radius: 0.08
   m_Center: {x: -0.00007089558, y: -0.009064848, z: 0.2449883}
 --- !u!1 &5988869748129181399
 GameObject:
@@ -1388,7 +1366,6 @@ GameObject:
   m_Component:
   - component: {fileID: 810177440028242846}
   - component: {fileID: 4384543994504238887}
-  - component: {fileID: 2853072259925644980}
   - component: {fileID: 6877595967828296625}
   m_Layer: 7
   m_Name: Wasp
@@ -1440,27 +1417,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &2853072259925644980
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7057427995297426343}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6877595967828296625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1482,6 +1438,7 @@ MonoBehaviour:
   isAttack: 0
   attackInterval: 4
   attackAnimationWait: 0.5
+  animator: {fileID: 0}
 --- !u!1 &7141835924483880313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1831,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4521621926999676977, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
+      propertyPath: m_Radius
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 6976266346302352028, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
       propertyPath: m_Name
       value: SmallAngryWasp_prefab
@@ -1881,6 +1842,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4695751530478955301, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
     - {fileID: 3863358013450077061, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

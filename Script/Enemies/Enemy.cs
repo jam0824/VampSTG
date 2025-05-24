@@ -124,13 +124,26 @@ public class Enemy : MonoBehaviour
     void enemyDie()
     {
         isDead = true;
-        Vector3 pos = gameObject.transform.position;
-        if (offsetExplosionY != 0) pos.y += offsetExplosionY;
-        EffectController.Instance.PlaySmallExplosion(pos, gameObject.transform.rotation);
+        Explosion(maxHp);
         AddKillCount();
         AddScore(maxHp);
         ApearItem(item);
         Destroy(gameObject);
+    }
+
+    void Explosion(float maxHp)
+    {
+        Vector3 pos = gameObject.transform.position;
+        if (offsetExplosionY != 0) pos.y += offsetExplosionY;
+        if(maxHp < 50){
+            EffectController.Instance.PlaySmallExplosion(pos, gameObject.transform.rotation);
+            return;
+        }
+        if(maxHp < 100){
+            EffectController.Instance.PlayMiddleExplosion(pos, gameObject.transform.rotation);
+            return;
+        }
+        EffectController.Instance.PlayLargeExplosion(pos, gameObject.transform.rotation);
     }
 
     void ApearItem(GameObject objItem)
