@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3977210797203372622}
   - component: {fileID: 135219337407746228}
   - component: {fileID: 108919900232066054}
+  - component: {fileID: -2069540741168353359}
   m_Layer: 6
   m_Name: Projectile 7 fire
   m_TagString: PlayerBullet
@@ -167,6 +168,19 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &-2069540741168353359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254724754748870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1eeee752173cd74583cd4a2bfaeb920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deleteTime: 3
 --- !u!1 &1800544799133088
 GameObject:
   m_ObjectHideFlags: 0

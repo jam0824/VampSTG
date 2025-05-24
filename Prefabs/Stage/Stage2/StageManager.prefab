@@ -359,8 +359,8 @@ MonoBehaviour:
   minDropRate: 0.01
   maxEnemiesForMinRate: 100
   boss: {fileID: 0}
-  bgm: {fileID: 8300000, guid: 5204c75a8de57524c8d1646333158adb, type: 3}
-  bgmVol: 0.5
+  bgm: {fileID: 8300000, guid: 5e80c46bbfafe194594c31e0e6c2d75c, type: 3}
+  bgmVol: 0.8
   progressBar: {fileID: 0}
   playerModel: {fileID: 6155718885946839314, guid: f62125caa80af5d41a500d2cf1f61c69, type: 3}
   allElapsedTime: 0
