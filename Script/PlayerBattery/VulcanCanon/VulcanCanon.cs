@@ -73,6 +73,7 @@ public class VulcanCanon : BaseBattery
     void level1()
     {
         batteryLevel += 1;
+        SetDamage();
         StartCoroutine(AutoShoot());
     }
     void level2()
@@ -121,7 +122,8 @@ public class VulcanCanon : BaseBattery
             // 子オブジェクトの位置で一斉射撃
             foreach (Transform t in GetChildTransforms())
             {
-                Instantiate(bullet, t.position, t.rotation);
+                GameObject bulletInstance = Instantiate(bullet, t.position, t.rotation);
+                bulletInstance.GetComponent<ConfigPlayerBullet>().damage = damage;
                 AddBulletCount();
             }
             SoundManager.Instance.PlaySE(bulletSe, bulletSeVolume);

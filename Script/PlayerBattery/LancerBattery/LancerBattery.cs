@@ -67,6 +67,7 @@ public class LancerBattery : BaseBattery
     {
         batteryLevel += 1;
         gameObject.SetActive(true);
+        SetDamage();
         playerManager = GameObject.FindWithTag("Core").GetComponent<PlayerManager>();
         lances = GetChildTransforms(firePoint);
         DisplayLance(firePoint, "Battery1");
@@ -132,6 +133,7 @@ public class LancerBattery : BaseBattery
     {
         Transform lance = SetActiveChildwithObject(firePoint, objectName);
         var configPlayerBullet = lance.gameObject.GetComponent<ConfigPlayerBullet>();
+        configPlayerBullet.damage = damage;
         configPlayerBullet.powerMagnification = playerManager.powerMagnification;
     }
 

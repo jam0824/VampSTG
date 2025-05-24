@@ -9,6 +9,7 @@ public abstract class BaseBattery : MonoBehaviour, IItem
     public abstract void getItem(float powerMagnification);
     public abstract float powerMagnification{get; set;}
     public abstract ConfigPlayerBullet configPlayerBullet{get;set;}
+    public float damage{get;set;}
 
 
     protected bool SetActiveChild(string childName){
@@ -36,5 +37,8 @@ public abstract class BaseBattery : MonoBehaviour, IItem
     protected void AddBulletCount(){
         GameManager.Instance.bulletCount++;
         GameManager.Instance.allBulletCount++;
+    }
+    protected void SetDamage(){
+        damage = itemData.damage;
     }
 }

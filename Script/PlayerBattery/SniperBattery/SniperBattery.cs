@@ -75,6 +75,7 @@ public class SniperBattery : BaseBattery
     void level1(){
         batteryLevel += 1;
         SetActiveChild("Sniper1");
+        SetDamage();
         StartCoroutine(RotateRoutine());
     }
     void level2(){
@@ -132,7 +133,8 @@ public class SniperBattery : BaseBattery
             yield return new WaitForSeconds(waitForShot);
             foreach (Transform t in GetChildTransforms())
             {
-                Instantiate(bullet, t.position, t.rotation);
+                GameObject bulletInstance = Instantiate(bullet, t.position, t.rotation);
+                bulletInstance.GetComponent<ConfigPlayerBullet>().damage = damage;
             }
             SoundManager.Instance.PlaySE(bulletSe, bulletSeVolume);
             // 指定秒だけ待機

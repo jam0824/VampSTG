@@ -58,6 +58,7 @@ public class MissileBattery : BaseBattery
     {
         batteryLevel += 1;
         gameObject.SetActive(true);
+        SetDamage();
         StartCoroutine(AutoShoot());
     }
     void level2()
@@ -121,7 +122,8 @@ public class MissileBattery : BaseBattery
             // 子オブジェクトの位置で一斉射撃
             foreach (Transform t in GetChildTransforms())
             {
-                Instantiate(bullet, t.position, t.rotation);
+                GameObject bulletInstance = Instantiate(bullet, t.position, t.rotation);
+                bulletInstance.GetComponent<ConfigPlayerBullet>().damage = damage;
                 SoundManager.Instance.PlaySE(bulletSe, bulletSeVolume);
                 AddBulletCount();
                 yield return new WaitForSeconds(bulletBulletInterval);

@@ -63,6 +63,7 @@ public class GrenadeBattery : BaseBattery
     {
         batteryLevel += 1;
         gameObject.SetActive(true);
+        SetDamage();
         playerManager = GameObject.FindWithTag("Core").GetComponent<PlayerManager>();
         SetActiveChildwithObject(firePoint, "Battery1");
         StartCoroutine(AutoShoot());
@@ -168,6 +169,7 @@ public class GrenadeBattery : BaseBattery
         var newBullet = Instantiate(bullet, childTransform.position, childTransform.rotation);
         var configPlayerBullet = newBullet.GetComponent<ConfigPlayerBullet>();
         configPlayerBullet.powerMagnification = playerManager.powerMagnification;
+        configPlayerBullet.damage = damage;
         return newBullet;
     }
 

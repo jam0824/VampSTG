@@ -69,6 +69,7 @@ public class BitBattery : BaseBattery
     {
         batteryLevel += 1;
         gameObject.SetActive(true);
+        SetDamage();
         MakeBit();
     }
     void level2()
@@ -113,7 +114,8 @@ public class BitBattery : BaseBattery
 
     void MakeBit()
     {
-        Instantiate(bitPrefab, firePoints.transform.position, firePoints.transform.rotation);
+        GameObject bitInstance = Instantiate(bitPrefab, firePoints.transform.position, firePoints.transform.rotation);
+        bitInstance.GetComponent<BitShooter>().damage = damage;
     }
 
     /// <summary>

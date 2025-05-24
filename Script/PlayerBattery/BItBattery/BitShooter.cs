@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class EnemySeekerShooter : MonoBehaviour
+public class BitShooter : MonoBehaviour
 {
     [Header("ターゲット検索")]
     public string enemyTag = "Enemy";
@@ -24,6 +24,7 @@ public class EnemySeekerShooter : MonoBehaviour
     private BitBattery bitBattery;
     public float powerMagnification = 1f;
     private PlayerManager playerManager;
+    public float damage = 10f;
 
 
     // モデルのX軸90度回転補正
@@ -115,6 +116,7 @@ public class EnemySeekerShooter : MonoBehaviour
         Quaternion fireRot = firePoint.rotation * modelOffset * beamFlip;
         GameObject bullet = Instantiate(laserPrefab, firePoint.position, fireRot);
         ConfigPlayerBullet configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
+        configPlayerBullet.damage = damage;
         configPlayerBullet.powerMagnification = playerManager.powerMagnification;
         SoundManager.Instance.PlaySE(se, seVol);
     }

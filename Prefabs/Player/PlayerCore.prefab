@@ -314,6 +314,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3367472402570578053, guid: e4537429b02987343bf7ac6083ceb9ac, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 12f421d8ab7e8374ca34b837c10c5ccf, type: 2}
     - target: {fileID: 3933929668841386420, guid: e4537429b02987343bf7ac6083ceb9ac, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1
@@ -465,6 +469,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4575332177928448130, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: fadf432acc6c8b04b8f7c0fc1a1d3390, type: 2}
+    - target: {fileID: 4575332177928448130, guid: 460c23020c9082f40a42eee0ccc3a57b, type: 3}
       propertyPath: spawnCount
       value: 1
       objectReference: {fileID: 0}
@@ -574,6 +582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SniperBattery
       objectReference: {fileID: 0}
+    - target: {fileID: 7611310945472201208, guid: 8fff3991d3ff1c4439835eaf322e2c39, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 60c0d9061e79d524c8447b03f550de69, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -592,6 +604,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3236653002755017925}
     m_Modifications:
+    - target: {fileID: 190236457104948523, guid: da1bfec46295e3c4d9071c750304a29e, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b27d0f586ef96b48aadb3edd2557b29, type: 2}
     - target: {fileID: 2243558612764998395, guid: da1bfec46295e3c4d9071c750304a29e, type: 3}
       propertyPath: m_LocalScale.x
       value: 10
@@ -742,6 +758,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8172290406855807886, guid: c84515848fb1c414eb034d0b64bac7dd, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: b0de1b99bd4ed1b48a2844c75b9d8111, type: 2}
     - target: {fileID: 8501651231742574057, guid: c84515848fb1c414eb034d0b64bac7dd, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -824,6 +844,10 @@ PrefabInstance:
       propertyPath: bulletSe
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7025012440731434387, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: e0805ed9b9db15148892e51ad40cf08b, type: 2}
     - target: {fileID: 7025012440731434387, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
       propertyPath: bulletSeVolume
       value: 1
