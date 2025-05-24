@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     [Header("言語設定: 0英語/1日本語")] public int languageIndex = 0;
     [Header("選択されているキャラクター")] public CharacterData selectedCharacter;
-    [Header("選択されているステージのシーン名")] public string selectedStageSceneName;
+    [Header("選択されているステージのシーン名")] public StageData selectedStage;
 
     [Header("音量")] public float globalBgmVol = 0.6f;
     public float globalSeVol = 1f;

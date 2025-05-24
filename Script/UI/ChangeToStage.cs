@@ -22,7 +22,7 @@ public class ChangeToStage : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         syutsugekiImage.color = new Color(1f,1f,1f,1f);
 
-        string sceneName = GameManager.Instance.selectedStageSceneName;
+        string sceneName = GameManager.Instance.selectedStage.sceneName;
         yield return new WaitForSeconds(2f);
         FadeManager.FadeToScene(sceneName, FadeColor.Black);
 

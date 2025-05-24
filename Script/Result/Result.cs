@@ -44,7 +44,7 @@ public class Result : MonoBehaviour
         SoundManager.Instance.PlayBGM(bgm, bgmVol);
         UnlockItems();  //新しく取得したアイテムをアンロックしてしまう
         UnlockCharacter(); //新しく取得したキャラクターをアンロックしてしまう   
-        unlockManager.UnlockStage(GameManager.Instance.selectedStageSceneName); //シーンネームを送ることで次のステージをUnlock
+        unlockManager.UnlockStage(GameManager.Instance.selectedStage.sceneName); //シーンネームを送ることで次のステージをUnlock
         DisplayUnlockItem(unlockContainer); //アンロックアイテムを並べる
         DisplayUnlockCharacter(unlockContainer); //アンロックキャラクターを並べる
     }

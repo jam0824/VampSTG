@@ -94,8 +94,7 @@ public class StageSelectController : MonoBehaviour
     {
         SoundManager.Instance.PlaySE(decisionSe, seVol);
         currentIndex = index;
-        string sceneName = stages[currentIndex].sceneName;
-        GameManager.Instance.selectedStageSceneName = sceneName;
+        GameManager.Instance.selectedStage = stages[currentIndex];
         SoundManager.Instance.StopBGMWithFadeOut(0.5f);
         FadeManager.FadeToScene("ChangeToStage", FadeColor.Black);
     }
