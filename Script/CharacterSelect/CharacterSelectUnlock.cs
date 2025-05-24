@@ -12,7 +12,7 @@ public class CharacterSelectUnlock : MonoBehaviour
     }
 
     void UnlockCharacter(string characterName){
-        if(GameManager.Instance.gotCharacters.Contains(characterName)){
+        if(GameManager.Instance.IsCharacterUnlocked(characterName)){
             gameObject.GetComponent<Button>().interactable = true;
         }
         else{

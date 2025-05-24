@@ -12,7 +12,7 @@ public class StageSelectUnlock : MonoBehaviour
     }
 
     void UnlockStage(string stageName){
-        if(GameManager.Instance.gotStages.Contains(stageName)){
+        if(GameManager.Instance.IsStageUnlocked(stageName)){
             gameObject.GetComponent<Button>().interactable = true;
         }
         else{

@@ -38,14 +38,14 @@ public class GameManager : MonoBehaviour
     public float maxY = 6f;
     public float minY = -4f;
 
-    [Header("Score倍率")] 
+    [Header("Score倍率")]
     public int bulletMagnification = 10;
     public float scoreMagnification = 100f;
     public int itemMagnification = 1000;
 
     public GameObject playerCore;
 
-    [Header("Save系データ")] 
+    [Header("Save系データ")]
     public int killCount = 0;
     public int allKillCount = 0;
     public int score = 0;
@@ -107,19 +107,19 @@ public class GameManager : MonoBehaviour
     {
         var data = new SaveData
         {
-            killCount     = this.killCount,
-            allKillCount  = this.allKillCount,
-            score         = this.score,
-            bulletCount   = this.bulletCount,
-            allBulletCount= this.allBulletCount,
-            itemCount     = this.itemCount,
-            gotItems      = new List<string>(this.gotItems),
+            killCount = this.killCount,
+            allKillCount = this.allKillCount,
+            score = this.score,
+            bulletCount = this.bulletCount,
+            allBulletCount = this.allBulletCount,
+            itemCount = this.itemCount,
+            gotItems = new List<string>(this.gotItems),
             gotCharacters = new List<string>(this.gotCharacters),
-            gotStages     = new List<string>(this.gotStages),
-            highScores    = (int[])this.highScores.Clone(),  // 配列を複製して渡す
+            gotStages = new List<string>(this.gotStages),
+            highScores = (int[])this.highScores.Clone(),  // 配列を複製して渡す
             languageIndex = this.languageIndex,
-            globalBgmVol  = this.globalBgmVol,
-            globalSeVol   = this.globalSeVol
+            globalBgmVol = this.globalBgmVol,
+            globalSeVol = this.globalSeVol
         };
 
         try
@@ -152,12 +152,12 @@ public class GameManager : MonoBehaviour
                 return;
             }
 
-            this.killCount      = data.killCount;
-            this.allKillCount   = data.allKillCount;
-            this.score          = data.score;
-            this.bulletCount    = data.bulletCount;
+            this.killCount = data.killCount;
+            this.allKillCount = data.allKillCount;
+            this.score = data.score;
+            this.bulletCount = data.bulletCount;
             this.allBulletCount = data.allBulletCount;
-            this.itemCount      = data.itemCount;
+            this.itemCount = data.itemCount;
 
             this.gotItems.Clear();
             this.gotItems.AddRange(data.gotItems);
@@ -169,8 +169,8 @@ public class GameManager : MonoBehaviour
             this.highScores = data.highScores;  // 配列をそのまま代入
 
             this.languageIndex = data.languageIndex;
-            this.globalBgmVol  = data.globalBgmVol;
-            this.globalSeVol   = data.globalSeVol;
+            this.globalBgmVol = data.globalBgmVol;
+            this.globalSeVol = data.globalSeVol;
 
             Debug.Log($"Game loaded: {SaveFilePath}");
         }
@@ -191,28 +191,32 @@ public class GameManager : MonoBehaviour
             gotItems.Add(itemId);
             Debug.Log("正式にアイテムリストに追加しました : " + itemId);
         }
-            
+
     }
 
     /// <summary>
     /// 一時的にアンロックアイテムに追加する。クリア後に正式に追加される。
     /// </summary>
     /// <param name="type"></param>
-    public void AddNewItemList(string type){
+    public void AddNewItemList(string type)
+    {
         type = type.ToLower();
-        if((!gotItems.Contains(type)) && (!stageGetNewItems.Contains(type))){
+        if ((!gotItems.Contains(type)) && (!stageGetNewItems.Contains(type)))
+        {
             stageGetNewItems.Add(type);
             Debug.Log("Unlockのアイテムリストに追加しました : " + type);
         }
     }
-    
+
     /// <summary>
     /// 一時的にアンロックキャラクターに追加する。クリア後に正式に追加される。
     /// </summary>
     /// <param name="charId"></param>
-    public void AddNewCharacterList(string charId){
+    public void AddNewCharacterList(string charId)
+    {
         charId = charId.ToLower();
-        if((!gotCharacters.Contains(charId)) && (!stageGetNewCharacters.Contains(charId))){
+        if ((!gotCharacters.Contains(charId)) && (!stageGetNewCharacters.Contains(charId)))
+        {
             stageGetNewCharacters.Add(charId);
             Debug.Log("Unlockのキャラクターリストに追加しました : " + charId);
         }
@@ -221,8 +225,10 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// stageGetNewItemsに含まれるアイテムを全てgotItemsに反映させる
     /// </summary>
-    public void AddNewItemListToGotItems(){
-        foreach(string unlockedItem in stageGetNewItems){
+    public void AddNewItemListToGotItems()
+    {
+        foreach (string unlockedItem in stageGetNewItems)
+        {
             AddItem(unlockedItem);
         }
     }
@@ -230,25 +236,31 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// stageGetNewCharactersに含まれるキャラクターを全てgotCharactersに反映させる
     /// </summary>
-    public void AddNewCharacterListToGotCharacters(){
-        foreach(string unlockedCharacter in stageGetNewCharacters){
+    public void AddNewCharacterListToGotCharacters()
+    {
+        foreach (string unlockedCharacter in stageGetNewCharacters)
+        {
             AddCharacter(unlockedCharacter);
         }
     }
 
-    public List<string> GetStageGetNewItems(){
+    public List<string> GetStageGetNewItems()
+    {
         return stageGetNewItems;
     }
 
-    public void ClearStageGetNewItems(){
+    public void ClearStageGetNewItems()
+    {
         stageGetNewItems.Clear();
     }
 
-    public List<string> GetStageGetNewCharacters(){
+    public List<string> GetStageGetNewCharacters()
+    {
         return stageGetNewCharacters;
     }
 
-    public void ClearStageGetNewCharacters(){
+    public void ClearStageGetNewCharacters()
+    {
         stageGetNewCharacters.Clear();
     }
 
@@ -263,4 +275,47 @@ public class GameManager : MonoBehaviour
         if (!gotStages.Contains(stageId))
             gotStages.Add(stageId);
     }
+
+    /// <summary>
+    /// キャラクターがアンロックされているかどうかを返す
+    /// </summary>
+    /// <param name="characterId"></param>
+    /// <returns></returns>
+    public bool IsCharacterUnlocked(string characterId)
+    {
+        bool isUnlocked = false;
+        characterId = characterId.ToLower();
+        foreach (string character in gotCharacters)
+        {
+            string tmpCharacter = character.ToLower();
+            if (tmpCharacter == characterId)
+            {
+                isUnlocked = true;
+                break;
+            }
+        }
+        return isUnlocked;
+    }
+
+    /// <summary>
+    /// ステージがアンロックされているかどうかを返す
+    /// </summary>
+    /// <param name="stageId"></param>
+    /// <returns></returns>
+    public bool IsStageUnlocked(string stageId)
+    {
+        bool isUnlocked = false;
+        stageId = stageId.ToLower();
+        foreach (string stage in gotStages)
+        {
+            string tmpStage = stage.ToLower();
+            if (tmpStage == stageId)
+            {
+                isUnlocked = true;
+                break;
+            }
+        }
+        return isUnlocked;
+    }
+
 }
