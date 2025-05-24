@@ -43,12 +43,17 @@ public class Result : MonoBehaviour
         displayCoroutine = StartCoroutine(DisplayResult());
         SoundManager.Instance.PlayBGM(bgm, bgmVol);
         UnlockItems();  //新しく取得したアイテムをアンロックしてしまう
+        UnlockCharacter(); //新しく取得したキャラクターをアンロックしてしまう   
         unlockManager.UnlockStage(GameManager.Instance.selectedStageSceneName); //シーンネームを送ることで次のステージをUnlock
         DisplayUnlockItem(unlockContainer); //アンロックアイテムを並べる
+        DisplayUnlockCharacter(unlockContainer); //アンロックキャラクターを並べる
     }
 
     void UnlockItems(){
         GameManager.Instance.AddNewItemListToGotItems();
+    }
+    void UnlockCharacter(){
+        GameManager.Instance.AddNewCharacterListToGotCharacters();
     }
 
     void Update()
@@ -189,6 +194,21 @@ public class Result : MonoBehaviour
             }
             GameObject item = Instantiate(unlockItemImagePrefab, container);
             item.GetComponent<Image>().sprite = itemData.itemSprite;
+        }
+    }
+
+    void DisplayUnlockCharacter(Transform container)
+    {
+        List<string> characters = GameManager.Instance.GetStageGetNewCharacters();
+        foreach (string characterId in characters)
+        {
+            CharacterData characterData = GameManager.Instance.itemDataDB.GetCharacterData(characterId);
+            if(characterData == null){
+                Debug.Log("CharacterIdに合うCharacterDataがありません : " + characterId);
+                continue;
+            }
+            GameObject character = Instantiate(unlockItemImagePrefab, container);
+            character.GetComponent<Image>().sprite = characterData.characterSprite;
         }
     }
 }

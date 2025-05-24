@@ -19,6 +19,7 @@ MonoBehaviour:
   previewPrefab: {fileID: 8402496849701027327, guid: 97dca40ad9191bb45b4a2f0338cc48bc, type: 3}
   playModel: {fileID: 318945797072344529, guid: 1c2847205ee63b949aebe27ee86f4a0c, type: 3}
   playerModelOffset: {x: 0, y: -0.87, z: 0}
+  characterSprite: {fileID: 21300000, guid: 2d033d92f37242743a078f51212af0b3, type: 3}
   life: 5
   power: 2
   speed: 5

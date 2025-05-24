@@ -13,6 +13,8 @@ public class CharacterData : ScriptableObject
     public GameObject playModel;
     [Header("モデルにCore配置のオフセット")]
     public Vector3 playerModelOffset;
+    [Header("キャラクター画像")]
+    public Sprite characterSprite;
     [Header("パラメーター")]
     public int life;
     public int power;
