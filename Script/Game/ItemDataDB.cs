@@ -25,6 +25,9 @@ public class ItemDataDB : MonoBehaviour
                 break;
             }
         }
+        if(returnData == null){
+            Debug.LogError("ItemDataが見つかりません: " + type);
+        }
         return returnData;
     }
 

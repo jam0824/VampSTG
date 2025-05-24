@@ -6,10 +6,15 @@ public class PlayerItemManager : MonoBehaviour
     // 全ての装備をここに登録する
     [SerializeField] private GameObject itemRoot;
     public GameObject[] items;
+    private StageManager stageManager;
 
     void Awake()
     {
         items = GetChildObjects(itemRoot);
+    }
+    void Start()
+    {
+        stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
     }
 
     //アイテムを取った時、初期アイテムの装備時
@@ -58,6 +63,10 @@ public class PlayerItemManager : MonoBehaviour
     void GetNewItem(string type)
     {
         GameManager.Instance.AddNewItemList(type);
+        if(stageManager == null) {
+            stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
+        }
+        stageManager.AddItemsFromStageGetNewItems();    //新規追加があった時にステージ出現アイテムに追加する
     }
     
     /// <summary>

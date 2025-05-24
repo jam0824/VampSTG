@@ -131,7 +131,7 @@ MonoBehaviour:
   endWaveTime: 1000
   enemies:
   - {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
-  spawnCount: 2
+  spawnCount: 1
   initialInterval: 5
   minInterval: 2
   decayRate: 0.001
@@ -186,13 +186,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageAllSecond: 180
   items:
-  - {fileID: 8981956440422478563, guid: 37574d0bfc5140940915c68c50c238c9, type: 3}
-  - {fileID: 5451330195246812988, guid: 6a67ca8971b4f2c43a35394ac1b25a26, type: 3}
-  - {fileID: 8961623587356723185, guid: c619e40ba7453b34598ac44f36ce1cd8, type: 3}
+  - {fileID: 11400000, guid: 12f421d8ab7e8374ca34b837c10c5ccf, type: 2}
+  - {fileID: 11400000, guid: 60c0d9061e79d524c8447b03f550de69, type: 2}
+  - {fileID: 11400000, guid: fadf432acc6c8b04b8f7c0fc1a1d3390, type: 2}
   minDistance: 10
   maxDistance: 12
   enemyPool: {fileID: 1006812573579030016}
-  batteryDropRate: 0.1
+  initialDropRate: 0.2
+  minDropRate: 0.05
+  maxEnemiesForMinRate: 50
   boss: {fileID: 0}
   bgm: {fileID: 8300000, guid: 5204c75a8de57524c8d1646333158adb, type: 3}
   bgmVol: 0.5

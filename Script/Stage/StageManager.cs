@@ -2,12 +2,13 @@ using UnityEngine;
 using System.Collections;
 using System.Linq;
 using Unity.VisualScripting;
+using System.Collections.Generic;
 
 public class StageManager : MonoBehaviour
 {
     [Header("Stage Settings")]
     [SerializeField] float stageAllSecond = 180f;
-    [SerializeField] GameObject[] items;
+    [SerializeField] List<ItemData> items = new List<ItemData>();
 
     [Header("Spawn Radius")]
     [SerializeField] public float minDistance = 5f;    // プレイヤーから最低この距離以上
@@ -47,6 +48,8 @@ public class StageManager : MonoBehaviour
             playerTransform = playerObj.transform;
         else
             Debug.LogError("Player オブジェクトが見つかりません");
+
+        AddItemsFromGameManager();  //GameManagerのアイテムを追加
 
         SoundManager.Instance.PlayBGM(bgm, bgmVol);
 
@@ -96,8 +99,8 @@ public class StageManager : MonoBehaviour
 
         if (Random.value >= dropRate) return;
 
-        int index = Random.Range(0, items.Length);
-        enemy.GetComponent<Enemy>().item = items[index];
+        int index = Random.Range(0, items.Count);
+        enemy.GetComponent<Enemy>().item = items[index].itemObj;
     }
 
     /// <summary>
@@ -120,5 +123,79 @@ public class StageManager : MonoBehaviour
                 enemyComp.hp = 0;
             }
         }
+    }
+
+    /// <summary>
+    /// GameManagerのgotItems（アンロック済みアイテム）からアイテムを追加する
+    /// </summary>
+    private void AddItemsFromGameManager()
+    {
+        var gotItems = GameManager.Instance.gotItems;
+        AddItemsFromList(gotItems, "アンロック済みアイテム", "有効なアンロック済みアイテムがありません");
+    }
+
+    /// <summary>
+    /// GameManagerのstageGetNewItems（ステージで新しく取得したアイテム）からアイテムを追加する
+    /// </summary>
+    public void AddItemsFromStageGetNewItems()
+    {
+        var stageGetNewItems = GameManager.Instance.stageGetNewItems;
+        AddItemsFromList(stageGetNewItems, "ステージ新規取得アイテム", "有効なステージ新規取得アイテムがありません");
+    }
+
+    /// <summary>
+    /// アイテムリストからアイテムを重複チェック付きで追加する共通メソッド
+    /// </summary>
+    /// <param name="itemTypeList">追加するアイテムタイプのリスト</param>
+    /// <param name="logPrefix">ログに表示するプレフィックス</param>
+    /// <param name="emptyWarningMessage">有効なアイテムがない場合の警告メッセージ</param>
+    private void AddItemsFromList(List<string> itemTypeList, string logPrefix, string emptyWarningMessage)
+    {
+        if (GameManager.Instance?.itemDataDB == null)
+        {
+            Debug.LogWarning("GameManagerまたはItemDataDBが見つかりません");
+            return;
+        }
+
+        if (itemTypeList.Count == 0)
+        {
+            Debug.LogWarning($"{logPrefix}がありません");
+            return;
+        }
+
+        // itemTypeListからItemDataを取得（重複チェック付き）
+        var validItemDataList = new List<ItemData>();
+        foreach (string itemType in itemTypeList)
+        {
+            ItemData itemData = GameManager.Instance.itemDataDB.GetItemData(itemType);
+            if (itemData != null)
+            {
+                // 既存のitemsリストに同じタイプのアイテムが存在するかチェック
+                bool alreadyExists = items.Any(existingItem => existingItem.type.ToLower() == itemType.ToLower());
+                if (!alreadyExists)
+                {
+                    validItemDataList.Add(itemData);
+                }
+                else
+                {
+                    Debug.Log($"アイテムタイプ '{itemType}' は既に存在するためスキップしました");
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"アイテムタイプ '{itemType}' に対応するItemDataが見つかりません");
+            }
+        }
+
+        if (validItemDataList.Count == 0)
+        {
+            Debug.LogWarning(emptyWarningMessage);
+            return;
+        }
+
+        // アイテムをitemsリストに追加
+        items.AddRange(validItemDataList);
+        
+        Debug.Log($"{logPrefix}から{validItemDataList.Count}個のアイテムを追加しました。合計アイテム数: {items.Count}");
     }
 }
