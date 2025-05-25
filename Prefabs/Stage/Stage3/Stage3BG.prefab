@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1450811459932040256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 48768408738290238}
+  - component: {fileID: 8769929500743667120}
+  m_Layer: 20
+  m_Name: Stage3BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &48768408738290238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450811459932040256}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8769929500743667120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450811459932040256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23975b0993fbe5a44bd5fa2cbf062143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  innerBgRoot: {fileID: 6125462029387486314, guid: c2293d2df0733e0489ec59e9bdcef1b7, type: 3}
+  listInnerBgParts:
+  - {fileID: 2141978851828061552, guid: e80eac5efec5a9f47822965fd0ee9642, type: 3}
+  - {fileID: 5489750828267179783, guid: 04bf7746a5a1ab24b89fa4aa36db3604, type: 3}
+  - {fileID: 254752076329756079, guid: d9eeb7a50954b854b80e1af6def31dfe, type: 3}
+  - {fileID: 6161059712414472172, guid: bb318aaa47c791649a48446a25c91ef1, type: 3}
+  - {fileID: 5281226935420173295, guid: 98619517e32174c4395bf41c255514e4, type: 3}
+  - {fileID: 5479877111410356722, guid: 6eec2c2aff0800b4091b0a0c0db78ecb, type: 3}
+  - {fileID: 2817899882011045648, guid: 886802fb1e7ddbd45ad4ddbd111b7f18, type: 3}
+  - {fileID: 2541660260328668350, guid: 2e01447c103e3b142a68433f3b4d8912, type: 3}
+  bigWallParts:
+  - {fileID: 5659777401414489026, guid: 5201af3934766a947bd0c93f4acffdb6, type: 3}
+  - {fileID: 6270430328267462083, guid: 8f35e25ca3a493243a3ddc049e44c756, type: 3}
+  floorParts: {fileID: 7396882182597642617, guid: e099795b980bd8e4fa5ab12f25296f0d, type: 3}
+  floorY: -4.5
+  scrollSpeed: 0.6
