@@ -20,6 +20,7 @@ public class InnerBgManager : MonoBehaviour
     private int startTimes = 5;
 
     private float zPosition = 0f;
+    private float width = 10f;
     void Start()
     {
         CreateInnerBg(startZ, startTimes);
@@ -29,7 +30,7 @@ public class InnerBgManager : MonoBehaviour
     void Update()
     {
         zPosition += scrollSpeed * Time.deltaTime;
-        if(zPosition >= 10f){
+        if(zPosition >= width){
             CreateInnerBg(30f, 1);
             zPosition = 0f;
         }
@@ -38,14 +39,15 @@ public class InnerBgManager : MonoBehaviour
     public void CreateInnerBg(float startZ,int times)
     {
         for(int i = 0; i < times; i++){
-            GameObject bgRoot = Instantiate(innerBgRoot);
+            Vector3 position = new Vector3(0f, 0f, startZ + i * width);
+            GameObject bgRoot = Instantiate(innerBgRoot, position, Quaternion.identity);
             MakeInnerBg makeInnerBg = bgRoot.GetComponent<MakeInnerBg>();
             makeInnerBg.scrollSpeed = scrollSpeed;
             makeInnerBg.listWallParts = listInnerBgParts;
             makeInnerBg.bigWallParts = bigWallParts;
             makeInnerBg.floorParts = floorParts;
-            makeInnerBg.CreateVerticalWallParts(startZ + i * 10f);
-            makeInnerBg.CreateFloorParts(startZ + i * 10f, floorY);
+            makeInnerBg.CreateVerticalWallParts(bgRoot.transform.position.z);
+            makeInnerBg.CreateFloorParts(bgRoot.transform.position.z, floorY);
         }
     }
 }

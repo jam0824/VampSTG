@@ -775,7 +775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8950973691230568578, guid: 0495fc66fe7f823438916e58465bd055, type: 3}
       propertyPath: isMuteki
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -941,6 +941,7 @@ MonoBehaviour:
   spawnIntervalVariation: 3
   maxFloatingObjects: 5
   spawnZOffset: 1
+  autoDestroyTime: 30
 --- !u!1001 &3689329455878723750
 PrefabInstance:
   m_ObjectHideFlags: 0

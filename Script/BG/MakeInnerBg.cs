@@ -10,6 +10,8 @@ public class MakeInnerBg : MonoBehaviour
     [SerializeField] public GameObject floorParts;
     [Header("Scroll Speed")]
     [SerializeField] public float scrollSpeed = 1f;
+    [Header("Delete Position")]
+    [SerializeField] private float deletePosition = -20f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +22,13 @@ public class MakeInnerBg : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.back * scrollSpeed * Time.deltaTime);
+        DeleteParts();
+    }
+
+    void DeleteParts(){
+        if(transform.position.z < deletePosition){
+            Destroy(gameObject);
+        }
     }
 
     /// <summary>
