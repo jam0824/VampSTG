@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 4258948683058841651}
   - component: {fileID: 4104308424828825276}
   - component: {fileID: 2593489433851952698}
+  - component: {fileID: 6789724268163103530}
   m_Layer: 0
   m_Name: P_Bed_Alone_01
   m_TagString: Untagged
@@ -192,6 +193,20 @@ MonoBehaviour:
   microStrength: 0.1
   microSpeed: 3
   scrollSpeed: 0.6
+--- !u!114 &6789724268163103530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5740861846147450034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed5ce2f44d42a74cb636e1dcfbae749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 3
+  offsetExplosionY: 0
 --- !u!1 &6970773219103179733
 GameObject:
   m_ObjectHideFlags: 0

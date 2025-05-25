@@ -38,17 +38,17 @@ public class FloatingObject : MonoBehaviour
         rb.linearDamping = 2f; // 線形減衰を設定して自然な動きに
         rb.angularDamping = 5f; // 角度減衰（回転の抵抗）
         
-        // X軸の位置と回転を固定
-        rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotationX;
+        // 制約なし（自由に動ける）
+        rb.constraints = RigidbodyConstraints.None;
         
         // 初期位置を記録
         originalPosition = transform.position;
         
-        // ランダムなオフセットを生成（X軸は固定のため0）
+        // ランダムなオフセットを生成
         if (useRandomFloat)
         {
             randomOffset = new Vector3(
-                0f, // X軸は固定
+                Random.Range(-randomRange, randomRange),
                 Random.Range(-randomRange, randomRange),
                 Random.Range(-randomRange, randomRange)
             );
@@ -74,10 +74,13 @@ public class FloatingObject : MonoBehaviour
         // 基本的な浮遊運動（サイン波）
         Vector3 floatForce = Vector3.zero;
         
+        // X軸の浮遊（左右運動）
+        floatForce.x = Mathf.Cos(time * floatSpeed * 0.6f) * floatStrength * 0.5f;
+        
         // Y軸の浮遊（上下運動）
         floatForce.y = Mathf.Sin(time * floatSpeed) * floatStrength;
         
-        // Z軸の微細な動き（X軸は固定のため除外）
+        // Z軸の微細な動き
         if (enableMicroMovement)
         {
             floatForce.z = Mathf.Cos(time * microSpeed * 0.8f) * microStrength;
@@ -92,9 +95,9 @@ public class FloatingObject : MonoBehaviour
         // 力を適用
         rb.AddForce(floatForce, ForceMode.Force);
         
-        // ゆっくりとした回転を追加（X軸回転は固定のため除外）
+        // ゆっくりとした回転を追加
         Vector3 torque = new Vector3(
-            0f, // X軸回転は固定
+            Mathf.Sin(time * 0.4f) * rotationSpeed * 0.3f,
             Mathf.Cos(time * 0.3f) * rotationSpeed,
             Mathf.Sin(time * 0.7f) * rotationSpeed
         );
