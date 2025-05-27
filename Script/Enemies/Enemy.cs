@@ -1,47 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour
+public class Enemy : BaseEnemy
 {
-    [SerializeField] public float hp = 10;
-    private float maxHp = 10;
+    [Header("移動設定")]
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float rotateSpeed = 90f;   // 度/秒
     [SerializeField] float stopDistance = 0.1f;
 
-    [SerializeField] GameObject explosion;
-    [SerializeField] float offsetExplosionY = 0f;
-    [Header("敵弾攻撃するか")]
-    [SerializeField] bool isAttack = false;
-    [SerializeField] float attackInterval = 4f;
-    [SerializeField] float attackAnimationWait = 0.5f;
-    [Header("アニメーション")]
-    [SerializeField]Animator animator;
-    IEnemyShooter enemyShooter;
-
-    public GameObject item { get; set; } = null;
-
-    Transform playerTransform;
-    bool isDead = false;
-    int fromBossDamage = 5; //敵キャラがボスにあたった時のダメージ
-
-    
-
-    void Start()
-    {
-        var playerObj = GameObject.FindWithTag("Core");
-        if (playerObj != null)
-            playerTransform = playerObj.transform;
-        maxHp = hp;
-        if (isAttack)
-        {
-            enemyShooter = GetComponent<IEnemyShooter>();
-            StartCoroutine(AttackCoroutine()); //もし攻撃設定されていたら
-            if(animator == null) animator = GetComponent<Animator>();
-        }
-    }
-
-    void Update()
+    protected override void HandleMovement()
     {
         if (playerTransform == null) return;
 
@@ -73,10 +40,9 @@ public class Enemy : MonoBehaviour
                 rotateSpeed * Time.deltaTime
             );
         }
-        if ((!isDead) && (hp <= 0)) enemyDie();
     }
 
-    private IEnumerator AttackCoroutine()
+    protected override IEnumerator AttackCoroutine()
     {
         while (true)
         {
@@ -86,87 +52,4 @@ public class Enemy : MonoBehaviour
             enemyShooter.Fire();
         }
     }
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (isDead) return;
-        if (other.CompareTag("Boss"))
-        {
-            hp -= fromBossDamage;
-        }
-        else if (other.CompareTag("PlayerBullet"))
-        {
-            if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
-            hp = hit(bullet, hp);
-            // 近似的に当たり位置を計算
-            Vector3 hitPoint = other.ClosestPoint(transform.position);
-
-            if (bullet.triggerEffect != null)
-            {
-                Instantiate(bullet.triggerEffect, hitPoint, other.gameObject.transform.rotation);
-            }
-            if (bullet.isDestroy) Destroy(other.gameObject);
-        }
-        if (hp <= 0) enemyDie();
-    }
-
-    float hit(ConfigPlayerBullet bullet, float enemyHp)
-    {
-        float damage = bullet.getDamage();
-        Debug.Log("ダメージ：" + damage);
-        enemyHp -= damage;
-        AudioClip hitSe = bullet.hitSe;
-        if (hitSe != null) SoundManager.Instance.PlaySE(bullet.hitSe, bullet.hitSeVolume);
-        return enemyHp;
-    }
-
-    void enemyDie()
-    {
-        isDead = true;
-        Explosion(maxHp);
-        AddKillCount();
-        AddScore(maxHp);
-        ApearItem(item);
-        Destroy(gameObject);
-    }
-
-    void Explosion(float maxHp)
-    {
-        Vector3 pos = gameObject.transform.position;
-        if (offsetExplosionY != 0) pos.y += offsetExplosionY;
-        if(maxHp < 50){
-            EffectController.Instance.PlaySmallExplosion(pos, gameObject.transform.rotation);
-            return;
-        }
-        if(maxHp < 100){
-            EffectController.Instance.PlayMiddleExplosion(pos, gameObject.transform.rotation);
-            return;
-        }
-        EffectController.Instance.PlayLargeExplosion(pos, gameObject.transform.rotation);
-    }
-
-    void ApearItem(GameObject objItem)
-    {
-        if (objItem == null) return;
-        // カメラのZ軸の範囲外にいたらアイテム出現しない
-        if((GameManager.Instance.minZ > transform.position.z) || 
-            (GameManager.Instance.maxZ < transform.position.z)) 
-            return;
-        Vector3 pos = gameObject.transform.position;
-        Instantiate(objItem, pos, gameObject.transform.rotation);
-        Debug.Log("アイテム出現");
-    }
-
-    void AddKillCount()
-    {
-        GameManager.Instance.killCount++;
-        GameManager.Instance.allKillCount++;
-    }
-
-    void AddScore(float maxHp)
-    {
-        GameManager.Instance.AddScore(maxHp);
-    }
-
-}
+} 

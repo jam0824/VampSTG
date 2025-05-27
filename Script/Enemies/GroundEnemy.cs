@@ -1,11 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class GroundEnemy : MonoBehaviour
+public class GroundEnemy : BaseEnemy
 {
-    [SerializeField] public float hp = 10;
-    private float maxHp = 10;
-    
     [Header("移動設定")]
     [SerializeField] float moveSpeed = 1f;          // 独自の移動速度
     [SerializeField] float rotateSpeed = 90f;       // Y軸回転速度（度/秒）
@@ -15,53 +12,22 @@ public class GroundEnemy : MonoBehaviour
     [Header("スクロール設定")]
     [SerializeField] float scrollSpeed = 0.6f;      // BGスクロールスピード
     
-    [Header("エフェクト")]
-    [SerializeField] GameObject explosion;
-    [SerializeField] float offsetExplosionY = 0f;
-    
-    [Header("敵弾攻撃するか")]
-    [SerializeField] bool isAttack = false;
-    [SerializeField] float attackInterval = 4f;
-    [SerializeField] float attackAnimationWait = 0.5f;
-    
-    [Header("アニメーション")]
-    [SerializeField] Animator animator;
-    
-    IEnemyShooter enemyShooter;
-    public GameObject item { get; set; } = null;
-
-    Transform playerTransform;
-    bool isDead = false;
-    bool isMoving = false;
-    bool isRotating = false; // 回転中かどうかのフラグを追加
-    int fromBossDamage = 5;
-    
     // BGスクロールスピード取得用
     IScrollSpeed scrollSpeedProvider;
+    
+    bool isMoving = false;
+    bool isRotating = false; // 回転中かどうかのフラグを追加
 
-    void Start()
+    protected override void OnStart()
     {
-        var playerObj = GameObject.FindWithTag("Core");
-        if (playerObj != null)
-            playerTransform = playerObj.transform;
-            
-        maxHp = hp;
-        
         // BGスクロールスピードを取得
         GetScrollSpeed();
-        
-        if (isAttack)
-        {
-            enemyShooter = GetComponent<IEnemyShooter>();
-            StartCoroutine(AttackCoroutine());
-            if(animator == null) animator = GetComponent<Animator>();
-        }
         
         // 移動判定のコルーチンを開始
         StartCoroutine(MoveCheckCoroutine());
     }
 
-    void Update()
+    protected override void HandleMovement()
     {
         if (playerTransform == null) return;
 
@@ -72,7 +38,7 @@ public class GroundEnemy : MonoBehaviour
         MoveWithScroll();
         
         // ─── 独自の移動（z軸のみ） ───
-        if (isMoving)
+        if ((isMoving) && (!isAttackAnimation))
         {
             MoveForward();
         }
@@ -82,8 +48,6 @@ public class GroundEnemy : MonoBehaviour
         
         // ─── 削除判定 ───
         CheckForDestroy();
-        
-        if ((!isDead) && (hp <= 0)) enemyDie();
     }
     
     /// <summary>
@@ -257,109 +221,5 @@ public class GroundEnemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    /// <summary>
-    /// 攻撃コルーチン
-    /// </summary>
-    private IEnumerator AttackCoroutine()
-    {
-        while (!isDead)
-        {
-            yield return new WaitForSeconds(attackInterval);
-            if (animator != null)
-                animator.SetTrigger("attack");
-            yield return new WaitForSeconds(attackAnimationWait);
-            if (enemyShooter != null)
-                enemyShooter.Fire();
-            yield return new WaitForSeconds(1f);
-        }
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (isDead) return;
-        
-        if (other.CompareTag("Boss"))
-        {
-            hp -= fromBossDamage;
-        }
-        else if (other.CompareTag("PlayerBullet"))
-        {
-            if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
-            hp = hit(bullet, hp);
-            
-            // 近似的に当たり位置を計算
-            Vector3 hitPoint = other.ClosestPoint(transform.position);
-
-            if (bullet.triggerEffect != null)
-            {
-                Instantiate(bullet.triggerEffect, hitPoint, other.gameObject.transform.rotation);
-            }
-            if (bullet.isDestroy) Destroy(other.gameObject);
-        }
-        
-        if (hp <= 0) enemyDie();
-    }
-
-    float hit(ConfigPlayerBullet bullet, float enemyHp)
-    {
-        float damage = bullet.getDamage();
-        Debug.Log("ダメージ：" + damage);
-        enemyHp -= damage;
-        AudioClip hitSe = bullet.hitSe;
-        if (hitSe != null) SoundManager.Instance.PlaySE(bullet.hitSe, bullet.hitSeVolume);
-        return enemyHp;
-    }
-
-    void enemyDie()
-    {
-        isDead = true;
-        Explosion(maxHp);
-        AddKillCount();
-        AddScore(maxHp);
-        ApearItem(item);
-        Destroy(gameObject);
-    }
-
-    void Explosion(float maxHp)
-    {
-        Vector3 pos = gameObject.transform.position;
-        if (offsetExplosionY != 0) pos.y += offsetExplosionY;
-        
-        if(maxHp < 50){
-            EffectController.Instance.PlaySmallExplosion(pos, gameObject.transform.rotation);
-            return;
-        }
-        if(maxHp < 100){
-            EffectController.Instance.PlayMiddleExplosion(pos, gameObject.transform.rotation);
-            return;
-        }
-        EffectController.Instance.PlayLargeExplosion(pos, gameObject.transform.rotation);
-    }
-
-    void ApearItem(GameObject objItem)
-    {
-        if (objItem == null) return;
-        
-        // カメラのZ軸の範囲外にいたらアイテム出現しない
-        if((GameManager.Instance.minZ > transform.position.z) || 
-            (GameManager.Instance.maxZ < transform.position.z)) 
-            return;
-            
-        Vector3 pos = gameObject.transform.position;
-        Instantiate(objItem, pos, gameObject.transform.rotation);
-        Debug.Log("アイテム出現");
-    }
-
-    void AddKillCount()
-    {
-        GameManager.Instance.killCount++;
-        GameManager.Instance.allKillCount++;
-    }
-
-    void AddScore(float maxHp)
-    {
-        GameManager.Instance.AddScore(maxHp);
     }
 } 
