@@ -155,6 +155,7 @@ MonoBehaviour:
   initialInterval: 5
   minInterval: 2
   decayRate: 0.001
+  isSpecificPosition: 1
 --- !u!1 &6013501680593687150
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +209,7 @@ MonoBehaviour:
   initialInterval: 3
   minInterval: 0.5
   decayRate: 0.05
+  isSpecificPosition: 1
 --- !u!1 &6473258948207466326
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +263,7 @@ MonoBehaviour:
   initialInterval: 4
   minInterval: 0.5
   decayRate: 0.05
+  isSpecificPosition: 1
 --- !u!1 &6500374996031968886
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +316,7 @@ MonoBehaviour:
   initialInterval: 20
   minInterval: 10
   decayRate: 0.01
+  isSpecificPosition: 1
 --- !u!1 &8764747794493900245
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,3 +370,4 @@ MonoBehaviour:
   initialInterval: 3
   minInterval: 0.5
   decayRate: 0.05
+  isSpecificPosition: 1

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 48768408738290238}
   - component: {fileID: 8769929500743667120}
+  - component: {fileID: 8760276799892026452}
   m_Layer: 20
   m_Name: Stage3BG
   m_TagString: Untagged
@@ -60,3 +61,29 @@ MonoBehaviour:
   floorParts: {fileID: 7396882182597642617, guid: e099795b980bd8e4fa5ab12f25296f0d, type: 3}
   floorY: -4.5
   scrollSpeed: 0.6
+--- !u!114 &8760276799892026452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450811459932040256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5379861a3166f3d4b9dff2219d8e6797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listFloatingObjects:
+  - {fileID: 5740861846147450034, guid: 1f4ac2b8ebcca64469d31021c0b60761, type: 3}
+  - {fileID: 7898930137017675540, guid: 378229ff7b0c6df4dab18f3236737a19, type: 3}
+  - {fileID: 5476213944414124075, guid: f53f95ef9af79f54ab0f1ac83de0a871, type: 3}
+  - {fileID: 7759787985414858948, guid: ec4ea0c43cd876b43942b28bdf93e567, type: 3}
+  - {fileID: 1958827802910862767, guid: 2ee6f47320e91a24a8cc9652f89db66d, type: 3}
+  - {fileID: 1420752371318588027, guid: 2a2496caeca02764aa3dc8fda1a5c390, type: 3}
+  - {fileID: 6039172057762535892, guid: 2ec0f20146e50534cbec409fb2669ed8, type: 3}
+  - {fileID: 4491832092460465388, guid: a125d50085681ad4eaa9bf46ddbae5b1, type: 3}
+  spawnInterval: 10
+  spawnIntervalVariation: 3
+  maxFloatingObjects: 5
+  spawnZOffset: 1
+  autoDestroyTime: 30

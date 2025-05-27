@@ -15,6 +15,8 @@ public class StageWave : MonoBehaviour
     [SerializeField] public float initialInterval = 5f;    // ゲーム開始直後のスポーン間隔（秒）
     [SerializeField] public float minInterval = 0.5f;      // 最短スポーン間隔（秒）
     [SerializeField] public float decayRate = 0.05f;       // インターバル減少率（秒／秒）
+    [Header("Spawn Position")]
+    [SerializeField] public bool isSpecificPosition = false;    // 画面下をのぞいたスポーンするかどうか
 
     bool isStartCoroutine = false;
     bool isSpawn  = true;   //外部からのストップ支持の時にこれで止める
@@ -99,15 +101,65 @@ public class StageWave : MonoBehaviour
         if(!isSpawn) return;
         var prefab = enemies[Random.Range(0, enemies.Length)];
 
-        // XZ平面のランダム方向
-        Vector2 circle = Random.insideUnitCircle.normalized;
-        float distance = Random.Range(stageManager.minDistance, stageManager.maxDistance);
-        Vector3 spawnPos = new Vector3(0f, circle.y, circle.x) * distance;
+        Vector3 spawnPos = Vector3.zero;
+        if(isSpecificPosition){
+            // XZ平面のランダム方向
+            spawnPos = SpawnSpecificRandomPosition();
+        }
+        else{
+            // XZ平面のランダム方向
+            spawnPos = SpawnRandomPosition();
+        }
 
         //Vector3 spawnPos = playerTransform.position + offset;
         GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
         stageManager.AddItem(enemy);
         enemy.transform.SetParent(stageManager.enemyPool.transform); //親をEnemyPoolにする
+    }
+
+    Vector3 SpawnRandomPosition(){
+        Vector2 circle = Random.insideUnitCircle.normalized;
+        float distance = Random.Range(stageManager.minDistance, stageManager.maxDistance);
+        Vector3 spawnPos = new Vector3(0f, circle.y, circle.x) * distance;
+        return spawnPos;
+    }
+
+    Vector3 SpawnSpecificRandomPosition(){
+        // 3つの条件からランダムに1つを選択
+        int randomCondition = Random.Range(0, 3);
+        Vector3 spawnPos = Vector3.zero;
+        
+        switch (randomCondition)
+        {
+            case 0:
+                // GameManager.Instance.maxZ以上で、YがminYからmaxYの中でランダム
+                spawnPos = new Vector3(
+                    0f,
+                    Random.Range(GameManager.Instance.minY, GameManager.Instance.maxY),
+                    GameManager.Instance.maxZ + Random.Range(0f, 1f) // maxZ以上の値
+                );
+                break;
+                
+            case 1:
+                // GameManager.Instance.minZより小さくて、YがminYからmaxYの中でランダム
+                spawnPos = new Vector3(
+                    0f,
+                    Random.Range(GameManager.Instance.minY, GameManager.Instance.maxY),
+                    GameManager.Instance.minZ - Random.Range(0f, 1f) // minZより小さい値
+                );
+                break;
+                
+            case 2:
+                // GameManager.Instance.maxY以上で、ZがminZからmaxZでランダム
+                spawnPos = new Vector3(
+                    0f,
+                    GameManager.Instance.maxY + Random.Range(0f, 1f), // maxY以上の値
+                    Random.Range(GameManager.Instance.minZ, GameManager.Instance.maxZ)
+                );
+                break;
+        }
+        
+        return spawnPos;
     }
 
 
