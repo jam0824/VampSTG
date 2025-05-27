@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 4474557063388041924}
   - component: {fileID: 1852228261195053159}
   - component: {fileID: 5158786652561926308}
+  - component: {fileID: 771797502095778990}
   - component: {fileID: 8289442934878495016}
   - component: {fileID: 8478394982460827273}
   m_Layer: 7
@@ -271,7 +272,7 @@ Animator:
   m_GameObject: {fileID: 2280118574391346933}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 32e6369f85f35d64ea2d1783fd1af9bd, type: 3}
-  m_Controller: {fileID: 9100000, guid: fdfff3b8ba522ed46b18e25ddad3aad7, type: 2}
+  m_Controller: {fileID: 9100000, guid: c6a6e587b22df654bac8b3def35acdee, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -295,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a804598f6e7ff0a41b59ceccdf555ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 3
   moveSpeed: 1
   rotateSpeed: 90
   stopProbability: 0.8
@@ -303,10 +304,29 @@ MonoBehaviour:
   scrollSpeed: 0.6
   explosion: {fileID: 0}
   offsetExplosionY: 0
-  isAttack: 0
+  isAttack: 1
   attackInterval: 4
   attackAnimationWait: 0.5
-  animator: {fileID: 0}
+  animator: {fileID: 1852228261195053159}
+--- !u!114 &771797502095778990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2280118574391346933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5b556345ff78a469b700a5518e0d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8459538307677788719, guid: 8a7dc4e51db79fd44bb06a1c6422cd61, type: 3}
+  firePoint: {fileID: 2467012455853889124}
+  bulletSpeed: 1
+  bulletLifeTime: 30
+  numberOfBullets: 5
+  totalSpreadAngle: 90
+  core: {fileID: 0}
 --- !u!54 &8289442934878495016
 Rigidbody:
   m_ObjectHideFlags: 0

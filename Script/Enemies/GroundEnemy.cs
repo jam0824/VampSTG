@@ -33,6 +33,7 @@ public class GroundEnemy : MonoBehaviour
     Transform playerTransform;
     bool isDead = false;
     bool isMoving = false;
+    bool isRotating = false; // 回転中かどうかのフラグを追加
     int fromBossDamage = 5;
     
     // BGスクロールスピード取得用
@@ -119,12 +120,35 @@ public class GroundEnemy : MonoBehaviour
             Vector3 eulerAngles = targetRot.eulerAngles;
             targetRot = Quaternion.Euler(0f, eulerAngles.y, 0f);
             
+            // 現在の回転と目標回転の角度差を計算
+            float angleDifference = Quaternion.Angle(transform.rotation, targetRot);
+            bool wasRotating = isRotating;
+            
+            // 角度差が一定以上ある場合は回転中とみなす
+            isRotating = angleDifference > 1f; // 1度以上の差がある場合は回転中
+            
             // スムーズに回転
             transform.rotation = Quaternion.RotateTowards(
                 transform.rotation,
                 targetRot,
                 rotateSpeed * Time.deltaTime
             );
+            
+            // 回転状態が変わった場合はアニメーションを更新
+            if (wasRotating != isRotating)
+            {
+                UpdateMovementAnimation();
+            }
+        }
+        else
+        {
+            // プレイヤーが近すぎる場合は回転停止
+            bool wasRotating = isRotating;
+            isRotating = false;
+            if (wasRotating)
+            {
+                UpdateMovementAnimation();
+            }
         }
     }
     
@@ -163,7 +187,14 @@ public class GroundEnemy : MonoBehaviour
             
             // 確率で移動するかどうかを決定
             float randomValue = Random.Range(0f, 1f);
-            isMoving = randomValue > stopProbability; // stopProbabilityより大きい場合のみ移動
+            bool newMovingState = randomValue > stopProbability; // stopProbabilityより大きい場合のみ移動
+            
+            // 移動状態が変わった場合のみアニメーション更新
+            if (newMovingState != isMoving)
+            {
+                isMoving = newMovingState;
+                UpdateMovementAnimation();
+            }
             
             // 移動時間をランダムに設定（0.5秒〜2秒）
             if (isMoving)
@@ -180,7 +211,28 @@ public class GroundEnemy : MonoBehaviour
     IEnumerator StopMovingAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
-        isMoving = false;
+        if (isMoving) // 現在移動中の場合のみ停止
+        {
+            isMoving = false;
+            UpdateMovementAnimation();
+        }
+    }
+    
+    /// <summary>
+    /// 移動状態に応じてアニメーションを更新
+    /// </summary>
+    void UpdateMovementAnimation()
+    {
+        if (animator == null) return;
+        
+        if (isMoving || isRotating) // 移動中または回転中の場合
+        {
+            animator.SetTrigger("walk");
+        }
+        else
+        {
+            animator.SetTrigger("idle");
+        }
     }
     
     /// <summary>
@@ -201,7 +253,7 @@ public class GroundEnemy : MonoBehaviour
     /// </summary>
     void CheckForDestroy()
     {
-        if (transform.position.z < GameManager.Instance.minZ)
+        if (transform.position.z < GameManager.Instance.minZ - 1f)
         {
             Destroy(gameObject);
         }
@@ -216,10 +268,11 @@ public class GroundEnemy : MonoBehaviour
         {
             yield return new WaitForSeconds(attackInterval);
             if (animator != null)
-                animator.SetTrigger("Attack");
+                animator.SetTrigger("attack");
             yield return new WaitForSeconds(attackAnimationWait);
             if (enemyShooter != null)
                 enemyShooter.Fire();
+            yield return new WaitForSeconds(1f);
         }
     }
 
