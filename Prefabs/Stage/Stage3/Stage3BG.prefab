@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8760276799892026452}
   m_Layer: 20
   m_Name: Stage3BG
-  m_TagString: Untagged
+  m_TagString: BG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +82,7 @@ MonoBehaviour:
   - {fileID: 1420752371318588027, guid: 2a2496caeca02764aa3dc8fda1a5c390, type: 3}
   - {fileID: 6039172057762535892, guid: 2ec0f20146e50534cbec409fb2669ed8, type: 3}
   - {fileID: 4491832092460465388, guid: a125d50085681ad4eaa9bf46ddbae5b1, type: 3}
+  - {fileID: 503103713370852851, guid: bce0fa723f24e5149919edf1602d8431, type: 3}
   spawnInterval: 10
   spawnIntervalVariation: 3
   maxFloatingObjects: 5

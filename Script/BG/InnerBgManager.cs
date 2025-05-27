@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class InnerBgManager : MonoBehaviour
+public class InnerBgManager : MonoBehaviour, IScrollSpeed
 {
     [Header("InnerBgRoot")]
     [SerializeField] private GameObject innerBgRoot;
@@ -14,6 +14,10 @@ public class InnerBgManager : MonoBehaviour
     [SerializeField] private float floorY = -4.2f;
     [Header("Scroll Speed")]
     [SerializeField] public float scrollSpeed = 1f;
+    
+    // IScrollSpeedインターフェースの実装
+    public virtual float ScrollSpeed => scrollSpeed;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private float startZ = -10f;
