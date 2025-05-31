@@ -1106,6 +1106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff955d809f827e84c96c087c9c52d491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 8751702412435101543, guid: 6219c4f98a3b5354bb4b34c61f97fa41, type: 3}
   moveSpeed: 3
-  groundY: -3.5
+  groundY: -4
+  hachingDelay: 3
   isGround: 0

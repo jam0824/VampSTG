@@ -18,6 +18,9 @@ public abstract class BaseEnemy : MonoBehaviour
     
     [Header("アニメーション")]
     [SerializeField] protected Animator animator;
+
+    [Header("ボスからのダメージ")]
+    [SerializeField] protected int fromBossDamage = 5;
     
     protected IEnemyShooter enemyShooter;
     public GameObject item { get; set; } = null;
@@ -25,7 +28,7 @@ public abstract class BaseEnemy : MonoBehaviour
     protected Transform playerTransform;
     protected bool isDead = false;
     protected bool isAttackAnimation = false;
-    protected int fromBossDamage = 5;
+    
 
     protected virtual void Start()
     {

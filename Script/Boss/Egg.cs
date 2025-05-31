@@ -64,21 +64,28 @@ public class Egg : MonoBehaviour
         {
             isHatched = true;
             animator.SetTrigger("hatching");
-            /*
-            // 卵のColliderを無効にする
+            
+            // 卵のColliderをIsTriggerにする
             Collider eggCollider = GetComponent<Collider>();
             if (eggCollider != null)
             {
-                eggCollider.enabled = false;
+                eggCollider.isTrigger = true;
             }
-            */
             
+            // RigidbodyのY軸を固定
+            Rigidbody eggRigidbody = GetComponent<Rigidbody>();
+            if (eggRigidbody != null)
+            {
+                eggRigidbody.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotation;
+            }
+            
+            yield return new WaitForSeconds(0.5f);
             // 敵を生成
             Vector3 spawnPosition = transform.position;
             spawnPosition.y += 0.1f; // 少し上に配置
             Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         }
-        yield return new WaitForSeconds(hachingDelay);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
     

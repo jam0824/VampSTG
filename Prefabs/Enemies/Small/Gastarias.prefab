@@ -641,7 +641,8 @@ MonoBehaviour:
   attackInterval: 4
   attackAnimationWait: 0.5
   animator: {fileID: 5352000337725037939}
-  moveSpeed: 1
+  fromBossDamage: 0
+  moveSpeed: 0.5
   rotateSpeed: 90
   stopProbability: 0.01
   moveCheckInterval: 2
