@@ -13,6 +13,8 @@ public class MakeInnerBg : MonoBehaviour
     [Header("Delete Position")]
     [SerializeField] private float deletePosition = -20f;
 
+    public string floorTag = "Ground";
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +30,24 @@ public class MakeInnerBg : MonoBehaviour
     void DeleteParts(){
         if(transform.position.z < deletePosition){
             Destroy(gameObject);
+        }
+    }
+
+    /// <summary>
+    /// 指定したオブジェクトとその子供全てのタグを"Ground"に設定
+    /// </summary>
+    /// <param name="targetObject">タグを設定するオブジェクト</param>
+    private void SetTagToAllChildren(GameObject targetObject, string tag = "Ground")
+    {
+        if (targetObject == null) return;
+
+        // 自身のタグを設定
+        targetObject.tag = tag;
+
+        // 子オブジェクトのタグも再帰的に設定
+        foreach (Transform child in targetObject.transform)
+        {
+            SetTagToAllChildren(child.gameObject, tag);
         }
     }
 
@@ -103,6 +123,10 @@ public class MakeInnerBg : MonoBehaviour
         
         // サイズを2倍に設定
         instantiatedPart.transform.localScale = Vector3.one * 2f;
+        
+        // 生成したオブジェクトとその子供全てにGroundタグを設定
+        SetTagToAllChildren(instantiatedPart, floorTag);
     }
+    
         
 }

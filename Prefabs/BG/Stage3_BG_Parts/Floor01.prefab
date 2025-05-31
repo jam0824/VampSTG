@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7295674837288064066}
   m_Layer: 20
   m_Name: Floor01
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7961408527247701517, guid: 0c95b73df0ebfba46b15b25fcbdff6d1, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -164,6 +168,10 @@ PrefabInstance:
     - target: {fileID: 7961408527247701517, guid: 0c95b73df0ebfba46b15b25fcbdff6d1, type: 3}
       propertyPath: m_Layer
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961408527247701517, guid: 0c95b73df0ebfba46b15b25fcbdff6d1, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -235,6 +243,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7961408527247701517, guid: 0c95b73df0ebfba46b15b25fcbdff6d1, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -304,6 +316,10 @@ PrefabInstance:
     - target: {fileID: 7961408527247701517, guid: 0c95b73df0ebfba46b15b25fcbdff6d1, type: 3}
       propertyPath: m_Layer
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961408527247701517, guid: 0c95b73df0ebfba46b15b25fcbdff6d1, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

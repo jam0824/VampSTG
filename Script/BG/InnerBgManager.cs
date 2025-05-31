@@ -12,6 +12,7 @@ public class InnerBgManager : MonoBehaviour, IScrollSpeed
     [Header("FloorParts")]
     [SerializeField] private GameObject floorParts;
     [SerializeField] private float floorY = -4.2f;
+    [SerializeField] private string floorTag = "Ground";
     [Header("Scroll Speed")]
     [SerializeField] public float scrollSpeed = 1f;
     
@@ -50,6 +51,7 @@ public class InnerBgManager : MonoBehaviour, IScrollSpeed
             makeInnerBg.listWallParts = listInnerBgParts;
             makeInnerBg.bigWallParts = bigWallParts;
             makeInnerBg.floorParts = floorParts;
+            makeInnerBg.floorTag = floorTag;
             makeInnerBg.CreateVerticalWallParts(bgRoot.transform.position.z);
             makeInnerBg.CreateFloorParts(bgRoot.transform.position.z, floorY);
         }

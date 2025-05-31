@@ -1,8 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BossQueen : BaseBoss
 {
+    [Header("スポーン")]
+    [SerializeField] private GameObject eggPrefab;
+    [SerializeField] private Transform eggSpawnPoint;
+
     [Header("移動設定")]
     [SerializeField] protected float moveSpeed = 2f;
     [SerializeField] protected float turnDuration = 1f;
@@ -13,11 +18,11 @@ public class BossQueen : BaseBoss
     protected override void Start()
     {
         base.Start();
-        
+
         // animatorを初期化
         if (animator == null)
             animator = GetComponent<Animator>();
-            
+
         PlayEntry();
     }
 
@@ -36,9 +41,10 @@ public class BossQueen : BaseBoss
     protected override IEnumerator EntryCoroutine()
     {
         Debug.Log("BossQueen 出現演出開始");
-        
+
         // 独自の処理：攻撃パターン開始
         StartCoroutine(AttackCoroutine());
+        isStart = true;
         yield return null;
     }
 
@@ -53,16 +59,17 @@ public class BossQueen : BaseBoss
         {
             // 50%の確率で行動を選択
             float randomValue = Random.Range(0f, 1f);
+
             
             if (randomValue < 0.25f)
             {
                 yield return StartCoroutine(MoveAndTurn());
             }
-            else if(randomValue < 0.5f)
+            else if (randomValue < 0.5f)
             {
                 yield return StartCoroutine(TailAttackCoroutine());
             }
-            else if(randomValue < 0.75f) 
+            else if (randomValue < 0.75f)
             {
                 
             }
@@ -71,6 +78,7 @@ public class BossQueen : BaseBoss
                 yield return StartCoroutine(JumpAttackCoroutine());
             }
             
+
             // 攻撃完了後の待機
             yield return new WaitForSeconds(waitTime);
         }
@@ -79,6 +87,7 @@ public class BossQueen : BaseBoss
     private IEnumerator RoarCoroutine(float waitTime)
     {
         animator.SetTrigger("roar");
+        SpawnEgg();
         yield return new WaitForSeconds(waitTime);
     }
     private IEnumerator TurnCoroutine()
@@ -134,7 +143,7 @@ public class BossQueen : BaseBoss
     {
         if (isDead) yield break;
         yield return StartCoroutine(HandAttackCoroutine());
-        
+
         isMoving = true;
         animator.SetTrigger("run");
 
@@ -157,7 +166,7 @@ public class BossQueen : BaseBoss
         }
 
         if (isDead) yield break;
-        
+
         // 回転処理
         yield return StartCoroutine(TurnCoroutine());
         isMoving = false;
@@ -172,10 +181,12 @@ public class BossQueen : BaseBoss
     private IEnumerator TailAttackCoroutine()
     {
         animator.SetTrigger("tailAttack");
+        SpawnEgg();
         yield return new WaitForSeconds(1.5f);
+        
     }
-
-    
-
-    
+    private void SpawnEgg()
+    {
+        GameObject egg = Instantiate(eggPrefab, eggSpawnPoint.position, eggSpawnPoint.rotation);
+    }
 }

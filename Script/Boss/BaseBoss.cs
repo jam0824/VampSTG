@@ -73,6 +73,7 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
     /// </summary>
     protected virtual void HandleBulletHit(ConfigPlayerBullet bullet, Collider other)
     {
+        Debug.Log("ボスにヒット");
         // HP 減少
         hp -= bullet.getDamage();
         // 近似的に当たり位置を計算
