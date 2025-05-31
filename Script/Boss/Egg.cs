@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Egg : MonoBehaviour
 {
+    [Header("生まれる敵")]
+    [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float moveSpeed = 0.1f;
     [SerializeField] private float groundY = -4f;
     [SerializeField] private float hachingDelay = 3f; // 孵化までの待機時間
@@ -62,7 +64,19 @@ public class Egg : MonoBehaviour
         {
             isHatched = true;
             animator.SetTrigger("hatching");
-            Debug.Log("卵が孵化しました！");
+            /*
+            // 卵のColliderを無効にする
+            Collider eggCollider = GetComponent<Collider>();
+            if (eggCollider != null)
+            {
+                eggCollider.enabled = false;
+            }
+            */
+            
+            // 敵を生成
+            Vector3 spawnPosition = transform.position;
+            spawnPosition.y += 0.1f; // 少し上に配置
+            Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
         }
         yield return new WaitForSeconds(hachingDelay);
         Destroy(gameObject);
