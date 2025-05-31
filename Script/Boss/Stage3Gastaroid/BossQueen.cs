@@ -12,6 +12,11 @@ public class BossQueen : BaseBoss
     [SerializeField] protected float moveSpeed = 2f;
     [SerializeField] protected float turnDuration = 1f;
     [SerializeField] protected float waitTime = 1f; // 移動後の待機時間
+    [Header("BGM設定")]
+    [SerializeField] private AudioClip bgm;
+    [SerializeField] private float bgmVol = 0.8f;
+    protected override AudioClip GetEntryBGM() => bgm;
+    protected override float GetEntryBGMVolume() => bgmVol;
 
     private bool isMoving = false; // 移動中フラグ
 
@@ -41,8 +46,12 @@ public class BossQueen : BaseBoss
     protected override IEnumerator EntryCoroutine()
     {
         Debug.Log("BossQueen 出現演出開始");
-
+        yield return new WaitForSeconds(5f);
         // 独自の処理：攻撃パターン開始
+        bossHpBar.StartFadeIn(3f);
+        gameObject.SetActive(true);
+        SoundManager.Instance.PlayBGM(GetEntryBGM(), GetEntryBGMVolume());
+        yield return new WaitForSeconds(attackInterval);
         StartCoroutine(AttackCoroutine());
         isStart = true;
         yield return null;
