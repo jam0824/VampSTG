@@ -1110,4 +1110,7 @@ MonoBehaviour:
   moveSpeed: 3
   groundY: -4
   hachingDelay: 3
+  hp: 30
+  offsetExplosionY: 0
+  item: {fileID: 0}
   isGround: 0

@@ -561,6 +561,7 @@ GameObject:
   - component: {fileID: -2594065555992326267}
   - component: {fileID: 2157871124713890426}
   - component: {fileID: 2206091651047997538}
+  - component: {fileID: 8371457230915088852}
   m_Layer: 7
   m_Name: Gastarias
   m_TagString: Enemy
@@ -701,3 +702,19 @@ MonoBehaviour:
   numberOfBullets: 1
   totalSpreadAngle: 60
   core: {fileID: 0}
+--- !u!114 &8371457230915088852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8751702412435101543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38695595922362d409d856fb17c402b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  middleGastaroidPrefab: {fileID: 3203308442958705490, guid: 1c4223cb57a519347ade3b57a2e5197e, type: 3}
+  growTime: 10
+  growAnimationDuration: 0.5
+  growScale: 1.5

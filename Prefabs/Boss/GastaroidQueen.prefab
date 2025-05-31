@@ -17199,20 +17199,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec44924553eedd44840231276d8430a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 500
+  hp: 10000
   attackInterval: 2
   bossHpBar: {fileID: 0}
   fader: {fileID: 0}
   missileTargetName: MissileTarget
-  eggPrefab: {fileID: 945434576852426093, guid: 916e1e521ad655447836f8604779efed, type: 3}
-  listSpawnPoints:
-  - {fileID: 5206453889259968444}
-  - {fileID: 3883583127125134909}
-  - {fileID: 495986357534185194}
-  - {fileID: 3842004189097560016}
-  eggLaunchSpeed: 3
-  eggLaunchAngle: 60
-  eggSpawnInterval: 0.2
+  eggPrefab: {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
+  eggSpawnPoint: {fileID: 5657524772943947939}
   moveSpeed: 15
   turnDuration: 1
   waitTime: 1
