@@ -15,6 +15,9 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected bool isAttack = false;
     [SerializeField] protected float attackInterval = 4f;
     [SerializeField] protected float attackAnimationWait = 0.5f;
+    [Header("攻撃設定")]
+    [SerializeField] protected bool isDirectionAttack = false;    //Trueの場合方向指定攻撃。falseの場合はcore狙い
+    [SerializeField] public float attackDirection = 0f;        //方向指定攻撃の場合の方向
     
     [Header("アニメーション")]
     [SerializeField] protected Animator animator;
@@ -84,8 +87,14 @@ public abstract class BaseEnemy : MonoBehaviour
                 animator.SetTrigger("attack");
             isAttackAnimation = true;
             yield return new WaitForSeconds(attackAnimationWait);
-            if (enemyShooter != null)
-                enemyShooter.Fire();
+            if (enemyShooter != null){
+                if (isDirectionAttack){
+                    enemyShooter.Fire(attackDirection);
+                }
+                else{
+                    enemyShooter.Fire();
+                }
+            }
             yield return new WaitForSeconds(1f);
             isAttackAnimation = false;
         }

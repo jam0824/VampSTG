@@ -4,4 +4,5 @@ using UnityEngine;
 public interface IEnemyShooter
 {
     public void Fire();
+    public void Fire(float baseAngleDeg);
 }

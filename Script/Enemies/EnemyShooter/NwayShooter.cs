@@ -69,7 +69,7 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
     /// 指定した方向（ZY 平面上の度数法）に向かって NWay 弾を一度だけ発射する
     /// </summary>
     /// <param name="baseAngleDeg">射出方向の基準角度（度）</param>
-    public void FireAtAngle(float baseAngleDeg)
+    public void Fire(float baseAngleDeg)
     {
         if (bulletPrefab == null || firePoint == null) return;
 
@@ -104,7 +104,7 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
         forward.x = 0f;
         float baseAngle = Mathf.Atan2(forward.y, forward.z) * Mathf.Rad2Deg;
 
-        FireAtAngle(baseAngle);
+        Fire(baseAngle);
     }
 
     /// <summary>
