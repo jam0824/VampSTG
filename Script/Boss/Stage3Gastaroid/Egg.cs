@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Egg : MonoBehaviour
+public class Egg : MonoBehaviour, IEnemy
 {
     #region 設定パラメータ
     [Header("生まれる敵")]
@@ -12,12 +12,15 @@ public class Egg : MonoBehaviour
     [SerializeField] private float groundY = -4f;
     [SerializeField] private float hachingDelay = 3f;
     
+    [Header("スクロール設定")]
+    [SerializeField] private float scrollSpeed = 0.6f;      // BGスクロールスピード
+    
     [Header("ステータス")]
     [SerializeField] private float hp = 10f;
     
     [Header("エフェクト・アイテム")]
     [SerializeField] private float offsetExplosionY = 0f;
-    [SerializeField] private GameObject item = null;
+    [SerializeField] public GameObject item{get; set;} = null;
     #endregion
 
     #region 状態管理
@@ -26,6 +29,9 @@ public class Egg : MonoBehaviour
     private bool isDead = false;
     private float maxHp;
     private Animator animator;
+    
+    // BGスクロールスピード取得用
+    private IScrollSpeed scrollSpeedProvider;
     #endregion
 
     #region 定数定義
@@ -44,9 +50,15 @@ public class Egg : MonoBehaviour
 
     void Update()
     {
-        if (!isGround && !isDead)
+        if (!isDead)
         {
-            PerformFallMovement();
+            // BGスクロールスピードに合わせて移動
+            MoveWithScroll();
+            
+            if (!isGround)
+            {
+                PerformFallMovement();
+            }
         }
     }
 
@@ -57,6 +69,9 @@ public class Egg : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         maxHp = hp;
+        
+        // BGスクロールスピードを取得
+        GetScrollSpeed();
     }
     #endregion
 
@@ -409,6 +424,35 @@ public class Egg : MonoBehaviour
     private void DestroyEgg()
     {
         Destroy(gameObject);
+    }
+    #endregion
+
+    #region BGスクロールシステム
+    /// <summary>
+    /// BGスクロールスピードを取得
+    /// </summary>
+    private void GetScrollSpeed()
+    {
+        // Stage3BGオブジェクトからIScrollSpeedを取得
+        GameObject BG = GameObject.FindWithTag("BG");
+        if (BG != null)
+        {
+            scrollSpeedProvider = BG.GetComponent<IScrollSpeed>();
+            if (scrollSpeedProvider != null)
+            {
+                scrollSpeed = scrollSpeedProvider.ScrollSpeed;
+            }
+        }
+    }
+    
+    /// <summary>
+    /// BGのスクロールスピードに合わせてz軸方向に移動
+    /// </summary>
+    private void MoveWithScroll()
+    {
+        // z軸方向のみ移動
+        Vector3 scrollMovement = new Vector3(0f, 0f, -scrollSpeed * Time.deltaTime);
+        transform.Translate(scrollMovement, Space.World);
     }
     #endregion
 }

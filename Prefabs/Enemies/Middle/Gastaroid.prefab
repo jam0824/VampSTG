@@ -5494,7 +5494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925fdffef7b51c949a6a5beee9282a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 200
   explosion: {fileID: 0}
   offsetExplosionY: 0
   isAttack: 0

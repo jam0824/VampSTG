@@ -114,7 +114,7 @@ public class StageManager : MonoBehaviour
             Debug.LogError("アイテムオブジェクトが設定されていません : " + items[index].type);
             return;
         }
-        enemy.GetComponent<Enemy>().item = items[index].itemObj;
+        enemy.GetComponent<IEnemy>().item = items[index].itemObj;
     }
 
     /// <summary>

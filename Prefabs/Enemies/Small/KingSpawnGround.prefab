@@ -297,17 +297,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
-  moveSpeed: 1
-  rotateSpeed: 90
-  stopProbability: 0.8
-  moveCheckInterval: 2
-  scrollSpeed: 0.6
   explosion: {fileID: 0}
   offsetExplosionY: 0
   isAttack: 1
   attackInterval: 4
   attackAnimationWait: 0.5
+  isDirectionAttack: 0
+  attackDirection: 0
   animator: {fileID: 1852228261195053159}
+  fromBossDamage: 5
+  moveSpeed: 1
+  rotateSpeed: 90
+  stopProbability: 0.8
+  moveCheckInterval: 2
+  scrollSpeed: 0.6
 --- !u!114 &771797502095778990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +327,7 @@ MonoBehaviour:
   firePoint: {fileID: 2467012455853889124}
   bulletSpeed: 1
   bulletLifeTime: 30
-  numberOfBullets: 5
+  numberOfBullets: 3
   totalSpreadAngle: 90
   core: {fileID: 0}
 --- !u!54 &8289442934878495016

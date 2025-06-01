@@ -35,6 +35,7 @@ Transform:
   - {fileID: 121908747991320149}
   - {fileID: 8054834563706169892}
   - {fileID: 7999132930945346610}
+  - {fileID: 1405666353922937907}
   - {fileID: 8685477485280100971}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f89f1671d2b3545945e41af0b14d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageAllSecond: 210
+  stageAllSecond: 200
   items:
   - {fileID: 11400000, guid: 12f421d8ab7e8374ca34b837c10c5ccf, type: 2}
   - {fileID: 11400000, guid: 60c0d9061e79d524c8447b03f550de69, type: 2}
@@ -103,6 +104,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4855424056783731947}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3573987870093082429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1405666353922937907}
+  - component: {fileID: 680554168675490925}
+  m_Layer: 0
+  m_Name: Wave6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1405666353922937907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3573987870093082429}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4855424056783731947}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &680554168675490925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3573987870093082429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWaveTime: 183
+  endWaveTime: 200
+  enemies:
+  - {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
+  - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
+  - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
+  - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
+  spawnCount: 5
+  initialInterval: 3
+  minInterval: 0.5
+  decayRate: 0.05
+  isSpecificPosition: 1
 --- !u!1 &5975104719974783411
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,14 +204,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaveTime: 211
-  endWaveTime: 1000
+  startWaveTime: 106
+  endWaveTime: 136
   enemies:
   - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
-  spawnCount: 2
-  initialInterval: 5
-  minInterval: 2
-  decayRate: 0.001
+  - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
+  - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
+  spawnCount: 3
+  initialInterval: 3
+  minInterval: 0.5
+  decayRate: 0.05
   isSpecificPosition: 1
 --- !u!1 &6013501680593687150
 GameObject:
@@ -200,11 +259,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaveTime: 141
-  endWaveTime: 210
+  startWaveTime: 64
+  endWaveTime: 104
   enemies:
   - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
   - {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
+  - {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
+  - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
   spawnCount: 4
   initialInterval: 3
   minInterval: 0.5
@@ -254,13 +315,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaveTime: 71
-  endWaveTime: 140
+  startWaveTime: 32
+  endWaveTime: 62
   enemies:
   - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
   - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
-  spawnCount: 2
-  initialInterval: 4
+  - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
+  spawnCount: 3
+  initialInterval: 3
   minInterval: 0.5
   decayRate: 0.05
   isSpecificPosition: 1
@@ -308,14 +370,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaveTime: 60
-  endWaveTime: 210
+  startWaveTime: 141
+  endWaveTime: 181
   enemies:
-  - {fileID: 6479299603220299712, guid: 4b855ee56c720b340b64e632251cd1f3, type: 3}
-  spawnCount: 1
-  initialInterval: 20
-  minInterval: 10
-  decayRate: 0.01
+  - {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
+  - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
+  - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
+  - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
+  spawnCount: 5
+  initialInterval: 3
+  minInterval: 0.5
+  decayRate: 0.05
   isSpecificPosition: 1
 --- !u!1 &8764747794493900245
 GameObject:
@@ -362,11 +427,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startWaveTime: 0
-  endWaveTime: 70
+  endWaveTime: 30
   enemies:
   - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
-  - {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
-  spawnCount: 1
+  - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
+  spawnCount: 2
   initialInterval: 3
   minInterval: 0.5
   decayRate: 0.05

@@ -1,7 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public abstract class BaseEnemy : MonoBehaviour
+/// <summary>
+/// 敵の基底クラス - IEnemyインターフェースを実装
+/// </summary>
+public abstract class BaseEnemy : MonoBehaviour, IEnemy
 {
     [Header("基本設定")]
     [SerializeField] public float hp = 10;
