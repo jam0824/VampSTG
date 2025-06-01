@@ -32,6 +32,7 @@ public class Egg : MonoBehaviour, IEnemy
     
     // BGスクロールスピード取得用
     private IScrollSpeed scrollSpeedProvider;
+    private StageManager stageManager;
     #endregion
 
     #region 定数定義
@@ -46,6 +47,7 @@ public class Egg : MonoBehaviour, IEnemy
     void Start()
     {
         InitializeEgg();
+        StartCoroutine(ExecuteHatchingSequence());
     }
 
     void Update()
@@ -69,9 +71,7 @@ public class Egg : MonoBehaviour, IEnemy
     {
         animator = GetComponent<Animator>();
         maxHp = hp;
-        
-        // BGスクロールスピードを取得
-        GetScrollSpeed();
+        stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
     }
     #endregion
 
@@ -119,7 +119,7 @@ public class Egg : MonoBehaviour, IEnemy
         if (!isGround)
         {
             isGround = true;
-            StartCoroutine(ExecuteHatchingSequence());
+            
         }
     }
     #endregion
@@ -428,22 +428,7 @@ public class Egg : MonoBehaviour, IEnemy
     #endregion
 
     #region BGスクロールシステム
-    /// <summary>
-    /// BGスクロールスピードを取得
-    /// </summary>
-    private void GetScrollSpeed()
-    {
-        // Stage3BGオブジェクトからIScrollSpeedを取得
-        GameObject BG = GameObject.FindWithTag("BG");
-        if (BG != null)
-        {
-            scrollSpeedProvider = BG.GetComponent<IScrollSpeed>();
-            if (scrollSpeedProvider != null)
-            {
-                scrollSpeed = scrollSpeedProvider.ScrollSpeed;
-            }
-        }
-    }
+
     
     /// <summary>
     /// BGのスクロールスピードに合わせてz軸方向に移動
@@ -451,7 +436,7 @@ public class Egg : MonoBehaviour, IEnemy
     private void MoveWithScroll()
     {
         // z軸方向のみ移動
-        Vector3 scrollMovement = new Vector3(0f, 0f, -scrollSpeed * Time.deltaTime);
+        Vector3 scrollMovement = new Vector3(0f, 0f, -stageManager.scrollSpeed * Time.deltaTime);
         transform.Translate(scrollMovement, Space.World);
     }
     #endregion

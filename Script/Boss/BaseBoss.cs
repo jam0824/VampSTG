@@ -116,6 +116,7 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
         Debug.Log("5秒終わり");
         bossHpBar.StartFadeIn(3f);
         gameObject.SetActive(true);
+        stageManager.scrollSpeed = 0f;  //ボス出現時にスクロールを止める
         SoundManager.Instance.PlayBGM(GetEntryBGM(), GetEntryBGMVolume());
         yield return new WaitForSeconds(attackInterval);
         isStart = true;

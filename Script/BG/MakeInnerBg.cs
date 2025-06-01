@@ -12,19 +12,24 @@ public class MakeInnerBg : MonoBehaviour
     [SerializeField] public float scrollSpeed = 1f;
     [Header("Delete Position")]
     [SerializeField] private float deletePosition = -20f;
+    private StageManager stageManager;
+    public bool isDestroy = true;
 
     public string floorTag = "Ground";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.back * scrollSpeed * Time.deltaTime);
-        DeleteParts();
+        if(stageManager.scrollSpeed == 0) return;
+
+        transform.Translate(Vector3.back * stageManager.scrollSpeed * Time.deltaTime);
+        if(isDestroy) DeleteParts();
     }
 
     void DeleteParts(){

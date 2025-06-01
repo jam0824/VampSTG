@@ -15,6 +15,7 @@ public class GroundEnemy : BaseEnemy
     
     // BGスクロールスピード取得用
     IScrollSpeed scrollSpeedProvider;
+    private StageManager stageManager;
     
     bool isMoving = false;
     bool isRotating = false; // 回転中かどうかのフラグを追加
@@ -22,7 +23,7 @@ public class GroundEnemy : BaseEnemy
     protected override void OnStart()
     {
         // BGスクロールスピードを取得
-        GetScrollSpeed();
+        stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
         
         // 移動判定のコルーチンを開始
         StartCoroutine(MoveCheckCoroutine());
@@ -49,23 +50,6 @@ public class GroundEnemy : BaseEnemy
         
         // ─── 削除判定 ───
         CheckForDestroy();
-    }
-    
-    /// <summary>
-    /// BGスクロールスピードを取得
-    /// </summary>
-    void GetScrollSpeed()
-    {
-        // Stage3BGオブジェクトからIScrollSpeedを取得
-        GameObject BG = GameObject.FindWithTag("BG");
-        if (BG != null)
-        {
-            scrollSpeedProvider = BG.GetComponent<IScrollSpeed>();
-            if (scrollSpeedProvider != null)
-            {
-                scrollSpeed = scrollSpeedProvider.ScrollSpeed;
-            }
-        }
     }
     
     /// <summary>
@@ -123,7 +107,7 @@ public class GroundEnemy : BaseEnemy
     void MoveWithScroll()
     {
         // x軸は0のまま、z軸方向のみ移動
-        Vector3 scrollMovement = new Vector3(0f, 0f, -scrollSpeed * Time.deltaTime);
+        Vector3 scrollMovement = new Vector3(0f, 0f, -stageManager.scrollSpeed * Time.deltaTime);
         transform.Translate(scrollMovement, Space.World);
     }
     

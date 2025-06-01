@@ -1108,9 +1108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8751702412435101543, guid: 6219c4f98a3b5354bb4b34c61f97fa41, type: 3}
   moveSpeed: 3
-  groundY: -4
-  hachingDelay: 3
+  groundY: -3.5
+  hachingDelay: 5
+  scrollSpeed: 0.6
   hp: 30
   offsetExplosionY: 0
-  item: {fileID: 0}
   isGround: 0

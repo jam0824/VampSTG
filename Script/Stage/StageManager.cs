@@ -7,8 +7,9 @@ using System.Collections.Generic;
 public class StageManager : MonoBehaviour
 {
     [Header("Stage Settings")]
-    [SerializeField] float stageAllSecond = 180f;
+    [SerializeField] public float stageAllSecond = 180f;
     [SerializeField] List<ItemData> items = new List<ItemData>();
+    [SerializeField] public float scrollSpeed = 0.6f;
 
     [Header("Spawn Radius")]
     [SerializeField] public float minDistance = 5f;    // プレイヤーから最低この距離以上
@@ -36,6 +37,7 @@ public class StageManager : MonoBehaviour
     public float allElapsedTime = 0f;   // ゲーム起動からの経過時間
     bool isBoss = false;
     public bool isSpawnEnemey = true;   //敵キャラをspawnするか
+
 
 
     void Awake()

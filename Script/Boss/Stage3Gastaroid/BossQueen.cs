@@ -50,6 +50,7 @@ public class BossQueen : BaseBoss
         // 独自の処理：攻撃パターン開始
         bossHpBar.StartFadeIn(3f);
         gameObject.SetActive(true);
+        stageManager.scrollSpeed = 0f;  //ボス出現時にスクロールを止める
         SoundManager.Instance.PlayBGM(GetEntryBGM(), GetEntryBGMVolume());
         yield return new WaitForSeconds(attackInterval);
         StartCoroutine(AttackCoroutine());

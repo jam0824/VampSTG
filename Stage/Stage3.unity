@@ -826,6 +826,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3943161310262532458, guid: 0495fc66fe7f823438916e58465bd055, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8688588613682759168, guid: 0495fc66fe7f823438916e58465bd055, type: 3}
       propertyPath: m_Name
       value: PlayerCore
@@ -1041,26 +1045,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 658803319038267348, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-      propertyPath: spawnCount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 658803319038267348, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-      propertyPath: enemies.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 658803319038267348, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-      propertyPath: groundEnemies.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 658803319038267348, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-      propertyPath: 'groundEnemies.Array.data[0]'
-      value: 
-      objectReference: {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
-    - target: {fileID: 658803319038267348, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-      propertyPath: 'groundEnemies.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
     - target: {fileID: 1326225771026764300, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
       propertyPath: m_Name
       value: StageManager
@@ -1232,8 +1216,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8769929500743667120, guid: 930ee1107992bb5478a44be663d1996d, type: 3}
+      propertyPath: bossParts
+      value: 
+      objectReference: {fileID: 3866144707417775548, guid: 8a67a01b6394da24e9a995dba0e4928e, type: 3}
+    - target: {fileID: 8769929500743667120, guid: 930ee1107992bb5478a44be663d1996d, type: 3}
+      propertyPath: bossPartsY
+      value: -4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769929500743667120, guid: 930ee1107992bb5478a44be663d1996d, type: 3}
       propertyPath: scrollSpeed
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769929500743667120, guid: 930ee1107992bb5478a44be663d1996d, type: 3}
+      propertyPath: bossRoomBeforeTime
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

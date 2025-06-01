@@ -41,6 +41,7 @@ public class BossMiddleGastaroid : BaseEnemy
     [Header("スクロール設定")]
     private IScrollSpeed scrollSpeedProvider;
     private float scrollSpeed = 0f;
+    private StageManager stageManager;
     
     [Header("状態管理")]
     private bool isMoving = false;
@@ -57,7 +58,7 @@ public class BossMiddleGastaroid : BaseEnemy
     #region 初期化・基本更新
     protected override void OnStart()
     {
-        InitializeScrollSpeed();
+        stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
         StartCoroutine(ActionDecisionCoroutine());
     }
 
@@ -220,21 +221,6 @@ public class BossMiddleGastaroid : BaseEnemy
     #endregion
 
     #region 移動制御メソッド
-    /// <summary>
-    /// BGスクロールスピードを取得
-    /// </summary>
-    private void InitializeScrollSpeed()
-    {
-        GameObject BG = GameObject.FindWithTag("BG");
-        if (BG != null)
-        {
-            scrollSpeedProvider = BG.GetComponent<IScrollSpeed>();
-            if (scrollSpeedProvider != null)
-            {
-                scrollSpeed = scrollSpeedProvider.ScrollSpeed;
-            }
-        }
-    }
     
     /// <summary>
     /// Y軸のみの回転でプレイヤー方向を向く
@@ -282,7 +268,7 @@ public class BossMiddleGastaroid : BaseEnemy
     /// </summary>
     private void MoveWithScroll()
     {
-        Vector3 scrollMovement = new Vector3(0f, 0f, -scrollSpeed * Time.deltaTime);
+        Vector3 scrollMovement = new Vector3(0f, 0f, -stageManager.scrollSpeed * Time.deltaTime);
         transform.Translate(scrollMovement, Space.World);
     }
     

@@ -60,13 +60,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b0de1b99bd4ed1b48a2844c75b9d8111, type: 2}
   - {fileID: 11400000, guid: 4b27d0f586ef96b48aadb3edd2557b29, type: 2}
   - {fileID: 11400000, guid: e0805ed9b9db15148892e51ad40cf08b, type: 2}
+  scrollSpeed: 0.6
   minDistance: 10
   maxDistance: 12
   enemyPool: {fileID: 3057766379728008913}
   initialDropRate: 0.1
   minDropRate: 0.01
-  maxEnemiesForMinRate: 100
-  itemDropRate2xPeriod: 60
+  maxEnemiesForMinRate: 60
+  itemDropRate2xPeriod: 30
   boss: {fileID: 0}
   bgm: {fileID: 8300000, guid: 5e80c46bbfafe194594c31e0e6c2d75c, type: 3}
   bgmVol: 0.8
@@ -379,10 +380,10 @@ MonoBehaviour:
   - {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
   - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
   - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
+  groundEnemies:
   - {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
   - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
-  groundEnemies: []
-  spawnCount: 16
+  spawnCount: 10
   initialInterval: 2
   minInterval: 0.5
   decayRate: 0.05
