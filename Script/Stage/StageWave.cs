@@ -9,6 +9,7 @@ public class StageWave : MonoBehaviour
 
     [Header("Enemy Settings")]
     [SerializeField] public GameObject[] enemies;      // スポーンする敵プレハブ
+    [SerializeField] public GameObject[] groundEnemies;      // スポーンする地上敵プレハブ
     [SerializeField] public int spawnCount = 1;        // 一度のタイミングでスポーンする数
 
     [Header("Spawn Timing")]
@@ -99,7 +100,7 @@ public class StageWave : MonoBehaviour
     void SpawnSingleEnemy()
     {
         if(!isSpawn) return;
-        var prefab = enemies[Random.Range(0, enemies.Length)];
+        
 
         Vector3 spawnPos = Vector3.zero;
         if(isSpecificPosition){
@@ -112,9 +113,31 @@ public class StageWave : MonoBehaviour
         }
 
         //Vector3 spawnPos = playerTransform.position + offset;
-        GameObject enemy = Instantiate(prefab, spawnPos, Quaternion.identity);
+        GameObject enemy = Instantiate(SpawnRandomEnemy(spawnPos), spawnPos, Quaternion.identity);
         stageManager.AddItem(enemy);
         enemy.transform.SetParent(stageManager.enemyPool.transform); //親をEnemyPoolにする
+    }
+
+    /// <summary>
+    /// 敵の種類をランダムに選択
+    /// </summary>
+    /// <param name="spawnPos"></param>
+    /// <returns></returns>
+    GameObject SpawnRandomEnemy(Vector3 spawnPos){
+        GameObject prefab = null;
+        float random = Random.Range(0, 100);
+        // もしmaxZ以上なら地上の敵も出すことを考慮
+        if(spawnPos.z >= GameManager.Instance.maxZ &&
+            groundEnemies.Length > 0 && 
+            random < 50)
+        {
+            prefab = groundEnemies[Random.Range(0, groundEnemies.Length)];
+        }
+        else{
+            prefab = enemies[Random.Range(0, enemies.Length)];
+        }
+        
+        return prefab;
     }
 
     Vector3 SpawnRandomPosition(){

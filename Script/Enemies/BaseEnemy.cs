@@ -114,6 +114,14 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
         else if (other.CompareTag("PlayerBullet"))
         {
             if (!other.TryGetComponent<ConfigPlayerBullet>(out var bullet)) return;
+            //貫通系の場合複数回ダメージをウケないようにするため敵を登録しておく
+            if(!bullet.isDestroy){
+                if(bullet.isHitEnemy(gameObject)){
+                    return;
+                }
+                bullet.addHitEnemy(gameObject);
+            }
+            
             hp = hit(bullet, hp);
             
             // 近似的に当たり位置を計算

@@ -35,6 +35,7 @@ Transform:
   - {fileID: 121908747991320149}
   - {fileID: 8054834563706169892}
   - {fileID: 7999132930945346610}
+  - {fileID: 4977807749465211758}
   - {fileID: 1405666353922937907}
   - {fileID: 8685477485280100971}
   m_Father: {fileID: 0}
@@ -151,11 +152,10 @@ MonoBehaviour:
   startWaveTime: 183
   endWaveTime: 200
   enemies:
-  - {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
   - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
-  - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
+  groundEnemies:
   - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
-  spawnCount: 5
+  spawnCount: 2
   initialInterval: 3
   minInterval: 0.5
   decayRate: 0.05
@@ -208,8 +208,9 @@ MonoBehaviour:
   endWaveTime: 136
   enemies:
   - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
-  - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
   - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
+  groundEnemies:
+  - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
   spawnCount: 3
   initialInterval: 3
   minInterval: 0.5
@@ -264,8 +265,9 @@ MonoBehaviour:
   enemies:
   - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
   - {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
-  - {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
+  groundEnemies:
   - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
+  - {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
   spawnCount: 4
   initialInterval: 3
   minInterval: 0.5
@@ -320,6 +322,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
   - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
+  groundEnemies:
   - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
   spawnCount: 3
   initialInterval: 3
@@ -373,12 +376,14 @@ MonoBehaviour:
   startWaveTime: 141
   endWaveTime: 181
   enemies:
-  - {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
+  - {fileID: 6711377890909770788, guid: 9fc9da9547b86f743839861ebcdfea0c, type: 3}
   - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
   - {fileID: 2902384631303421148, guid: 79d4d736de4dde6429890df362c3db59, type: 3}
+  - {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
   - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
-  spawnCount: 5
-  initialInterval: 3
+  groundEnemies: []
+  spawnCount: 16
+  initialInterval: 2
   minInterval: 0.5
   decayRate: 0.05
   isSpecificPosition: 1
@@ -430,9 +435,64 @@ MonoBehaviour:
   endWaveTime: 30
   enemies:
   - {fileID: 7057427995297426343, guid: 5811847714c0c2342b72404795bef4dc, type: 3}
+  groundEnemies:
   - {fileID: 2280118574391346933, guid: 11dd8649bff55cc4892288a83e4514c0, type: 3}
   spawnCount: 2
   initialInterval: 3
   minInterval: 0.5
   decayRate: 0.05
+  isSpecificPosition: 1
+--- !u!1 &8975893890456711201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4977807749465211758}
+  - component: {fileID: 3556324590593978413}
+  m_Layer: 0
+  m_Name: Wave5_sub
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4977807749465211758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975893890456711201}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4855424056783731947}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3556324590593978413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975893890456711201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWaveTime: 183
+  endWaveTime: 200
+  enemies:
+  - {fileID: 6479299603220299712, guid: 4b855ee56c720b340b64e632251cd1f3, type: 3}
+  groundEnemies: []
+  spawnCount: 1
+  initialInterval: 10
+  minInterval: 0.5
+  decayRate: 0.01
   isSpecificPosition: 1

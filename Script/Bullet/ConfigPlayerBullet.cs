@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class ConfigPlayerBullet : MonoBehaviour
 {
     [SerializeField]public float damage = 1;
@@ -9,6 +9,8 @@ public class ConfigPlayerBullet : MonoBehaviour
     [SerializeField] public GameObject triggerEffect;
     [Header("敵とぶつかった後に消すか")]
     [SerializeField]public bool isDestroy = true;
+    [Header("ぶつかった敵の登録")]
+    [SerializeField]public List<GameObject> hitEnemyList = new List<GameObject>();
     public float powerMagnification = 1f;
 
     public float getDamage(){
@@ -16,6 +18,20 @@ public class ConfigPlayerBullet : MonoBehaviour
     }
     public void setDamage(float damageValue){
         damage = damageValue;
+    }
+    /// <summary>
+    /// 貫通系の場合複数回ダメージをウケないようにするため敵を登録しておく
+    /// </summary>
+    /// <param name="enemy"></param>
+    public void addHitEnemy(GameObject enemy){
+        hitEnemyList.Add(enemy);
+    }
+    /// <summary>
+    /// 自分が登録されているか
+    /// </summary>
+    /// <param name="enemy"></param>
+    public bool isHitEnemy(GameObject enemy){
+        return hitEnemyList.Contains(enemy);
     }
 
     //カメラに映らなくなった瞬間に呼ばれる

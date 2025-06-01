@@ -73,6 +73,14 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
     /// </summary>
     protected virtual void HandleBulletHit(ConfigPlayerBullet bullet, Collider other)
     {
+        //貫通系の場合複数回ダメージをウケないようにするため敵を登録しておく
+        if(!bullet.isDestroy){
+            if(bullet.isHitEnemy(gameObject)){
+                return;
+            }
+            bullet.addHitEnemy(gameObject);
+        }
+
         Debug.Log("ボスにヒット");
         // HP 減少
         hp -= bullet.getDamage();

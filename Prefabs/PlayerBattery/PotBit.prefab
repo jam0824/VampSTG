@@ -260,11 +260,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTag: Enemy
   retryCount: 5
-  laserPrefab: {fileID: 1878987882032996, guid: 776d25009eb357c41bf5b14a5eaa905c, type: 3}
+  laserPrefab: {fileID: 5199042203008196803, guid: 4e3359893f3cba64596d933932c65e4c, type: 3}
   firePoint: {fileID: 5209130992914983331}
-  se: {fileID: 8300000, guid: 6f7e0057590be4f4baff4a33f7d0d524, type: 3}
-  seVol: 0.5
-  powerMagnification: 1
+  se: {fileID: 8300000, guid: f0d2e36d1cee52f4e914161186f01f0e, type: 3}
+  seVol: 0.8
+  damage: 10
 --- !u!1 &3759254215303660333
 GameObject:
   m_ObjectHideFlags: 0
