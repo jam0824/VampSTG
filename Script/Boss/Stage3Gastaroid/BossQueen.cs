@@ -46,10 +46,33 @@ public class BossQueen : BaseBoss
     protected override IEnumerator EntryCoroutine()
     {
         Debug.Log("BossQueen 出現演出開始");
-        yield return new WaitForSeconds(5f);
+        gameObject.SetActive(true);
+        animator.SetTrigger("roar");
+        
+        // 出現演出の設定
+        float entryDuration = 10f;           // 出現にかかる時間
+        float targetZ = 7f;
+        float roarInterval = 3f;
+        
+        float elapsed = 0f;
+        while (elapsed < entryDuration)
+        {
+            elapsed += Time.deltaTime;
+            // 背景スクロールスピードに合わせた移動
+            Vector3 scrollMovement = new Vector3(0f, 0f, -stageManager.scrollSpeed * Time.deltaTime);
+            // 両方の移動を適用
+            transform.Translate(scrollMovement, Space.World);
+            Vector3 pos = transform.position;
+            if(elapsed >= roarInterval){
+                animator.SetTrigger("roar");
+                elapsed = 0f;
+            }
+            if(pos.z <= targetZ) break;
+            yield return null;
+        }
+        
         // 独自の処理：攻撃パターン開始
         bossHpBar.StartFadeIn(3f);
-        gameObject.SetActive(true);
         stageManager.scrollSpeed = 0f;  //ボス出現時にスクロールを止める
         SoundManager.Instance.PlayBGM(GetEntryBGM(), GetEntryBGMVolume());
         yield return new WaitForSeconds(attackInterval);
