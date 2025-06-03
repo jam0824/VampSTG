@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5860755137357559351}
   m_Layer: 7
   m_Name: WatcherRoot
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,15 +74,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 1
-  moveSpeed: 0.8
-  rotateSpeed: 90
-  stopDistance: 0.1
   explosion: {fileID: 0}
   offsetExplosionY: 0
   isAttack: 0
   attackInterval: 4
   attackAnimationWait: 0.5
+  isDirectionAttack: 0
+  attackDirection: 0
   animator: {fileID: 2926108035004677840}
+  fromBossDamage: 5
+  moveSpeed: 0.8
+  rotateSpeed: 90
+  stopDistance: 0.1
 --- !u!1001 &7343427795776779781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95,9 +98,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Watcher
       objectReference: {fileID: 0}
+    - target: {fileID: 1559333386829289404, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 2113632413368650200, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
       propertyPath: m_Radius
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113632413368650200, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
+      propertyPath: m_Center.x
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2113632413368650200, guid: 9002e00770a487a41bef4b4a86db8875, type: 3}
       propertyPath: m_Center.z

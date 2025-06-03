@@ -999,8 +999,8 @@ GameObject:
   - component: {fileID: 934652256641193653}
   - component: {fileID: 3913626121381003713}
   - component: {fileID: 1495465184524100026}
-  - component: {fileID: 3490974209728591242}
   - component: {fileID: 4933579713666741356}
+  - component: {fileID: 5066082076450499525}
   m_Layer: 0
   m_Name: GastariasEgg 1
   m_TagString: Untagged
@@ -1073,27 +1073,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &3490974209728591242
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8595126089151329846}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.35
-  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!114 &4933579713666741356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,3 +1093,26 @@ MonoBehaviour:
   hp: 30
   offsetExplosionY: 0
   isGround: 0
+--- !u!136 &5066082076450499525
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595126089151329846}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 0.9
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.45, z: 0}

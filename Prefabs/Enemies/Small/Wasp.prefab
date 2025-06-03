@@ -1369,7 +1369,7 @@ GameObject:
   - component: {fileID: 6877595967828296625}
   m_Layer: 7
   m_Name: Wasp
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1430,15 +1430,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
-  moveSpeed: 1
-  rotateSpeed: 90
-  stopDistance: 0.1
   explosion: {fileID: 0}
   offsetExplosionY: 0
   isAttack: 0
   attackInterval: 4
   attackAnimationWait: 0.5
+  isDirectionAttack: 0
+  attackDirection: 0
   animator: {fileID: 0}
+  fromBossDamage: 5
+  moveSpeed: 1
+  rotateSpeed: 90
+  stopDistance: 0.1
 --- !u!1 &7141835924483880313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,6 +1794,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 810177440028242846}
     m_Modifications:
+    - target: {fileID: 1512767556935055404, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2493339752286529005, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
