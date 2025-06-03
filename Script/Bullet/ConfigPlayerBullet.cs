@@ -33,6 +33,13 @@ public class ConfigPlayerBullet : MonoBehaviour
     public bool isHitEnemy(GameObject enemy){
         return hitEnemyList.Contains(enemy);
     }
+    
+    /// <summary>
+    /// ヒット済み敵リストをクリアする
+    /// </summary>
+    public void clearHitEnemyList(){
+        hitEnemyList.Clear();
+    }
 
     //カメラに映らなくなった瞬間に呼ばれる
     void OnBecameInvisible()

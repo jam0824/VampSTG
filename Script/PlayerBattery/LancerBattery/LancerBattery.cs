@@ -146,7 +146,18 @@ public class LancerBattery : BaseBattery
             SoundManager.Instance.PlaySE(bulletSe, bulletSeVolume);
             yield return StartCoroutine(RotateOneFullTurn());
             ToggleLanceColliders(lances, true); //当たり判定OFF
+            ClearHitEnemyList();
             yield return new WaitForSeconds(restTime);
+        }
+    }
+
+    /// <summary>
+    /// ヒット済み敵リストをクリアする
+    /// </summary>
+    private void ClearHitEnemyList(){
+        foreach (var t in lances)
+        {
+            t.gameObject.GetComponent<ConfigPlayerBullet>().clearHitEnemyList();
         }
     }
 

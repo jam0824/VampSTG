@@ -60,7 +60,11 @@ MonoBehaviour:
   - {fileID: 6270430328267462083, guid: 8f35e25ca3a493243a3ddc049e44c756, type: 3}
   floorParts: {fileID: 7396882182597642617, guid: e099795b980bd8e4fa5ab12f25296f0d, type: 3}
   floorY: -4.5
+  floorTag: Ground
   scrollSpeed: 0.6
+  bossParts: {fileID: 3866144707417775548, guid: 8a67a01b6394da24e9a995dba0e4928e, type: 3}
+  bossPartsY: -4.2
+  bossRoomBeforeTime: 80
 --- !u!114 &8760276799892026452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +72,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450811459932040256}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5379861a3166f3d4b9dff2219d8e6797, type: 3}
   m_Name: 
