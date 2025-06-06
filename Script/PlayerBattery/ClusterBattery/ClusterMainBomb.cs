@@ -201,12 +201,11 @@ public class ClusterMainBomb : MonoBehaviour
     {
         while (isShooting)
         {
-            
             // 指定回数分の弾を連続発射
             for(int i = 0; i < bulletRound; i++){
-                ShootBullets();
+                ShootBullets(i);
+                clusterBattery.AddBulletCount();
             }
-            
             // 次の射出まで待機
             yield return new WaitForSeconds(bulletShootInterval);
         }
@@ -216,7 +215,7 @@ public class ClusterMainBomb : MonoBehaviour
     /// 1発の弾を射出する処理
     /// 下方向にランダムな角度で弾を発射し、ダメージ値を設定
     /// </summary>
-    private void ShootBullets()
+    private void ShootBullets(int count)
     {
         if (bulletPrefab != null)
         {
@@ -233,6 +232,10 @@ public class ClusterMainBomb : MonoBehaviour
             // 弾のダメージ値を設定
             ConfigPlayerBullet configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
             configPlayerBullet.damage = damage;
+
+            ClusterChildrenBomb clusterChildrenBomb = bullet.GetComponent<ClusterChildrenBomb>();
+            if(count == 0) clusterChildrenBomb.isExplosion = true;
+            else clusterChildrenBomb.isExplosion = false;
             
             // Rigidbodyを取得または追加
             Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();

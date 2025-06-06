@@ -773,6 +773,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCore
       objectReference: {fileID: 0}
+    - target: {fileID: 8981276209298293284, guid: 0495fc66fe7f823438916e58465bd055, type: 3}
+      propertyPath: bulletRound
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
