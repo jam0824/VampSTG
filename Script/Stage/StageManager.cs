@@ -106,7 +106,7 @@ public class StageManager : MonoBehaviour
         {
             dropRate *= 2f;
         }
-        Debug.Log("dropRate: " + dropRate.ToString("F3"));
+        //Debug.Log("dropRate: " + dropRate.ToString("F3"));
         if (Random.value >= dropRate) return;
 
         int index = Random.Range(0, items.Count);

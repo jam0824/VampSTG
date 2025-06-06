@@ -14782,6 +14782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deleteTime: 2
+  disableInsteadOfDestroy: 0
 --- !u!1 &4577272202641292403
 GameObject:
   m_ObjectHideFlags: 0

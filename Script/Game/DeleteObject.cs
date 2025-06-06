@@ -3,6 +3,8 @@ using UnityEngine;
 public class DeleteObject : MonoBehaviour
 {
     [SerializeField] float deleteTime = 2f;
+    [Header("消さずにDisableにする場合")]
+    [SerializeField] bool disableInsteadOfDestroy = false;
     float elapsedTime = 0;
 
 
@@ -10,6 +12,9 @@ public class DeleteObject : MonoBehaviour
     void Update()
     {
         elapsedTime += Time.deltaTime;
-        if(elapsedTime >= deleteTime) Destroy(gameObject);
+        if(elapsedTime >= deleteTime) {
+            if(disableInsteadOfDestroy) gameObject.SetActive(false);
+            else Destroy(gameObject);
+        }
     }
 }

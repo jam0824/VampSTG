@@ -74,6 +74,7 @@ public class ConfigPlayerBullet : MonoBehaviour
     void OnBecameInvisible()
     {
         if(isAddToPool){
+            clearHitEnemyList();
             gameObject.SetActive(false);
         }
         else{

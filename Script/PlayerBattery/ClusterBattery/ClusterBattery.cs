@@ -24,6 +24,8 @@ public class ClusterBattery : BaseBattery
     public List<GameObject> bulletPool = new List<GameObject>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    
+
     public override void getItem()
     {
         switch (batteryLevel)
@@ -105,6 +107,7 @@ public class ClusterBattery : BaseBattery
     {
         while (true)
         {
+            CleanupBulletPool();
             Fire(firePoint.transform);
             SoundManager.Instance.PlaySE(bulletSe, bulletSeVolume);
             AddBulletCount();
@@ -114,16 +117,37 @@ public class ClusterBattery : BaseBattery
     }
     private void Fire(Transform firePoint)
     {
-        // Y軸を軸にして90度回転させた方向で発射
-        /*
-        Quaternion rotationWithOffset = firePoint.rotation * Quaternion.Euler(0, -90, 0);
-        GameObject newBullet = Instantiate(bullet, firePoint.position, rotationWithOffset);
-        */
-        GameObject newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
+        // Y軸の角度を0度または180度に補正
+        Vector3 eulerAngles = firePoint.rotation.eulerAngles;
+        float currentYAngle = eulerAngles.y;
+        float correctedYAngle = getCorrectedYAngle(currentYAngle);
+        
+        // 補正された回転を作成
+        Quaternion correctedRotation = Quaternion.Euler(eulerAngles.x, correctedYAngle, eulerAngles.z);
+        
+        // X座標を0に固定した位置を作成
+        Vector3 correctedPosition = new Vector3(0f, firePoint.position.y, firePoint.position.z);
+        
+        GameObject newBullet = Instantiate(bullet, correctedPosition, correctedRotation);
         ClusterMainBomb clusterMainBomb = newBullet.GetComponent<ClusterMainBomb>();
         clusterMainBomb.bulletRound = bulletRound;
         clusterMainBomb.damage = damage;
         clusterMainBomb.clusterBattery = this;
 
     }
+
+    float getCorrectedYAngle(float currentYAngle){
+        float diffTo0 = Mathf.Abs(Mathf.DeltaAngle(currentYAngle, 0f));
+        float diffTo180 = Mathf.Abs(Mathf.DeltaAngle(currentYAngle, 180f));
+        return (diffTo0 <= diffTo180) ? 0f : 180f;
+    }
+
+    /// <summary>
+    /// bulletPoolからnullまたは破棄されたGameObjectを削除する
+    /// </summary>
+    private void CleanupBulletPool()
+    {
+        bulletPool.RemoveAll(bullet => bullet == null);
+    }
+    
 }

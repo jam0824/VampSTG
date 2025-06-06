@@ -494,3 +494,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deleteTime: 2
+  disableInsteadOfDestroy: 0
