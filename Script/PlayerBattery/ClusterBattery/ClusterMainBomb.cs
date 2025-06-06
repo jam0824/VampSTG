@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// クラスター爆弾のメイン本体
@@ -38,6 +39,8 @@ public class ClusterMainBomb : MonoBehaviour
     [Header("本体ダメージ")]
     [SerializeField] private float mainBombDamage = 20f; // 本体のダメージ値
     [SerializeField] public float damage = 5f; // 子弾のダメージ値
+
+    public ClusterBattery clusterBattery;
 
     
     // コンポーネント参照とフラグ
@@ -225,7 +228,7 @@ public class ClusterMainBomb : MonoBehaviour
             Vector3 shootDirection = Quaternion.Euler(randomXAngle, 0f, randomZAngle) * Vector3.down;
             
             // 弾オブジェクトを生成
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.LookRotation(shootDirection));
+            GameObject bullet = GetBullet(Quaternion.LookRotation(shootDirection)); 
             
             // 弾のダメージ値を設定
             ConfigPlayerBullet configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
@@ -241,6 +244,43 @@ public class ClusterMainBomb : MonoBehaviour
             // 計算した方向に弾を射出
             bulletRigidbody.linearVelocity = shootDirection * bulletSpeed;
         }
+    }
+
+    /// <summary>
+    /// オブジェクトプールから弾を取得する
+    /// プールに非アクティブな弾があればそれを再利用し、なければ新しく生成してプールに追加する
+    /// </summary>
+    /// <param name="rot">弾の回転</param>
+    /// <returns>使用可能な弾オブジェクト</returns>
+    GameObject GetBullet(Quaternion rot){
+        GameObject bullet = GetBulletInPool();
+        if(bullet == null){
+            // プールに利用可能な弾がない場合は新しく生成
+            bullet = Instantiate(bulletPrefab, transform.position, rot);
+            clusterBattery.bulletPool.Add(bullet);
+        }
+        else{
+            // プールから取得した弾を再利用
+            bullet.SetActive(true);
+            bullet.transform.position = transform.position;
+            bullet.transform.rotation = rot;
+        }
+        return bullet;
+    }
+
+    /// <summary>
+    /// オブジェクトプールから非アクティブな弾を検索する
+    /// </summary>
+    /// <returns>非アクティブな弾オブジェクト、見つからない場合はnull</returns>
+    GameObject GetBulletInPool(){
+        foreach(GameObject obj in clusterBattery.bulletPool)
+        {
+            if(obj != null && !obj.activeInHierarchy)
+            {
+                return obj;
+            }
+        }
+        return null;
     }
 
     private void stopShooting(){

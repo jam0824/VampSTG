@@ -14,6 +14,8 @@ public class ConfigPlayerBullet : MonoBehaviour
     [SerializeField]public bool isUseDefaultExplosionEffect = false;
     [Header("ぶつかった敵の登録")]
     [SerializeField]public List<GameObject> hitEnemyList = new List<GameObject>();
+    [Header("プールに追加するか")]
+    [SerializeField]public bool isAddToPool = false;
     public float powerMagnification = 1f;
 
     public float getDamage(){
@@ -71,6 +73,11 @@ public class ConfigPlayerBullet : MonoBehaviour
     //カメラに映らなくなった瞬間に呼ばれる
     void OnBecameInvisible()
     {
-        Destroy(gameObject);
+        if(isAddToPool){
+            gameObject.SetActive(false);
+        }
+        else{
+            Destroy(gameObject);
+        }
     }
 }

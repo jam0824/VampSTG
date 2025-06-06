@@ -13,7 +13,7 @@ public class ClusterChildrenBomb : MonoBehaviour
     {
         if(transform.position.y < GameManager.Instance.minY + 0.5f){
             EffectController.Instance.PlaySmallExplosion(transform.position, transform.rotation);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
     }

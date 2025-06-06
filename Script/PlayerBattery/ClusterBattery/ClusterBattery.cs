@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ClusterBattery : BaseBattery
 {
@@ -20,6 +21,7 @@ public class ClusterBattery : BaseBattery
     [SerializeField] private float bulletSeVolume = 0.5f;
     public override ConfigPlayerBullet configPlayerBullet { get; set; }
     private PlayerManager playerManager;
+    public List<GameObject> bulletPool = new List<GameObject>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public override void getItem()
@@ -121,6 +123,7 @@ public class ClusterBattery : BaseBattery
         ClusterMainBomb clusterMainBomb = newBullet.GetComponent<ClusterMainBomb>();
         clusterMainBomb.bulletRound = bulletRound;
         clusterMainBomb.damage = damage;
+        clusterMainBomb.clusterBattery = this;
 
     }
 }

@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 4503024736664345976}
   m_Layer: 6
   m_Name: ClusterBomb
-  m_TagString: PlayerBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   bulletRound: 8
   mainBombDamage: 20
   damage: 5
+  clusterBattery: {fileID: 0}
 --- !u!114 &8364297218608185209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +151,7 @@ MonoBehaviour:
   isDestroy: 1
   isUseDefaultExplosionEffect: 1
   hitEnemyList: []
+  isAddToPool: 0
   powerMagnification: 1
 --- !u!65 &4503024736664345976
 BoxCollider:

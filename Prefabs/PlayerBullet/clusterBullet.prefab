@@ -14731,7 +14731,7 @@ MonoBehaviour:
   Detached:
   - {fileID: 5463013049700807535}
   projectilePS: {fileID: 960014646841325014}
-  notDestroy: 0
+  notDestroy: 1
 --- !u!108 &1489471436124746529
 Light:
   m_ObjectHideFlags: 0
@@ -14887,6 +14887,7 @@ MonoBehaviour:
   isDestroy: 1
   isUseDefaultExplosionEffect: 1
   hitEnemyList: []
+  isAddToPool: 1
   powerMagnification: 1
 --- !u!114 &5381157060862330276
 MonoBehaviour:

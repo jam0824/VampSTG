@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EffectController : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class EffectController : MonoBehaviour
     [SerializeField] float hitPlayerVol;
 
     GameObject playerEffectObj;
+
+    private List<GameObject> smallExplosionPool = new List<GameObject>();
+    private List<GameObject> middleExplosionPool = new List<GameObject>();
+    private List<GameObject> largeExplosionPool = new List<GameObject>();
 
     private void Awake()
     {
@@ -101,6 +106,7 @@ public class EffectController : MonoBehaviour
         Instantiate(explosions[objindex], pos, rot);
         SoundManager.Instance.PlaySE(clips[seIndex], vol);
     }
+
     void PlayExplosionSeOnly(AudioClip[] clips, float vol)
     {
         int seIndex = Random.Range(0, clips.Length);
