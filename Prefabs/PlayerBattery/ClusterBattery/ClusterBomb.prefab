@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 998572932145711403}
   - component: {fileID: 8015629791480703416}
   - component: {fileID: 8364297218608185209}
+  - component: {fileID: 4503024736664345976}
   m_Layer: 6
   m_Name: ClusterBomb
   m_TagString: PlayerBullet
@@ -128,6 +129,7 @@ MonoBehaviour:
   bulletSpeed: 20
   bulletAngleVariation: 30
   bulletRound: 8
+  mainBombDamage: 20
   damage: 5
 --- !u!114 &8364297218608185209
 MonoBehaviour:
@@ -149,6 +151,27 @@ MonoBehaviour:
   isUseDefaultExplosionEffect: 1
   hitEnemyList: []
   powerMagnification: 1
+--- !u!65 &4503024736664345976
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8155481919371508219}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 1.5, z: 6}
+  m_Center: {x: 0.5, y: -0.3, z: 0.6}
 --- !u!1001 &2336337355259865360
 PrefabInstance:
   m_ObjectHideFlags: 0
