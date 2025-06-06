@@ -59,6 +59,7 @@ public class ClusterBattery : BaseBattery
     {
         batteryLevel += 1;
         gameObject.SetActive(true);
+        SetDamage();
         playerManager = GameObject.FindWithTag("Core").GetComponent<PlayerManager>();
         StartCoroutine(AutoShoot());
     }
@@ -117,7 +118,9 @@ public class ClusterBattery : BaseBattery
         GameObject newBullet = Instantiate(bullet, firePoint.position, rotationWithOffset);
         */
         GameObject newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
-        
-        newBullet.GetComponent<ClusterMainBomb>().bulletRound = bulletRound;
+        ClusterMainBomb clusterMainBomb = newBullet.GetComponent<ClusterMainBomb>();
+        clusterMainBomb.bulletRound = bulletRound;
+        clusterMainBomb.damage = damage;
+
     }
 }

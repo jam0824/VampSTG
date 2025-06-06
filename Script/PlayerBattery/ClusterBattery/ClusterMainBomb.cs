@@ -35,8 +35,10 @@ public class ClusterMainBomb : MonoBehaviour
     [SerializeField] private float bulletSpeed = 10f; // 弾の射出速度
     [SerializeField] private float bulletAngleVariation = 10f; // 弾射出角度のバリエーション（度）
     [SerializeField] public int bulletRound = 1; // 1回の射出で発射する弾数
-    
-    public float damage = 5f; // 子弾のダメージ値
+    [Header("本体ダメージ")]
+    [SerializeField] private float mainBombDamage = 20f; // 本体のダメージ値
+    [SerializeField] public float damage = 5f; // 子弾のダメージ値
+
     
     // コンポーネント参照とフラグ
     private Rigidbody rigidBody; // 物理演算用のRigidbody
@@ -55,9 +57,10 @@ public class ClusterMainBomb : MonoBehaviour
         {
             rigidBody = gameObject.AddComponent<Rigidbody>();
         }
-        
         // 最初は重力を有効にして落下開始
         rigidBody.useGravity = true;
+        //本体ダメージを追加
+        GetComponent<ConfigPlayerBullet>().damage = mainBombDamage;
         
         // 落下→加速のコルーチンを開始
         StartCoroutine(DropAndAccelerateCoroutine());
