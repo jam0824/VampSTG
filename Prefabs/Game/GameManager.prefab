@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   languageIndex: 0
   selectedCharacter: {fileID: 11400000, guid: 238d711ebff12ce45a8592d45ef1bba2, type: 2}
-  selectedStageSceneName: 
+  selectedStage: {fileID: 0}
   globalBgmVol: 0.6
   globalSeVol: 1
   maxZ: 9
@@ -74,6 +74,7 @@ MonoBehaviour:
   itemDataDB: {fileID: 5813662967764959190}
   stageGetNewItems: []
   stageGetNewCharacters: []
+  powerMagnification: 1
 --- !u!1 &4872403193021134937
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +126,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4b27d0f586ef96b48aadb3edd2557b29, type: 2}
   - {fileID: 11400000, guid: b0de1b99bd4ed1b48a2844c75b9d8111, type: 2}
   - {fileID: 11400000, guid: e0805ed9b9db15148892e51ad40cf08b, type: 2}
+  - {fileID: 11400000, guid: 65922ae94524582479dc46237d81cfb5, type: 2}
   listCharacterData:
   - {fileID: 11400000, guid: 238d711ebff12ce45a8592d45ef1bba2, type: 2}
   - {fileID: 11400000, guid: b020568e1acdbc349bd26598efb70e3f, type: 2}
