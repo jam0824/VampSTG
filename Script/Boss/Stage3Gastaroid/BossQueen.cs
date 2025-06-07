@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using Random = UnityEngine.Random;
 
 public class BossQueen : BaseBoss
 {
@@ -8,6 +10,15 @@ public class BossQueen : BaseBoss
     [SerializeField] private GameObject eggPrefab;
     [SerializeField] private Transform eggSpawnPoint;
 
+    [Header("投げるオブジェクト")]
+    [SerializeField] private List<GameObject> listThrowObjects;
+    [SerializeField] private Transform leftThrowPoint;
+    [SerializeField] private Transform rightThrowPoint;
+    [SerializeField] private float throwSpeed = 10f;
+    [SerializeField] private float throwInterval = 1f;
+    [SerializeField] private float throwDuration = 1f;
+    [SerializeField] private float throwDelay = 1f;
+    
     [Header("移動設定")]
     [SerializeField] protected float moveSpeed = 2f;
     [SerializeField] protected float turnDuration = 1f;
@@ -47,12 +58,12 @@ public class BossQueen : BaseBoss
     {
         Debug.Log("BossQueen 出現演出開始");
         gameObject.SetActive(true);
-        animator.SetTrigger("roar");
+        animator.SetTrigger("walk");
         
         // 出現演出の設定
         float entryDuration = 10f;           // 出現にかかる時間
         float targetZ = 7f;
-        float roarInterval = 3f;
+        float addMoveSpeed = 2.5f;
         
         float elapsed = 0f;
         while (elapsed < entryDuration)
@@ -60,24 +71,23 @@ public class BossQueen : BaseBoss
             elapsed += Time.deltaTime;
             // 背景スクロールスピードに合わせた移動
             Vector3 scrollMovement = new Vector3(0f, 0f, -stageManager.scrollSpeed * Time.deltaTime);
+            Vector3 addMove = new Vector3(0f, 0f, -addMoveSpeed * Time.deltaTime);
             // 両方の移動を適用
-            transform.Translate(scrollMovement, Space.World);
+            transform.Translate(scrollMovement + addMove, Space.World);
             Vector3 pos = transform.position;
-            if(elapsed >= roarInterval){
-                animator.SetTrigger("roar");
-                elapsed = 0f;
-            }
             if(pos.z <= targetZ) break;
             yield return null;
         }
+        animator.SetTrigger("roar");
         
         // 独自の処理：攻撃パターン開始
-        bossHpBar.StartFadeIn(3f);
+        bossHpBar.StartFadeIn(2f);
         stageManager.scrollSpeed = 0f;  //ボス出現時にスクロールを止める
+        yield return new WaitForSeconds(3f);
         SoundManager.Instance.PlayBGM(GetEntryBGM(), GetEntryBGMVolume());
-        yield return new WaitForSeconds(attackInterval);
-        StartCoroutine(AttackCoroutine());
         isStart = true;
+        StartCoroutine(AttackCoroutine());
+        
         yield return null;
     }
 
@@ -94,21 +104,23 @@ public class BossQueen : BaseBoss
             float randomValue = Random.Range(0f, 1f);
 
             
-            if (randomValue < 0.25f)
+            if (randomValue < 0.2f)
             {
                 yield return StartCoroutine(MoveAndTurn());
+                yield return StartCoroutine(TurnCoroutine());
             }
-            else if (randomValue < 0.5f)
+            else if (randomValue < 0.4f)
             {
-                yield return StartCoroutine(TailAttackCoroutine());
+                yield return StartCoroutine(JumpAttackCoroutine());
+                yield return StartCoroutine(TurnCoroutine());
             }
-            else if (randomValue < 0.75f)
+            else if (randomValue < 0.6f)
             {
-                
+                yield return StartCoroutine(HandAttackCoroutine());
             }
             else
             {
-                yield return StartCoroutine(JumpAttackCoroutine());
+                yield return StartCoroutine(TailAttackCoroutine());
             }
             
 
@@ -137,6 +149,9 @@ public class BossQueen : BaseBoss
             transform.rotation = Quaternion.Slerp(startRot, endRot, elapsed / turnDuration);
             yield return null;
         }
+        
+        // 最終角度を確実に設定
+        transform.rotation = endRot;
     }
 
     /// <summary>
@@ -147,6 +162,7 @@ public class BossQueen : BaseBoss
     {
         yield return StartCoroutine(RoarCoroutine(2.5f));
         animator.SetTrigger("jumpAttack");
+        isMoving = true;
         float jumpDistance = 10f;
         float jumpSpeed = 20f;
         float currentZ = transform.position.z;
@@ -165,7 +181,7 @@ public class BossQueen : BaseBoss
 
             yield return null;
         }
-        yield return StartCoroutine(TurnCoroutine());
+        isMoving = false;
     }
 
     /// <summary>
@@ -174,8 +190,7 @@ public class BossQueen : BaseBoss
     /// <returns></returns>
     private IEnumerator MoveAndTurn()
     {
-        if (isDead) yield break;
-        yield return StartCoroutine(HandAttackCoroutine());
+        yield return StartCoroutine(RoarCoroutine(2.5f));
 
         isMoving = true;
         animator.SetTrigger("run");
@@ -197,18 +212,83 @@ public class BossQueen : BaseBoss
 
             yield return null;
         }
-
-        if (isDead) yield break;
-
-        // 回転処理
-        yield return StartCoroutine(TurnCoroutine());
         isMoving = false;
     }
 
     private IEnumerator HandAttackCoroutine()
     {
         animator.SetTrigger("attack");
+        yield return new WaitForSeconds(0.3f);
+        ThrowObject(leftThrowPoint);
+        yield return new WaitForSeconds(0.4f);
+        ThrowObject(rightThrowPoint);
+
         yield return new WaitForSeconds(1.5f);
+    }
+    private void ThrowObject(Transform throwPoint){
+        // listThrowObjectsからランダムでオブジェクトを選択して投げる
+        if (listThrowObjects != null && listThrowObjects.Count > 0 && throwPoint != null)
+        {
+            // コアの位置を取得
+            if (GameManager.Instance.playerCore != null)
+            {
+                Vector3 corePosition = GameManager.Instance.playerCore.transform.position;
+                
+                // ランダムでオブジェクトを選択
+                int randomIndex = Random.Range(0, listThrowObjects.Count);
+                GameObject throwObject = listThrowObjects[randomIndex];
+
+                Vector3 pos = throwPoint.position;
+                pos.x = 0f;
+                
+                // 投げるオブジェクトを生成
+                GameObject thrownObj = Instantiate(throwObject, pos, throwPoint.rotation);
+                
+                // 投げる方向を計算
+                Vector3 direction = (corePosition - throwPoint.position).normalized;
+                
+                // オブジェクトを移動方向に向ける
+                if (direction != Vector3.zero)
+                {
+                    thrownObj.transform.LookAt(thrownObj.transform.position + direction);
+                }
+                
+                // Rigidbodyがある場合は完全に無効化
+                Rigidbody rb = thrownObj.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = true;
+                    rb.useGravity = false;
+                }
+                
+                // 弾丸のような直線移動を開始
+                StartCoroutine(MoveBulletStraight(thrownObj, direction));
+            }
+        }
+    }
+
+    /// <summary>
+    /// 弾丸のような直線移動
+    /// </summary>
+    private IEnumerator MoveBulletStraight(GameObject bullet, Vector3 direction)
+    {
+        float elapsed = 0f;
+        float maxTime = 10f; // 最大飛行時間
+        
+        while (bullet != null && elapsed < maxTime)
+        {
+            // 弾丸のように真っすぐ移動
+            bullet.transform.Translate(direction * throwSpeed * Time.deltaTime, Space.World);
+            
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        
+        // 時間切れまたはオブジェクトが破壊されていない場合は削除
+        if (bullet != null)
+        {
+            Destroy(bullet);
+        }
     }
 
     private IEnumerator TailAttackCoroutine()

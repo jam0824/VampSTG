@@ -215,7 +215,7 @@ MonoBehaviour:
   spawnCount: 3
   initialInterval: 3
   minInterval: 0.5
-  decayRate: 0.05
+  decayRate: 0.1
   isSpecificPosition: 1
 --- !u!1 &6013501680593687150
 GameObject:
@@ -328,7 +328,7 @@ MonoBehaviour:
   spawnCount: 3
   initialInterval: 3
   minInterval: 0.5
-  decayRate: 0.05
+  decayRate: 0.1
   isSpecificPosition: 1
 --- !u!1 &6500374996031968886
 GameObject:
@@ -492,7 +492,7 @@ MonoBehaviour:
   - {fileID: 6479299603220299712, guid: 4b855ee56c720b340b64e632251cd1f3, type: 3}
   groundEnemies: []
   spawnCount: 1
-  initialInterval: 10
+  initialInterval: 3
   minInterval: 0.5
   decayRate: 0.01
   isSpecificPosition: 1

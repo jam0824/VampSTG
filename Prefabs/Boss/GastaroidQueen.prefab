@@ -17206,6 +17206,16 @@ MonoBehaviour:
   missileTargetName: MissileTarget
   eggPrefab: {fileID: 8595126089151329846, guid: ffac178e9ad3aa84f965f0cfc37c5755, type: 3}
   eggSpawnPoint: {fileID: 5657524772943947939}
+  listThrowObjects:
+  - {fileID: 7759787985414858948, guid: ec4ea0c43cd876b43942b28bdf93e567, type: 3}
+  - {fileID: 4491832092460465388, guid: a125d50085681ad4eaa9bf46ddbae5b1, type: 3}
+  - {fileID: 503103713370852851, guid: bce0fa723f24e5149919edf1602d8431, type: 3}
+  leftThrowPoint: {fileID: 4397101406970730372}
+  rightThrowPoint: {fileID: 3797166238006131882}
+  throwSpeed: 10
+  throwInterval: 1
+  throwDuration: 1
+  throwDelay: 1
   moveSpeed: 15
   turnDuration: 1
   waitTime: 1
@@ -17233,7 +17243,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 86

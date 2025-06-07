@@ -774,8 +774,8 @@ PrefabInstance:
       value: PlayerCore
       objectReference: {fileID: 0}
     - target: {fileID: 8981276209298293284, guid: 0495fc66fe7f823438916e58465bd055, type: 3}
-      propertyPath: bulletRound
-      value: 1
+      propertyPath: bulletSetInterval
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -973,6 +973,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4685118217886443164, guid: 5dc5f283ea06a94429010d61a4a764be, type: 3}
+      propertyPath: hp
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685118217886443164, guid: 5dc5f283ea06a94429010d61a4a764be, type: 3}
       propertyPath: fader
       value: 
       objectReference: {fileID: 1952989215}
@@ -980,6 +984,22 @@ PrefabInstance:
       propertyPath: bossHpBar
       value: 
       objectReference: {fileID: 179951997}
+    - target: {fileID: 4685118217886443164, guid: 5dc5f283ea06a94429010d61a4a764be, type: 3}
+      propertyPath: listThrowObjects.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685118217886443164, guid: 5dc5f283ea06a94429010d61a4a764be, type: 3}
+      propertyPath: 'listThrowObjects.Array.data[3]'
+      value: 
+      objectReference: {fileID: 5476213944414124075, guid: f53f95ef9af79f54ab0f1ac83de0a871, type: 3}
+    - target: {fileID: 4685118217886443164, guid: 5dc5f283ea06a94429010d61a4a764be, type: 3}
+      propertyPath: 'listThrowObjects.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8206054935034196142, guid: abd8ce9930482324f96e264f3e1f1966, type: 3}
+    - target: {fileID: 5506626148759360481, guid: 5dc5f283ea06a94429010d61a4a764be, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8084189945770514321, guid: 5dc5f283ea06a94429010d61a4a764be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1037,21 +1057,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 161422320424990536, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-      propertyPath: decayRate
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 161422320424990536, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-      propertyPath: initialInterval
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 1326225771026764300, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
       propertyPath: m_Name
       value: StageManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3556324590593978413, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-      propertyPath: initialInterval
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4855424056783731947, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1092,10 +1100,6 @@ PrefabInstance:
     - target: {fileID: 4855424056783731947, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8280308305599678887, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-      propertyPath: decayRate
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8478238644761323819, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
       propertyPath: boss

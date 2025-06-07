@@ -117,16 +117,15 @@ MonoBehaviour:
   backFireSeVolume: 0.5
   dropDuration: 0.5
   forwardAcceleration: 0.5
-  maxForwardSpeed: 30
+  maxForwardSpeed: 50
   yDecelerationRate: 8
   upwardForce: 0.5
   shellEjectDelay: 1
   shellEjectForce: 5
   shellDestroyDelay: 0.6
   shellRotationForce: -5
-  rotationSpeed: 5
   bulletShootInterval: 0.1
-  bulletSpeed: 20
+  bulletSpeed: 50
   bulletAngleVariation: 30
   bulletRound: 8
   mainBombDamage: 20

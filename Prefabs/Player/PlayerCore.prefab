@@ -299,6 +299,10 @@ PrefabInstance:
       propertyPath: itemData
       value: 
       objectReference: {fileID: 11400000, guid: 65922ae94524582479dc46237d81cfb5, type: 2}
+    - target: {fileID: 4743185514813863720, guid: 34f75001f78e6434ca3296d522cde9c5, type: 3}
+      propertyPath: bulletSetInterval
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5181715419728767733, guid: 34f75001f78e6434ca3296d522cde9c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -29,7 +29,6 @@ public class ClusterMainBomb : MonoBehaviour
     [SerializeField] private float shellEjectForce = 10f; // 外装を吹き飛ばす力の強さ
     [SerializeField] private float shellDestroyDelay = 2f; // 外装を削除するまでの時間（秒）
     [SerializeField] private float shellRotationForce = 5f; // 外装の回転力（前転回転）
-    [SerializeField] private float rotationSpeed = 5f; // ミサイル本体の回転速度（未使用）
     
     [Header("弾射出設定")]
     [SerializeField] private float bulletShootInterval = 0.1f; // 弾射出の間隔（秒）
@@ -264,9 +263,9 @@ public class ClusterMainBomb : MonoBehaviour
         }
         else{
             // プールから取得した弾を再利用
-            bullet.SetActive(true);
             bullet.transform.position = transform.position;
             bullet.transform.rotation = rot;
+            bullet.SetActive(true);
         }
         return bullet;
     }

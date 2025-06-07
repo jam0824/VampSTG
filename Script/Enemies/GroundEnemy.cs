@@ -9,12 +9,7 @@ public class GroundEnemy : BaseEnemy
     [SerializeField] float stopProbability = 0.8f; // 止まっている確率（0.8 = 80%）
     [SerializeField] float moveCheckInterval = 2f;  // 移動判定の間隔（秒）
     
-    
-    [Header("スクロール設定")]
-    [SerializeField] float scrollSpeed = 0.6f;      // BGスクロールスピード
-    
-    // BGスクロールスピード取得用
-    IScrollSpeed scrollSpeedProvider;
+
     private StageManager stageManager;
     
     bool isMoving = false;

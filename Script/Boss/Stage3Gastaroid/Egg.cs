@@ -12,9 +12,6 @@ public class Egg : MonoBehaviour, IEnemy
     [SerializeField] private float groundY = -4f;
     [SerializeField] private float hachingDelay = 3f;
     
-    [Header("スクロール設定")]
-    [SerializeField] private float scrollSpeed = 0.6f;      // BGスクロールスピード
-    
     [Header("ステータス")]
     [SerializeField] private float hp = 10f;
     

@@ -38,9 +38,6 @@ public class BossMiddleGastaroid : BaseEnemy
     #endregion
 
     #region スクロール設定・状態管理
-    [Header("スクロール設定")]
-    private IScrollSpeed scrollSpeedProvider;
-    private float scrollSpeed = 0f;
     private StageManager stageManager;
     
     [Header("状態管理")]

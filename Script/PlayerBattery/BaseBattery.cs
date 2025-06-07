@@ -33,7 +33,7 @@ public abstract class BaseBattery : MonoBehaviour, IItem
         return true;
     }
 
-    protected void AddBulletCount(){
+    public void AddBulletCount(){
         GameManager.Instance.bulletCount++;
         GameManager.Instance.allBulletCount++;
     }
