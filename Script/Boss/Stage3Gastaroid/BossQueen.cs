@@ -109,12 +109,12 @@ public class BossQueen : BaseBoss
                 yield return StartCoroutine(MoveAndTurn());
                 yield return StartCoroutine(TurnCoroutine());
             }
-            else if (randomValue < 0.4f)
+            else if (randomValue < 0.5f)
             {
                 yield return StartCoroutine(JumpAttackCoroutine());
                 yield return StartCoroutine(TurnCoroutine());
             }
-            else if (randomValue < 0.6f)
+            else if (randomValue < 0.7f)
             {
                 yield return StartCoroutine(HandAttackCoroutine());
             }

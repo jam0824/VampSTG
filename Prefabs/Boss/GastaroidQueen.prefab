@@ -17199,7 +17199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec44924553eedd44840231276d8430a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10000
+  hp: 5000
   attackInterval: 2
   bossHpBar: {fileID: 0}
   fader: {fileID: 0}
@@ -17210,6 +17210,8 @@ MonoBehaviour:
   - {fileID: 7759787985414858948, guid: ec4ea0c43cd876b43942b28bdf93e567, type: 3}
   - {fileID: 4491832092460465388, guid: a125d50085681ad4eaa9bf46ddbae5b1, type: 3}
   - {fileID: 503103713370852851, guid: bce0fa723f24e5149919edf1602d8431, type: 3}
+  - {fileID: 5476213944414124075, guid: f53f95ef9af79f54ab0f1ac83de0a871, type: 3}
+  - {fileID: 8206054935034196142, guid: abd8ce9930482324f96e264f3e1f1966, type: 3}
   leftThrowPoint: {fileID: 4397101406970730372}
   rightThrowPoint: {fileID: 3797166238006131882}
   throwSpeed: 10
@@ -17244,7 +17246,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 86
   m_CollisionDetection: 0
