@@ -24,7 +24,7 @@ MonoBehaviour:
   power: 5
   speed: 2
   pickupRange: 4
-  initialItemData: {fileID: 11400000, guid: 60c0d9061e79d524c8447b03f550de69, type: 2}
+  initialItemData: {fileID: 11400000, guid: b0de1b99bd4ed1b48a2844c75b9d8111, type: 2}
   description:
   - A friend of KAGEROU who is determined to protect her. He wears firepower-focused
     armor that slows him down. His initial equipment is a rifle.

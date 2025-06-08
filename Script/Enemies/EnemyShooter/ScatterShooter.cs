@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ScatterShooter : MonoBehaviour
+public class ScatterShooter : MonoBehaviour, IEnemyShooter
 {
     [Header("Bullet Settings")]
     public GameObject bulletPrefab;    // Rigidbody を持つ弾のプレハブ
@@ -25,6 +25,16 @@ public class ScatterShooter : MonoBehaviour
         }
     }
 
+    public void Fire()
+    {
+        FireScatter();
+    }
+    
+    public void Fire(float baseAngleDeg)
+    {
+        FireScatterAtAngle(baseAngleDeg);
+    }
+
     /// <summary>
     /// プレイヤー方向を中心にランダム角度・ランダム速度で弾をばらまく
     /// </summary>
@@ -39,12 +49,35 @@ public class ScatterShooter : MonoBehaviour
         // ZY 平面上の基準角度（プレイヤー方向）
         float baseAngle = Mathf.Atan2(toPlayer.y, toPlayer.z) * Mathf.Rad2Deg;
 
+        ExecuteScatterShot(baseAngle);
+    }
+
+    /// <summary>
+    /// 指定の角度を中心にランダム角度・ランダム速度で弾をばらまく
+    /// </summary>
+    /// <param name="baseAngleDeg">基準角度（度）</param>
+    public void FireScatterAtAngle(float baseAngleDeg)
+    {
+        if (bulletPrefab == null || firePoint == null) return;
+
+        ExecuteScatterShot(baseAngleDeg);
+    }
+
+    /// <summary>
+    /// 基準角度を中心にランダム角度・ランダム速度で弾をばらまく共通処理
+    /// </summary>
+    /// <param name="baseAngleDeg">基準角度（度）</param>
+    private void ExecuteScatterShot(float baseAngleDeg)
+    {
+        // 防御的チェック（呼び出し元でチェック済みだが念のため）
+        if (bulletPrefab == null || firePoint == null) return;
+
         // bulletCount 発、scatterAngle の中でランダムに角度オフセット＆速度決定
         for (int i = 0; i < bulletCount; i++)
         {
             // 角度オフセット
             float randomOffset = Random.Range(-scatterAngle / 2f, scatterAngle / 2f);
-            float angle = baseAngle + randomOffset;
+            float angle = baseAngleDeg + randomOffset;
 
             // 速度もランダム
             float speed = Random.Range(minBulletSpeed, maxBulletSpeed);

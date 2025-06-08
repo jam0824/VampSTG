@@ -36,11 +36,13 @@ public class EffectController : MonoBehaviour
     [SerializeField] AudioClip hitPlayerSe;
     [SerializeField] float hitPlayerVol;
 
-    GameObject playerEffectObj;
+    [Header("爆発エフェクト制御設定")]
+    [SerializeField] float minimumExplosionDistance = 1.0f;
+    [SerializeField] int maxExplosionHistory = 5;
 
-    private List<GameObject> smallExplosionPool = new List<GameObject>();
-    private List<GameObject> middleExplosionPool = new List<GameObject>();
-    private List<GameObject> largeExplosionPool = new List<GameObject>();
+    GameObject playerEffectObj;
+    private List<Vector3> oldExplosionPositions = new List<Vector3>();
+    
 
     private void Awake()
     {
@@ -62,7 +64,17 @@ public class EffectController : MonoBehaviour
             rot,
             smallExplosions,
             smallExplosionSes,
-            smallExplosionSeVolume);
+            smallExplosionSeVolume, 
+            true);
+    }
+    public void PlaySmallExplosion(Vector3 pos, Quaternion rot, bool isSkipExplosion){
+        PlayExplosion(
+            pos, 
+            rot,
+            smallExplosions,
+            smallExplosionSes,
+            smallExplosionSeVolume, 
+            isSkipExplosion);
     }
     public void PlaySmallExplosionSeOnly()
     {
@@ -77,8 +89,20 @@ public class EffectController : MonoBehaviour
             rot,
             middleExplosions,
             middleExplosionSes,
-            middleExplosionSeVolume);
+            middleExplosionSeVolume, 
+            true);
     }
+    public void PlayMiddleExplosion(Vector3 pos, Quaternion rot, bool isSkipExplosion)
+    {
+        PlayExplosion(
+            pos,
+            rot,
+            middleExplosions,
+            middleExplosionSes,
+            middleExplosionSeVolume, 
+            isSkipExplosion);
+    }
+
     public void PlayMiddleExplosionSeOnly()
     {
         PlayExplosionSeOnly(middleExplosionSes,
@@ -92,7 +116,18 @@ public class EffectController : MonoBehaviour
             rot,
             largeExplosions,
             largeExplosionSes,
-            largeExplosionSeVolume);
+            largeExplosionSeVolume, 
+            true);
+    }
+    public void PlayLargeExplosion(Vector3 pos, Quaternion rot, bool isSkipExplosion)
+    {
+        PlayExplosion(
+            pos,
+            rot,
+            largeExplosions,
+            largeExplosionSes,
+            largeExplosionSeVolume, 
+            isSkipExplosion);
     }
     public void PlayLargeExplosionSeOnly()
     {
@@ -100,11 +135,31 @@ public class EffectController : MonoBehaviour
             largeExplosionSeVolume);
     }
 
-    void PlayExplosion(Vector3 pos, Quaternion rot, GameObject[] explosions, AudioClip[] clips, float vol){
+    void PlayExplosion(Vector3 pos, Quaternion rot, GameObject[] explosions, AudioClip[] clips, float vol, bool isSkipExplosion){
         int objindex = Random.Range(0, explosions.Length);
         int seIndex = Random.Range(0, clips.Length);
+        
+        if(!isExplosionPositionOK(pos) && isSkipExplosion){
+            return;
+        }
+        
         Instantiate(explosions[objindex], pos, rot);
         SoundManager.Instance.PlaySE(clips[seIndex], vol);
+    }
+
+    bool isExplosionPositionOK(Vector3 pos){
+        foreach(Vector3 oldPos in oldExplosionPositions){
+            if(Vector3.Distance(pos, oldPos) < minimumExplosionDistance){
+                return false;
+            }
+        }
+        // 新しい位置を追加
+        oldExplosionPositions.Add(pos);
+        // 10個を超えたら古いものを削除
+        if(oldExplosionPositions.Count > maxExplosionHistory){
+            oldExplosionPositions.RemoveAt(0);
+        }  
+        return true;
     }
 
     void PlayExplosionSeOnly(AudioClip[] clips, float vol)

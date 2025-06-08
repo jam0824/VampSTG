@@ -12,6 +12,7 @@ public class GrowToMiddleGastaroid : MonoBehaviour
     [SerializeField] float growScale = 1.5f;              // 成長後のスケール倍率
 
     private Animator animator;
+    private StageManager stageManager;
     private Vector3 originalScale;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,6 +20,8 @@ public class GrowToMiddleGastaroid : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         originalScale = transform.localScale;  // 元のスケールを保存
+        stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
+        transform.SetParent(stageManager.enemyPool.transform);
         StartCoroutine(GrowToMiddleGastaroidCoroutine());
     }
 

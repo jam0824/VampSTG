@@ -182,16 +182,16 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
             float r = Random.value;
             if (r < 0.3)
             {
-                EffectController.Instance.PlaySmallExplosion(pos, transform.rotation);
+                EffectController.Instance.PlaySmallExplosion(pos, transform.rotation, false);
 
             }
             else if (r < 0.6)
             {
-                EffectController.Instance.PlayMiddleExplosion(pos, transform.rotation);
+                EffectController.Instance.PlayMiddleExplosion(pos, transform.rotation, false);
             }
             else
             {
-                EffectController.Instance.PlayLargeExplosion(pos, transform.rotation);
+                EffectController.Instance.PlayLargeExplosion(pos, transform.rotation, false);
             }
 
             yield return new WaitForSeconds(0.1f);

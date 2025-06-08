@@ -59,6 +59,16 @@ public class BossMiddleGastaroid : BaseEnemy
         StartCoroutine(ActionDecisionCoroutine());
     }
 
+    protected override void Update()
+    {
+        base.Update();
+
+        if (playerTransform == null) return;
+        Vector3 pos = transform.position;
+        if(pos.y < GameManager.Instance.minY) pos.y = GameManager.Instance.minY;
+        transform.position = pos;
+    }
+
     protected override void HandleMovement()
     {
         if (playerTransform == null) return;

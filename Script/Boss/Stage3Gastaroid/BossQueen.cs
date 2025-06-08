@@ -301,5 +301,6 @@ public class BossQueen : BaseBoss
     private void SpawnEgg()
     {
         GameObject egg = Instantiate(eggPrefab, eggSpawnPoint.position, eggSpawnPoint.rotation);
+        egg.transform.SetParent(stageManager.enemyPool.transform);
     }
 }
