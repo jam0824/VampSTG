@@ -116,6 +116,7 @@ public class StageWave : MonoBehaviour
         GameObject enemy = Instantiate(SpawnRandomEnemy(spawnPos), spawnPos, Quaternion.identity);
         stageManager.AddItem(enemy);
         enemy.transform.SetParent(stageManager.enemyPool.transform); //親をEnemyPoolにする
+        GameManager.Instance.AddStageAllEnemyCount();
     }
 
     /// <summary>

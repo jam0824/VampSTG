@@ -44,6 +44,7 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
             playerTransform = playerObj.transform;
             
         maxHp = hp;
+        GameManager.Instance.AddStageAllHp(maxHp);
         
         // 攻撃設定の初期化
         if (isAttack)

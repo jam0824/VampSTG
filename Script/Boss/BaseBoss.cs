@@ -81,7 +81,6 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
             bullet.addHitEnemy(gameObject);
         }
 
-        Debug.Log("ボスにヒット");
         // HP 減少
         hp -= bullet.getDamage();
         // 近似的に当たり位置を計算

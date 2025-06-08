@@ -47,6 +47,7 @@ public class StageManager : MonoBehaviour
     void Start()
     {
         GameManager.Instance.ResetStageSaveData();  //ステージ開始時にリセットすべきデータを全てリセット
+        GameManager.Instance.stageAllSecond = stageAllSecond;
         var playerObj = GameObject.FindWithTag("Core");
         if (playerObj != null)
             playerTransform = playerObj.transform;
@@ -117,6 +118,7 @@ public class StageManager : MonoBehaviour
             return;
         }
         enemy.GetComponent<IEnemy>().item = items[index].itemObj;
+        GameManager.Instance.AddStageAllItemCount();
     }
 
     /// <summary>

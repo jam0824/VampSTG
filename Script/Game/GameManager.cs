@@ -70,6 +70,15 @@ public class GameManager : MonoBehaviour
 
     public float powerMagnification = 1f;   //弾から呼び出すためにパワー倍率を保持する
 
+    public float stageAllSecond = 0f;
+    public int stageAllEnemyCount = 0;
+    public int stageAllItemCount = 0;
+    public float stageAllHp = 0f;
+
+    const float STAGE1_ENEMY_DENSITY = 2.12f;
+    const float STAGE1_ITEM_DENSITY = 0.22f;
+    const float STAGE1_HP_DENSITY = 6.57f;
+
     private string SaveFilePath => Path.Combine(Application.persistentDataPath, "saveData.json");
     void Awake()
     {
@@ -99,6 +108,9 @@ public class GameManager : MonoBehaviour
         stageDeadCount = 0;
         stageGetNewItems.Clear();
         stageGetNewCharacters.Clear();
+        stageAllEnemyCount = 0;
+        stageAllItemCount = 0;
+        stageAllHp = 0f;
         Debug.Log("ステージデータをリセットしました");
     }
 
@@ -318,6 +330,33 @@ public class GameManager : MonoBehaviour
             }
         }
         return isUnlocked;
+    }
+
+    public void AddStageAllEnemyCount(){
+        stageAllEnemyCount++;
+        if(stageAllSecond != 0){
+            float stageEnemyDensity = (float)stageAllEnemyCount / stageAllSecond;
+            Debug.Log("ステージの敵密度 : " + stageEnemyDensity.ToString("F2"));
+            Debug.Log("ステージ1の敵密度のx倍 : " + (stageEnemyDensity / STAGE1_ENEMY_DENSITY).ToString("F2"));
+        }
+    }
+
+    public void AddStageAllItemCount(){
+        stageAllItemCount++;
+        if(stageAllSecond != 0){
+            float stageItemDensity = (float)stageAllItemCount / stageAllSecond;
+            Debug.Log("ステージのアイテム密度 : " + stageItemDensity.ToString("F2"));
+            Debug.Log("*************ステージ1のアイテム密度のx倍 : " + (stageItemDensity / STAGE1_ITEM_DENSITY).ToString("F2"));
+        }
+    }
+    
+    public void AddStageAllHp(float hp){
+        stageAllHp += hp;
+        if(stageAllSecond != 0){
+            float stageHpDensity = (float)stageAllHp / stageAllSecond;
+            Debug.Log("ステージのHP密度 : " + stageHpDensity.ToString("F2"));
+            Debug.Log("ステージ1のHP密度のx倍 : " + (stageHpDensity / STAGE1_HP_DENSITY).ToString("F2"));
+        }
     }
 
 }
