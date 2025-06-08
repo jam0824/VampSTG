@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b901c12ee6027114c9b72c53a4e91463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemData: {fileID: 0}
   bitPrefab: {fileID: 3119258776138074702, guid: da239403287653f458d76e3130fb2faa, type: 3}
   targetRadius: 4
   maxTargetRadius: 6

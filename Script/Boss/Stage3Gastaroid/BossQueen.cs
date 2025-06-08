@@ -18,6 +18,9 @@ public class BossQueen : BaseBoss
     [SerializeField] private float throwInterval = 1f;
     [SerializeField] private float throwDuration = 1f;
     [SerializeField] private float throwDelay = 1f;
+    [Header("FirePoints")]
+    [SerializeField] private GameObject leftFirePoint;
+    [SerializeField] private GameObject rightFirePoint;
     
     [Header("移動設定")]
     [SerializeField] protected float moveSpeed = 2f;
@@ -220,8 +223,10 @@ public class BossQueen : BaseBoss
         animator.SetTrigger("attack");
         yield return new WaitForSeconds(0.3f);
         ThrowObject(leftThrowPoint);
+        leftFirePoint.GetComponent<IEnemyShooter>().Fire();
         yield return new WaitForSeconds(0.4f);
         ThrowObject(rightThrowPoint);
+        rightFirePoint.GetComponent<IEnemyShooter>().Fire();
 
         yield return new WaitForSeconds(1.5f);
     }

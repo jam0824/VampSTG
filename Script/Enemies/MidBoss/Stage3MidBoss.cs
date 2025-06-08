@@ -80,7 +80,7 @@ public class Stage3MidBoss : BaseEnemy
     protected override void Explosion(float maxHp)
     {
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 5; i++)
         {
             Vector3 pos = transform.position;
             pos.x = 1f; //少し画面の手前に出す
