@@ -70,7 +70,7 @@ MonoBehaviour:
   maxEnemiesForMinRate: 30
   itemDropRate2xPeriod: 30
   boss: {fileID: 0}
-  bgm: {fileID: 8300000, guid: 5e80c46bbfafe194594c31e0e6c2d75c, type: 3}
+  bgm: {fileID: 8300000, guid: 22d40a175e7a4ed4bab3961f9472a297, type: 3}
   bgmVol: 0.8
   progressBar: {fileID: 0}
   playerModel: {fileID: 6155718885946839314, guid: f62125caa80af5d41a500d2cf1f61c69, type: 3}

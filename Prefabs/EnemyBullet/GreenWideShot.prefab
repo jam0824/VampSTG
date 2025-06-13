@@ -9763,6 +9763,7 @@ GameObject:
   - component: {fileID: 6409551945820490215}
   - component: {fileID: 7385221407617313638}
   - component: {fileID: 2233339555978959927}
+  - component: {fileID: 4396430677739214361}
   m_Layer: 9
   m_Name: GreenWideShot
   m_TagString: EnemyBullet
@@ -9948,6 +9949,18 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!114 &4396430677739214361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4016310169257884804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fc0d3f4a76c2e43a950c8f56ee5914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6529882936544982273
 GameObject:
   m_ObjectHideFlags: 0

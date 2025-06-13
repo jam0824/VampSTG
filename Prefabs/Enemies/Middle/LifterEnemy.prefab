@@ -33,6 +33,37 @@ Transform:
   - {fileID: 8291707304888281192}
   m_Father: {fileID: 5743962322019292552}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5111897914698373834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5029680306322733941}
+  m_Layer: 7
+  m_Name: firePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5029680306322733941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5111897914698373834}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.104, z: 0.674}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1713831854760831680}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7907455064060733024
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +75,7 @@ GameObject:
   - component: {fileID: 5743962322019292552}
   - component: {fileID: 424982264225031908}
   - component: {fileID: 5151835499540082257}
+  - component: {fileID: 594761626613230735}
   m_Layer: 7
   m_Name: LifterEnemy
   m_TagString: Enemy
@@ -107,11 +139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b12679354a0a75340ad47948e6d47975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 20
   explosion: {fileID: 0}
   offsetExplosionY: 0
-  isAttack: 0
-  attackInterval: 4
+  isAttack: 1
+  attackInterval: 2
   attackAnimationWait: 0.5
   isDirectionAttack: 0
   attackDirection: 0
@@ -122,13 +154,35 @@ MonoBehaviour:
   sideAmplitude: 0.5
   sideSpeed: 1.5
   moveSpeed: 1
-  stopDistance: 3
+  stopDistance: 2
   yRotateSpeed: 90
-  zRotateSpeed: 90
-  xRotateSpeed: 30
-  maxXRotation: 45
+  zRotateSpeed: 60
+  xRotateSpeed: 15
+  maxXRotation: 30
   ragdollPrefab: {fileID: 6314620000569482046, guid: dba50d513cfca7c4593bb3b05de10c14, type: 3}
   ragdollForce: 20
+--- !u!114 &594761626613230735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907455064060733024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5b556345ff78a469b700a5518e0d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 349759939201540135, guid: 3f010558f80839d418930eaf148ca2fb, type: 3}
+  firePoint: {fileID: 5029680306322733941}
+  bulletSpeed: 5
+  bulletLifeTime: 30
+  numberOfBullets: 1
+  totalSpreadAngle: 60
+  muzzleFirePrefab: {fileID: 5164081732434747623, guid: 79120f1e685acba448cf11d41a291cad, type: 3}
+  muzzleFireSe: {fileID: 8300000, guid: 2f4b19ae1068157448fb90071eb9ca59, type: 3}
+  muzzleFireSeVolume: 0.5
+  core: {fileID: 0}
 --- !u!1001 &3740046168661903676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,7 +293,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2607461938294416380, guid: 616d35d5dad473549bfbc8707bcfbcbf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5029680306322733941}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 616d35d5dad473549bfbc8707bcfbcbf, type: 3}
 --- !u!4 &1713831854760831680 stripped

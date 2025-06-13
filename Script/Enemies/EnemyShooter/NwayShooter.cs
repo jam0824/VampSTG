@@ -6,11 +6,16 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
     public GameObject bulletPrefab;    // 弾のプレハブ（Rigidbody 必須）
     public Transform firePoint;        // 発射位置
     public float bulletSpeed = 10f;    // 弾速
-    public float bulletLifeTime = 5f;  // 自動消滅までの時間
+    public float bulletLifeTime = 30f;  // 自動消滅までの時間
 
     [Header("Shot Settings")]
     public int numberOfBullets = 5;     // NWay の "N"
     public float totalSpreadAngle = 60f; // 全体の拡散角度（度）
+
+    [Header("Muzzle Fire")]
+    public GameObject muzzleFirePrefab;
+    public AudioClip muzzleFireSe;
+    public float muzzleFireSeVolume = 0.8f;
 
     [Header("Target")]
     public Transform core;           // プレイヤー Transform
@@ -42,6 +47,7 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
 
         // ZY平面上の基準角度（度単位）
         float baseAngle = Mathf.Atan2(toPlayer.y, toPlayer.z) * Mathf.Rad2Deg;
+        MuzzleFire();
 
         // 弾が 1 発だけなら、プレイヤー方向へ直撃
         if (numberOfBullets <= 1)
@@ -72,6 +78,7 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
     public void Fire(float baseAngleDeg)
     {
         if (bulletPrefab == null || firePoint == null) return;
+        MuzzleFire();
 
         // 1 発なら真ん中へ
         if (numberOfBullets <= 1)
@@ -93,6 +100,7 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
             ShootBullet(angle);
         }
     }
+    
 
     /// <summary>
     /// 引数なし → オブジェクトの向き（ZY平面上投影）を使って NWay 弾を発射する
@@ -103,8 +111,17 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
         Vector3 forward = transform.forward;
         forward.x = 0f;
         float baseAngle = Mathf.Atan2(forward.y, forward.z) * Mathf.Rad2Deg;
-
+        MuzzleFire();
         Fire(baseAngle);
+    }
+
+    private void MuzzleFire()
+    {
+        if (muzzleFirePrefab != null)
+        {
+            Instantiate(muzzleFirePrefab, firePoint.position, firePoint.rotation);
+        }
+        SoundManager.Instance.PlaySE(muzzleFireSe, muzzleFireSeVolume);
     }
 
     /// <summary>
