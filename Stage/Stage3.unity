@@ -523,60 +523,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
---- !u!1 &802009870
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 802009871}
-  - component: {fileID: 802009872}
-  m_Layer: 0
-  m_Name: Wave_Lifter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &802009871
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802009870}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1493640326}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &802009872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802009870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startWaveTime: 30
-  endWaveTime: 300
-  enemies:
-  - {fileID: 7907455064060733024, guid: 7a0db91173a0cca4c823888b5e6bccbc, type: 3}
-  groundEnemies: []
-  spawnCount: 1
-  initialInterval: 20
-  minInterval: 15
-  decayRate: 0.001
-  isSpecificPosition: 1
 --- !u!1001 &1041247753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -770,11 +716,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6040f625da83d5a4dbc2fb739e0c7d83, type: 3}
---- !u!4 &1493640326 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4855424056783731947, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-  m_PrefabInstance: {fileID: 3801636598639313131}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1720723177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8782848434996735839, guid: 5dc5f283ea06a94429010d61a4a764be, type: 3}
@@ -1041,19 +982,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 161422320424990536, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
       propertyPath: spawnCount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 658803319038267348, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
       propertyPath: spawnCount
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1326225771026764300, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
       propertyPath: m_Name
       value: StageManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3598634151882350019, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-      propertyPath: spawnCount
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4855424056783731947, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1095,6 +1032,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8280308305599678887, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
+      propertyPath: spawnCount
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8478238644761323819, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
       propertyPath: boss
       value: 
@@ -1105,10 +1046,7 @@ PrefabInstance:
       objectReference: {fileID: 179951996}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4855424056783731947, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 802009871}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 444a2bc934c785e4db3ea015ba81c8a0, type: 3}
 --- !u!1001 &4724800468816616515

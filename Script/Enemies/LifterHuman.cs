@@ -74,8 +74,22 @@ public class LifterHuman : BaseEnemy
     {
         // プレイヤーまでの距離を計算（Y軸は無視）
         Vector3 toPlayer = playerTransform.position - basePosition;
-        toPlayer.y = 0f; // Y軸の差は無視
         float distanceToPlayer = toPlayer.magnitude;
+        
+        // Y座標の上限チェック - 上限を超えている場合は徐々に下がる
+        float maxYLimit = GameManager.Instance.maxY - 1f;
+        if (basePosition.y > maxYLimit)
+        {
+            // 徐々に下がる
+            float downwardSpeed = moveSpeed * 0.5f; // 移動速度の半分で下がる
+            basePosition.y -= downwardSpeed * Time.deltaTime;
+            
+            // 下限を設定（上限以下まで）
+            if (basePosition.y < maxYLimit)
+            {
+                basePosition.y = maxYLimit;
+            }
+        }
         
         // 停止距離より遠い場合のみ移動
         if (distanceToPlayer > stopDistance)
@@ -83,9 +97,7 @@ public class LifterHuman : BaseEnemy
             // プレイヤー方向への移動ベクトル
             Vector3 moveDirection = toPlayer.normalized;
             
-            // 基準位置を更新（Y軸は変更しない）
             Vector3 movement = moveDirection * moveSpeed * Time.deltaTime;
-            movement.y = 0f;
             basePosition += movement;
             
             isNearPlayer = false;
