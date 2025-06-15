@@ -3,12 +3,14 @@ using UnityEngine;
 public class BGObjMove : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 1f;          // Z軸マイナス方向への移動速度
+    [SerializeField] public float moveSpeed = 1f;          // Z軸マイナス方向への移動速度
     [SerializeField] private float rotationSpeed = 30f;     // Y軸回転速度（度/秒）
 
     [Header("Object Settings")]
     [SerializeField] private bool isRotate = true;
     [SerializeField] private bool isMove = true;
+    [SerializeField] private bool isDestroy = false;
+    [SerializeField] private float destroyDistance = -100f;
 
     private void Start()
     {
@@ -27,6 +29,14 @@ public class BGObjMove : MonoBehaviour
         if (isMove)
         {
             transform.Translate(0f, 0f, -moveSpeed * Time.deltaTime, Space.World);
+        }
+
+        if (isDestroy)
+        {
+            if (transform.position.z < destroyDistance)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 } 

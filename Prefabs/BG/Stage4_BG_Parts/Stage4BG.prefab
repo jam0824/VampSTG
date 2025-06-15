@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &638704718988972773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8620758523572557675}
+  - component: {fileID: 3665392200370227533}
+  m_Layer: 0
+  m_Name: Stage4BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8620758523572557675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638704718988972773}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.999999, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3665392200370227533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638704718988972773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b044d8b18b6ef52499385b07a3906821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meteorPrefabs:
+  - {fileID: 861072735445877061, guid: 2de2441e5e67f684b935294345e699ce, type: 3}
+  - {fileID: 1781605851984076409, guid: 541aab2533814364cb29b79b698ae791, type: 3}
+  - {fileID: 2843778371045514082, guid: 2fa3a3b36c0c1ef44ad40acbf814e36f, type: 3}
+  - {fileID: 6027107405371201401, guid: 904a6dbd89ad5f94f81bfaed3422c535, type: 3}
+  - {fileID: 882901419598439226, guid: 9fed324b977860d4bb77c1563bd86fe5, type: 3}
+  - {fileID: 6805862264491094839, guid: 4f0790ebb28996e42908037f07f6793d, type: 3}
+  - {fileID: 3323755825499497294, guid: f9d166d4bc51fb24280f01ff5ee8f8fb, type: 3}
+  - {fileID: 8436537297833289287, guid: a06fe857b88460642ac3ffc22fd666af, type: 3}
+  - {fileID: 6714223395486818205, guid: 299e64e2c3495e3428cd6e7dfc49146d, type: 3}
+  - {fileID: 7727659531671220254, guid: 57bdd381f1649484da3ef45b5edd02e4, type: 3}
+  meteorSpawnInterval: 5
+  meteorSpawnRandomDelay: 5
+  meteorMoveSpeed: 2
+  minY: -80
+  maxY: 80
+  minX: -80
+  maxX: -50
+  startZ: 100
