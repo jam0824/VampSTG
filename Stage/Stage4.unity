@@ -527,6 +527,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a077c50fb6c5b774d90d48b5cf2c468e, type: 3}
+--- !u!1 &396167409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3219344118254240376, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
+  m_PrefabInstance: {fileID: 4957619352589405696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1041247753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -584,6 +589,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42893c8a33defd14f8b8fe04482c3088, type: 3}
+--- !u!1 &1156180723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1156180724}
+  - component: {fileID: 1156180725}
+  m_Layer: 0
+  m_Name: StageGImikShow(Ship1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1156180724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156180723}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1411365175}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1156180725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156180723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a813e674ef879f64d9138ab0372c0978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjects:
+  - {fileID: 396167409}
+  time: 180
 --- !u!1 &1304304942
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +772,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6040f625da83d5a4dbc2fb739e0c7d83, type: 3}
+--- !u!4 &1411365175 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 895871573281015163, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
+  m_PrefabInstance: {fileID: 1946162348203264229}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1720723177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8782848434996735839, guid: 5dc5f283ea06a94429010d61a4a764be, type: 3}
@@ -973,7 +1030,10 @@ PrefabInstance:
       objectReference: {fileID: 179951996}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 895871573281015163, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1156180724}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
 --- !u!1001 &1955544884710215660
@@ -1206,10 +1266,6 @@ PrefabInstance:
     - target: {fileID: 3219344118254240376, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
       propertyPath: m_Name
       value: StageGimikShipBottom
-      objectReference: {fileID: 0}
-    - target: {fileID: 3219344118254240376, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
