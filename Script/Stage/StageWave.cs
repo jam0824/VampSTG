@@ -18,6 +18,7 @@ public class StageWave : MonoBehaviour
     [SerializeField] public float decayRate = 0.05f;       // インターバル減少率（秒／秒）
     [Header("Spawn Position")]
     [SerializeField] public bool isSpecificPosition = false;    // 画面下をのぞいたスポーンするかどうか
+    [SerializeField] private bool isSpawnEnemyOnlyRight = false;    // 敵を右側のみに出すかどうか
 
     bool isStartCoroutine = false;
     bool isSpawn  = true;   //外部からのストップ支持の時にこれで止める
@@ -107,6 +108,9 @@ public class StageWave : MonoBehaviour
             // XZ平面のランダム方向
             spawnPos = SpawnSpecificRandomPosition();
         }
+        else if(isSpawnEnemyOnlyRight){
+            spawnPos = SpawnSpecificRandomPositionRight();
+        }
         else{
             // XZ平面のランダム方向
             spawnPos = SpawnRandomPosition();
@@ -146,6 +150,14 @@ public class StageWave : MonoBehaviour
         float distance = Random.Range(stageManager.minDistance, stageManager.maxDistance);
         Vector3 spawnPos = new Vector3(0f, circle.y, circle.x) * distance;
         return spawnPos;
+    }
+
+    Vector3 SpawnSpecificRandomPositionRight(){
+        return new Vector3(
+                    0f,
+                    Random.Range(GameManager.Instance.minY, GameManager.Instance.maxY),
+                    GameManager.Instance.maxZ + Random.Range(0f, 1f) // maxZ以上の値
+                );
     }
 
     Vector3 SpawnSpecificRandomPosition(){

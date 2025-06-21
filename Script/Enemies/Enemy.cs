@@ -47,7 +47,7 @@ public class Enemy : BaseEnemy
         while (true)
         {
             yield return new WaitForSeconds(attackInterval);
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("attack");
             yield return new WaitForSeconds(attackAnimationWait);
             enemyShooter.Fire();
         }

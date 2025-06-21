@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7634490182112538408
 Transform:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1245721625057939930
 Transform:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ MonoBehaviour:
   firePoint: {fileID: 1245721625057939930}
   bulletSpeed: 50
   shootingInterval: 0.1
-  restDuration: 3
+  restDuration: 4
   burstCount: 5
   size: 3
   shootingAngles: -135
@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8092851872612183934
 Transform:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ MonoBehaviour:
   firePoint: {fileID: 8092851872612183934}
   bulletSpeed: 50
   shootingInterval: 0.1
-  restDuration: 3
+  restDuration: 4
   burstCount: 5
   size: 3
   shootingAngles: -135
@@ -309,6 +309,8 @@ MonoBehaviour:
   rotationSpeed: 0
   isRotate: 0
   isMove: 1
+  isDestroy: 0
+  destroyDistance: -100
 --- !u!1 &8002421956002454968
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7454594733609626318
 Transform:
   m_ObjectHideFlags: 0
@@ -357,7 +359,7 @@ MonoBehaviour:
   firePoint: {fileID: 7454594733609626318}
   bulletSpeed: 50
   shootingInterval: 0.1
-  restDuration: 5
+  restDuration: 3
   burstCount: 5
   size: 3
   shootingAngles: -45

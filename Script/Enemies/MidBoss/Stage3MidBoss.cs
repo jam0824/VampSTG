@@ -64,7 +64,7 @@ public class Stage3MidBoss : BaseEnemy
         while (true)
         {
             yield return new WaitForSeconds(attackInterval);
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("attack");
 
             yield return new WaitForSeconds(attackAnimationWait);
             foreach (var shooterObj in enemyShooterObjects)
