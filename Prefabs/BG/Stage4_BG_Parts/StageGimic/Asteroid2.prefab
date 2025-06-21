@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5480601901432283293}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: MissileTarget
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4930105798127372617}
   - component: {fileID: 6201145095658054825}
   - component: {fileID: 2136771420030039861}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Asteroid2_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 7838594764041325773}
   - component: {fileID: 1538478923751467533}
   - component: {fileID: 4468744529529619856}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Asteroid2_LOD4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 2742298307673857415}
   - component: {fileID: 3976304041610826251}
   - component: {fileID: 953567951539672826}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Asteroid2_LOD3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 4722122379768086290}
   - component: {fileID: 4151854624391169204}
   - component: {fileID: 1019861153872506793}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Asteroid2_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 688802832016369022}
   - component: {fileID: 8923209941278116278}
   - component: {fileID: 2054218036387886081}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Asteroid2
   m_TagString: Boss
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 8721308566346037505}
   - component: {fileID: 6528792975044286987}
   - component: {fileID: 1322035056179598554}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Asteroid2_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

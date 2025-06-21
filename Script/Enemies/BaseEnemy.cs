@@ -111,6 +111,7 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
         if (other.CompareTag("Boss"))
         {
             hp -= fromBossDamage;
+            Debug.Log("********************************ボスからのダメージ：" + fromBossDamage);
         }
         else if (other.CompareTag("PlayerBullet"))
         {
