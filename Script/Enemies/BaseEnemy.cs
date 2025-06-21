@@ -87,6 +87,17 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
         while (!isDead)
         {
             yield return new WaitForSeconds(attackInterval);
+            
+            // キャラクターが範囲外にいる場合は攻撃処理をスキップ
+            if ((GameManager.Instance.minZ > transform.position.z) || 
+                (GameManager.Instance.maxZ < transform.position.z) ||
+                (GameManager.Instance.minY > transform.position.y) || 
+                (GameManager.Instance.maxY < transform.position.y))
+            {
+                yield return null;
+                continue;
+            }
+            
             if (animator != null)
                 animator.SetTrigger("attack");
             isAttackAnimation = true;
@@ -111,7 +122,6 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
         if (other.CompareTag("Boss"))
         {
             hp -= fromBossDamage;
-            Debug.Log("********************************ボスからのダメージ：" + fromBossDamage);
         }
         else if (other.CompareTag("PlayerBullet"))
         {
