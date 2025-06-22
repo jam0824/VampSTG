@@ -93,6 +93,14 @@ public class StageManager : MonoBehaviour
     /// <param name="enemy"></param>
     public void AddItem(GameObject enemy)
     {
+        // IEnemyコンポーネントがあるかチェック
+        var enemyComponent = enemy.GetComponent<IEnemy>();
+        if (enemyComponent == null)
+        {
+            Debug.LogWarning($"StageManager.AddItem() : 敵オブジェクト '{enemy.name}' にIEnemyコンポーネントがありません");
+            return;
+        }
+
         int enemyCount = enemyPool.transform.childCount;
         float ratio = Mathf.Clamp01(enemyCount / (float)maxEnemiesForMinRate);
 
@@ -117,7 +125,7 @@ public class StageManager : MonoBehaviour
             Debug.LogError("アイテムオブジェクトが設定されていません : " + items[index].type);
             return;
         }
-        enemy.GetComponent<IEnemy>().item = items[index].itemObj;
+        enemyComponent.item = items[index].itemObj;
         GameManager.Instance.AddStageAllItemCount();
     }
 

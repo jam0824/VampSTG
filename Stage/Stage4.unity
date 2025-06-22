@@ -576,8 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaveTime: 102
-  endWaveTime: 103
+  startWaveTime: 91
+  endWaveTime: 92
   enemies:
   - {fileID: 6922933817722989066, guid: c37b8f23d3aa2de4eb5a75d37f7d3a9a, type: 3}
   groundEnemies: []
@@ -723,6 +723,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1325586193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3171837044123010303, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
+  m_PrefabInstance: {fileID: 1946162348203264229}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1325586195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325586193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d8dc60269518a4d8f028f23a2ca464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWaveTime: 60
+  endWaveTime: 90
+  enemies:
+  - {fileID: 962739713792111155, guid: 30e2853fcc6513f40a0b5e31ad4207c9, type: 3}
+  - {fileID: 5547758796361166352, guid: 32d399b383df2ce459937f8f40186cb6, type: 3}
+  - {fileID: 1698294358926952539, guid: e6c0d8811c1424f4fbc6baaefc345d46, type: 3}
+  - {fileID: 8901384396519076566, guid: 5647d412d05c3f74d87401d086e5ffb0, type: 3}
+  spawnCount: 1
+  initialInterval: 3
+  minInterval: 3
+  decayRate: 0.05
+  zOffset: 4
+  minY: -3
+  maxY: 3
 --- !u!1001 &1400085489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1024,6 +1055,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3059204168008084881, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
+      propertyPath: endWaveTime
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3059204168008084881, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
+      propertyPath: startWaveTime
+      value: 94
+      objectReference: {fileID: 0}
     - target: {fileID: 4530417727548194327, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
       propertyPath: m_Name
       value: StageManager
@@ -1040,13 +1079,17 @@ PrefabInstance:
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 179951996}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7695131009243000379, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 895871573281015163, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
       insertIndex: 4
       addedObject: {fileID: 650908131}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3171837044123010303, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1325586195}
   m_SourcePrefab: {fileID: 100100000, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
 --- !u!1001 &1955544884710215660
 PrefabInstance:

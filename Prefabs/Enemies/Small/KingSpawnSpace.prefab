@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84e079847389c2e41bfbd3cb8208315e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 3
   explosion: {fileID: 0}
   offsetExplosionY: 0
   isAttack: 1
@@ -298,7 +298,7 @@ MonoBehaviour:
   fromBossDamage: 5
   moveSpeed: 1
   rotateSpeed: 90
-  stopDistance: 1
+  stopDistance: 3
 --- !u!114 &4232387310918271640
 MonoBehaviour:
   m_ObjectHideFlags: 0
