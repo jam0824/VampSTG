@@ -13,6 +13,7 @@ public class Stage4MidBoss : BaseEnemy
     
     [Header("上下移動設定")]
     [SerializeField] float verticalMoveSpeed = 1f;  // 上下移動の速度
+    [SerializeField] float verticalRange = 2f;      // 上下移動の幅
 
     [Header("アイテム設定")]
     [SerializeField] GameObject specificItem;     // 特定のアイテムをセット
@@ -27,7 +28,7 @@ public class Stage4MidBoss : BaseEnemy
     private bool isMovementEnabled = true;       // 移動が有効かどうか
     private bool isAttack2Playing = false;       // attack2アニメーション再生中かどうか
     private bool hasReachedTargetZ = false;      // 目標Z座標に到達したかどうか
-    private bool isMovingUp = true;              // 上に移動中かどうか
+    private float verticalTime = 0f;             // 上下移動の時間管理用
 
     protected override void OnStart()
     {
@@ -66,25 +67,19 @@ public class Stage4MidBoss : BaseEnemy
         }
 
         // ─── 上下移動（目標Z座標到達後のみ） ───
-        Vector3 verticalPos = transform.position;
+        // サインウェーブを使用してスムーズな上下運動を実現
+        verticalTime += verticalMoveSpeed * Time.deltaTime;
         
-        // 移動方向を決定
-        float verticalDirection = isMovingUp ? 1f : -1f;
-        verticalPos.y += verticalDirection * verticalMoveSpeed * Time.deltaTime;
+        // サインウェーブによる滑らかな上下移動
+        float sineValue = Mathf.Sin(verticalTime);
+        float targetY = basePosition.y + sineValue * verticalRange;
         
-        // 境界チェックと方向反転
-        if (verticalPos.y >= GameManager.Instance.maxY)
-        {
-            verticalPos.y = GameManager.Instance.maxY;
-            isMovingUp = false;
-        }
-        else if (verticalPos.y <= GameManager.Instance.minY)
-        {
-            verticalPos.y = GameManager.Instance.minY;
-            isMovingUp = true;
-        }
+        // 境界チェック
+        targetY = Mathf.Clamp(targetY, GameManager.Instance.minY, GameManager.Instance.maxY);
         
-        transform.position = verticalPos;
+        Vector3 newPosition = transform.position;
+        newPosition.y = targetY;
+        transform.position = newPosition;
     }
 
     protected override IEnumerator AttackCoroutine()

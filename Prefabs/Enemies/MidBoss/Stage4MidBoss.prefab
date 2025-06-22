@@ -2053,7 +2053,8 @@ MonoBehaviour:
   fromBossDamage: 5
   moveSpeed: 1
   targetZ: 2
-  verticalMoveSpeed: 1
+  verticalMoveSpeed: 0.5
+  verticalRange: 2
   specificItem: {fileID: 0}
   enemyShooterObjects:
   - {fileID: 4355793590403962739}
