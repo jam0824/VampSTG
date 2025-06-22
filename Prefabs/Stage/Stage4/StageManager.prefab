@@ -103,6 +103,7 @@ MonoBehaviour:
   decayRate: 0.05
   isSpecificPosition: 0
   isSpawnEnemyOnlyRight: 0
+  isYAxisReverse: 0
 --- !u!1 &1712589951815454495
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +160,7 @@ MonoBehaviour:
   decayRate: 0.05
   isSpecificPosition: 0
   isSpawnEnemyOnlyRight: 0
+  isYAxisReverse: 0
 --- !u!1 &3171837044123010303
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,13 +212,14 @@ MonoBehaviour:
   - {fileID: 5547758796361166352, guid: 32d399b383df2ce459937f8f40186cb6, type: 3}
   - {fileID: 1698294358926952539, guid: e6c0d8811c1424f4fbc6baaefc345d46, type: 3}
   - {fileID: 8901384396519076566, guid: 5647d412d05c3f74d87401d086e5ffb0, type: 3}
-  spawnCount: 1
-  initialInterval: 3
-  minInterval: 3
+  spawnCount: 2
+  initialInterval: 5
+  minInterval: 2
   decayRate: 0.05
   zOffset: 4
   minY: -3
   maxY: 3
+  isYAxisReverse: 0
 --- !u!1 &3575177341954227920
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +275,7 @@ MonoBehaviour:
   decayRate: 0.05
   isSpecificPosition: 0
   isSpawnEnemyOnlyRight: 1
+  isYAxisReverse: 0
 --- !u!1 &3584010942150484505
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +331,7 @@ MonoBehaviour:
   decayRate: 0.001
   isSpecificPosition: 0
   isSpawnEnemyOnlyRight: 0
+  isYAxisReverse: 0
 --- !u!1 &4381527929319488046
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +379,7 @@ MonoBehaviour:
   startWaveTime: 94
   endWaveTime: 95
   enemies:
-  - {fileID: 195182178501100649, guid: 84a3cfedf0b523e489b8149e97d17571, type: 3}
+  - {fileID: 3902497438908495104, guid: 8856dba79ca202d4ab88ca09a4cfb2af, type: 3}
   groundEnemies: []
   spawnCount: 1
   initialInterval: 3
@@ -382,6 +387,7 @@ MonoBehaviour:
   decayRate: 0.1
   isSpecificPosition: 0
   isSpawnEnemyOnlyRight: 1
+  isYAxisReverse: 1
 --- !u!1 &4530417727548194327
 GameObject:
   m_ObjectHideFlags: 0

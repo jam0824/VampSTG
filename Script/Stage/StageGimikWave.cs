@@ -23,6 +23,7 @@ public class StageGimikWave : MonoBehaviour
     [SerializeField] private float zOffset = 4f;           // maxZからのオフセット距離
     [SerializeField] private float minY = -3f;             // Y軸の最小値
     [SerializeField] private float maxY = 3f;              // Y軸の最大値
+    [SerializeField] private bool isYAxisReverse = false;  // Y軸反転（180度回転）するかどうか
 
     private bool isStartCoroutine = false;
     private bool isSpawn = true;                           // 外部からのストップ指示の時にこれで止める
@@ -123,7 +124,10 @@ public class StageGimikWave : MonoBehaviour
         Vector3 spawnPos = SpawnRightSidePosition();
         GameObject enemyPrefab = enemies[Random.Range(0, enemies.Length)];
         
-        GameObject enemy = Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+        // Y軸反転設定に応じて回転を決定
+        Quaternion spawnRotation = isYAxisReverse ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
+        
+        GameObject enemy = Instantiate(enemyPrefab, spawnPos, spawnRotation);
         stageManager.AddItem(enemy);
         enemy.transform.SetParent(stageManager.enemyPool.transform); // 親をEnemyPoolにする
         GameManager.Instance.AddStageAllEnemyCount();

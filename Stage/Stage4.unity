@@ -964,22 +964,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3054146330772690511, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
-      propertyPath: spawnCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3054146330772690511, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
-      propertyPath: minInterval
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3054146330772690511, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
-      propertyPath: initialInterval
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3059204168008084881, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
-      propertyPath: 'enemies.Array.data[0]'
-      value: 
-      objectReference: {fileID: 3902497438908495104, guid: 8856dba79ca202d4ab88ca09a4cfb2af, type: 3}
     - target: {fileID: 4530417727548194327, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
       propertyPath: m_Name
       value: StageManager

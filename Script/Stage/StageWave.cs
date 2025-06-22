@@ -19,6 +19,7 @@ public class StageWave : MonoBehaviour
     [Header("Spawn Position")]
     [SerializeField] public bool isSpecificPosition = false;    // 画面下をのぞいたスポーンするかどうか
     [SerializeField] private bool isSpawnEnemyOnlyRight = false;    // 敵を右側のみに出すかどうか
+    [SerializeField] private bool isYAxisReverse = false;           // Y軸反転（180度回転）するかどうか
 
     bool isStartCoroutine = false;
     bool isSpawn  = true;   //外部からのストップ支持の時にこれで止める
@@ -117,7 +118,11 @@ public class StageWave : MonoBehaviour
         }
 
         //Vector3 spawnPos = playerTransform.position + offset;
-        GameObject enemy = Instantiate(SpawnRandomEnemy(spawnPos), spawnPos, Quaternion.identity);
+        
+        // Y軸反転設定に応じて回転を決定
+        Quaternion spawnRotation = isYAxisReverse ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
+        
+        GameObject enemy = Instantiate(SpawnRandomEnemy(spawnPos), spawnPos, spawnRotation);
         stageManager.AddItem(enemy);
         enemy.transform.SetParent(stageManager.enemyPool.transform); //親をEnemyPoolにする
         GameManager.Instance.AddStageAllEnemyCount();
