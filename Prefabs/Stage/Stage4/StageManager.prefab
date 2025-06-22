@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5588407232262883125}
-  - component: {fileID: 7695131009243000379}
+  - component: {fileID: 3054146330772690511}
   m_Layer: 0
   m_Name: WaveMeteo
   m_TagString: Untagged
@@ -191,7 +191,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 895871573281015163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7695131009243000379
+--- !u!114 &3054146330772690511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,20 +200,75 @@ MonoBehaviour:
   m_GameObject: {fileID: 3171837044123010303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 69d8dc60269518a4d8f028f23a2ca464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startWaveTime: 60
-  endWaveTime: 100
+  endWaveTime: 90
   enemies:
   - {fileID: 962739713792111155, guid: 30e2853fcc6513f40a0b5e31ad4207c9, type: 3}
   - {fileID: 5547758796361166352, guid: 32d399b383df2ce459937f8f40186cb6, type: 3}
   - {fileID: 1698294358926952539, guid: e6c0d8811c1424f4fbc6baaefc345d46, type: 3}
   - {fileID: 8901384396519076566, guid: 5647d412d05c3f74d87401d086e5ffb0, type: 3}
-  groundEnemies: []
   spawnCount: 1
   initialInterval: 3
   minInterval: 3
+  decayRate: 0.05
+  zOffset: 4
+  minY: -3
+  maxY: 3
+--- !u!1 &3575177341954227920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 749643178138045906}
+  - component: {fileID: 8129278739616976197}
+  m_Layer: 0
+  m_Name: Wave_sub_circleShooter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &749643178138045906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3575177341954227920}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 895871573281015163}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8129278739616976197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3575177341954227920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWaveTime: 91
+  endWaveTime: 92
+  enemies:
+  - {fileID: 6922933817722989066, guid: c37b8f23d3aa2de4eb5a75d37f7d3a9a, type: 3}
+  groundEnemies: []
+  spawnCount: 2
+  initialInterval: 3
+  minInterval: 0.5
   decayRate: 0.05
   isSpecificPosition: 0
   isSpawnEnemyOnlyRight: 1
@@ -316,8 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaveTime: 106
-  endWaveTime: 107
+  startWaveTime: 94
+  endWaveTime: 95
   enemies:
   - {fileID: 195182178501100649, guid: 84a3cfedf0b523e489b8149e97d17571, type: 3}
   groundEnemies: []
@@ -361,6 +416,7 @@ Transform:
   - {fileID: 2465538168248089658}
   - {fileID: 2775778512108977380}
   - {fileID: 5588407232262883125}
+  - {fileID: 749643178138045906}
   - {fileID: 5502871771024920626}
   - {fileID: 5530860910699498817}
   - {fileID: 8014651184665306769}
