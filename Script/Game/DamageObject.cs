@@ -4,6 +4,7 @@ public class DamageObject : MonoBehaviour
 {
     [SerializeField] public float hp = 3;
     [SerializeField] private float offsetExplosionY = 0;
+    [SerializeField] private bool destroyEnemyBullet = false; //敵弾を消すかどうか
     private float maxHp = 10;
     bool isDead = false;
     int fromBossDamage = 5; //敵キャラがボスにあたった時のダメージ
@@ -39,6 +40,12 @@ public class DamageObject : MonoBehaviour
                 Instantiate(bullet.triggerEffect, hitPoint, other.gameObject.transform.rotation);
             }
             if (bullet.isDestroy) Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("EnemyBullet") && destroyEnemyBullet)
+        {
+            hp -= 1;
+            EffectController.Instance.PlaySmallExplosion(other.transform.position, other.transform.rotation);
+            Destroy(other.gameObject);
         }
         if (hp <= 0) enemyDie();
     }

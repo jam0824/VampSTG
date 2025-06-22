@@ -24,6 +24,7 @@ public class StageGimikWave : MonoBehaviour
     [SerializeField] private float minY = -3f;             // Y軸の最小値
     [SerializeField] private float maxY = 3f;              // Y軸の最大値
     [SerializeField] private bool isYAxisReverse = false;  // Y軸反転（180度回転）するかどうか
+    [SerializeField] private bool randomRotation = false;  // ランダム回転するかどうか
 
     private bool isStartCoroutine = false;
     private bool isSpawn = true;                           // 外部からのストップ指示の時にこれで止める
@@ -124,8 +125,8 @@ public class StageGimikWave : MonoBehaviour
         Vector3 spawnPos = SpawnRightSidePosition();
         GameObject enemyPrefab = enemies[Random.Range(0, enemies.Length)];
         
-        // Y軸反転設定に応じて回転を決定
-        Quaternion spawnRotation = isYAxisReverse ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
+        // 回転を決定
+        Quaternion spawnRotation = GetSpawnRotation();
         
         GameObject enemy = Instantiate(enemyPrefab, spawnPos, spawnRotation);
         stageManager.AddItem(enemy);
@@ -143,6 +144,26 @@ public class StageGimikWave : MonoBehaviour
             Random.Range(minY, maxY),
             GameManager.Instance.maxZ + zOffset
         );
+    }
+
+    /// <summary>
+    /// スポーン時の回転を決定
+    /// </summary>
+    Quaternion GetSpawnRotation()
+    {
+        if (randomRotation)
+        {
+            // ランダム回転：X、Y、Z軸それぞれ0-360度でランダム
+            float randomX = Random.Range(0f, 360f);
+            float randomY = Random.Range(0f, 360f);
+            float randomZ = Random.Range(0f, 360f);
+            return Quaternion.Euler(randomX, randomY, randomZ);
+        }
+        else
+        {
+            // Y軸反転設定に応じて回転を決定
+            return isYAxisReverse ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
+        }
     }
 
     /// <summary>

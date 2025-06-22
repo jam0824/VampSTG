@@ -11,9 +11,8 @@ public class Stage4MidBoss : BaseEnemy
     [SerializeField] float moveSpeed = 0.5f;
     [SerializeField] float targetZ = 2f;          // 停止するZ座標
     
-    [Header("ふわふわ移動設定")]
-    [SerializeField] float floatAmplitude = 1f;   // ふわふわの振幅
-    [SerializeField] float floatSpeed = 2f;       // ふわふわの速度
+    [Header("上下移動設定")]
+    [SerializeField] float verticalMoveSpeed = 1f;  // 上下移動の速度
 
     [Header("アイテム設定")]
     [SerializeField] GameObject specificItem;     // 特定のアイテムをセット
@@ -24,11 +23,11 @@ public class Stage4MidBoss : BaseEnemy
     [Header("攻撃パターン設定")]
     [SerializeField] float attack2Duration = 5f;  // attack2のアニメーション再生時間
 
-    private float floatTimer = 0f;               // ふわふわ動作用タイマー
     private Vector3 basePosition;                // 基準位置
     private bool isMovementEnabled = true;       // 移動が有効かどうか
     private bool isAttack2Playing = false;       // attack2アニメーション再生中かどうか
     private bool hasReachedTargetZ = false;      // 目標Z座標に到達したかどうか
+    private bool isMovingUp = true;              // 上に移動中かどうか
 
     protected override void OnStart()
     {
@@ -66,14 +65,26 @@ public class Stage4MidBoss : BaseEnemy
             return;
         }
 
-        // ─── ふわふわ動作（目標Z座標到達後のみ） ───
-        floatTimer += Time.deltaTime * floatSpeed;
-        float yOffset = Mathf.Sin(floatTimer) * floatAmplitude;
+        // ─── 上下移動（目標Z座標到達後のみ） ───
+        Vector3 verticalPos = transform.position;
         
-        // 最終位置 = ベース位置 + ふわふわオフセット
-        Vector3 finalPosition = basePosition;
-        finalPosition.y += yOffset;
-        transform.position = finalPosition;
+        // 移動方向を決定
+        float verticalDirection = isMovingUp ? 1f : -1f;
+        verticalPos.y += verticalDirection * verticalMoveSpeed * Time.deltaTime;
+        
+        // 境界チェックと方向反転
+        if (verticalPos.y >= GameManager.Instance.maxY)
+        {
+            verticalPos.y = GameManager.Instance.maxY;
+            isMovingUp = false;
+        }
+        else if (verticalPos.y <= GameManager.Instance.minY)
+        {
+            verticalPos.y = GameManager.Instance.minY;
+            isMovingUp = true;
+        }
+        
+        transform.position = verticalPos;
     }
 
     protected override IEnumerator AttackCoroutine()

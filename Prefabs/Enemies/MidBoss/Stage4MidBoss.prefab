@@ -2038,7 +2038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6f52631e84ed24ca05aa8fb5b182ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1000
+  hp: 400
   explosion: {fileID: 0}
   offsetExplosionY: 0
   isAttack: 1
@@ -2050,8 +2050,7 @@ MonoBehaviour:
   fromBossDamage: 5
   moveSpeed: 1
   targetZ: 2
-  floatAmplitude: 5
-  floatSpeed: 0.1
+  verticalMoveSpeed: 1
   specificItem: {fileID: 0}
   enemyShooterObjects:
   - {fileID: 4355793590403962739}
@@ -3983,10 +3982,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.05
-  m_Height: 2.5
+  m_Radius: 0.06
+  m_Height: 3
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.5}
 --- !u!1 &8243658426270072554
 GameObject:
   m_ObjectHideFlags: 0

@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  rotationSpeed: 8
+  rotationSpeed: 15
   isRotate: 1
   isMove: 1
   isDestroy: 1
@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   offsetExplosionY: 0
+  destroyEnemyBullet: 1
 --- !u!54 &8188202225396179390
 Rigidbody:
   m_ObjectHideFlags: 0

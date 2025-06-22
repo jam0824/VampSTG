@@ -334,6 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   offsetExplosionY: 0
+  destroyEnemyBullet: 1
 --- !u!54 &-1855775924235402579
 Rigidbody:
   m_ObjectHideFlags: 0

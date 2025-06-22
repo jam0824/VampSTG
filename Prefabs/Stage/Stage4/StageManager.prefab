@@ -220,6 +220,7 @@ MonoBehaviour:
   minY: -3
   maxY: 3
   isYAxisReverse: 0
+  randomRotation: 0
 --- !u!1 &3575177341954227920
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,8 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaveTime: 91
-  endWaveTime: 92
+  startWaveTime: 100
+  endWaveTime: 101
   enemies:
   - {fileID: 6922933817722989066, guid: c37b8f23d3aa2de4eb5a75d37f7d3a9a, type: 3}
   groundEnemies: []
@@ -321,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startWaveTime: 30
-  endWaveTime: 300
+  endWaveTime: 60
   enemies:
   - {fileID: 1527429257504855642, guid: d1761ba2da805cc45be3e1818959c60c, type: 3}
   groundEnemies: []
@@ -376,8 +377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startWaveTime: 94
-  endWaveTime: 95
+  startWaveTime: 100
+  endWaveTime: 101
   enemies:
   - {fileID: 3902497438908495104, guid: 8856dba79ca202d4ab88ca09a4cfb2af, type: 3}
   groundEnemies: []
@@ -422,6 +423,7 @@ Transform:
   - {fileID: 2465538168248089658}
   - {fileID: 2775778512108977380}
   - {fileID: 5588407232262883125}
+  - {fileID: 6966577452918223742}
   - {fileID: 749643178138045906}
   - {fileID: 5502871771024920626}
   - {fileID: 5530860910699498817}
@@ -463,6 +465,62 @@ MonoBehaviour:
   playerModel: {fileID: 6155718885946839314, guid: f62125caa80af5d41a500d2cf1f61c69, type: 3}
   allElapsedTime: 0
   isSpawnEnemey: 1
+--- !u!1 &5727818575725317039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6966577452918223742}
+  - component: {fileID: 5247469900840814612}
+  m_Layer: 0
+  m_Name: Wave_Lifter_02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6966577452918223742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5727818575725317039}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 895871573281015163}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5247469900840814612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5727818575725317039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1910ec23be24cc94c8288f999073c7ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWaveTime: 60
+  endWaveTime: 90
+  enemies:
+  - {fileID: 1527429257504855642, guid: d1761ba2da805cc45be3e1818959c60c, type: 3}
+  groundEnemies: []
+  spawnCount: 1
+  initialInterval: 5
+  minInterval: 4
+  decayRate: 0.001
+  isSpecificPosition: 0
+  isSpawnEnemyOnlyRight: 0
+  isYAxisReverse: 0
 --- !u!1 &7262818245437020038
 GameObject:
   m_ObjectHideFlags: 0
