@@ -15,13 +15,12 @@ alwaysApply: true
 - 可能な限り Unity の組み込み機能やツールを活用し、その全能力を引き出す
 - 可読性と保守性を最優先し、C# のコーディング規約および Unity のベストプラクティスに従う
 - 可読性とアセット管理を向上させるため、明確かつ論理的なプロジェクト構造を維持する。
-- 説明的な変数名・関数名を使用し、命名規則(例:public メンバーは PascalCase、private メンバーは camelCase)を遵守する。
+- 説明的な変数名・関数名を使用し、命名規則を遵守する。
 - Unity のコンポーネントベースアーキテクチャを用いて、再利用性と関心の分離を促進するモジュール構成を行う。
 - loggingやdebugには Unity の Debug クラス(Debug.Log、Debug.LogWarning、Debug.LogError)を使用する。
 - ユニットテストおよび統合テストには Unity の組み込みテストフレームワークを利用する。
 - 頻繁に生成・破棄されるオブジェクトにはオブジェクトプーリングを用いる。
 - Inspector で公開したい private フィールドには [SerializeField] を付与する
-- 可能な場合は参照は直接変数や GetComponent() を優先する。
 - 複雑な 3D モデルには LOD(Level of Detail)システムを導入する。
 - スクリプトの修正でTestsに影響する場合はTestsも変更する
 - 命名規則
