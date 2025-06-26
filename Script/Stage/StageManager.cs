@@ -143,7 +143,7 @@ public class StageManager : MonoBehaviour
         // 子オブジェクトを順に走査
         foreach (Transform child in enemyPool.transform)
         {
-            var enemyComp = child.GetComponent<Enemy>();
+            var enemyComp = child.GetComponent<BaseEnemy>();
             if (enemyComp != null)
             {
                 enemyComp.hp = 0;
