@@ -17,6 +17,10 @@ public class BossMonsterHunter : BaseBoss
     [SerializeField] private GameObject FirePointRightHand;
     [SerializeField] private GameObject FirePointHead;
 
+    [Header("フェーズ2設定")]
+    [SerializeField] private float phase2HpRate = 0.75f;
+    [SerializeField] private float groundY = -2f;
+
     [Header("BGM設定")]
     [SerializeField] private AudioClip bgm;
     [SerializeField] private float bgmVol = 0.8f;
@@ -26,6 +30,8 @@ public class BossMonsterHunter : BaseBoss
     private bool isMoving = false; // 移動中フラグ
     private Transform playerTransform;
     private bool isSwim = false;
+    private bool isPhase2 = false; // 第2フェーズフラグ
+    private Coroutine swimAttackCoroutine; // SwimAttackCoroutineの参照
     
 
     protected override void Start()
@@ -66,16 +72,39 @@ public class BossMonsterHunter : BaseBoss
         yield return new WaitForSeconds(2f);
         isStart = true;
         isSwim = true;
-        StartCoroutine(SwimAttackCoroutine());
+        swimAttackCoroutine = StartCoroutine(SwimAttackCoroutine());
         yield return null;
     }
 
     protected override void Update()
     {
         base.Update();
-        if(isSwim) HandleMovement();
+        if(isSwim) Phase1Movement();
+        float hpRate = hp / maxHp;
+        PhaseSwitcher(hpRate);
     }
 
+
+
+    /// <summary>
+    /// フェーズ切り替え
+    /// </summary>
+    /// <param name="hpRate"></param>
+    private void PhaseSwitcher(float hpRate)
+    {
+        if (hpRate <= phase2HpRate && !isPhase2)
+        {
+            isPhase2 = true;
+            StopCoroutine(swimAttackCoroutine);
+            isSwim = false;
+            StartCoroutine(MoveToYZero());
+        }
+    }
+
+    /// <summary>
+    /// Phase1の攻撃パターン
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator SwimAttackCoroutine()
     {
         while (!isDead)
@@ -95,8 +124,6 @@ public class BossMonsterHunter : BaseBoss
                 animator.SetTrigger("attack3");
             }
         }
-        
-        
     }
 
     private IEnumerator AttackCoroutine()
@@ -109,7 +136,7 @@ public class BossMonsterHunter : BaseBoss
             
             if (randomValue < 0.2f)
             {
-                yield return StartCoroutine(MoveAndTurn());
+                yield return StartCoroutine(HandAttackCoroutine());
             }
             else if (randomValue < 0.5f)
             {
@@ -130,7 +157,7 @@ public class BossMonsterHunter : BaseBoss
         }
     }
 
-    void HandleMovement()
+    void Phase1Movement()
     {
         if (playerTransform == null) {
             playerTransform = core.transform;
@@ -166,16 +193,12 @@ public class BossMonsterHunter : BaseBoss
         }
     }
 
-   
-    
-
     /// <summary>
     /// 移動と回転
     /// </summary>
     /// <returns></returns>
     private IEnumerator MoveAndTurn()
     {
-
         isMoving = true;
 
         float currentZ = transform.position.z;
@@ -200,12 +223,8 @@ public class BossMonsterHunter : BaseBoss
 
     private IEnumerator HandAttackCoroutine()
     {
-        animator.SetTrigger("attack1");
-        yield return new WaitForSeconds(0.3f);
-
-        yield return new WaitForSeconds(0.4f);
-
-        yield return new WaitForSeconds(1.5f);
+        //animator.SetTrigger("attack1");
+        yield return null;
     }
 
     /// <summary>
@@ -232,5 +251,121 @@ public class BossMonsterHunter : BaseBoss
         FirePointHead.GetComponent<IEnemyShooter>().Fire();
     }
 
-    
+    /// <summary>
+    /// 地面レベルまで移動し、向きを調整してフェーズ2を開始する
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator MoveToYZero()
+    {
+        Debug.Log("Phase2開始：地面レベルへ移動開始");
+        
+        // 1. 地面レベルまで移動
+        yield return StartCoroutine(MoveToGroundLevel());
+        
+        // 2. 向きを調整
+        yield return StartCoroutine(AdjustDirectionBasedOnZ());
+        
+        // 3. フェーズ2開始処理
+        StartPhase2();
+    }
+
+    /// <summary>
+    /// 地面レベル（groundY）まで移動する
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator MoveToGroundLevel()
+    {
+        Vector3 startPos = transform.position;
+        Vector3 targetPos = new Vector3(startPos.x, groundY, startPos.z);
+        
+        while (Mathf.Abs(transform.position.y - targetPos.y) > 0.01f)
+        {
+            if (isDead) yield break;
+            
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                targetPos,
+                moveSpeed * Time.deltaTime
+            );
+            
+            yield return null;
+        }
+    }
+
+    /// <summary>
+    /// z座標に基づいて向きを調整する
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator AdjustDirectionBasedOnZ()
+    {
+        Vector3 targetDirection = GetDirectionBasedOnZ();
+        Quaternion targetRotation = CalculateTargetRotation(targetDirection);
+        
+        yield return StartCoroutine(RotateToDirection(targetRotation));
+    }
+
+    /// <summary>
+    /// z座標に基づいて目標方向を取得する
+    /// </summary>
+    /// <returns></returns>
+    private Vector3 GetDirectionBasedOnZ()
+    {
+        if (transform.position.z < 0f)
+        {
+            // zがマイナス：前向き
+            return Vector3.forward;
+        }
+        else
+        {
+            // zがプラス：後ろ向き
+            return Vector3.back;
+        }
+    }
+
+    /// <summary>
+    /// 目標回転を計算する（x軸角度は0に固定）
+    /// </summary>
+    /// <param name="_targetDirection">目標方向</param>
+    /// <returns></returns>
+    private Quaternion CalculateTargetRotation(Vector3 _targetDirection)
+    {
+        Quaternion targetRotation = Quaternion.LookRotation(_targetDirection);
+        return Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
+    }
+
+    /// <summary>
+    /// 指定された方向にスムーズに回転する
+    /// </summary>
+    /// <param name="_targetRotation">目標回転</param>
+    /// <returns></returns>
+    private IEnumerator RotateToDirection(Quaternion _targetRotation)
+    {
+        while (Quaternion.Angle(transform.rotation, _targetRotation) > 1f)
+        {
+            if (isDead) yield break;
+            
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                _targetRotation,
+                rotateSpeed * Time.deltaTime
+            );
+            
+            yield return null;
+        }
+        
+        // 最終的な回転を設定
+        transform.rotation = _targetRotation;
+    }
+
+    /// <summary>
+    /// フェーズ2開始処理
+    /// </summary>
+    private void StartPhase2()
+    {
+        animator.SetTrigger("phase2");
+        Debug.Log("Phase2移動完了");
+        
+        // 第2フェーズの攻撃パターン開始
+        StartCoroutine(AttackCoroutine());
+    }
 }
