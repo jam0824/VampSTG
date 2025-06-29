@@ -16,10 +16,13 @@ public class BossMonsterHunter : BaseBoss
     [SerializeField] private GameObject FirePointLeftHand;
     [SerializeField] private GameObject FirePointRightHand;
     [SerializeField] private GameObject FirePointHead;
+    [SerializeField] private GameObject FirePointPhase2Hand;
+    [SerializeField] private GameObject[] TailBullbes;
 
     [Header("フェーズ2設定")]
     [SerializeField] private float phase2HpRate = 0.75f;
     [SerializeField] private float groundY = -2f;
+    [SerializeField] private float phase2HandAngle = 90f;
 
     [Header("BGM設定")]
     [SerializeField] private AudioClip bgm;
@@ -59,7 +62,7 @@ public class BossMonsterHunter : BaseBoss
     /// <returns></returns>
     protected override IEnumerator EntryCoroutine()
     {
-        Debug.Log("BossQueen 出現演出開始");
+        Debug.Log("BossMonsterHunter 出現演出開始");
         gameObject.SetActive(true);
         
         
@@ -123,37 +126,6 @@ public class BossMonsterHunter : BaseBoss
             {
                 animator.SetTrigger("attack3");
             }
-        }
-    }
-
-    private IEnumerator AttackCoroutine()
-    {
-        while (!isDead)
-        {
-            // 50%の確率で行動を選択
-            float randomValue = Random.Range(0f, 1f);
-
-            
-            if (randomValue < 0.2f)
-            {
-                yield return StartCoroutine(HandAttackCoroutine());
-            }
-            else if (randomValue < 0.5f)
-            {
-                yield return StartCoroutine(HandAttackCoroutine());
-            }
-            else if (randomValue < 0.7f)
-            {
-                yield return StartCoroutine(HandAttackCoroutine());
-            }
-            else
-            {
-                yield return StartCoroutine(HandAttackCoroutine());
-            }
-            
-
-            // 攻撃完了後の待機
-            yield return new WaitForSeconds(waitTime);
         }
     }
 
@@ -249,6 +221,39 @@ public class BossMonsterHunter : BaseBoss
     public void FireHead()
     {
         FirePointHead.GetComponent<IEnemyShooter>().Fire();
+    }
+
+    /// <summary>
+    /// Phase2の両手地面叩きつけ攻撃
+    /// </summary>
+    public void FirePhase2Hand()
+    {
+        FirePointPhase2Hand.GetComponent<IEnemyShooter>().Fire(phase2HandAngle);
+    }
+
+    /// <summary>
+    /// Phase2の尻尾バルブ攻撃
+    /// </summary>
+    public void FireLeftTailBullbe()
+    {
+        for(int i=1; i<=3; i++){
+            NWayShooter nWayShooter = TailBullbes[i].GetComponent<NWayShooter>();
+            float oldBulletSpeed = nWayShooter.bulletSpeed;
+            nWayShooter.bulletSpeed -= (i-1)*0.4f;
+            nWayShooter.Fire();
+            nWayShooter.bulletSpeed = oldBulletSpeed;
+        }
+    }
+
+    public void FireRightTailBullbe()
+    {
+        for(int i=6; i<=8; i++){
+            NWayShooter nWayShooter = TailBullbes[i].GetComponent<NWayShooter>();
+            float oldBulletSpeed = nWayShooter.bulletSpeed;
+            nWayShooter.bulletSpeed += (i-6)*0.4f;
+            nWayShooter.Fire();
+            nWayShooter.bulletSpeed = oldBulletSpeed;
+        }
     }
 
     /// <summary>
@@ -366,6 +371,38 @@ public class BossMonsterHunter : BaseBoss
         Debug.Log("Phase2移動完了");
         
         // 第2フェーズの攻撃パターン開始
-        StartCoroutine(AttackCoroutine());
+        StartCoroutine(Phase2AttackCoroutine());
+    }
+
+    /// <summary>
+    /// Phase2の攻撃パターン
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator Phase2AttackCoroutine()
+    {
+        while (!isDead)
+        {
+            // 50%の確率で行動を選択
+            float randomValue = Random.Range(0f, 1f);
+
+            
+            
+            if (randomValue < 0.33f)
+            {
+                animator.SetTrigger("phase2Attack1");
+            }
+            else if (randomValue < 0.66f)
+            {
+                animator.SetTrigger("phase2Attack2");
+            }
+            else
+            {
+                animator.SetTrigger("phase2Attack3");
+            }
+            
+
+            // 攻撃完了後の待機
+            yield return new WaitForSeconds(waitTime);
+        }
     }
 }

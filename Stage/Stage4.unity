@@ -218,10 +218,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 191979444085621353, guid: fd3878206c929014992ef1d1cb9d3e1b, type: 3}
-      propertyPath: m_Depth
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 6715489572868318287, guid: fd3878206c929014992ef1d1cb9d3e1b, type: 3}
       propertyPath: m_Name
       value: CameraSet
@@ -712,11 +708,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6922933817722989066, guid: c37b8f23d3aa2de4eb5a75d37f7d3a9a, type: 3}
   m_PrefabInstance: {fileID: 475729557}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &675079175 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7050037142667991789, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
-  m_PrefabInstance: {fileID: 1966207098742726099}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1041247753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -915,63 +906,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8782848434996735839, guid: 5dc5f283ea06a94429010d61a4a764be, type: 3}
   m_PrefabInstance: {fileID: 2948873117385029612}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1757620084
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1757620085}
-  - component: {fileID: 1757620086}
-  m_Layer: 0
-  m_Name: firePointHead01
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1757620085
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757620084}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.534}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 675079175}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1757620086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1757620084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f5b556345ff78a469b700a5518e0d95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7707242471711055602, guid: 69a4913c6e4e8174c90593ca132b2cf2, type: 3}
-  firePoint: {fileID: 1757620085}
-  bulletSpeed: 2
-  bulletLifeTime: 30
-  numberOfBullets: 16
-  totalSpreadAngle: 359
-  isContinuousFire: 0
-  continuousFireCount: 3
-  continuousFireInterval: 0.2
-  muzzleFirePrefab: {fileID: 0}
-  muzzleFireSe: {fileID: 0}
-  muzzleFireSeVolume: 0.8
-  core: {fileID: 0}
 --- !u!1001 &1777606986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1094,6 +1028,10 @@ PrefabInstance:
     - target: {fileID: 8688588613682759168, guid: 0495fc66fe7f823438916e58465bd055, type: 3}
       propertyPath: m_Name
       value: PlayerCore
+      objectReference: {fileID: 0}
+    - target: {fileID: 8950973691230568578, guid: 0495fc66fe7f823438916e58465bd055, type: 3}
+      propertyPath: isMuteki
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1376,10 +1314,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6659879524306347376, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
-      propertyPath: bulletSpeed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8396344232317354424, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
       propertyPath: m_Name
       value: SciFi_MonsterHunter Skin1
@@ -1392,14 +1326,6 @@ PrefabInstance:
       propertyPath: bossHpBar
       value: 
       objectReference: {fileID: 179951997}
-    - target: {fileID: 8630711837318792070, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
-      propertyPath: FirePointHead
-      value: 
-      objectReference: {fileID: 1757620084}
-    - target: {fileID: 8983835138760658871, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
-      propertyPath: bulletSpeed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 9209331528543066882, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1442,10 +1368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7050037142667991789, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1757620085}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
 --- !u!1001 &2948873117385029612
