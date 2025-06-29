@@ -22,7 +22,10 @@ public class BossMonsterHunter : BaseBoss
     [Header("フェーズ2設定")]
     [SerializeField] private float phase2HpRate = 0.75f;
     [SerializeField] private float groundY = -2f;
-    [SerializeField] private float phase2HandAngle = 90f;
+    [SerializeField] private float groundZ = 6f;
+    [SerializeField] private float phase2MoveSpeed = 1f;
+    
+    private float phase2HandAttackAngle = 90f;
 
     [Header("BGM設定")]
     [SerializeField] private AudioClip bgm;
@@ -34,6 +37,7 @@ public class BossMonsterHunter : BaseBoss
     private Transform playerTransform;
     private bool isSwim = false;
     private bool isPhase2 = false; // 第2フェーズフラグ
+    private bool isPhase3 = false; // 第3フェーズフラグ
     private Coroutine swimAttackCoroutine; // SwimAttackCoroutineの参照
     
 
@@ -165,46 +169,17 @@ public class BossMonsterHunter : BaseBoss
         }
     }
 
-    /// <summary>
-    /// 移動と回転
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator MoveAndTurn()
-    {
-        isMoving = true;
-
-        float currentZ = transform.position.z;
-        float targetZ = currentZ > 0f ? -6f : 6f;
-        Vector3 targetPos = new Vector3(transform.position.x, transform.position.y, targetZ);
-
-        // 移動処理
-        while (Mathf.Abs(transform.position.z - targetZ) > 0.01f)
-        {
-            if (isDead) yield break;
-
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                targetPos,
-                moveSpeed * Time.deltaTime
-            );
-
-            yield return null;
-        }
-        isMoving = false;
-    }
-
-    private IEnumerator HandAttackCoroutine()
-    {
-        //animator.SetTrigger("attack1");
-        yield return null;
-    }
 
     /// <summary>
     /// 左腕の攻撃(アニメーションから呼ばれる)
     /// </summary>
     public void FireLeftHand()
     {
-        FirePointLeftHand.GetComponent<IEnemyShooter>().Fire();
+        NWayShooter enemyShooter = FirePointLeftHand.GetComponent<NWayShooter>();
+        if(enemyShooter != null){
+            if(isPhase2) enemyShooter.bulletSpeed = 5f;
+            enemyShooter.Fire();
+        }
     }
 
     /// <summary>
@@ -212,7 +187,11 @@ public class BossMonsterHunter : BaseBoss
     /// </summary>
     public void FireRightHand()
     {
-        FirePointRightHand.GetComponent<IEnemyShooter>().Fire();
+        NWayShooter enemyShooter = FirePointRightHand.GetComponent<NWayShooter>();
+        if(enemyShooter != null){
+            if(isPhase2) enemyShooter.bulletSpeed = 5f;
+            enemyShooter.Fire();
+        }
     }
 
     /// <summary>
@@ -228,7 +207,7 @@ public class BossMonsterHunter : BaseBoss
     /// </summary>
     public void FirePhase2Hand()
     {
-        FirePointPhase2Hand.GetComponent<IEnemyShooter>().Fire(phase2HandAngle);
+        FirePointPhase2Hand.GetComponent<IEnemyShooter>().Fire(phase2HandAttackAngle);
     }
 
     /// <summary>
@@ -237,7 +216,20 @@ public class BossMonsterHunter : BaseBoss
     public void FireLeftTailBullbe()
     {
         for(int i=1; i<=3; i++){
+            // GameObject存在チェック
+            if (TailBullbes[i] == null)
+            {
+                Debug.Log($"TailBullbes[{i}]がMissingまたはnullです");
+                continue;
+            }
+            // NWayShooterコンポーネント存在チェック
             NWayShooter nWayShooter = TailBullbes[i].GetComponent<NWayShooter>();
+            if (nWayShooter == null)
+            {
+                Debug.LogWarning($"TailBullbes[{i}]にNWayShooterコンポーネントが見つかりません");
+                continue;
+            }
+
             float oldBulletSpeed = nWayShooter.bulletSpeed;
             nWayShooter.bulletSpeed -= (i-1)*0.4f;
             nWayShooter.Fire();
@@ -248,7 +240,21 @@ public class BossMonsterHunter : BaseBoss
     public void FireRightTailBullbe()
     {
         for(int i=6; i<=8; i++){
+            // GameObject存在チェック
+            if (TailBullbes[i] == null)
+            {
+                Debug.Log($"TailBullbes[{i}]がMissingまたはnullです");
+                continue;
+            }
+
+            // NWayShooterコンポーネント存在チェック
             NWayShooter nWayShooter = TailBullbes[i].GetComponent<NWayShooter>();
+            if (nWayShooter == null)
+            {
+                Debug.LogWarning($"TailBullbes[{i}]にNWayShooterコンポーネントが見つかりません");
+                continue;
+            }
+
             float oldBulletSpeed = nWayShooter.bulletSpeed;
             nWayShooter.bulletSpeed += (i-6)*0.4f;
             nWayShooter.Fire();
@@ -281,7 +287,9 @@ public class BossMonsterHunter : BaseBoss
     private IEnumerator MoveToGroundLevel()
     {
         Vector3 startPos = transform.position;
-        Vector3 targetPos = new Vector3(startPos.x, groundY, startPos.z);
+        float targetZ = (transform.position.z < 0f) ? -groundZ : groundZ;
+
+        Vector3 targetPos = new Vector3(startPos.x, groundY, targetZ);
         
         while (Mathf.Abs(transform.position.y - targetPos.y) > 0.01f)
         {
@@ -290,7 +298,7 @@ public class BossMonsterHunter : BaseBoss
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 targetPos,
-                moveSpeed * Time.deltaTime
+                phase2MoveSpeed * Time.deltaTime
             );
             
             yield return null;
@@ -405,4 +413,6 @@ public class BossMonsterHunter : BaseBoss
             yield return new WaitForSeconds(waitTime);
         }
     }
+
+    
 }
