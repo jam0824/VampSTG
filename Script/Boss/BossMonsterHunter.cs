@@ -25,6 +25,11 @@ public class BossMonsterHunter : BaseBoss
     [SerializeField] private float groundZ = 6f;
     [SerializeField] private float phase2MoveSpeed = 1f;
     
+    [Header("フェーズ3設定")]
+    [SerializeField] private float phase3HpRate = 0.25f;
+    [SerializeField] private Vector3 phase3Position;
+    [SerializeField] private GameObject phase3Rotating;
+    
     private float phase2HandAttackAngle = 90f;
 
     [Header("BGM設定")]
@@ -39,6 +44,7 @@ public class BossMonsterHunter : BaseBoss
     private bool isPhase2 = false; // 第2フェーズフラグ
     private bool isPhase3 = false; // 第3フェーズフラグ
     private Coroutine swimAttackCoroutine; // SwimAttackCoroutineの参照
+    private Coroutine phase2AttackCoroutine; // Phase2AttackCoroutineの参照
     
 
     protected override void Start()
@@ -105,6 +111,11 @@ public class BossMonsterHunter : BaseBoss
             StopCoroutine(swimAttackCoroutine);
             isSwim = false;
             StartCoroutine(MoveToYZero());
+        }
+        else if (hpRate <= phase3HpRate && !isPhase3 && isPhase2)
+        {
+            isPhase3 = true;
+            StartCoroutine(MoveToCenter());
         }
     }
 
@@ -379,7 +390,7 @@ public class BossMonsterHunter : BaseBoss
         Debug.Log("Phase2移動完了");
         
         // 第2フェーズの攻撃パターン開始
-        StartCoroutine(Phase2AttackCoroutine());
+        phase2AttackCoroutine = StartCoroutine(Phase2AttackCoroutine());
     }
 
     /// <summary>
@@ -388,7 +399,7 @@ public class BossMonsterHunter : BaseBoss
     /// <returns></returns>
     private IEnumerator Phase2AttackCoroutine()
     {
-        while (!isDead)
+        while (!isDead && !isPhase3)
         {
             // 50%の確率で行動を選択
             float randomValue = Random.Range(0f, 1f);
@@ -408,6 +419,121 @@ public class BossMonsterHunter : BaseBoss
                 animator.SetTrigger("phase2Attack3");
             }
             
+
+            // 攻撃完了後の待機
+            yield return new WaitForSeconds(waitTime);
+        }
+    }
+
+    /// <summary>
+    /// 中央（0,0,0）まで移動し、90度回転してフェーズ3を開始する
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator MoveToCenter()
+    {
+        Debug.Log("Phase3開始：中央へ移動開始");
+        
+        // Phase2のコルーチンを停止
+        if (phase2AttackCoroutine != null)
+        {
+            StopCoroutine(phase2AttackCoroutine);
+            phase2AttackCoroutine = null;
+        }
+        
+        // 1. 中央（0,0,0）まで移動
+        yield return StartCoroutine(MoveToCenterPosition());
+        
+        // 2. Y軸で90度回転
+        yield return StartCoroutine(RotateY90());
+        
+        // 3. フェーズ3開始処理
+        StartPhase3();
+    }
+
+    /// <summary>
+    /// 中央位置（0,0,0）まで移動する
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator MoveToCenterPosition()
+    {
+        animator.SetTrigger("phase3");
+        Vector3 targetPos = phase3Position;
+        
+        while (Vector3.Distance(transform.position, targetPos) > 0.01f)
+        {
+            if (isDead) yield break;
+            
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                targetPos,
+                phase2MoveSpeed * Time.deltaTime
+            );
+            
+            yield return null;
+        }
+        
+        // 最終位置を確実に設定
+        transform.position = targetPos;
+    }
+
+    /// <summary>
+    /// Y軸で90度回転する
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator RotateY90()
+    {
+        Quaternion startRotation = transform.rotation;
+        float targetY = (transform.position.z < 0f) ? 90f : -90f;
+        Quaternion targetRotation = startRotation * Quaternion.Euler(0f, targetY, 0f);
+        
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 1f)
+        {
+            if (isDead) yield break;
+            
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                targetRotation,
+                rotateSpeed * Time.deltaTime
+            );
+            
+            yield return null;
+        }
+        
+        // 最終回転を設定
+        transform.rotation = targetRotation;
+    }
+
+    /// <summary>
+    /// フェーズ3開始処理
+    /// </summary>
+    private void StartPhase3()
+    {
+        phase3Rotating.SetActive(true);
+        Debug.Log("Phase3移動完了");
+        
+        // 第3フェーズの攻撃パターン開始
+        StartCoroutine(Phase3AttackCoroutine());
+    }
+
+    /// <summary>
+    /// Phase3の攻撃パターン
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator Phase3AttackCoroutine()
+    {
+        while (!isDead)
+        {
+            // Phase3の攻撃パターンを実装
+            float randomValue = Random.Range(0f, 1f);
+
+            if (randomValue < 0.5f)
+            {
+                animator.SetTrigger("phase3Attack1");
+            }
+            else
+            {
+                animator.SetTrigger("phase3Attack2");
+            }
 
             // 攻撃完了後の待機
             yield return new WaitForSeconds(waitTime);

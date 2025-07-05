@@ -765,6 +765,99 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42893c8a33defd14f8b8fe04482c3088, type: 3}
+--- !u!1 &1215416209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1215416211}
+  - component: {fileID: 1215416210}
+  - component: {fileID: 1215416212}
+  m_Layer: 0
+  m_Name: Phase3RotatingBulletShooter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1215416210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215416209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd5c2e4738459949a0402af6e0a764b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8052689336147358366, guid: 79cfbb3a4e8919e4d8a4de28c62367aa, type: 3}
+  firePoint: {fileID: 1215416211}
+  bulletSpeed: 2
+  bulletLifeTime: 30
+  numberOfBullets: 1
+  totalSpreadAngle: 60
+  isContinuousFire: 0
+  continuousFireCount: 2
+  continuousFireInterval: 0.2
+  muzzleFirePrefab: {fileID: 0}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
+  core: {fileID: 0}
+  initialAngle: 0
+  angleChangeRate: 10
+  angleChangeInterval: 0.2
+  rotationDirection: 0
+  startAutoFireOnStart: 1
+--- !u!4 &1215416211
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215416209}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.5129213, y: -0.5129213, z: -0.48673585, w: -0.48673585}
+  m_LocalPosition: {x: -0.575, y: 0, z: 0.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2119481637}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1215416212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215416209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd5c2e4738459949a0402af6e0a764b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 288061084323129509, guid: b679bea721d02324d8251fe4f4a41369, type: 3}
+  firePoint: {fileID: 1215416211}
+  bulletSpeed: 2
+  bulletLifeTime: 30
+  numberOfBullets: 5
+  totalSpreadAngle: 60
+  isContinuousFire: 0
+  continuousFireCount: 3
+  continuousFireInterval: 0.2
+  muzzleFirePrefab: {fileID: 0}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
+  core: {fileID: 0}
+  initialAngle: 0
+  angleChangeRate: 10
+  angleChangeInterval: 0.2
+  rotationDirection: 1
+  startAutoFireOnStart: 1
 --- !u!1 &1304304942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,7 +1155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8950973691230568578, guid: 0495fc66fe7f823438916e58465bd055, type: 3}
       propertyPath: isMuteki
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1368,11 +1461,23 @@ PrefabInstance:
       objectReference: {fileID: 179951997}
     - target: {fileID: 8630711837318792070, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
       propertyPath: phase2HpRate
-      value: 0.75
+      value: 0.98
       objectReference: {fileID: 0}
+    - target: {fileID: 8630711837318792070, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
+      propertyPath: phase3HpRate
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630711837318792070, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
+      propertyPath: phase3Rotating
+      value: 
+      objectReference: {fileID: 1215416209}
     - target: {fileID: 8630711837318792070, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
       propertyPath: phase2MoveSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8630711837318792070, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
+      propertyPath: phase3Position.y
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9209331528543066882, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1420,6 +1525,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7475682239997406536, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1839386554}
+    - targetCorrespondingSourceObject: {fileID: 7475682239997406536, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1215416211}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4352b6cf13e90e84f85a7858b70a0782, type: 3}
 --- !u!1001 &2948873117385029612
