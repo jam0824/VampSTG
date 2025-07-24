@@ -11,6 +11,8 @@ public class BGObjMove : MonoBehaviour
     [SerializeField] private bool isMove = true;
     [SerializeField] private bool isDestroy = false;
     [SerializeField] private float destroyDistance = -100f;
+    [SerializeField] private bool isStopMoving = false;
+    [SerializeField] private float stopDistance = -100f;
 
     private void Start()
     {
@@ -28,7 +30,16 @@ public class BGObjMove : MonoBehaviour
         // Z軸のマイナス方向に少しずつ移動
         if (isMove)
         {
-            transform.Translate(0f, 0f, -moveSpeed * Time.deltaTime, Space.World);
+            if (isStopMoving)
+            {
+                if (transform.position.z >= stopDistance)
+                {
+                    transform.Translate(0f, 0f, -moveSpeed * Time.deltaTime, Space.World);
+                }
+            }
+            else{
+                transform.Translate(0f, 0f, -moveSpeed * Time.deltaTime, Space.World);
+            }
         }
 
         if (isDestroy)

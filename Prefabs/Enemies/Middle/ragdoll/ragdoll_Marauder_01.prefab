@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7733077714569446738}
   - component: {fileID: 6153868421686314699}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Cloth_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2894874017613428766}
   - component: {fileID: 543776074180999344}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 698739839949472559}
   - component: {fileID: 7891013813684165360}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Head_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2262633600049888794}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: thumb_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5416159783532371684}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: lowerarm_twist_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 320976895501334921}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: spine_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 7160984517120984254}
   - component: {fileID: 2683163988980672107}
   - component: {fileID: 8160243825119747179}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: thigh_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5246535528828210933}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: ring_03_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 4059914328600284705}
   - component: {fileID: 6867629507631057331}
   - component: {fileID: 2788247606996436636}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: hand_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,7 +729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 336525534107329620}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: ball_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4384411904760462881}
   - component: {fileID: 7982032548020091812}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Hair_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 5158206371121102462}
   - component: {fileID: 8034085137348017698}
   - component: {fileID: 6353029231107296408}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: foot_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,7 +978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2567112329649704638}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: clavicle_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,7 +1010,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1615693114038485428}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: middle_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1045,7 +1045,7 @@ GameObject:
   - component: {fileID: 1484473348900878968}
   - component: {fileID: 5124683974625240554}
   - component: {fileID: 1057135603178081837}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: hand_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1176,7 +1176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5117435570760468321}
   - component: {fileID: 2385026878993365312}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Bones_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1273,7 +1273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1389807780385848685}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: pinky_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1306,7 +1306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6885476877941803286}
   - component: {fileID: 6821357544259971534}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Skull_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1401,7 +1401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6337052917471627892}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: middle_03_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1432,7 +1432,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6514667425174064728}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: ball_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1466,7 +1466,7 @@ GameObject:
   - component: {fileID: 4124114373837860663}
   - component: {fileID: 7892853533196672399}
   - component: {fileID: 135714662238087512}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: foot_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1592,7 +1592,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7295943904937479711}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: thumb_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1624,7 +1624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3466554768209224124}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: ring_03_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1656,7 +1656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6847329581520899946}
   - component: {fileID: 8441213041334229466}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Bags
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1748,7 +1748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5944689189220555874}
   - component: {fileID: 8282184829341094358}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Head_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1840,7 +1840,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1810815621765940584}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: index_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1872,7 +1872,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7208575995198895404}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: pinky_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1904,7 +1904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8321255258025223403}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: middle_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1936,7 +1936,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9206942306253464208}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1971,7 +1971,7 @@ GameObject:
   - component: {fileID: 3843563325132256215}
   - component: {fileID: 4776432854598210778}
   - component: {fileID: 7687073497842113175}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: upperarm_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2099,7 +2099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1951778658752652184}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: pinky_03_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2131,7 +2131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 329388591527187267}
   - component: {fileID: 2754699719077121280}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Armor_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2227,7 +2227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 929650003672337598}
   - component: {fileID: 1832447805747188146}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2359,7 +2359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 327282649350075341}
   - component: {fileID: 1475543851237622442}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Armor_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2461,7 +2461,7 @@ GameObject:
   - component: {fileID: 6143337497049115433}
   - component: {fileID: 6154394685891507439}
   - component: {fileID: 6711117947501243609}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: spine_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2587,7 +2587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4987863794420437883}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: index_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2619,7 +2619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7207578473731406709}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: ring_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2651,7 +2651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1172455975033093251}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: thumb_03_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2683,7 +2683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5888649613805708645}
   - component: {fileID: 3776997956024647430}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Armor_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2779,7 +2779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1883706541578374499}
   - component: {fileID: 8445395846655419226}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Bones_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2876,7 +2876,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5261829511341924822}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: middle_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2908,7 +2908,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7151771756930214462}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: thumb_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2943,7 +2943,7 @@ GameObject:
   - component: {fileID: 7719224502477600861}
   - component: {fileID: 5465748764146957652}
   - component: {fileID: 2613973672173313585}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: lowerarm_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3072,7 +3072,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6426529978744675652}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: middle_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3105,7 +3105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5732374003387082515}
   - component: {fileID: 1962169481383152001}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Hood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3197,7 +3197,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566455895812675486}
   - component: {fileID: 3673420295438772996}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3287,7 +3287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7985065559380784758}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: spine_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3324,7 +3324,7 @@ GameObject:
   - component: {fileID: 7423862365985888419}
   - component: {fileID: 1681240032732301553}
   - component: {fileID: 2639171067626181613}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3450,7 +3450,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3125979871542686581}
   - component: {fileID: 5890537706289970748}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Armor_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3553,7 +3553,7 @@ GameObject:
   - component: {fileID: 822921345760008946}
   - component: {fileID: 6360862531948958416}
   - component: {fileID: 6233042620188458005}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: upperarm_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3684,7 +3684,7 @@ GameObject:
   - component: {fileID: 5514296058386115857}
   - component: {fileID: 4993804096808116838}
   - component: {fileID: 6765690018564008433}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: thigh_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3813,7 +3813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4299912652206111693}
   - component: {fileID: 4872293487488846352}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Skull_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3908,7 +3908,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1872613055873269352}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: index_03_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3941,7 +3941,7 @@ GameObject:
   - component: {fileID: 4674392634451109666}
   - component: {fileID: 182298587682062428}
   - component: {fileID: 6207164075216517884}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: ragdoll_Marauder_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4029,7 +4029,7 @@ GameObject:
   m_Component:
   - component: {fileID: 535308736131563915}
   - component: {fileID: 188644826912267236}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Hair_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4117,7 +4117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4206787711558441509}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: index_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4152,7 +4152,7 @@ GameObject:
   - component: {fileID: 673209943681768686}
   - component: {fileID: 8055025652387671457}
   - component: {fileID: 9159702196980265343}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: lowerarm_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4281,7 +4281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8164366474058090243}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: lowerarm_twist_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4314,7 +4314,7 @@ GameObject:
   - component: {fileID: 6295725449040817970}
   - component: {fileID: 5393614147210143127}
   - component: {fileID: 2576626818138988613}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Cloth_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8256,7 +8256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 420032027327993866}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: index_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8288,7 +8288,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011848625530100930}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: ring_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8320,7 +8320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3187360554508174352}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: pinky_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8352,7 +8352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2359778940206460452}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: index_03_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8386,7 +8386,7 @@ GameObject:
   - component: {fileID: 4384387342107809701}
   - component: {fileID: 7164904255080230648}
   - component: {fileID: 1356421627200763016}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: calf_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8514,7 +8514,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1435705104232473647}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: thumb_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8547,7 +8547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7433759209658265976}
   - component: {fileID: 8704172698591683786}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8643,7 +8643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4590673873058295354}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: neck_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8678,7 +8678,7 @@ GameObject:
   - component: {fileID: 575369455908963117}
   - component: {fileID: 2230398640273735653}
   - component: {fileID: 7126779158426704312}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: calf_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8806,7 +8806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3535045651892310419}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: pinky_03_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8837,7 +8837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9006405632047522066}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: pinky_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8869,7 +8869,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3373466533426883729}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: ring_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8901,7 +8901,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7384967382082477387}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: clavicle_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8933,7 +8933,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6789796622919459884}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: ring_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8966,7 +8966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1467524207700054051}
   - component: {fileID: 3664075998501412971}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Moroder_Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9054,7 +9054,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4699798756245858401}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: middle_03_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9085,7 +9085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3314077775451259643}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: thumb_03_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9119,7 +9119,7 @@ GameObject:
   - component: {fileID: 2571370223365552404}
   - component: {fileID: 362950160308363825}
   - component: {fileID: 2959823960303060186}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}

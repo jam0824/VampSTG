@@ -523,20 +523,55 @@ public class BossMonsterHunter : BaseBoss
     {
         while (!isDead)
         {
+            FireAllTailBullbesScatter();
+            /*
             // Phase3の攻撃パターンを実装
             float randomValue = Random.Range(0f, 1f);
 
-            if (randomValue < 0.5f)
+            if (randomValue < 0.33f)
             {
                 animator.SetTrigger("phase3Attack1");
             }
-            else
+            else if (randomValue < 0.66f)
             {
                 animator.SetTrigger("phase3Attack2");
             }
-
+            else
+            {
+                // TailBullbesのScatterShooter攻撃
+                FireAllTailBullbesScatter();
+            }
+            */
+            
             // 攻撃完了後の待機
             yield return new WaitForSeconds(waitTime);
+        }
+    }
+
+    /// <summary>
+    /// 存在しているTailBullbesのScatterShooterでFire()を実行
+    /// </summary>
+    public void FireAllTailBullbesScatter()
+    {
+        for (int i = 0; i < TailBullbes.Length; i++)
+        {
+            // GameObject存在チェック
+            if (TailBullbes[i] == null)
+            {
+                Debug.Log($"TailBullbes[{i}]がMissingまたはnullです");
+                continue;
+            }
+
+            // ScatterShooterコンポーネント存在チェック
+            var scatterShooter = TailBullbes[i].GetComponent<ScatterShooter>();
+            if (scatterShooter == null)
+            {
+                Debug.LogWarning($"TailBullbes[{i}]にIEnemyShooterコンポーネント（ScatterShooter）が見つかりません");
+                continue;
+            }
+
+            // ScatterShooterのFire()を実行
+            scatterShooter.Fire();
         }
     }
 
