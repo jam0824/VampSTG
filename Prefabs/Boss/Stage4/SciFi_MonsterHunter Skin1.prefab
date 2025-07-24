@@ -659,6 +659,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7707242471711055602, guid: 69a4913c6e4e8174c90593ca132b2cf2, type: 3}
   firePoint: {fileID: 1400406531419991835}
   bulletLifeTime: 30
+  muzzleFirePrefab: {fileID: 0}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   bulletCount: 20
   scatterAngle: 160
   minBulletSpeed: 6
@@ -4768,7 +4771,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1186236126775488500, guid: 49e171690d52eb945b108369c7554bf6, type: 3}
   firePoint: {fileID: 6554927435020938064}
   bulletSpeed: 2
-  bulletLifeTime: 1
+  bulletLifeTime: 3
   numberOfBullets: 1
   totalSpreadAngle: 60
   isContinuousFire: 0
@@ -9586,7 +9589,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1186236126775488500, guid: 49e171690d52eb945b108369c7554bf6, type: 3}
   firePoint: {fileID: 5183763623351769816}
   bulletSpeed: 2
-  bulletLifeTime: 1
+  bulletLifeTime: 3
   numberOfBullets: 1
   totalSpreadAngle: 60
   isContinuousFire: 0
@@ -9746,11 +9749,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8046092988548558716, guid: bbbbb08203d0954429852a047864ef7c, type: 3}
+  bulletPrefab: {fileID: 8929149698021870602, guid: cdec967d87f8eb14d8976348f64868b0, type: 3}
   firePoint: {fileID: 2836912838717972833}
   bulletLifeTime: 30
+  muzzleFirePrefab: {fileID: 7967721204971836171, guid: 9ba8d7c46d65cef4b92ab6ec7c017655, type: 3}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   bulletCount: 3
-  scatterAngle: 60
+  scatterAngle: 360
   minBulletSpeed: 1
   maxBulletSpeed: 3
   player: {fileID: 0}
@@ -9836,11 +9842,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8046092988548558716, guid: bbbbb08203d0954429852a047864ef7c, type: 3}
+  bulletPrefab: {fileID: 8929149698021870602, guid: cdec967d87f8eb14d8976348f64868b0, type: 3}
   firePoint: {fileID: 2831871476129726189}
   bulletLifeTime: 30
+  muzzleFirePrefab: {fileID: 7967721204971836171, guid: 9ba8d7c46d65cef4b92ab6ec7c017655, type: 3}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   bulletCount: 3
-  scatterAngle: 60
+  scatterAngle: 360
   minBulletSpeed: 1
   maxBulletSpeed: 3
   player: {fileID: 0}
@@ -9926,11 +9935,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8046092988548558716, guid: bbbbb08203d0954429852a047864ef7c, type: 3}
+  bulletPrefab: {fileID: 8929149698021870602, guid: cdec967d87f8eb14d8976348f64868b0, type: 3}
   firePoint: {fileID: 4000938089719112254}
   bulletLifeTime: 30
+  muzzleFirePrefab: {fileID: 7967721204971836171, guid: 9ba8d7c46d65cef4b92ab6ec7c017655, type: 3}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   bulletCount: 3
-  scatterAngle: 60
+  scatterAngle: 360
   minBulletSpeed: 1
   maxBulletSpeed: 3
   player: {fileID: 0}
@@ -10016,11 +10028,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8046092988548558716, guid: bbbbb08203d0954429852a047864ef7c, type: 3}
+  bulletPrefab: {fileID: 8929149698021870602, guid: cdec967d87f8eb14d8976348f64868b0, type: 3}
   firePoint: {fileID: 443702817002723334}
   bulletLifeTime: 30
+  muzzleFirePrefab: {fileID: 7967721204971836171, guid: 9ba8d7c46d65cef4b92ab6ec7c017655, type: 3}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   bulletCount: 3
-  scatterAngle: 60
+  scatterAngle: 360
   minBulletSpeed: 1
   maxBulletSpeed: 3
   player: {fileID: 0}
@@ -10101,11 +10116,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8046092988548558716, guid: bbbbb08203d0954429852a047864ef7c, type: 3}
+  bulletPrefab: {fileID: 8929149698021870602, guid: cdec967d87f8eb14d8976348f64868b0, type: 3}
   firePoint: {fileID: 7714154758223197788}
   bulletLifeTime: 30
+  muzzleFirePrefab: {fileID: 7967721204971836171, guid: 9ba8d7c46d65cef4b92ab6ec7c017655, type: 3}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   bulletCount: 3
-  scatterAngle: 60
+  scatterAngle: 360
   minBulletSpeed: 1
   maxBulletSpeed: 3
   player: {fileID: 0}
@@ -10196,11 +10214,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8046092988548558716, guid: bbbbb08203d0954429852a047864ef7c, type: 3}
+  bulletPrefab: {fileID: 8929149698021870602, guid: cdec967d87f8eb14d8976348f64868b0, type: 3}
   firePoint: {fileID: 4673722797391414326}
   bulletLifeTime: 30
+  muzzleFirePrefab: {fileID: 7967721204971836171, guid: 9ba8d7c46d65cef4b92ab6ec7c017655, type: 3}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   bulletCount: 3
-  scatterAngle: 60
+  scatterAngle: 360
   minBulletSpeed: 1
   maxBulletSpeed: 3
   player: {fileID: 0}
@@ -10286,11 +10307,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8046092988548558716, guid: bbbbb08203d0954429852a047864ef7c, type: 3}
+  bulletPrefab: {fileID: 8929149698021870602, guid: cdec967d87f8eb14d8976348f64868b0, type: 3}
   firePoint: {fileID: 4689410426715596904}
   bulletLifeTime: 30
+  muzzleFirePrefab: {fileID: 7967721204971836171, guid: 9ba8d7c46d65cef4b92ab6ec7c017655, type: 3}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   bulletCount: 3
-  scatterAngle: 60
+  scatterAngle: 360
   minBulletSpeed: 1
   maxBulletSpeed: 3
   player: {fileID: 0}
@@ -10371,11 +10395,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8046092988548558716, guid: bbbbb08203d0954429852a047864ef7c, type: 3}
+  bulletPrefab: {fileID: 8929149698021870602, guid: cdec967d87f8eb14d8976348f64868b0, type: 3}
   firePoint: {fileID: 6376204476072824630}
   bulletLifeTime: 30
+  muzzleFirePrefab: {fileID: 7967721204971836171, guid: 9ba8d7c46d65cef4b92ab6ec7c017655, type: 3}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   bulletCount: 3
-  scatterAngle: 60
+  scatterAngle: 360
   minBulletSpeed: 1
   maxBulletSpeed: 3
   player: {fileID: 0}
@@ -10461,11 +10488,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8046092988548558716, guid: bbbbb08203d0954429852a047864ef7c, type: 3}
+  bulletPrefab: {fileID: 8929149698021870602, guid: cdec967d87f8eb14d8976348f64868b0, type: 3}
   firePoint: {fileID: 6673571808766867357}
   bulletLifeTime: 30
+  muzzleFirePrefab: {fileID: 7967721204971836171, guid: 9ba8d7c46d65cef4b92ab6ec7c017655, type: 3}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   bulletCount: 3
-  scatterAngle: 60
+  scatterAngle: 360
   minBulletSpeed: 1
   maxBulletSpeed: 3
   player: {fileID: 0}
@@ -10496,11 +10526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 248a773e2cede1a49af260a3188e2fd5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 248a773e2cede1a49af260a3188e2fd5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.26
+      value: -7.77
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 248a773e2cede1a49af260a3188e2fd5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10537,6 +10567,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 248a773e2cede1a49af260a3188e2fd5, type: 3}
       propertyPath: m_Name
       value: SciFi_MonsterHunter Skin1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 248a773e2cede1a49af260a3188e2fd5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 248a773e2cede1a49af260a3188e2fd5, type: 3}
       propertyPath: m_TagString
@@ -27398,7 +27432,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8396344232317354424}
   serializedVersion: 4
-  m_Mass: 10000
+  m_Mass: 6000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -27429,15 +27463,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a428f3e902dbd4b9b780fcf2714bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 500
+  hp: 7000
   attackInterval: 2
   bossHpBar: {fileID: 0}
   fader: {fileID: 0}
   missileTargetName: MissileTarget
-  waitTime: 4
+  waitTime: 3
   moveSpeed: 1
   rotateSpeed: 30
   stopDistance: 1
+  groundY: -2.5
   FirePointLeftHand: {fileID: 4365537671260314578}
   FirePointRightHand: {fileID: 8993446465061867775}
   FirePointHead: {fileID: 4299748890017221851}
@@ -27452,14 +27487,13 @@ MonoBehaviour:
   - {fileID: 3410832106664106470}
   - {fileID: 4584469115153564981}
   - {fileID: 1022661246366416653}
-  phase2HpRate: 0.98
-  groundY: -2
+  phase2HpRate: 0.7
   groundZ: 4
   phase2MoveSpeed: 2
-  phase3HpRate: 0.9
+  phase3HpRate: 0.25
   phase3Position: {x: 0, y: -1, z: 0}
   phase3Rotating: {fileID: 2894225731058432857}
-  bgm: {fileID: 0}
+  bgm: {fileID: 8300000, guid: ac3b2ee5270f78f409e1a8e13ab49c65, type: 3}
   bgmVol: 0.8
 --- !u!1 &8416304682288331121 stripped
 GameObject:

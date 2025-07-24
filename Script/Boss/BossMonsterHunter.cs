@@ -11,6 +11,7 @@ public class BossMonsterHunter : BaseBoss
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float rotateSpeed = 10f;
     [SerializeField] private float stopDistance = 1f;
+    [SerializeField] private float groundY = -2.5f;
 
     [Header("攻撃設定")]
     [SerializeField] private GameObject FirePointLeftHand;
@@ -21,7 +22,7 @@ public class BossMonsterHunter : BaseBoss
 
     [Header("フェーズ2設定")]
     [SerializeField] private float phase2HpRate = 0.75f;
-    [SerializeField] private float groundY = -2f;
+    
     [SerializeField] private float groundZ = 6f;
     [SerializeField] private float phase2MoveSpeed = 1f;
     
@@ -75,6 +76,8 @@ public class BossMonsterHunter : BaseBoss
         Debug.Log("BossMonsterHunter 出現演出開始");
         gameObject.SetActive(true);
         
+        // y座標をGroundYまで上昇させる演出
+        yield return StartCoroutine(RiseToGroundLevel());
         
         // 独自の処理：攻撃パターン開始
         bossHpBar.StartFadeIn(2f);
@@ -87,6 +90,34 @@ public class BossMonsterHunter : BaseBoss
         isSwim = true;
         swimAttackCoroutine = StartCoroutine(SwimAttackCoroutine());
         yield return null;
+    }
+
+    /// <summary>
+    /// 出現演出：y座標をGroundYまで上昇させる
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator RiseToGroundLevel()
+    {
+        Vector3 startPos = transform.position;
+        Vector3 targetPos = new Vector3(startPos.x, groundY, startPos.z);
+        
+        while (Mathf.Abs(transform.position.y - targetPos.y) > 0.01f)
+        {
+            if (isDead) yield break;
+            
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                targetPos,
+                moveSpeed * Time.deltaTime
+            );
+            
+            yield return null;
+        }
+        //演出上xを奥にしている（戦艦からはみでる）ので、xを元の位置に戻す
+        targetPos.x = 0f;
+        // 最終位置を確実に設定
+        transform.position = targetPos;
+        
     }
 
     protected override void Update()
@@ -291,6 +322,8 @@ public class BossMonsterHunter : BaseBoss
         StartPhase2();
     }
 
+    
+
     /// <summary>
     /// 地面レベル（groundY）まで移動する
     /// </summary>
@@ -477,14 +510,14 @@ public class BossMonsterHunter : BaseBoss
     }
 
     /// <summary>
-    /// Y軸で90度回転する
+    /// x軸プラス方向が正面を向くように回転する
     /// </summary>
     /// <returns></returns>
     private IEnumerator RotateY90()
     {
-        Quaternion startRotation = transform.rotation;
-        float targetY = (transform.position.z < 0f) ? 90f : -90f;
-        Quaternion targetRotation = startRotation * Quaternion.Euler(0f, targetY, 0f);
+        // x軸プラス方向を向く回転を計算（x軸とz軸の回転は0に固定）
+        Quaternion targetRotation = Quaternion.LookRotation(Vector3.right);
+        targetRotation = Quaternion.Euler(0f, targetRotation.eulerAngles.y, 0f);
         
         while (Quaternion.Angle(transform.rotation, targetRotation) > 1f)
         {
@@ -524,24 +557,6 @@ public class BossMonsterHunter : BaseBoss
         while (!isDead)
         {
             FireAllTailBullbesScatter();
-            /*
-            // Phase3の攻撃パターンを実装
-            float randomValue = Random.Range(0f, 1f);
-
-            if (randomValue < 0.33f)
-            {
-                animator.SetTrigger("phase3Attack1");
-            }
-            else if (randomValue < 0.66f)
-            {
-                animator.SetTrigger("phase3Attack2");
-            }
-            else
-            {
-                // TailBullbesのScatterShooter攻撃
-                FireAllTailBullbesScatter();
-            }
-            */
             
             // 攻撃完了後の待機
             yield return new WaitForSeconds(waitTime);
@@ -573,6 +588,21 @@ public class BossMonsterHunter : BaseBoss
             // ScatterShooterのFire()を実行
             scatterShooter.Fire();
         }
+    }
+
+    /// <summary>
+    /// 死亡時の処理をオーバーライド
+    /// </summary>
+    public override void Die(Transform hitPoint)
+    {
+        // Phase3Rotatingオブジェクトが有効な場合は無効にする
+        if (phase3Rotating != null && phase3Rotating.activeInHierarchy)
+        {
+            phase3Rotating.SetActive(false);
+        }
+        
+        // 親クラスの死亡処理を実行
+        base.Die(hitPoint);
     }
 
     

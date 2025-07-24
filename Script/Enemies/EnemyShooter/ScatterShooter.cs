@@ -7,6 +7,11 @@ public class ScatterShooter : MonoBehaviour, IEnemyShooter
     public Transform firePoint;        // 発射位置
     public float bulletLifeTime = 5f;  // 自動消滅までの時間
 
+    [Header("Muzzle Fire")]
+    public GameObject muzzleFirePrefab;
+    public AudioClip muzzleFireSe;
+    public float muzzleFireSeVolume = 0.8f;
+
     [Header("Scatter Settings")]
     public int bulletCount = 20;       // ばらまき弾の総数
     public float scatterAngle = 60f;   // 全体の散布角度（度）
@@ -84,6 +89,7 @@ public class ScatterShooter : MonoBehaviour, IEnemyShooter
 
             ShootBullet(angle, speed);
         }
+        MuzzleFire();
     }
 
     /// <summary>
@@ -105,6 +111,7 @@ public class ScatterShooter : MonoBehaviour, IEnemyShooter
             float speed = Random.Range(minBulletSpeed, maxBulletSpeed);
             ShootBullet(randomAngle, speed);
         }
+        MuzzleFire();
     }
 
     /// <summary>
@@ -124,5 +131,14 @@ public class ScatterShooter : MonoBehaviour, IEnemyShooter
         }
 
         Destroy(b, bulletLifeTime);
+    }
+
+    private void MuzzleFire()
+    {
+        if (muzzleFirePrefab != null)
+        {
+            Instantiate(muzzleFirePrefab, firePoint.position, firePoint.rotation);
+        }
+        SoundManager.Instance.PlaySE(muzzleFireSe, muzzleFireSeVolume);
     }
 }
