@@ -130,7 +130,7 @@ public class SmineBattery : BaseBattery
 
     GameObject MakeBullet(GameObject sminePrefab, Transform firePointTransform, float damage)
     {
-        var newBullet = Instantiate(sminePrefab, firePointTransform.position, Quaternion.identity);
+        var newBullet = EffectController.Instance.PlayPlayerBullet(sminePrefab, firePointTransform.position, Quaternion.identity);
         var smine = newBullet.GetComponent<Smine>();
         smine.damage = damage;
         return newBullet;
@@ -143,7 +143,7 @@ public class SmineBattery : BaseBattery
         euler.x = -euler.x + 180f; // X軸を逆回転
         Quaternion modifiedRotation = Quaternion.Euler(euler);
 
-        var newMuzzle = Instantiate(smineMuzzlePrefab, firePointTransform.position, modifiedRotation);
+        var newMuzzle = EffectController.Instance.PlayEffect(smineMuzzlePrefab, firePointTransform.position, modifiedRotation);
         return newMuzzle;
     }
 

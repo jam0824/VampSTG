@@ -42,6 +42,9 @@ public class EffectController : MonoBehaviour
 
     GameObject playerEffectObj;
     private List<Vector3> oldExplosionPositions = new List<Vector3>();
+
+    private GameObject _effectPool;
+    private GameObject _playerBulletPool;
     
 
     private void Awake()
@@ -56,6 +59,12 @@ public class EffectController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        _effectPool = transform.Find("EffectPool").gameObject;
+        _playerBulletPool = transform.Find("PlayerBulletPool").gameObject;
     }
 
     public void PlaySmallExplosion(Vector3 pos, Quaternion rot){
@@ -143,7 +152,11 @@ public class EffectController : MonoBehaviour
             return;
         }
         
-        Instantiate(explosions[objindex], pos, rot);
+        GameObject explosion = Instantiate(explosions[objindex], pos, rot);
+        if (_effectPool != null)
+        {
+            explosion.transform.SetParent(_effectPool.transform);
+        }
         SoundManager.Instance.PlaySE(clips[seIndex], vol);
     }
 
@@ -193,5 +206,39 @@ public class EffectController : MonoBehaviour
             playerEffectObj = GameObject.Find("PlayerEffectObj");
         }
         return playerEffectObj;
+    }
+
+    /// <summary>
+    /// エフェクトを再生する
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="pos"></param>
+    /// <param name="rot"></param>
+    /// <param name="isSkipEffectPool"></param>
+    /// <returns></returns>
+    public GameObject PlayEffect(GameObject obj, Vector3 pos, Quaternion rot){
+        GameObject effect = Instantiate(obj, pos, rot);
+        if (_effectPool != null)
+        {
+            effect.transform.SetParent(_effectPool.transform);
+        }
+        return effect;
+    }
+
+    /// <summary>
+    /// プレイヤーの弾を再生する
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="pos"></param>
+    /// <param name="rot"></param>
+    /// <param name="isSkipEffectPool"></param>
+    /// <returns></returns>
+    public GameObject PlayPlayerBullet(GameObject obj, Vector3 pos, Quaternion rot){   
+        GameObject bullet = Instantiate(obj, pos, rot);
+        if (_playerBulletPool != null)
+        {
+            bullet.transform.SetParent(_playerBulletPool.transform);
+        }
+        return bullet;
     }
 }

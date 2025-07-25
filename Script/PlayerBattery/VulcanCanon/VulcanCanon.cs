@@ -114,7 +114,7 @@ public class VulcanCanon : BaseBattery
             // 子オブジェクトの位置で一斉射撃
             foreach (Transform t in GetChildTransforms())
             {
-                GameObject bulletInstance = Instantiate(bullet, t.position, t.rotation);
+                GameObject bulletInstance = EffectController.Instance.PlayPlayerBullet(bullet, t.position, t.rotation);
                 bulletInstance.GetComponent<ConfigPlayerBullet>().damage = damage;
                 AddBulletCount();
             }

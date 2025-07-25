@@ -858,6 +858,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionController
       objectReference: {fileID: 0}
+    - target: {fileID: 6069874901157344509, guid: 65ca48a179bafa8418ca822116eb7087, type: 3}
+      propertyPath: checkInterval
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

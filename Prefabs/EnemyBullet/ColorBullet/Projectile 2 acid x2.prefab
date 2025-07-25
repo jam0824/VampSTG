@@ -4949,6 +4949,7 @@ GameObject:
   - component: {fileID: 4572237558512718222}
   - component: {fileID: 371357525201665646}
   - component: {fileID: 4597296713462071958}
+  - component: {fileID: 5360800610952313647}
   m_Layer: 9
   m_Name: Projectile 2 acid x2
   m_TagString: EnemyBullet
@@ -5032,6 +5033,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02fc0d3f4a76c2e43a950c8f56ee5914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5360800610952313647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052689336147358366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96428cfacaa4ac8428ca8258dd0bf1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzlePrefab: {fileID: 0}
+  _hitPrefab: {fileID: 3713651033267317497, guid: 246cace92ed30da459a0da03e177e734, type: 3}
 --- !u!1001 &4007190667487830633
 PrefabInstance:
   m_ObjectHideFlags: 0

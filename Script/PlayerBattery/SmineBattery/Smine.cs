@@ -122,7 +122,7 @@ public class Smine : MonoBehaviour
         {
             FireBullets();
             hasFired = true;
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            EffectController.Instance.PlayEffect(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         // x軸からずれていたら補正する
@@ -192,7 +192,7 @@ public class Smine : MonoBehaviour
         
         // 子弾を生成（方向ベクトルと同じ方向を向けて）
         Quaternion rot = Quaternion.LookRotation(direction);
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, rot);
+        GameObject bullet = EffectController.Instance.PlayPlayerBullet(bulletPrefab, transform.position, rot);
 
         bullet.GetComponent<ConfigPlayerBullet>().damage = damage; 
         // 子弾に速度を与える
