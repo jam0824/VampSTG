@@ -45,6 +45,7 @@ public class EffectController : MonoBehaviour
 
     private GameObject _effectPool;
     private GameObject _playerBulletPool;
+    private GameObject _enemyBulletPool;
     
 
     private void Awake()
@@ -65,6 +66,7 @@ public class EffectController : MonoBehaviour
     {
         _effectPool = transform.Find("EffectPool").gameObject;
         _playerBulletPool = transform.Find("PlayerBulletPool").gameObject;
+        _enemyBulletPool = transform.Find("EnemyBulletPool").gameObject;
     }
 
     public void PlaySmallExplosion(Vector3 pos, Quaternion rot){
@@ -238,6 +240,22 @@ public class EffectController : MonoBehaviour
         if (_playerBulletPool != null)
         {
             bullet.transform.SetParent(_playerBulletPool.transform);
+        }
+        return bullet;
+    }
+
+    /// <summary>
+    /// 敵の弾を再生する
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="pos"></param>
+    /// <param name="rot"></param>
+    /// <returns></returns>
+    public GameObject PlayEnemyBullet(GameObject obj, Vector3 pos, Quaternion rot){
+        GameObject bullet = Instantiate(obj, pos, rot);
+        if (_enemyBulletPool != null)
+        {
+            bullet.transform.SetParent(_enemyBulletPool.transform);
         }
         return bullet;
     }

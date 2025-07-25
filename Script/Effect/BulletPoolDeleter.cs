@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerBulletPoolDeleter : MonoBehaviour
+public class BulletPoolDeleter : MonoBehaviour
 {
     [Header("削除設定")]
     [SerializeField] private float checkInterval = 5f; // チェック間隔（秒）

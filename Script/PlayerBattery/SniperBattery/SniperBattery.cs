@@ -123,7 +123,7 @@ public class SniperBattery : BaseBattery
             yield return new WaitForSeconds(waitForShot);
             foreach (Transform t in GetChildTransforms())
             {
-                GameObject bulletInstance = Instantiate(bullet, t.position, t.rotation);
+                GameObject bulletInstance = EffectController.Instance.PlayPlayerBullet(bullet, t.position, t.rotation);
                 bulletInstance.GetComponent<ConfigPlayerBullet>().damage = damage;
             }
             SoundManager.Instance.PlaySE(bulletSe, bulletSeVolume);

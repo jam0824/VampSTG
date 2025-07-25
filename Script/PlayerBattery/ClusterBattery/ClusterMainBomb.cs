@@ -120,7 +120,7 @@ public class ClusterMainBomb : MonoBehaviour
         StartCoroutine(EjectOuterShellCoroutine());
         // バックファイアを発射
         Quaternion rotationWithOffset = backFirePoint.rotation * Quaternion.Euler(180, 0, 0);
-        GameObject backFire = Instantiate(backFirePrefab, backFirePoint.position, rotationWithOffset);
+        GameObject backFire = EffectController.Instance.PlayEffect(backFirePrefab, backFirePoint.position, rotationWithOffset);
         backFire.transform.SetParent(gameObject.transform);
         SoundManager.Instance.PlaySE(backFireSe, backFireSeVolume);
     }

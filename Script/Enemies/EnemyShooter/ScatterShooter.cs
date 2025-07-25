@@ -124,7 +124,7 @@ public class ScatterShooter : MonoBehaviour, IEnemyShooter
         Vector3 firePointPos = firePoint.position;
         firePointPos.x = 0;
         // 弾を生成し、向きを dir に合わせる
-        GameObject b = Instantiate(bulletPrefab, firePointPos, Quaternion.LookRotation(dir));
+        GameObject b = EffectController.Instance.PlayEnemyBullet(bulletPrefab, firePointPos, Quaternion.LookRotation(dir));
         if (b.TryGetComponent<Rigidbody>(out var rb))
         {
             rb.linearVelocity = dir * speed;
@@ -137,7 +137,7 @@ public class ScatterShooter : MonoBehaviour, IEnemyShooter
     {
         if (muzzleFirePrefab != null)
         {
-            Instantiate(muzzleFirePrefab, firePoint.position, firePoint.rotation);
+            EffectController.Instance.PlayEffect(muzzleFirePrefab, firePoint.position, firePoint.rotation);
         }
         SoundManager.Instance.PlaySE(muzzleFireSe, muzzleFireSeVolume);
     }

@@ -165,7 +165,7 @@ public class GrenadeBattery : BaseBattery
 
     GameObject MakeBullet(GameObject bullet, Transform childTransform)
     {
-        var newBullet = Instantiate(bullet, childTransform.position, childTransform.rotation);
+        var newBullet = EffectController.Instance.PlayPlayerBullet(bullet, childTransform.position, childTransform.rotation);
         var configPlayerBullet = newBullet.GetComponent<ConfigPlayerBullet>();
         configPlayerBullet.damage = damage;
         return newBullet;

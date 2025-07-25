@@ -29,7 +29,7 @@ public class RandomBulletShooter : MonoBehaviour
         float speed = Random.Range(minSpeed, maxSpeed);
 
         // 5) 弾を生成して回転・速度を設定
-        GameObject bullet = Instantiate(
+        GameObject bullet = EffectController.Instance.PlayEnemyBullet(
             bulletPrefab,
             firePoint.position,
             Quaternion.LookRotation(dir, Vector3.up)

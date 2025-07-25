@@ -113,7 +113,7 @@ public class BitShooter : MonoBehaviour
     {
         if (playerManager.isDead) return;
         Quaternion fireRot = firePoint.rotation * modelOffset * beamFlip;
-        GameObject bullet = Instantiate(laserPrefab, firePoint.position, fireRot);
+        GameObject bullet = EffectController.Instance.PlayPlayerBullet(laserPrefab, firePoint.position, fireRot);
         ConfigPlayerBullet configPlayerBullet = bullet.GetComponent<ConfigPlayerBullet>();
         configPlayerBullet.damage = damage;
         SoundManager.Instance.PlaySE(se, seVol);

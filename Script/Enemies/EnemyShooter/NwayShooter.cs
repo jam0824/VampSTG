@@ -192,7 +192,7 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
     {
         if (muzzleFirePrefab != null)
         {
-            Instantiate(muzzleFirePrefab, firePoint.position, firePoint.rotation);
+            EffectController.Instance.PlayEffect(muzzleFirePrefab, firePoint.position, firePoint.rotation);
         }
         SoundManager.Instance.PlaySE(muzzleFireSe, muzzleFireSeVolume);
     }
@@ -206,7 +206,7 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
         Vector3 dir = new Vector3(0f, Mathf.Sin(rad), Mathf.Cos(rad)).normalized;
         Vector3 firePointPos = firePoint.position;
         firePointPos.x = 0;
-        GameObject b = Instantiate(bulletPrefab, firePointPos, Quaternion.LookRotation(dir));
+        GameObject b = EffectController.Instance.PlayEnemyBullet(bulletPrefab, firePointPos, Quaternion.LookRotation(dir));
         
         // IBulletコンポーネントがあったら弾速を変更
         if (b.TryGetComponent<IBullet>(out var bullet))
