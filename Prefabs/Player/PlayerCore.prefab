@@ -1009,6 +1009,10 @@ PrefabInstance:
       propertyPath: smineMaxSetCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4108386558654774983, guid: e90fdfef4f492f041866093f81d99f93, type: 3}
+      propertyPath: smineMuzzlePrefab
+      value: 
+      objectReference: {fileID: 7737041442602916965, guid: fdedcd217797c4b4eaf9f1eef7280e39, type: 3}
     - target: {fileID: 4282842700795582414, guid: e90fdfef4f492f041866093f81d99f93, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1055,7 +1059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195774306436140624, guid: e90fdfef4f492f041866093f81d99f93, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

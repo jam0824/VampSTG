@@ -25,11 +25,6 @@ public class SmineBattery : BaseBattery
 
     public int smineMaxSetCount = 0;   //地雷の現在設置できる数
 
-    //デバッグ用
-    void Start()
-    {
-        level1();
-    }
 
 
     public override void getItem()
@@ -114,7 +109,7 @@ public class SmineBattery : BaseBattery
         while (true)
         {
             // 一斉地雷設置
-            for(int i = 0; i <= smineMaxSetCount; i++)
+            for(int i = 0; i < smineMaxSetCount; i++)
             {
                 Fire(firePoint.transform);
                 MakeMuzzle(smineMuzzlePrefab, firePoint.transform);
