@@ -1156,7 +1156,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5119592196132294200, guid: 89ed86339d82ad4468dc8651ea9c9558, type: 3}
       propertyPath: escapeTime
-      value: 150
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 5366319245690629695, guid: 89ed86339d82ad4468dc8651ea9c9558, type: 3}
       propertyPath: m_Name

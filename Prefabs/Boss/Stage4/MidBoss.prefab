@@ -52,8 +52,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4698942637086271001, guid: 8856dba79ca202d4ab88ca09a4cfb2af, type: 3}
       propertyPath: escapeTime
-      value: 180
+      value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 4698942637086271001, guid: 8856dba79ca202d4ab88ca09a4cfb2af, type: 3}
+      propertyPath: specificItem
+      value: 
+      objectReference: {fileID: 6152306980197377275, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
     - target: {fileID: 6694813136522499309, guid: 8856dba79ca202d4ab88ca09a4cfb2af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
