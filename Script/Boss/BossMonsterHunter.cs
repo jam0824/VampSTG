@@ -39,7 +39,6 @@ public class BossMonsterHunter : BaseBoss
     protected override AudioClip GetEntryBGM() => bgm;
     protected override float GetEntryBGMVolume() => bgmVol;
 
-    private bool isMoving = false; // 移動中フラグ
     private Transform playerTransform;
     private bool isSwim = false;
     private bool isPhase2 = false; // 第2フェーズフラグ

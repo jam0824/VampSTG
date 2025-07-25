@@ -31,36 +31,39 @@ public class BulletPoolDeleter : MonoBehaviour
             float maxZ = GameManager.Instance.maxZ + extraRange;
             float minZ = GameManager.Instance.minZ - extraRange;
             
-            Debug.Log($"弾クリーンアップ開始 - 範囲 Y({minY}〜{maxY}) Z({minZ}〜{maxZ}) - 子オブジェクト数: {transform.childCount}");
             
-            // 削除対象のリストを作成
-            var listBulletsToDelete = new System.Collections.Generic.List<Transform>();
+            // 非アクティブ化対象のリストを作成
+            var listBulletsToDeactivate = new System.Collections.Generic.List<Transform>();
             
             // 全ての子オブジェクトをチェック
             for (int i = 0; i < transform.childCount; i++)
             {
                 Transform child = transform.GetChild(i);
+                
+                // 既に非アクティブなオブジェクトはスキップ
+                if (!child.gameObject.activeInHierarchy)
+                    continue;
+                    
                 Vector3 pos = child.position;
                 
                 if (IsOutOfRange(pos, minY, maxY, minZ, maxZ))
                 {
-                    listBulletsToDelete.Add(child);
-                    Debug.Log($"範囲外削除対象: {child.name} - 位置({pos.x:F1}, {pos.y:F1}, {pos.z:F1})");
+                    listBulletsToDeactivate.Add(child);
                 }
             }
             
-            // 削除実行
-            foreach (Transform child in listBulletsToDelete)
+            // 非アクティブ化実行
+            foreach (Transform child in listBulletsToDeactivate)
             {
-                if (child != null)
+                if (child != null && child.gameObject.activeInHierarchy)
                 {
-                    Destroy(child.gameObject);
+                    child.gameObject.SetActive(false);
                 }
             }
             
-            if (listBulletsToDelete.Count > 0)
+            if (listBulletsToDeactivate.Count > 0)
             {
-                Debug.Log($"弾クリーンアップ完了 - {listBulletsToDelete.Count}個削除");
+                Debug.Log($"弾クリーンアップ完了 - {listBulletsToDeactivate.Count}個非アクティブ化");
             }
         }
     }

@@ -228,35 +228,100 @@ public class EffectController : MonoBehaviour
     }
 
     /// <summary>
-    /// プレイヤーの弾を再生する
+    /// プレイヤーの弾を再生する（オブジェクトプーリング対応）
     /// </summary>
     /// <param name="obj"></param>
     /// <param name="pos"></param>
     /// <param name="rot"></param>
-    /// <param name="isSkipEffectPool"></param>
     /// <returns></returns>
     public GameObject PlayPlayerBullet(GameObject obj, Vector3 pos, Quaternion rot){   
-        GameObject bullet = Instantiate(obj, pos, rot);
+        GameObject bullet = null;
+        
+        // _playerBulletPoolから同じ名前の非アクティブなオブジェクトを探す
         if (_playerBulletPool != null)
         {
-            bullet.transform.SetParent(_playerBulletPool.transform);
+            bullet = FindInactivePooledObject(_playerBulletPool, obj.name);
         }
+        
+        if (bullet != null)
+        {
+            // プールから再利用
+            bullet.transform.position = pos;
+            bullet.transform.rotation = rot;
+            bullet.SetActive(true);
+            Debug.Log($"プレイヤー弾を再利用: {obj.name}");
+        }
+        else
+        {
+            // 新規作成
+            bullet = Instantiate(obj, pos, rot);
+            if (_playerBulletPool != null)
+            {
+                bullet.transform.SetParent(_playerBulletPool.transform);
+            }
+            Debug.Log($"プレイヤー弾を新規作成: {obj.name}");
+        }
+        
         return bullet;
     }
 
     /// <summary>
-    /// 敵の弾を再生する
+    /// 敵の弾を再生する（オブジェクトプーリング対応）
     /// </summary>
     /// <param name="obj"></param>
     /// <param name="pos"></param>
     /// <param name="rot"></param>
     /// <returns></returns>
     public GameObject PlayEnemyBullet(GameObject obj, Vector3 pos, Quaternion rot){
-        GameObject bullet = Instantiate(obj, pos, rot);
+        GameObject bullet = null;
+        
+        // _enemyBulletPoolから同じ名前の非アクティブなオブジェクトを探す
         if (_enemyBulletPool != null)
         {
-            bullet.transform.SetParent(_enemyBulletPool.transform);
+            bullet = FindInactivePooledObject(_enemyBulletPool, obj.name);
         }
+        
+        if (bullet != null)
+        {
+            // プールから再利用
+            bullet.transform.position = pos;
+            bullet.transform.rotation = rot;
+            bullet.SetActive(true);
+            Debug.Log($"弾を再利用: {obj.name}");
+        }
+        else
+        {
+            // 新規作成
+            bullet = Instantiate(obj, pos, rot);
+            if (_enemyBulletPool != null)
+            {
+                bullet.transform.SetParent(_enemyBulletPool.transform);
+            }
+            Debug.Log($"弾を新規作成: {obj.name}");
+        }
+        
         return bullet;
+    }
+    
+    /// <summary>
+    /// プールから指定した名前の非アクティブなオブジェクトを探す
+    /// </summary>
+    /// <param name="pool"></param>
+    /// <param name="objectName"></param>
+    /// <returns></returns>
+    GameObject FindInactivePooledObject(GameObject pool, string objectName)
+    {
+        for (int i = 0; i < pool.transform.childCount; i++)
+        {
+            Transform child = pool.transform.GetChild(i);
+            
+            // 名前が一致し、かつ非アクティブなオブジェクトを探す
+            if (child.name.Contains(objectName) && !child.gameObject.activeInHierarchy)
+            {
+                return child.gameObject;
+            }
+        }
+        
+        return null; // 見つからない場合
     }
 }
