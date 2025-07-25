@@ -18,10 +18,16 @@ public class Smine : MonoBehaviour
     [Header("爆発設定")]
     [SerializeField]private GameObject explosionPrefab; // 爆発のプレハブ
     
+    [Header("回転アニメーション設定")]
+    public float rotationAnimationDuration = 0.5f; // 回転アニメーションの時間
+    
     private Rigidbody rb;
     private bool hasJumped = false;
     private bool hasFired = false;
     private float startY;
+    private bool isRotating = false; // 回転アニメーション中かどうか
+
+    public float damage{get;set;}   //子弾のダメージ
     
     void Start()
     {
@@ -33,17 +39,79 @@ public class Smine : MonoBehaviour
         
     }
 
+    // 共通の衝突処理関数
+    void HandleHit(GameObject hitObject)
+    {
+        if ((hitObject.CompareTag("Enemy"))||
+        (hitObject.CompareTag("Boss"))||
+        (hitObject.CompareTag("EnemyBullet")))
+        {
+            if (!isRotating && !hasJumped)
+            {
+                // 回転アニメーションを開始
+                StartCoroutine(RotateToStraightAndJump());
+            }
+        }
+    }
+
+    // OnCollisionEnter（通常のコライダー衝突）
     void OnCollisionEnter(Collision collision)
     {
-        if ((collision.gameObject.CompareTag("Enemy"))||(collision.gameObject.CompareTag("Boss")))
+        HandleHit(collision.gameObject);
+    }
+
+    // OnTriggerEnter（トリガーコライダー衝突）
+    void OnTriggerEnter(Collider other)
+    {
+        HandleHit(other.gameObject);
+    }
+    
+    System.Collections.IEnumerator RotateToStraightAndJump()
+    {
+        isRotating = true;
+        
+        // 現在の回転と目標の回転（真っすぐな位置）
+        Quaternion startRotation = transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, 0); // 真っすぐな位置
+        
+        float elapsedTime = 0f;
+        
+        // 回転アニメーション
+        while (elapsedTime < rotationAnimationDuration)
         {
-            rb.useGravity = true;
-            startY = transform.position.y;
-            // 上方向に飛び上がる
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            hasJumped = true;
-            SoundManager.Instance.PlaySE(jumpSE, jumpSEVol);
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / rotationAnimationDuration;
+            
+            // スムーズな補間
+            t = Mathf.SmoothStep(0f, 1f, t);
+            
+            // 回転を補間
+            transform.rotation = Quaternion.Lerp(startRotation, targetRotation, t);
+            
+            yield return null;
         }
+        
+        // 最終的な回転を確実に設定
+        transform.rotation = targetRotation;
+        
+        isRotating = false;
+        yield return new WaitForSeconds(0.2f);
+        
+        // 飛び上がり処理
+        rb.useGravity = true;
+        startY = transform.position.y;
+        
+        // コライダーをオフにする
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = false;
+        }
+        
+        // 上方向に飛び上がる
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        hasJumped = true;
+        SoundManager.Instance.PlaySE(jumpSE, jumpSEVol);
     }
 
     void Update()
@@ -57,13 +125,18 @@ public class Smine : MonoBehaviour
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+        // x軸からずれていたら補正する
+        if((transform.position.x >=0.1f)||(transform.position.x <= -0.1f)){
+            Vector3 pos = transform.position;
+            pos.x = 0;
+            transform.position = pos;
+        }
         
     }
     
     void FireBullets()
     {
         if (bulletPrefab == null) return;
-        
         Debug.Log("FireBullets");
         
         // シンプルに全方向に拡散弾を発射
@@ -103,24 +176,34 @@ public class Smine : MonoBehaviour
             
             // 方向ベクトルを計算（指定されたZ方向基準でY軸方向に拡散）
             Vector3 direction = new Vector3(0, Mathf.Sin(radians), zDirection * Mathf.Cos(radians));
-            
-            Debug.Log($"{directionName}弾{i}: Y軸拡散角={spreadAngleForBullet:F1}度, 方向={direction}");
-            
-            // 子弾を生成（方向ベクトルと同じ方向を向けて）
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, rotation);
-            
-            // 子弾に速度を与える
-            Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
-            if (bulletRb == null)
-            {
-                bulletRb = bullet.AddComponent<Rigidbody>();
-            }
-            
-            bulletRb.linearVelocity = direction * bulletSpeed;
-            Debug.Log($"{directionName}弾{i}の速度: {direction * bulletSpeed}");
+            GameObject bullet = MakeBullet(direction, Quaternion.identity, bulletPrefab, bulletSpeed, damage);
+
         }
         
+    }
+
+    GameObject MakeBullet(
+        Vector3 direction, 
+        Quaternion rotation, 
+        GameObject bulletPrefab, 
+        float bulletSpeed, 
+        float damage)
+    {
+        
+        // 子弾を生成（方向ベクトルと同じ方向を向けて）
+        Quaternion rot = Quaternion.LookRotation(direction);
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, rot);
+
+        bullet.GetComponent<ConfigPlayerBullet>().damage = damage; 
+        // 子弾に速度を与える
+        Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
+        if (bulletRb == null)
+        {
+            bulletRb = bullet.AddComponent<Rigidbody>();
+        }
+        
+        bulletRb.linearVelocity = direction * bulletSpeed;
+        return bullet;
     }
     
 
