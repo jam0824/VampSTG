@@ -994,6 +994,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3236653002755017925}
     m_Modifications:
     - target: {fileID: 4108386558654774983, guid: e90fdfef4f492f041866093f81d99f93, type: 3}
+      propertyPath: bulletSe
+      value: 
+      objectReference: {fileID: 8300000, guid: 72ef00f61176f24428d9759f8be42e92, type: 3}
+    - target: {fileID: 4108386558654774983, guid: e90fdfef4f492f041866093f81d99f93, type: 3}
       propertyPath: itemData
       value: 
       objectReference: {fileID: 11400000, guid: 30dfbbafc61dcb14ab7cd45408fceb15, type: 2}
@@ -1059,7 +1063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195774306436140624, guid: e90fdfef4f492f041866093f81d99f93, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

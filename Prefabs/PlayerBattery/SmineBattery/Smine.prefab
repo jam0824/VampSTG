@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1151168522033042259}
   - component: {fileID: 5437470242985344966}
   - component: {fileID: 4967653236835015434}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Mine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1034425162304782539}
   - component: {fileID: 4251480336344766564}
   - component: {fileID: 7480339173540308402}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Smine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 1931917669480202810}
   - component: {fileID: 7135048614273850243}
   - component: {fileID: 4188809861103602636}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Pin6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
