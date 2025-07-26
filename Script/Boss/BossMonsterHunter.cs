@@ -216,11 +216,8 @@ public class BossMonsterHunter : BaseBoss
     /// </summary>
     public void FireLeftHand()
     {
-        NWayShooter enemyShooter = FirePointLeftHand.GetComponent<NWayShooter>();
-        if(enemyShooter != null){
-            if(isPhase2) enemyShooter.bulletSpeed = 5f;
-            enemyShooter.Fire();
-        }
+        FireHand(FirePointLeftHand, 5f);
+        if(isPhase2) ScatterFireHand(FirePointLeftHand);
     }
 
     /// <summary>
@@ -228,9 +225,21 @@ public class BossMonsterHunter : BaseBoss
     /// </summary>
     public void FireRightHand()
     {
-        NWayShooter enemyShooter = FirePointRightHand.GetComponent<NWayShooter>();
+        FireHand(FirePointRightHand, 5f);
+        if(isPhase2) ScatterFireHand(FirePointRightHand);
+    }
+
+    void FireHand(GameObject fireObject, float bulletSpeed){
+        NWayShooter enemyShooter = fireObject.GetComponent<NWayShooter>();
         if(enemyShooter != null){
-            if(isPhase2) enemyShooter.bulletSpeed = 5f;
+            enemyShooter.bulletSpeed = bulletSpeed;
+            enemyShooter.Fire();
+        }
+    }
+
+    void ScatterFireHand(GameObject fireObject){
+        ScatterShooter enemyShooter = fireObject.GetComponent<ScatterShooter>();
+        if(enemyShooter != null){
             enemyShooter.Fire();
         }
     }

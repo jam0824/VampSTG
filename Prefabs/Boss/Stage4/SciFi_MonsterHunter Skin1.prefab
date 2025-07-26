@@ -4761,6 +4761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6554927435020938064}
   - component: {fileID: 6659879524306347376}
+  - component: {fileID: 3445372902328922005}
   m_Layer: 0
   m_Name: firePointCrow_l
   m_TagString: Untagged
@@ -4807,6 +4808,28 @@ MonoBehaviour:
   muzzleFireSe: {fileID: 0}
   muzzleFireSeVolume: 0.8
   core: {fileID: 0}
+--- !u!114 &3445372902328922005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4365537671260314578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2557844696565259676, guid: 7a36bc7318f38d64a926587e1d746840, type: 3}
+  firePoint: {fileID: 6554927435020938064}
+  muzzleFirePrefab: {fileID: 0}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
+  bulletCount: 1
+  scatterAngle: 0
+  minBulletSpeed: 3
+  maxBulletSpeed: 3
+  player: {fileID: 0}
 --- !u!1 &4390179681127806102
 GameObject:
   m_ObjectHideFlags: 0
@@ -9578,6 +9601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5183763623351769816}
   - component: {fileID: 8983835138760658871}
+  - component: {fileID: 5583619416654573830}
   m_Layer: 0
   m_Name: firePointCrow_r
   m_TagString: Untagged
@@ -9624,6 +9648,28 @@ MonoBehaviour:
   muzzleFireSe: {fileID: 0}
   muzzleFireSeVolume: 0.8
   core: {fileID: 0}
+--- !u!114 &5583619416654573830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8993446465061867775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f385609b85caa594898f407867f92ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2557844696565259676, guid: 7a36bc7318f38d64a926587e1d746840, type: 3}
+  firePoint: {fileID: 5183763623351769816}
+  muzzleFirePrefab: {fileID: 0}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
+  bulletCount: 1
+  scatterAngle: 0
+  minBulletSpeed: 3
+  maxBulletSpeed: 3
+  player: {fileID: 0}
 --- !u!1 &9141193199469412024
 GameObject:
   m_ObjectHideFlags: 0
