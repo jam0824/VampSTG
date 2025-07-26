@@ -7,7 +7,6 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
     public GameObject bulletPrefab;    // 弾のプレハブ（Rigidbody 必須）
     public Transform firePoint;        // 発射位置
     public float bulletSpeed = 10f;    // 弾速
-    public float bulletLifeTime = 30f;  // 自動消滅までの時間
 
     [Header("Shot Settings")]
     public int numberOfBullets = 5;     // NWay の "N"
@@ -218,6 +217,5 @@ public class NWayShooter : MonoBehaviour, IEnemyShooter
         {
             rb.linearVelocity = dir * bulletSpeed;
         }
-        Destroy(b, bulletLifeTime);
     }
 }

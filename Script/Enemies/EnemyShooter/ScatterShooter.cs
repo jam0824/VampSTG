@@ -5,7 +5,6 @@ public class ScatterShooter : MonoBehaviour, IEnemyShooter
     [Header("Bullet Settings")]
     public GameObject bulletPrefab;    // Rigidbody を持つ弾のプレハブ
     public Transform firePoint;        // 発射位置
-    public float bulletLifeTime = 5f;  // 自動消滅までの時間
 
     [Header("Muzzle Fire")]
     public GameObject muzzleFirePrefab;
@@ -130,7 +129,6 @@ public class ScatterShooter : MonoBehaviour, IEnemyShooter
             rb.linearVelocity = dir * speed;
         }
 
-        Destroy(b, bulletLifeTime);
     }
 
     private void MuzzleFire()
