@@ -17,7 +17,7 @@ public class PlayerEffectObj : MonoBehaviour
         if(core == null){
             core = GameObject.FindWithTag("Core");
         }
-        gameObject.transform.position = core.gameObject.transform.position;
+        gameObject.transform.position = EffectController.Instance.GetCorrectedPosition(core.gameObject.transform.position);
         
     }
 }
