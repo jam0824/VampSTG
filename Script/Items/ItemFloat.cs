@@ -37,7 +37,7 @@ public class ItemFloat : MonoBehaviour
             float parabola = -4f * (t - 0.5f) * (t - 0.5f) + 1f;
             float yOffset = parabola * peakHeight;
 
-            transform.position = _startPos + Vector3.up * yOffset;
+            transform.position = EffectController.Instance.GetCorrectedPosition(_startPos + Vector3.up * yOffset);
 
             //画面の下までいったら消える。カメラ外時に処理しないのは上に飛んで画面外になることもあるため下限で処理
             if(transform.position.y < (GameManager.Instance.minY - 1f)) 

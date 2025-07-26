@@ -345,11 +345,15 @@ public class EffectController : MonoBehaviour
         return null; // 見つからない場合
     }
 
+    public Vector3 GetCorrectedPosition(Vector3 pos){
+        return GetCorrectedPosition(mainCamera, effectCamera, pos);
+    }
+
     /// <summary>
     /// Orthographic カメラ上での見え位置に合わせて、
     /// Perspective カメラで同じスクリーン位置に出力されるワールド座標を返す
     /// </summary>
-    public static Vector3 GetCorrectedPosition(
+    Vector3 GetCorrectedPosition(
         Camera orthoCam,
         Camera perspCam,
         Vector3 worldPos
