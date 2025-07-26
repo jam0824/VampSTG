@@ -141,7 +141,7 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
 
             if (bullet.triggerEffect != null)
             {
-                Instantiate(bullet.triggerEffect, hitPoint, other.gameObject.transform.rotation);
+                EffectController.Instance.PlayEffect(bullet.triggerEffect, hitPoint, other.gameObject.transform.rotation);
             }
             if (bullet.isDestroy) Destroy(other.gameObject);
         }

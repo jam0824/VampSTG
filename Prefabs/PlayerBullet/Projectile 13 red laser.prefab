@@ -48,7 +48,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 0
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -4987,7 +4987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   hitOffset: 0.01
-  destroyTime: 2
+  destroyTime: 1000
   UseFirePointRotation: 0
   rotationOffset: {x: 0, y: 0, z: 0}
   hit: {fileID: 1056715176464681364}
@@ -4998,7 +4998,7 @@ MonoBehaviour:
   lightSource: {fileID: 0}
   Detached: []
   projectilePS: {fileID: 4752582465620058502}
-  notDestroy: 0
+  notDestroy: 1
 --- !u!114 &-4297205530965721894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5016,6 +5016,9 @@ MonoBehaviour:
   hitSeVolume: 0.2
   triggerEffect: {fileID: 2563579845116505323, guid: b2a7cf8de8416424995bcdb6ccb0801f, type: 3}
   isDestroy: 1
+  isUseDefaultExplosionEffect: 0
+  hitEnemyList: []
+  isAddToPool: 0
   powerMagnification: 1
 --- !u!54 &7573743409391340161
 Rigidbody:
