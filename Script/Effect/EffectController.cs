@@ -345,6 +345,11 @@ public class EffectController : MonoBehaviour
         return null; // 見つからない場合
     }
 
+    /// <summary>
+    /// エフェクトを見た目正しい位置に表示する
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <returns></returns>
     public Vector3 GetCorrectedPosition(Vector3 pos){
         return GetCorrectedPosition(mainCamera, effectCamera, pos);
     }
@@ -373,6 +378,8 @@ public class EffectController : MonoBehaviour
 
         return correctedWorld;
     }
+    
+
 
 
 }
