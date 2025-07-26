@@ -75,6 +75,10 @@ MonoBehaviour:
   stageGetNewItems: []
   stageGetNewCharacters: []
   powerMagnification: 1
+  stageAllSecond: 0
+  stageAllEnemyCount: 0
+  stageAllItemCount: 0
+  stageAllHp: 0
 --- !u!1 &4872403193021134937
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +131,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b0de1b99bd4ed1b48a2844c75b9d8111, type: 2}
   - {fileID: 11400000, guid: e0805ed9b9db15148892e51ad40cf08b, type: 2}
   - {fileID: 11400000, guid: 65922ae94524582479dc46237d81cfb5, type: 2}
+  - {fileID: 11400000, guid: 30dfbbafc61dcb14ab7cd45408fceb15, type: 2}
   listCharacterData:
   - {fileID: 11400000, guid: 238d711ebff12ce45a8592d45ef1bba2, type: 2}
   - {fileID: 11400000, guid: b020568e1acdbc349bd26598efb70e3f, type: 2}

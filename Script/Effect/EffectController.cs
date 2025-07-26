@@ -40,6 +40,11 @@ public class EffectController : MonoBehaviour
     [SerializeField] float minimumExplosionDistance = 1.0f;
     [SerializeField] int maxExplosionHistory = 5;
 
+    [Header("カメラ設定")]
+    [SerializeField] Camera mainCamera;
+    [SerializeField] Camera effectCamera;
+    
+
     GameObject playerEffectObj;
     private List<Vector3> oldExplosionPositions = new List<Vector3>();
 
@@ -154,7 +159,7 @@ public class EffectController : MonoBehaviour
             return;
         }
         
-        GameObject explosion = Instantiate(explosions[objindex], pos, rot);
+        GameObject explosion = PlayEffect(explosions[objindex], pos, rot);
         if (_effectPool != null)
         {
             explosion.transform.SetParent(_effectPool.transform);
@@ -216,10 +221,25 @@ public class EffectController : MonoBehaviour
     /// <param name="obj"></param>
     /// <param name="pos"></param>
     /// <param name="rot"></param>
-    /// <param name="isSkipEffectPool"></param>
     /// <returns></returns>
     public GameObject PlayEffect(GameObject obj, Vector3 pos, Quaternion rot){
-        GameObject effect = Instantiate(obj, pos, rot);
+        Vector3 correctedPos = pos;
+        
+        // オブジェクトのレイヤーがEffectの場合のみ座標変換
+        if (obj.layer == LayerMask.NameToLayer("Effect"))
+        {
+            if (effectCamera != null && mainCamera != null)
+            {
+                correctedPos = GetCorrectedPosition(mainCamera, effectCamera, pos);
+                Debug.Log($"エフェクト座標変換: {obj.name} - 元座標{pos} → 変換後{correctedPos}");
+            }
+            else
+            {
+                Debug.LogWarning("effectCameraまたはmainCameraが設定されていません");
+            }
+        }
+        
+        GameObject effect = Instantiate(obj, correctedPos, rot);
         if (_effectPool != null)
         {
             effect.transform.SetParent(_effectPool.transform);
@@ -324,4 +344,31 @@ public class EffectController : MonoBehaviour
         
         return null; // 見つからない場合
     }
+
+    /// <summary>
+    /// Orthographic カメラ上での見え位置に合わせて、
+    /// Perspective カメラで同じスクリーン位置に出力されるワールド座標を返す
+    /// </summary>
+    public static Vector3 GetCorrectedPosition(
+        Camera orthoCam,
+        Camera perspCam,
+        Vector3 worldPos
+    ) {
+        // 1) Orthographic カメラでワールド→スクリーン座標に変換
+        Vector3 orthoScreen = orthoCam.WorldToScreenPoint(worldPos);
+
+        // 2) Depth（Z）だけは Perspective カメラでの距離を拾ってくる
+        //    こうすると、本来のオブジェクト位置からのカメラ距離を保持できる
+        float depth = perspCam.WorldToScreenPoint(worldPos).z;
+
+        // 3) スクリーン座標の Z に depth をセット
+        orthoScreen.z = depth;
+
+        // 4) Perspective カメラでスクリーン→ワールド座標に逆変換
+        Vector3 correctedWorld = perspCam.ScreenToWorldPoint(orthoScreen);
+
+        return correctedWorld;
+    }
+
+
 }

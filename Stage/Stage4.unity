@@ -233,6 +233,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd3878206c929014992ef1d1cb9d3e1b, type: 3}
+--- !u!20 &152139808 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 191979444085621353, guid: fd3878206c929014992ef1d1cb9d3e1b, type: 3}
+  m_PrefabInstance: {fileID: 111304600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &179951995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -461,14 +466,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5813662967764959190, guid: ad459c7f773209b48a092bebf828f1eb, type: 3}
-      propertyPath: listItemData.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5813662967764959190, guid: ad459c7f773209b48a092bebf828f1eb, type: 3}
-      propertyPath: 'listItemData.Array.data[7]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 30dfbbafc61dcb14ab7cd45408fceb15, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -858,6 +855,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionController
       objectReference: {fileID: 0}
+    - target: {fileID: 4973314122311514631, guid: 65ca48a179bafa8418ca822116eb7087, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 152139808}
+    - target: {fileID: 4973314122311514631, guid: 65ca48a179bafa8418ca822116eb7087, type: 3}
+      propertyPath: effectCamera
+      value: 
+      objectReference: {fileID: 2115993736}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -931,6 +936,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b95356c79af61e4e8d364bad9a8d6f9, type: 3}
+--- !u!20 &2115993736 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2156203566392142773, guid: fd3878206c929014992ef1d1cb9d3e1b, type: 3}
+  m_PrefabInstance: {fileID: 111304600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1946162348203264229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1373,9 +1383,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2927832138137698637, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927832138137698637, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3219344118254240376, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
       propertyPath: m_Name
       value: StageGimikShipBottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219344118254240376, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774550528134733837, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 48.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774550528134733837, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 37.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684125760584802360, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 88.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684125760584802360, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 31.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
