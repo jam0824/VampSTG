@@ -994,10 +994,6 @@ PrefabInstance:
       value: StageManager
       objectReference: {fileID: 0}
     - target: {fileID: 5392167765115279234, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
-      propertyPath: time
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 5392167765115279234, guid: 2a2aa13c01d8608409312537e7b5384d, type: 3}
       propertyPath: 'gameObjects.Array.data[0]'
       value: 
       objectReference: {fileID: 396167409}
@@ -1156,10 +1152,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5119592196132294200, guid: 89ed86339d82ad4468dc8651ea9c9558, type: 3}
-      propertyPath: escapeTime
-      value: 160
-      objectReference: {fileID: 0}
     - target: {fileID: 5366319245690629695, guid: 89ed86339d82ad4468dc8651ea9c9558, type: 3}
       propertyPath: m_Name
       value: MidBoss
@@ -1204,72 +1196,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8264285426738010899, guid: 89ed86339d82ad4468dc8651ea9c9558, type: 3}
-      propertyPath: m_Mass
-      value: 10000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89ed86339d82ad4468dc8651ea9c9558, type: 3}
---- !u!1001 &4553642705760990157
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1593649138908429991, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0000025212523
-      objectReference: {fileID: 0}
-    - target: {fileID: 1593649138908429991, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.512
-      objectReference: {fileID: 0}
-    - target: {fileID: 1593649138908429991, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.792
-      objectReference: {fileID: 0}
-    - target: {fileID: 1593649138908429991, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1593649138908429991, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1593649138908429991, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1593649138908429991, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1593649138908429991, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1593649138908429991, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1593649138908429991, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6152306980197377275, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
-      propertyPath: m_Name
-      value: ItemSmineBattery
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bcf09d0b17d91a246b1cd74a7d73f44f, type: 3}
 --- !u!1001 &4724800468816616515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1375,37 +1306,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2927832138137698637, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2927832138137698637, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 30.3
-      objectReference: {fileID: 0}
     - target: {fileID: 3219344118254240376, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
       propertyPath: m_Name
       value: StageGimikShipBottom
-      objectReference: {fileID: 0}
-    - target: {fileID: 3219344118254240376, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774550528134733837, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 48.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4774550528134733837, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 37.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684125760584802360, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 88.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5684125760584802360, guid: 3a8ab60f84049fd44b2fcb8db67d0914, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 31.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1434,4 +1337,3 @@ SceneRoots:
   - {fileID: 1955544884710215660}
   - {fileID: 2754195126322161096}
   - {fileID: 1966207098742726099}
-  - {fileID: 4553642705760990157}

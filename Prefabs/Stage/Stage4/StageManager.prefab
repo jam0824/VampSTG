@@ -103,7 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObjects:
   - {fileID: 0}
-  time: 155
+  time: 150
 --- !u!1 &1311523812047604245
 GameObject:
   m_ObjectHideFlags: 0

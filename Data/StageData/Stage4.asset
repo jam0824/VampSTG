@@ -17,7 +17,7 @@ MonoBehaviour:
   - "Stage4 : \u30B9\u30C6\u30FC\u30B84"
   sceneName: Stage4
   stageIndex: 3
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 21300000, guid: e998b98d1e2803745b0e311d6cd0bf39, type: 3}
   difficulty: 5
   description:
   - English text4

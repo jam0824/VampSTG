@@ -52,7 +52,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4698942637086271001, guid: 8856dba79ca202d4ab88ca09a4cfb2af, type: 3}
       propertyPath: escapeTime
-      value: 150
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4698942637086271001, guid: 8856dba79ca202d4ab88ca09a4cfb2af, type: 3}
       propertyPath: specificItem
@@ -97,6 +97,10 @@ PrefabInstance:
     - target: {fileID: 6694813136522499309, guid: 8856dba79ca202d4ab88ca09a4cfb2af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397292852648686386, guid: 8856dba79ca202d4ab88ca09a4cfb2af, type: 3}
+      propertyPath: m_Mass
+      value: 10000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
