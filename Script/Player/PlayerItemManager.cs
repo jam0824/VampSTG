@@ -32,9 +32,10 @@ public class PlayerItemManager : MonoBehaviour
                 AddItemCount();
                 GetNewItem(type);
                 isFined = true;
+                Debug.Log("アイテムを取得しました:" + type);
             }
         }
-        if (!isFined) Debug.Log("アイテムが見つかりません:" + type);
+        if (!isFined) Debug.LogError("アイテムが見つかりません:" + type);
     }
 
     //全ての登録されている兵器をoffにする

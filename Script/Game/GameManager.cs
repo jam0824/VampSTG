@@ -336,8 +336,8 @@ public class GameManager : MonoBehaviour
         stageAllEnemyCount++;
         if(stageAllSecond != 0){
             float stageEnemyDensity = (float)stageAllEnemyCount / stageAllSecond;
-            Debug.Log("ステージの敵密度 : " + stageEnemyDensity.ToString("F2"));
-            Debug.Log("ステージ1の敵密度のx倍 : " + (stageEnemyDensity / STAGE1_ENEMY_DENSITY).ToString("F2"));
+            //Debug.Log("ステージの敵密度 : " + stageEnemyDensity.ToString("F2"));
+            //Debug.Log("ステージ1の敵密度のx倍 : " + (stageEnemyDensity / STAGE1_ENEMY_DENSITY).ToString("F2"));
         }
     }
 
@@ -345,8 +345,8 @@ public class GameManager : MonoBehaviour
         stageAllItemCount++;
         if(stageAllSecond != 0){
             float stageItemDensity = (float)stageAllItemCount / stageAllSecond;
-            Debug.Log("ステージのアイテム密度 : " + stageItemDensity.ToString("F2"));
-            Debug.Log("*************ステージ1のアイテム密度のx倍 : " + (stageItemDensity / STAGE1_ITEM_DENSITY).ToString("F2"));
+            //Debug.Log("ステージのアイテム密度 : " + stageItemDensity.ToString("F2"));
+            //Debug.Log("*************ステージ1のアイテム密度のx倍 : " + (stageItemDensity / STAGE1_ITEM_DENSITY).ToString("F2"));
         }
     }
     
@@ -354,8 +354,8 @@ public class GameManager : MonoBehaviour
         stageAllHp += hp;
         if(stageAllSecond != 0){
             float stageHpDensity = (float)stageAllHp / stageAllSecond;
-            Debug.Log("ステージのHP密度 : " + stageHpDensity.ToString("F2"));
-            Debug.Log("ステージ1のHP密度のx倍 : " + (stageHpDensity / STAGE1_HP_DENSITY).ToString("F2"));
+            //Debug.Log("ステージのHP密度 : " + stageHpDensity.ToString("F2"));
+            //Debug.Log("ステージ1のHP密度のx倍 : " + (stageHpDensity / STAGE1_HP_DENSITY).ToString("F2"));
         }
     }
 

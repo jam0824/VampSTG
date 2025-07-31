@@ -142,7 +142,7 @@ public abstract class BaseBoss : MonoBehaviour, IBoss
         AddKillCount();
         AddScore(maxHp);
         ChangeMuteki();
-
+        EffectController.Instance.DeactivateAllPooledBullets();
         // 必要ならスクリプト自体を無効化
         this.enabled = false;
     }

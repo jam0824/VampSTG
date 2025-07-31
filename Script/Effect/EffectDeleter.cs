@@ -18,7 +18,7 @@ public class EffectDeleter : MonoBehaviour
         {
             yield return new WaitForSeconds(checkInterval);
             
-            Debug.Log($"エフェクトクリーンアップ開始 - 子オブジェクト数: {transform.childCount}");
+            //Debug.Log($"エフェクトクリーンアップ開始 - 子オブジェクト数: {transform.childCount}");
             
             // 削除対象のリストを作成（逆順で削除するため）
             var listChildrenToDelete = new System.Collections.Generic.List<Transform>();
@@ -31,7 +31,7 @@ public class EffectDeleter : MonoBehaviour
                 if (IsEffectFinished(child))
                 {
                     listChildrenToDelete.Add(child);
-                    Debug.Log($"削除対象: {child.name}");
+                    //Debug.Log($"削除対象: {child.name}");
                 }
             }
             
@@ -46,7 +46,7 @@ public class EffectDeleter : MonoBehaviour
             
             if (listChildrenToDelete.Count > 0)
             {
-                Debug.Log($"エフェクトクリーンアップ完了 - {listChildrenToDelete.Count}個削除");
+                //Debug.Log($"エフェクトクリーンアップ完了 - {listChildrenToDelete.Count}個削除");
             }
         }
     }

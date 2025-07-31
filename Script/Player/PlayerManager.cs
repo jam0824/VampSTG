@@ -197,6 +197,7 @@ public class PlayerManager : MonoBehaviour
         animator.SetTrigger("Dead");
         playerController.SetCanMove(false);
         playerItemManager.StopAllCoroutine();
+        EffectController.Instance.DeactivateAllPooledBullets();
         SoundManager.Instance.StopBGM();
         ScreenFader screenFader = GameObject.Find("ScreenFader").GetComponent<ScreenFader>();
         yield return new WaitForSeconds(0.5f);

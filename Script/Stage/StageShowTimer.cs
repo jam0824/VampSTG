@@ -29,7 +29,7 @@ public class StageShowTimer : MonoBehaviour
         {
             foreach (var gameObject in gameObjects)
             {
-                gameObject.SetActive(true);
+                if(gameObject != null) gameObject.SetActive(true);
             }
         }
     }

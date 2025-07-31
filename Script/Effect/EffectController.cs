@@ -231,7 +231,6 @@ public class EffectController : MonoBehaviour
             if (effectCamera != null && mainCamera != null)
             {
                 correctedPos = GetCorrectedPosition(mainCamera, effectCamera, pos);
-                Debug.Log($"エフェクト座標変換: {obj.name} - 元座標{pos} → 変換後{correctedPos}");
             }
             else
             {
@@ -269,7 +268,7 @@ public class EffectController : MonoBehaviour
             bullet.transform.position = pos;
             bullet.transform.rotation = rot;
             bullet.SetActive(true);
-            Debug.Log($"プレイヤー弾を再利用: {obj.name}");
+            //Debug.Log($"プレイヤー弾を再利用: {obj.name}");
         }
         else
         {
@@ -279,7 +278,7 @@ public class EffectController : MonoBehaviour
             {
                 bullet.transform.SetParent(_playerBulletPool.transform);
             }
-            Debug.Log($"プレイヤー弾を新規作成: {obj.name}");
+            //Debug.Log($"プレイヤー弾を新規作成: {obj.name}");
         }
         
         return bullet;
@@ -346,12 +345,55 @@ public class EffectController : MonoBehaviour
     }
 
     /// <summary>
+    /// プールされている全ての弾を非アクティブにする
+    /// </summary>
+    public void DeactivateAllPooledBullets()
+    {
+        int playerBulletCount = DeactivatePoolChildren(_playerBulletPool);
+        int enemyBulletCount = DeactivatePoolChildren(_enemyBulletPool);
+        
+        Debug.Log($"プレイヤー弾を{playerBulletCount}個非アクティブ化、敵弾を{enemyBulletCount}個非アクティブ化しました");
+    }
+    
+    /// <summary>
+    /// 指定したプールの子オブジェクトでアクティブなものを全て非アクティブにする
+    /// </summary>
+    /// <param name="pool">対象のプール</param>
+    /// <returns>非アクティブ化したオブジェクトの数</returns>
+    int DeactivatePoolChildren(GameObject pool)
+    {
+        if (pool == null)
+        {
+            return 0;
+        }
+        
+        int deactivatedCount = 0;
+        
+        for (int i = 0; i < pool.transform.childCount; i++)
+        {
+            Transform child = pool.transform.GetChild(i);
+            
+            if (child.gameObject.activeInHierarchy)
+            {
+                child.gameObject.SetActive(false);
+                deactivatedCount++;
+            }
+        }
+        
+        return deactivatedCount;
+    }
+
+    /// <summary>
     /// エフェクトを見た目正しい位置に表示する
     /// </summary>
     /// <param name="pos"></param>
     /// <returns></returns>
     public Vector3 GetCorrectedPosition(Vector3 pos){
-        return GetCorrectedPosition(mainCamera, effectCamera, pos);
+        if (effectCamera != null && mainCamera != null)
+        {
+            return GetCorrectedPosition(mainCamera, effectCamera, pos);
+        }
+        return pos;
     }
 
     /// <summary>
