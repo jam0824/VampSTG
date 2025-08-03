@@ -1,0 +1,7 @@
+---
+description: ドキュメント・データの場所
+alwaysApply: true
+---
+- README.mdの場所 : /
+- Testsの場所 : /Tests
+- Scriptの場所 : /Assets/VampSTG/Script
