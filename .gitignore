@@ -21,3 +21,9 @@ Universal*/
 /Library/
 VampSTG2.sln
 .vscode/
+*.csproj
+FileContentIndex/
+obj/
+.vsconfig
+*.bin
+

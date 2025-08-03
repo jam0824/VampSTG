@@ -1,0 +1,214 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\UnityMyProjects\\VampSTG2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|d:\\unitymyprojects\\vampstg2\\assets\\vampstg\\script\\enemies\\enemyshooter\\nwayshooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\enemies\\enemyshooter\\nwayshooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|d:\\unitymyprojects\\vampstg2\\assets\\vampstg\\script\\enemies\\baseenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\enemies\\baseenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Prisoner\\DousaTes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\VampSTG\\Script\\Prisoner\\DousaTes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\boss\\stage3gastaroid\\egg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\boss\\stage3gastaroid\\egg.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\enemies\\ienemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\enemies\\ienemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\stage\\stagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\stage\\stagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\enemies\\groundenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\enemies\\groundenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\enemies\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\enemies\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\prisoner\\prisonerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\prisoner\\prisonerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\player\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\player\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\player\\playeritemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\player\\playeritemmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\result\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\result\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NwayShooter.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\EnemyShooter\\NwayShooter.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Enemies\\EnemyShooter\\NwayShooter.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\EnemyShooter\\NwayShooter.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Enemies\\EnemyShooter\\NwayShooter.cs",
+              "ViewState": "AQIAALQAAAAAAAAAAAAQwNAAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T13:36:19.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Egg.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Boss\\Stage3Gastaroid\\Egg.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Boss\\Stage3Gastaroid\\Egg.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Boss\\Stage3Gastaroid\\Egg.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Boss\\Stage3Gastaroid\\Egg.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T05:57:42.731Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IEnemy.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\IEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Enemies\\IEnemy.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\IEnemy.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Enemies\\IEnemy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwcAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T05:57:11.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StageManager.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Stage\\StageManager.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Stage\\StageManager.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Stage\\StageManager.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Stage\\StageManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHQAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T05:56:44.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GroundEnemy.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\GroundEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Enemies\\GroundEnemy.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\GroundEnemy.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Enemies\\GroundEnemy.cs",
+              "ViewState": "AQIAALoAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T22:34:39.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BaseEnemy.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\BaseEnemy.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Enemies\\BaseEnemy.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\BaseEnemy.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Enemies\\BaseEnemy.cs",
+              "ViewState": "AQIAAHkAAAAAAAAAAAAiwJMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T22:34:33.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\Enemy.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Enemies\\Enemy.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\Enemy.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Enemies\\Enemy.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T22:33:47.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DousaTes.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Prisoner\\DousaTes.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Prisoner\\DousaTes.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Prisoner\\DousaTes.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Prisoner\\DousaTes.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwQAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T03:07:36.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PrisonerConfig.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Prisoner\\PrisonerConfig.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Prisoner\\PrisonerConfig.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Prisoner\\PrisonerConfig.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Prisoner\\PrisonerConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwIAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T02:55:28.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PlayerManager.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Player\\PlayerManager.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Player\\PlayerManager.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Player\\PlayerManager.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Player\\PlayerManager.cs",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAAwHIAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T02:51:45.106Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PlayerItemManager.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Player\\PlayerItemManager.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Player\\PlayerItemManager.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Player\\PlayerItemManager.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Player\\PlayerItemManager.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAcwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T02:51:24.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Result.cs",
+              "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Result\\Result.cs",
+              "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Result\\Result.cs",
+              "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Result\\Result.cs",
+              "RelativeToolTip": "Assets\\VampSTG\\Script\\Result\\Result.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-24T02:50:49.933Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
