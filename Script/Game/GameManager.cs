@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [Header("フレームレート設定")]
+    [SerializeField] int m_targetFrameRate = 60;
+    
     [Header("言語設定: 0英語/1日本語")] public int languageIndex = 0;
     [Header("選択されているキャラクター")] public CharacterData selectedCharacter;
     [Header("選択されているステージのシーン名")] public StageData selectedStage;
@@ -86,9 +89,29 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            SetTargetFrameRate();  // FPS設定
             LoadGame();  // 起動時にロード
         }
         else Destroy(gameObject);
+    }
+    
+    /// <summary>
+    /// フレームレートを設定する
+    /// </summary>
+    void SetTargetFrameRate()
+    {
+        Application.targetFrameRate = m_targetFrameRate;
+        Debug.Log($"Target Frame Rate set to: {m_targetFrameRate}");
+    }
+    
+    /// <summary>
+    /// フレームレートを動的に設定する（外部から呼び出し可能）
+    /// </summary>
+    /// <param name="_frameRate">設定したいフレームレート</param>
+    public void SetFrameRate(int _frameRate)
+    {
+        m_targetFrameRate = _frameRate;
+        SetTargetFrameRate();
     }
 
     public void AddScore(float maxHp)

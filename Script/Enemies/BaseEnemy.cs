@@ -12,6 +12,8 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
     
     [Header("エフェクト")]
     [SerializeField] protected GameObject explosion;
+    [SerializeField] protected AudioClip explosionSe;
+    [SerializeField] protected float explosionSeVolume = 1f;
     [SerializeField] protected float offsetExplosionY = 0f;
     
     [Header("敵弾攻撃するか")]
@@ -173,6 +175,12 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
     {
         Vector3 pos = gameObject.transform.position;
         if (offsetExplosionY != 0) pos.y += offsetExplosionY;
+
+        if(explosion != null){
+            EffectController.Instance.PlayEffect(explosion, pos, gameObject.transform.rotation);
+            if (explosionSe != null) SoundManager.Instance.PlaySE(explosionSe, explosionSeVolume);
+            return;
+        }
         
         if (maxHp < 50)
         {
@@ -185,6 +193,7 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
             return;
         }
         EffectController.Instance.PlayLargeExplosion(pos, gameObject.transform.rotation);
+        return;
     }
 
     protected virtual void ApearItem(GameObject objItem)
