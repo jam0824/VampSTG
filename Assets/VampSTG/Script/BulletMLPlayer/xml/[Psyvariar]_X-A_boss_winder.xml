@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<!DOCTYPE bulletml SYSTEM "http://www.asahi-net.or.jp/~cs8k-cyu/bulletml/bulletml.dtd">
+
+<bulletml type="vertical"
+          xmlns="http://www.asahi-net.or.jp/~cs8k-cyu/bulletml">
+
+<bullet label="winderBullet1">
+ <speed>3</speed>
+ <actionRef label="winderSequence">
+  <param>35</param>
+ </actionRef>
+</bullet>
+
+<bullet label="winderBullet2">
+ <speed>3</speed>
+ <actionRef label="winderSequence">
+  <param>25</param>
+ </actionRef>
+</bullet>
+
+<fire label="fireWinder">
+ <direction type="sequence">$1</direction>
+ <bulletRef label="winderBullet"/>
+</fire>
+
+<action label="roundWinder">
+ <fireRef label="fireWinder">
+  <param>$1</param>
+ </fireRef>
+ <repeat> <times>11</times>
+ <action>
+  <fireRef label="fireWinder">
+   <param>30</param>
+  </fireRef>
+ </action>
+ </repeat>
+ <wait>5</wait>
+</action>
+
+<action label="winderSequence">
+<repeat> <times>12</times>
+<action>
+<actionRef label="roundWinder">
+ <param>30</param>
+</actionRef>
+</action>
+</repeat>
+<repeat> <times>12</times>
+<action>
+<actionRef label="roundWinder">
+ <param>$1</param>
+</actionRef>
+</action>
+</repeat>
+<repeat> <times>12</times>
+<action>
+<actionRef label="roundWinder">
+ <param>30</param>
+</actionRef>
+</action>
+</repeat>
+</action>
+
+<action label="top1">
+<fire>
+ <direction type="absolute">90</direction>
+ <bulletRef label="winderBullet"/>
+</fire>
+<actionRef label="winderSequence">
+ <param>35</param>
+</actionRef>
+</action>
+
+
+<action label="top2">
+<fire>
+ <direction type="absolute">270</direction>
+ <bulletRef label="winderBullet"/>
+</fire>
+<actionRef label="winderSequence">
+ <param>25</param>
+</actionRef>
+</action>
+
+<action label="top">
+<fire>
+ <direction type="absolute">90</direction>
+ <bulletRef label="winderBullet1"/>
+</fire>
+<fire>
+ <direction type="absolute">270</direction>
+ <bulletRef label="winderBullet2"/>
+</fire>
+</action>
+
+</bulletml>

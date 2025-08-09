@@ -76,6 +76,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 60
   explosion: {fileID: 0}
+  explosionSe: {fileID: 0}
+  explosionSeVolume: 1
   offsetExplosionY: 0
   isAttack: 1
   attackInterval: 4
@@ -102,9 +104,14 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8459538307677788719, guid: 8a7dc4e51db79fd44bb06a1c6422cd61, type: 3}
   firePoint: {fileID: 2953657868844597940}
   bulletSpeed: 2
-  bulletLifeTime: 30
   numberOfBullets: 5
   totalSpreadAngle: 60
+  isContinuousFire: 0
+  continuousFireCount: 3
+  continuousFireInterval: 0.2
+  muzzleFirePrefab: {fileID: 0}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   core: {fileID: 0}
 --- !u!1001 &4315751278984768018
 PrefabInstance:
@@ -448,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5691129254636781047, guid: 037ecf58b34b7e347bc3f2e1e3ed828e, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5961488070894682379, guid: 037ecf58b34b7e347bc3f2e1e3ed828e, type: 3}
       propertyPath: m_Layer

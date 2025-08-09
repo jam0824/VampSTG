@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 8096816334194152194}
   m_Layer: 7
   m_Name: SmallAngryWasp_prefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1431,6 +1431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 3
   explosion: {fileID: 0}
+  explosionSe: {fileID: 0}
+  explosionSeVolume: 1
   offsetExplosionY: 0
   isAttack: 0
   attackInterval: 4
@@ -1845,6 +1847,10 @@ PrefabInstance:
     - target: {fileID: 6976266346302352028, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
       propertyPath: m_Name
       value: SmallAngryWasp_prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976266346302352028, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4695751530478955301, guid: f0b14d0e97ac4c442996e49c0dd2bebd, type: 3}

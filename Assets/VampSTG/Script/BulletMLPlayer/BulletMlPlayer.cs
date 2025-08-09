@@ -31,6 +31,7 @@ public class BulletMlPlayer : MonoBehaviour
     [Header("拡張機能")]
     [SerializeField] private float m_WaitTimeMultiplier = 1.0f; // wait時間の倍率（小数許容）
     [SerializeField] private float m_AngleOffset = 0.0f; // 全弾の角度にオフセットを加算（小数許容）
+    [SerializeField, Tooltip("全弾の速度に掛ける倍率")] private float m_SpeedMultiplier = 1.0f;
 
     [Header("ループ設定")]
     [SerializeField] private bool m_EnableLoop = false;
@@ -39,6 +40,10 @@ public class BulletMlPlayer : MonoBehaviour
     [Header("デバッグ設定")]
     [SerializeField] private bool m_EnableDebugLog = false;
     [SerializeField] private int m_MaxBullets = 1000;
+    
+    [Header("弾の独立性設定")]
+    [SerializeField, Tooltip("弾を親オブジェクトから独立させる（ワールド空間に配置）")] 
+    private bool m_BulletIndependence = true;
 
     private BulletMLDocument m_Document;
     private BulletMLParser m_Parser;
@@ -47,6 +52,9 @@ public class BulletMlPlayer : MonoBehaviour
     private List<GameObject> m_ListBulletObjects;
     private Queue<GameObject> m_BulletPool;
     private BulletMLBullet m_ShooterBullet; // トップアクション実行弾（シューター）
+
+    //start管理
+    private bool m_IsStarted = false;
     
     // ターゲット管理
     private GameObject m_TargetObject;
@@ -55,10 +63,12 @@ public class BulletMlPlayer : MonoBehaviour
     // ループ管理
     private bool m_IsXmlExecutionCompleted = false;
     private int m_LoopWaitFrameCounter = 0;
+    private bool m_IsStopped = false; // StopBulletMLで停止されたかのフラグ
 
     public BulletMLDocument Document => m_Document;
     public Vector3 PlayerPosition => m_CurrentPlayerPosition;
     public float RankValue => m_RankValue;
+    public CoordinateSystem CoordinateSystem => m_CoordinateSystem;
     
     /// <summary>
     /// アクティブな弾のリストを取得（デバッグ用）
@@ -66,6 +76,57 @@ public class BulletMlPlayer : MonoBehaviour
     public List<BulletMLBullet> GetActiveBullets()
     {
         return m_ListActiveBullets;
+    }
+
+    /// <summary>
+    /// 最大弾数を設定（テスト用）
+    /// </summary>
+    public void SetMaxBullets(int maxBullets)
+    {
+        m_MaxBullets = maxBullets;
+    }
+
+    /// <summary>
+    /// デバッグログの有効/無効を設定（テスト用）
+    /// </summary>
+    public void SetEnableDebugLog(bool enable)
+    {
+        m_EnableDebugLog = enable;
+    }
+    
+    /// <summary>
+    /// 弾の独立性を設定する（テスト用）
+    /// </summary>
+    public void SetBulletIndependence(bool independence)
+    {
+        m_BulletIndependence = independence;
+    }
+    
+    /// <summary>
+    /// 弾の独立性設定を取得する（テスト用）
+    /// </summary>
+    public bool GetBulletIndependence()
+    {
+        return m_BulletIndependence;
+    }
+
+    /// <summary>
+    /// 手動更新（テスト用）
+    /// </summary>
+    public void ManualUpdate()
+    {
+        if (m_Executor != null)
+        {
+            UpdateBullets();
+        }
+    }
+
+    /// <summary>
+    /// テスト用初期化（Start()が呼ばれない場合用）
+    /// </summary>
+    public void InitializeForTest()
+    {
+        InitializeSystem();
     }
 
     /// <summary>
@@ -91,6 +152,7 @@ public class BulletMlPlayer : MonoBehaviour
         
         if (m_AutoStart && m_BulletMLXml != null)
         {
+            m_IsStarted = true;
             LoadBulletML(m_BulletMLXml.text);
             StartTopAction();
         }
@@ -102,6 +164,10 @@ public class BulletMlPlayer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             ShowFrameInfo();
+        }
+        if (!m_IsStarted)
+        {
+            return;
         }
         
         UpdateBullets();
@@ -134,6 +200,7 @@ public class BulletMlPlayer : MonoBehaviour
         m_Executor.SetTargetPosition(m_CurrentPlayerPosition);
         m_Executor.SetRankValue(m_RankValue);
         m_Executor.SetDefaultSpeed(m_DefaultSpeed);
+        m_Executor.SpeedMultiplier = m_SpeedMultiplier;
         
         // 新しい弾生成のコールバックを設定
         m_Executor.OnBulletCreated = OnNewBulletCreated;
@@ -160,6 +227,7 @@ public class BulletMlPlayer : MonoBehaviour
             m_Executor.SetDefaultSpeed(m_DefaultSpeed);
             m_Executor.WaitTimeMultiplier = m_WaitTimeMultiplier;
             m_Executor.AngleOffset = m_AngleOffset;
+            m_Executor.SpeedMultiplier = m_SpeedMultiplier;
 
             if (m_EnableDebugLog)
             {
@@ -173,6 +241,74 @@ public class BulletMlPlayer : MonoBehaviour
         catch (System.Exception ex)
         {
             Debug.LogError($"BulletMLの読み込みに失敗しました: {ex.Message}");
+        }
+    }
+
+    /// <summary>
+    /// インスペクター外から弾速倍率を設定
+    /// </summary>
+    public void SetSpeedMultiplier(float _multiplier)
+    {
+        m_SpeedMultiplier = Mathf.Max(0f, _multiplier);
+        if (m_Executor != null)
+        {
+            m_Executor.SpeedMultiplier = m_SpeedMultiplier;
+        }
+    }
+
+    /// <summary>
+    /// 外部から弾幕を実行する
+    /// </summary>
+    public void StartBulletML()
+    {
+        // システムを初期化
+        if (m_Executor == null)
+        {
+            InitializeSystem();
+        }
+
+        // XMLが設定されている場合は読み込み
+        if (m_BulletMLXml != null)
+        {
+            LoadBulletML(m_BulletMLXml.text);
+        }
+        else if (m_Document == null)
+        {
+            Debug.LogError("BulletML XMLが設定されていません");
+            return;
+        }
+        m_IsStarted = true;
+
+        // トップアクションを開始
+        StartTopAction();
+        
+        if (m_EnableDebugLog)
+        {
+            Debug.Log("BulletMLを開始しました");
+        }
+    }
+
+    /// <summary>
+    /// 外部から弾幕を停止する
+    /// </summary>
+    public void StopBulletML()
+    {
+        // 全ての弾をクリア
+        ClearAllBullets();
+        
+        // 停止フラグを設定
+        m_IsStopped = true;
+        
+        // ループを停止
+        m_IsXmlExecutionCompleted = true;
+        m_LoopWaitFrameCounter = 0;
+        
+        // シューター弾もクリア
+        m_ShooterBullet = null;
+        
+        if (m_EnableDebugLog)
+        {
+            Debug.Log("BulletMLを停止しました");
         }
     }
 
@@ -197,6 +333,7 @@ public class BulletMlPlayer : MonoBehaviour
         // ループ状態をリセット
         m_IsXmlExecutionCompleted = false;
         m_LoopWaitFrameCounter = 0;
+        m_IsStopped = false; // 停止フラグをクリア
 
         // 初期弾を作成（シューターなので非表示）
         // シューター位置を決定
@@ -330,7 +467,12 @@ public class BulletMlPlayer : MonoBehaviour
     {
         if (m_ListActiveBullets.Count >= m_MaxBullets)
         {
-            return; // 最大数に達している
+            // FIFO方式：最も古い弾を削除
+            RemoveBulletAt(0);
+            if (m_EnableDebugLog)
+            {
+                Debug.LogWarning($"弾数上限到達。最古の弾を削除しました。(上限: {m_MaxBullets})");
+            }
         }
 
         m_ListActiveBullets.Add(_bullet);
@@ -355,20 +497,53 @@ public class BulletMlPlayer : MonoBehaviour
     /// </summary>
     private GameObject GetBulletObject()
     {
+        GameObject bulletObj;
+        
         if (m_BulletPool.Count > 0)
         {
-            return m_BulletPool.Dequeue();
+            bulletObj = m_BulletPool.Dequeue();
+            
+            // 独立性設定に応じて親子関係を更新
+            if (m_BulletIndependence)
+            {
+                bulletObj.transform.SetParent(null); // ワールド空間に配置
+            }
+            else
+            {
+                bulletObj.transform.SetParent(transform); // 従来通り親オブジェクトの子に
+            }
+            
+            return bulletObj;
         }
 
         if (m_BulletPrefab != null)
         {
-            return Instantiate(m_BulletPrefab, transform);
+            if (m_BulletIndependence)
+            {
+                // ワールド空間に配置（親なし）
+                bulletObj = Instantiate(m_BulletPrefab);
+            }
+            else
+            {
+                // 従来通り親オブジェクトの子として配置
+                bulletObj = Instantiate(m_BulletPrefab, transform);
+            }
+            return bulletObj;
         }
 
         // デフォルトの弾オブジェクト
-        var bulletObj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        bulletObj = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         bulletObj.transform.localScale = Vector3.one * 0.1f;
-        bulletObj.transform.SetParent(transform);
+        
+        if (m_BulletIndependence)
+        {
+            bulletObj.transform.SetParent(null); // ワールド空間に配置
+        }
+        else
+        {
+            bulletObj.transform.SetParent(transform); // 従来通り親オブジェクトの子に
+        }
+        
         return bulletObj;
     }
 
@@ -395,6 +570,13 @@ public class BulletMlPlayer : MonoBehaviour
                 // 弾を削除
                 RemoveBulletAt(i);
                 continue;
+            }
+
+            // シューター弾の位置を親オブジェクトの現在位置に同期
+            if (bullet == m_ShooterBullet && !bullet.IsVisible)
+            {
+                Vector3 currentShooterPosition = GetShooterPosition();
+                bullet.SetPosition(currentShooterPosition);
             }
 
             // アクションを実行
@@ -442,8 +624,8 @@ public class BulletMlPlayer : MonoBehaviour
                 }
             }
             
-            // 遅延フレーム0の場合は即座にループ開始
-            if (m_EnableLoop && m_LoopDelayFrames == 0)
+            // 遅延フレーム0の場合は即座にループ開始（停止されていない場合のみ）
+            if (m_EnableLoop && m_LoopDelayFrames == 0 && !m_IsStopped)
             {
                 if (m_EnableDebugLog)
                 {
@@ -457,8 +639,8 @@ public class BulletMlPlayer : MonoBehaviour
             return;
         }
 
-        // ループが有効な場合の処理
-        if (m_EnableLoop && m_IsXmlExecutionCompleted)
+        // ループが有効な場合の処理（停止されていない場合のみ）
+        if (m_EnableLoop && m_IsXmlExecutionCompleted && !m_IsStopped)
         {
             m_LoopWaitFrameCounter++;
 
@@ -560,6 +742,11 @@ public class BulletMlPlayer : MonoBehaviour
         if (m_Executor != null)
         {
             m_Executor.SetCoordinateSystem(_coordinateSystem);
+        }
+        
+        if (m_EnableDebugLog)
+        {
+            Debug.Log($"座標系を設定しました: {_coordinateSystem}");
         }
     }
 
@@ -685,6 +872,78 @@ public class BulletMlPlayer : MonoBehaviour
     
     void OnDestroy()
     {
+        try
+        {
+            if (m_EnableDebugLog)
+            {
+                Debug.Log("BulletMlPlayer: OnDestroy開始 - クリーンアップを実行します");
+            }
+
+            // 全ての弾を明示的にクリーンアップ
+            ClearAllBullets();
+            
+            // リストのクリア
+            m_ListActiveBullets?.Clear();
+            m_ListBulletObjects?.Clear();
+            
+            // プールのクリア（エラー処理強化）
+            if (m_BulletPool != null)
+            {
+                int pooledCount = m_BulletPool.Count;
+                while (m_BulletPool.Count > 0)
+                {
+                    try
+                    {
+                        var pooledObj = m_BulletPool.Dequeue();
+                        if (pooledObj != null && pooledObj)
+                        {
+                            // エディタ実行中とビルド実行中で適切な削除方法を選択
+                            if (Application.isPlaying)
+                            {
+                                Destroy(pooledObj);
+                            }
+                            else
+                            {
+                                DestroyImmediate(pooledObj);
+                            }
+                        }
+                    }
+                    catch (System.Exception ex)
+                    {
+                        // オブジェクト削除エラーを捕捉してログ出力
+                        Debug.LogWarning($"BulletMlPlayer: プールオブジェクト削除中にエラー: {ex.Message}");
+                    }
+                }
+                
+                if (m_EnableDebugLog && pooledCount > 0)
+                {
+                    Debug.Log($"BulletMlPlayer: プールされた弾オブジェクト{pooledCount}個を削除しました");
+                }
+            }
+            
+            // Executorのクリーンアップ（コールバックも安全にクリア）
+            if (m_Executor != null)
+            {
+                m_Executor.OnBulletCreated = null; // コールバック参照をクリア
+                m_Executor = null;
+            }
+            
+            // その他の参照をクリア
+            m_Document = null;
+            m_Parser = null;
+            m_ShooterBullet = null;
+            m_TargetObject = null;
+            
+            if (m_EnableDebugLog)
+            {
+                Debug.Log("BulletMlPlayer: OnDestroy完了 - クリーンアップが正常に実行されました");
+            }
+        }
+        catch (System.Exception ex)
+        {
+            // OnDestroyでの例外は致命的なので、ログ出力のみ
+            Debug.LogError($"BulletMlPlayer: OnDestroy中に例外が発生: {ex.Message}");
+        }
     }
     
     void OnApplicationQuit()

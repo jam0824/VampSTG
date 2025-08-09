@@ -29,6 +29,7 @@ public class StageWave : MonoBehaviour
     void Start()
     {
         stageManager = GetComponentInParent<StageManager>();
+        isSpawn = stageManager.isSpawnEnemey;
     }
 
     void Update()
