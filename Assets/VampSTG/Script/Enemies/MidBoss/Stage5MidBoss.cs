@@ -449,7 +449,7 @@ public class Stage5MidBoss : BaseEnemy
             Vector3 pos = transform.position;
             pos.x = 1f; // 少し画面の手前に出す
             // y は 0 ～ 6 の範囲
-            pos.y += (Random.value - 0.5f) * 2f;
+            pos.y += (Random.value - 0.5f) * 2f + offsetExplosionY;
             // z を ±1 の範囲でランダムにずらす
             pos.z += (Random.value - 0.5f) * 2f;
 

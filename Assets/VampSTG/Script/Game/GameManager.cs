@@ -382,4 +382,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 指定された位置が画面範囲内+拡張範囲以内にあるかチェック
+    /// </summary>
+    /// <param name="position">チェックする位置</param>
+    /// <param name="extendedRange">画面範囲に追加する拡張範囲</param>
+    /// <returns></returns>
+    public bool IsWithinScreenBounds(Vector3 position, float extendedRange)
+    {
+        // 範囲に拡張値を追加して判定
+        bool withinZ = position.z >= (minZ - extendedRange) && 
+                      position.z <= (maxZ + extendedRange);
+        bool withinY = position.y >= (minY - extendedRange) && 
+                      position.y <= (maxY + extendedRange);
+
+        return withinZ && withinY;
+    }
+
 }

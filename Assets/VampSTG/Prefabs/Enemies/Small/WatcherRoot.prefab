@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5860755137357559351}
   m_Layer: 7
   m_Name: WatcherRoot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,6 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1
   explosion: {fileID: 0}
+  explosionSe: {fileID: 0}
+  explosionSeVolume: 1
   offsetExplosionY: 0
   isAttack: 0
   attackInterval: 4
@@ -83,6 +85,7 @@ MonoBehaviour:
   attackDirection: 0
   animator: {fileID: 2926108035004677840}
   fromBossDamage: 5
+  specificItem: {fileID: 0}
   moveSpeed: 0.8
   rotateSpeed: 90
   stopDistance: 0.1

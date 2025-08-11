@@ -1369,7 +1369,7 @@ GameObject:
   - component: {fileID: 6877595967828296625}
   m_Layer: 7
   m_Name: Wasp
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1441,6 +1441,7 @@ MonoBehaviour:
   attackDirection: 0
   animator: {fileID: 0}
   fromBossDamage: 5
+  specificItem: {fileID: 0}
   moveSpeed: 1
   rotateSpeed: 90
   stopDistance: 0.1

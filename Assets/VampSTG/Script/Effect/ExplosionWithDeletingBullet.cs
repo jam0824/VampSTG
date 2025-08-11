@@ -13,9 +13,5 @@ public class ExplosionWithDeletingBullet : MonoBehaviour
                 configEnemyBullet.DestroyBullet();
             }
         }
-        else if (other.gameObject.CompareTag("PlayerBullet"))
-        {
-            other.gameObject.SetActive(false);
-        }
     }
 }

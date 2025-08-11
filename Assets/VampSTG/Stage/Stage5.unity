@@ -1273,9 +1273,17 @@ PrefabInstance:
       propertyPath: hp
       value: 2400
       objectReference: {fileID: 0}
+    - target: {fileID: 2480739635674573957, guid: 9e52654f4645e2643acb63865d10af88, type: 3}
+      propertyPath: offsetExplosionY
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5394504471699534388, guid: 9e52654f4645e2643acb63865d10af88, type: 3}
       propertyPath: m_Name
       value: MidBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 5875023173736230418, guid: 9e52654f4645e2643acb63865d10af88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

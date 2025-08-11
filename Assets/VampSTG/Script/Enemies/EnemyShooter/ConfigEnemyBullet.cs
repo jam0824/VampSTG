@@ -5,6 +5,8 @@ public class ConfigEnemyBullet : MonoBehaviour
     [Header("Prefab")]
     [SerializeField] private GameObject _muzzlePrefab;
     [SerializeField] private GameObject _hitPrefab;
+
+    private bool isDestroyed = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,9 +37,12 @@ public class ConfigEnemyBullet : MonoBehaviour
 
     public void HitEffect()
     {
-        if (_hitPrefab != null)
+        if (_hitPrefab != null && GameManager.Instance != null && 
+            GameManager.Instance.IsWithinScreenBounds(transform.position, 1f)&&
+            !isDestroyed)
         {
             EffectController.Instance.PlayEffect(_hitPrefab, transform.position, transform.rotation);
+            isDestroyed = true;
         }
     }
 
@@ -48,5 +53,24 @@ public class ConfigEnemyBullet : MonoBehaviour
     {
         HitEffect();
         Destroy(gameObject);
+    }
+
+    /// <summary>
+    /// オブジェクトが非アクティブになったときにエフェクトを出す
+    /// </summary>
+    void OnDisable()
+    {
+        HitEffect();
+    }
+
+    /// <summary>
+    /// オブジェクトが破棄されたときにエフェクトを出す
+    /// </summary>
+    void OnDestroy()
+    {
+        if (gameObject.activeSelf)
+        {
+            HitEffect();
+        }
     }
 }

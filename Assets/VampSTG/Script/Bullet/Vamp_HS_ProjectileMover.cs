@@ -89,6 +89,7 @@ public class Vamp_HS_ProjectileMover : MonoBehaviour
 
         // エフェクトをプロジェクトタイルの前方に生成
         Vector3 pos = transform.position + transform.forward * hitOffset;
+        //Vector3 pos = transform.position;
         Quaternion rot = Quaternion.identity;
 
         if (hit != null)
@@ -125,7 +126,7 @@ public class Vamp_HS_ProjectileMover : MonoBehaviour
 
         // 自身の破棄 or 非アクティブ化
         float delay = (hitPS != null) ? hitPS.main.duration : 1f;
-        if (notDestroy)
+        if (notDestroy && gameObject.activeSelf)
             StartCoroutine(DisableTimer(delay));
         else
             Destroy(gameObject, delay);

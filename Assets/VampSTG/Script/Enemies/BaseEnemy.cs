@@ -147,7 +147,8 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
             hp = hit(bullet, hp);
             
             // 近似的に当たり位置を計算
-            Vector3 hitPoint = other.ClosestPoint(transform.position);
+            Vector3 hitPoint = other.ClosestPoint(other.gameObject.transform.position);
+            //Vector3 hitPoint = other.gameObject.transform.position;
 
             if (bullet.triggerEffect != null)
             {
