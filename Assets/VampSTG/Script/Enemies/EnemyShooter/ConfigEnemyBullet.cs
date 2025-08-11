@@ -21,8 +21,7 @@ public class ConfigEnemyBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("DeleteEnemyBulletObj"))
         {
-            HitEffect();
-            Destroy(gameObject);
+            DestroyBullet();
         }
     }
 
@@ -40,5 +39,14 @@ public class ConfigEnemyBullet : MonoBehaviour
         {
             EffectController.Instance.PlayEffect(_hitPrefab, transform.position, transform.rotation);
         }
+    }
+
+    /// <summary>
+    /// 弾を削除する
+    /// </summary>
+    public void DestroyBullet()
+    {
+        HitEffect();
+        Destroy(gameObject);
     }
 }

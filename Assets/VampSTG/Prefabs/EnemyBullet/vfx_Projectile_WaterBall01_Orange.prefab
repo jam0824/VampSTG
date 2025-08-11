@@ -19730,6 +19730,7 @@ GameObject:
   - component: {fileID: 2817368043660594012}
   - component: {fileID: 2870755729990816730}
   - component: {fileID: 1016504823811753204}
+  - component: {fileID: 5059618746635255105}
   m_Layer: 9
   m_Name: vfx_Projectile_WaterBall01_Orange
   m_TagString: EnemyBullet
@@ -19841,6 +19842,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02fc0d3f4a76c2e43a950c8f56ee5914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5059618746635255105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044662711228397324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96428cfacaa4ac8428ca8258dd0bf1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzlePrefab: {fileID: 0}
+  _hitPrefab: {fileID: 0}
 --- !u!1 &4372378007350903154
 GameObject:
   m_ObjectHideFlags: 0

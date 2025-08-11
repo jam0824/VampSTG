@@ -14720,6 +14720,7 @@ GameObject:
   - component: {fileID: 8689936178641518862}
   - component: {fileID: 2171528890075437795}
   - component: {fileID: -2801511542844217096}
+  - component: {fileID: -5535970036311339326}
   m_Layer: 0
   m_Name: vfx_Projectile_Orb01_Purple
   m_TagString: EnemyBullet
@@ -14837,6 +14838,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02fc0d3f4a76c2e43a950c8f56ee5914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5535970036311339326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3454439554667490533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96428cfacaa4ac8428ca8258dd0bf1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzlePrefab: {fileID: 0}
+  _hitPrefab: {fileID: 0}
 --- !u!1 &4575985935123056275
 GameObject:
   m_ObjectHideFlags: 0

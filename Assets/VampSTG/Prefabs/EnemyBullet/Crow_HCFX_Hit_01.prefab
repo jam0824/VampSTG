@@ -4917,6 +4917,7 @@ GameObject:
   - component: {fileID: 3536195420891342204}
   - component: {fileID: 5905534621021688032}
   - component: {fileID: 5172814257479267881}
+  - component: {fileID: 4505079604996876131}
   m_Layer: 20
   m_Name: Crow_HCFX_Hit_01
   m_TagString: Boss
@@ -9942,6 +9943,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deleteTime: 0.5
   disableInsteadOfDestroy: 0
+  deleteColliderOnly: 0
+  colliderDeleteTime: 0.1
+--- !u!114 &4505079604996876131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186236126775488500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96428cfacaa4ac8428ca8258dd0bf1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzlePrefab: {fileID: 0}
+  _hitPrefab: {fileID: 0}
 --- !u!1 &1371642105661409671
 GameObject:
   m_ObjectHideFlags: 0

@@ -9871,6 +9871,7 @@ GameObject:
   - component: {fileID: 310692852294160296}
   - component: {fileID: 6545611029375372365}
   - component: {fileID: 7572134793642029244}
+  - component: {fileID: 224539782570953253}
   m_Layer: 9
   m_Name: vfx_Projectile_Orb02_Green
   m_TagString: EnemyBullet
@@ -9943,3 +9944,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &224539782570953253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6654127341973187248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96428cfacaa4ac8428ca8258dd0bf1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzlePrefab: {fileID: 5464614368569224280, guid: 64ff9e307286b714d89e36db2880bb8c, type: 3}
+  _hitPrefab: {fileID: 0}

@@ -9907,6 +9907,7 @@ GameObject:
   - component: {fileID: 4101012391463895030}
   - component: {fileID: 3284037555247742241}
   - component: {fileID: -4987885294427968423}
+  - component: {fileID: -6133826162689065955}
   m_Layer: 0
   m_Name: Projectile 17 nova violet
   m_TagString: EnemyBullet
@@ -10015,6 +10016,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02fc0d3f4a76c2e43a950c8f56ee5914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6133826162689065955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2416357405354205221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96428cfacaa4ac8428ca8258dd0bf1fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzlePrefab: {fileID: 0}
+  _hitPrefab: {fileID: 0}
 --- !u!1 &2831813017239064231
 GameObject:
   m_ObjectHideFlags: 0
