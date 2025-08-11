@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem.Layouts;
+using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -34,6 +35,12 @@ public class PlayerManager : MonoBehaviour
     public float powerMagnification = 1f;
     public float speedMagnification = 1f;
 
+    [Header("ダメージ時の振動設定")]
+    [SerializeField] private float damageRumbleLow = 0.9f;   // 低周波強度
+    [SerializeField] private float damageRumbleHigh = 1.0f;  // 高周波強度
+    [SerializeField] private float damageRumbleDuration = 0.25f; // 震動時間
+
+    private Coroutine rumbleCoroutine;
 
 
     void Start()
@@ -148,6 +155,8 @@ public class PlayerManager : MonoBehaviour
         Vector3 pos = gameObject.transform.position;
         pos.y += effectOffset;
         EffectController.Instance.PlayHitToPlayer(pos);
+
+        StartGamepadRumble(damageRumbleLow, damageRumbleHigh, damageRumbleDuration);
     }
 
     /// <summary>
@@ -194,6 +203,8 @@ public class PlayerManager : MonoBehaviour
     private IEnumerator Death()
     {
         isDead = true;
+        // 死亡時は強い振動を約2秒
+        StartGamepadRumble(1.0f, 1.0f, 2.0f);
         animator.SetTrigger("Dead");
         playerController.SetCanMove(false);
         playerItemManager.StopAllCoroutine();
@@ -203,6 +214,63 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         screenFader.FadeToBlack(GameManager.Instance.whenDeathToSceneName);
 
+    }
+
+    private void OnDestroy()
+    {
+        // シーン遷移等で破棄された場合も確実に止める
+        StopGamepadRumble();
+    }
+
+    /// <summary>
+    /// ゲームパッドの振動を開始する
+    /// </summary>
+    /// <param name="low"></param>
+    /// <param name="high"></param>
+    /// <param name="duration"></param>
+    public void StartRumble(float low, float high, float duration)
+    {
+        StartGamepadRumble(low, high, duration);
+    }
+
+    private void StartGamepadRumble(float low, float high, float duration)
+    {
+        if (Gamepad.current == null) return;
+
+        if (rumbleCoroutine != null)
+        {
+            StopCoroutine(rumbleCoroutine);
+        }
+        rumbleCoroutine = StartCoroutine(RumbleRoutine(low, high, duration));
+    }
+
+    private IEnumerator RumbleRoutine(float low, float high, float duration)
+    {
+        var pad = Gamepad.current;
+        if (pad == null) yield break;
+
+        pad.SetMotorSpeeds(low, high);
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        pad.SetMotorSpeeds(0f, 0f);
+        rumbleCoroutine = null;
+    }
+
+    private void StopGamepadRumble()
+    {
+        if (rumbleCoroutine != null)
+        {
+            StopCoroutine(rumbleCoroutine);
+            rumbleCoroutine = null;
+        }
+        if (Gamepad.current != null)
+        {
+            Gamepad.current.SetMotorSpeeds(0f, 0f);
+        }
     }
 
     /// <summary>
