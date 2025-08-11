@@ -441,4 +441,32 @@ public class Stage5MidBoss : BaseEnemy
             enemyShooter.Fire();
         }
     }
+
+    protected override void Explosion(float maxHp)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Vector3 pos = transform.position;
+            pos.x = 1f; // 少し画面の手前に出す
+            // y は 0 ～ 6 の範囲
+            pos.y += (Random.value - 0.5f) * 2f;
+            // z を ±1 の範囲でランダムにずらす
+            pos.z += (Random.value - 0.5f) * 2f;
+
+            // ランダム爆発
+            float r = Random.value;
+            if (r < 0.3)
+            {
+                EffectController.Instance.PlaySmallExplosion(pos, transform.rotation, false);
+            }
+            else if (r < 0.6)
+            {
+                EffectController.Instance.PlayMiddleExplosion(pos, transform.rotation, false);
+            }
+            else
+            {
+                EffectController.Instance.PlayLargeExplosion(pos, transform.rotation, false);
+            }
+        }
+    }
 }

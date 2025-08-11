@@ -15,9 +15,6 @@ public class Stage4MidBoss : BaseEnemy
     [SerializeField] float verticalMoveSpeed = 1f;  // 上下移動の速度
     [SerializeField] float verticalRange = 2f;      // 上下移動の幅
 
-    [Header("アイテム設定")]
-    [SerializeField] GameObject specificItem;     // 特定のアイテムをセット
-
     [Header("射撃設定")]
     [SerializeField] List<GameObject> enemyShooterObjects = new List<GameObject>();
     
@@ -39,11 +36,6 @@ public class Stage4MidBoss : BaseEnemy
 
     protected override void OnStart()
     {
-        // 特定のアイテムが設定されている場合は、それを親クラスのitemプロパティに設定
-        if (specificItem != null)
-        {
-            item = specificItem;
-        }
         
         // 基準位置を初期位置に設定
         basePosition = transform.position;

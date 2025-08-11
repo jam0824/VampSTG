@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a12491ab96ab542aaeb45101f2165f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_targetFrameRate: 90
   languageIndex: 0
   selectedCharacter: {fileID: 11400000, guid: 238d711ebff12ce45a8592d45ef1bba2, type: 2}
   selectedStage: {fileID: 0}

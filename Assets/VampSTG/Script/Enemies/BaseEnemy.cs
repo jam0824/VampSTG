@@ -29,6 +29,8 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
 
     [Header("ボスからのダメージ")]
     [SerializeField] protected int fromBossDamage = 5;
+    [Header("アイテム設定")]
+    [SerializeField] GameObject specificItem;     // 特定のアイテムをセット
     
     protected IEnemyShooter enemyShooter;
     public GameObject item { get; set; } = null;
@@ -54,6 +56,12 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
             enemyShooter = GetComponent<IEnemyShooter>();
             StartCoroutine(AttackCoroutine());
             if (animator == null) animator = GetComponent<Animator>();
+        }
+
+        // 特定のアイテムが設定されている場合は、それを親クラスのitemプロパティに設定
+        if (specificItem != null)
+        {
+            item = specificItem;
         }
         
         // 子クラス固有の初期化
