@@ -216,6 +216,7 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
             
         Vector3 pos = gameObject.transform.position;
         Instantiate(objItem, pos, gameObject.transform.rotation);
+        SoundManager.Instance.PlayItemGetSE();
         Debug.Log("アイテム出現");
     }
 
