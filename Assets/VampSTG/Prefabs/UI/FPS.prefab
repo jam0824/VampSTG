@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7487377157010829884}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,6 +48,10 @@ MonoBehaviour:
   toggleKey: 282
   position: {x: 10, y: 10}
   fontSize: 20
-  textColor: {r: 1, g: 1, b: 1, a: 1}
+  goodFPSColor: {r: 1, g: 1, b: 1, a: 1}
+  mediumFPSColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  badFPSColor: {r: 1, g: 0, b: 0, a: 1}
   backgroundColor: {r: 0, g: 0, b: 0, a: 1}
   updateInterval: 0.5
+  mediumFPSThreshold: 50
+  badFPSThreshold: 40

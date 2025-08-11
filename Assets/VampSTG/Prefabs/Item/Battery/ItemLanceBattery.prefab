@@ -155,6 +155,7 @@ MonoBehaviour:
   peakHeight: 2
   moveSpeed: 8
   stopDistance: 0.1
+  effectPrefab: {fileID: 7942005556836137598}
 --- !u!114 &8072526772616563186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,5 +230,10 @@ PrefabInstance:
 --- !u!4 &7942005556836137587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5155637711965224118, guid: 8c360e33574a5184283cd31fcdce6c23, type: 3}
+  m_PrefabInstance: {fileID: 3007044280703125189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7942005556836137598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5155637711965224123, guid: 8c360e33574a5184283cd31fcdce6c23, type: 3}
   m_PrefabInstance: {fileID: 3007044280703125189}
   m_PrefabAsset: {fileID: 0}

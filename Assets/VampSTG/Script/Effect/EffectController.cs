@@ -396,6 +396,14 @@ public class EffectController : MonoBehaviour
         return pos;
     }
 
+    public Vector3 GetReverseCorrectedPosition(Vector3 pos){
+        if (effectCamera != null && mainCamera != null)
+        {
+            return GetReverseCorrectedPosition(mainCamera, effectCamera, pos);
+        }
+        return pos;
+    }
+
     /// <summary>
     /// Orthographic カメラ上での見え位置に合わせて、
     /// Perspective カメラで同じスクリーン位置に出力されるワールド座標を返す
@@ -417,6 +425,32 @@ public class EffectController : MonoBehaviour
 
         // 4) Perspective カメラでスクリーン→ワールド座標に逆変換
         Vector3 correctedWorld = perspCam.ScreenToWorldPoint(orthoScreen);
+
+        return correctedWorld;
+    }
+
+    /// <summary>
+    /// Perspective カメラ上での見え位置に合わせて、
+    /// Orthographic カメラで同じスクリーン位置に出力されるワールド座標を返す
+    /// （GetCorrectedPositionの逆変換）
+    /// </summary>
+    Vector3 GetReverseCorrectedPosition(
+        Camera perspCam,
+        Camera orthoCam,
+        Vector3 worldPos
+    ) {
+        // 1) Perspective カメラでワールド→スクリーン座標に変換
+        Vector3 perspScreen = perspCam.WorldToScreenPoint(worldPos);
+
+        // 2) Depth（Z）だけは Orthographic カメラでの距離を拾ってくる
+        //    こうすると、本来のオブジェクト位置からのカメラ距離を保持できる
+        float depth = orthoCam.WorldToScreenPoint(worldPos).z;
+
+        // 3) スクリーン座標の Z に depth をセット
+        perspScreen.z = depth;
+
+        // 4) Orthographic カメラでスクリーン→ワールド座標に逆変換
+        Vector3 correctedWorld = orthoCam.ScreenToWorldPoint(perspScreen);
 
         return correctedWorld;
     }

@@ -297,7 +297,7 @@ MonoBehaviour:
   progressBar: {fileID: 0}
   playerModel: {fileID: 6155718885946839314, guid: f62125caa80af5d41a500d2cf1f61c69, type: 3}
   allElapsedTime: 0
-  isSpawnEnemey: 0
+  isSpawnEnemey: 1
 --- !u!1 &3740652886765014772
 GameObject:
   m_ObjectHideFlags: 0

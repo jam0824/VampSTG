@@ -12,6 +12,9 @@ public class ItemFloat : MonoBehaviour
     public float moveSpeed = 8f;
     public float stopDistance = 0.1f;
 
+    [Header("エフェクト")]
+    [SerializeField] GameObject effectPrefab;
+
     private Vector3 _startPos;
     private float _elapsed;
 
@@ -23,7 +26,7 @@ public class ItemFloat : MonoBehaviour
     {
         _startPos = transform.position;
         if(GameManager.Instance.playerCore != null) 
-            playerTransform = GameManager.Instance.playerCore.transform;
+            playerTransform = GameManager.Instance.playerCore.transform;   
     }
 
     void Update()
@@ -37,7 +40,8 @@ public class ItemFloat : MonoBehaviour
             float parabola = -4f * (t - 0.5f) * (t - 0.5f) + 1f;
             float yOffset = parabola * peakHeight;
 
-            transform.position = EffectController.Instance.GetCorrectedPosition(_startPos + Vector3.up * yOffset);
+            //ransform.position = EffectController.Instance.GetCorrectedPosition(_startPos + Vector3.up * yOffset);
+            transform.position = _startPos + Vector3.up * yOffset;
 
             //画面の下までいったら消える。カメラ外時に処理しないのは上に飛んで画面外になることもあるため下限で処理
             if(transform.position.y < (GameManager.Instance.minY - 1f)) 
@@ -56,6 +60,22 @@ public class ItemFloat : MonoBehaviour
                 float step = moveSpeed * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, step);
             }
+        }
+        MoveEffect(effectPrefab, transform.position);
+    }
+
+    /// <summary>
+    /// エフェクトはOrthographicカメラで表示するため、
+    /// Perspectiveカメラでの位置に合わせて、Orthographicカメラでの位置に変換する
+    /// </summary>
+    /// <param name="effectPrefab"></param>
+    /// <param name="pos"></param>
+    void MoveEffect(GameObject effectPrefab, Vector3 pos){
+        if(effectPrefab != null){
+            effectPrefab.transform.position = EffectController.Instance.GetCorrectedPosition(pos);
+        }
+        else{
+            Debug.LogError("アイテムにエフェクトが設定されていません");
         }
     }
 

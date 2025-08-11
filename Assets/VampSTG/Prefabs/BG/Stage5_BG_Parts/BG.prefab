@@ -324,13 +324,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  rotationSpeed: 5
+  rotationSpeed: 2
   isRotate: 1
   isMove: 1
   isDestroy: 0
   destroyDistance: -1000
-  isStopMoving: 0
-  stopDistance: -100
+  isStopMoving: 1
+  stopDistance: 0
 --- !u!4 &7463869359037080523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 338050396697366228, guid: b9f53850d2bb1294cb24492a7976d7de, type: 3}
