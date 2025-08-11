@@ -24,6 +24,12 @@ public class Stage5MidBoss : BaseEnemy
     [Header("Attack Settings")]
     [SerializeField] private GameObject m_attackPoint;
 
+    [Header("消失設定")]
+    [Tooltip("透明化を開始するまでの時間（秒）")]
+    [SerializeField] private float fadeOutStartTime = 30f;
+    [Tooltip("透明化にかける時間（秒）")]
+    [SerializeField] private float fadeOutDuration = 3f;
+
     private SpriteRenderer[] listSpriteRenderers;
     private Material[] listMaterials;
     private Coroutine fadeCoroutine;
@@ -36,50 +42,37 @@ public class Stage5MidBoss : BaseEnemy
     private Coroutine movementCoroutine;
     private int currentPointIndex = 0;
     private bool isMovementStarted = false;
+    
+    // 透明化制御用
+    private Coroutine fadeOutCoroutine;
+    private bool isFadingOut = false;
+    private float lifeTimeElapsed = 0f;
 
     private void Awake()
     {
-        m_bulletMlPlayer = m_bulletMlFirePoint.GetComponent<BulletMlPlayer>();
-        listSpriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+        if (m_bulletMlFirePoint != null)
+        {
+            m_bulletMlPlayer = m_bulletMlFirePoint.GetComponent<BulletMlPlayer>();
+        }
 
-        var listMaterialTemp = new List<Material>();
+        InitializeVisualAssets();
+    }
+
+    private void Update()
+    {
+        // 生存時間を更新
+        lifeTimeElapsed += Time.deltaTime;
         
-        // 通常のRenderer（MeshRenderer等）を取得
-        var listRenderers = GetComponentsInChildren<Renderer>(true);
-        for (int i = 0; i < listRenderers.Length; i++)
+        // 透明化開始時間に達したら透明化を開始
+        if (!isFadingOut && lifeTimeElapsed >= fadeOutStartTime)
         {
-            var materials = listRenderers[i].materials;
-            for (int j = 0; j < materials.Length; j++)
-            {
-                if (materials[j] != null)
-                {
-                    listMaterialTemp.Add(materials[j]);
-                }
-            }
+            StartFadeOut();
         }
-        
-        // SkinnedMeshRendererも明示的に取得（Rendererに含まれるが念のため）
-        var listSkinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>(true);
-        for (int i = 0; i < listSkinnedMeshRenderers.Length; i++)
-        {
-            var materials = listSkinnedMeshRenderers[i].materials;
-            for (int j = 0; j < materials.Length; j++)
-            {
-                if (materials[j] != null && !listMaterialTemp.Contains(materials[j]))
-                {
-                    listMaterialTemp.Add(materials[j]);
-                }
-            }
-        }
-        
-        listMaterials = listMaterialTemp.ToArray();
     }
 
     private void OnEnable()
     {
-        m_animator = GetComponent<Animator>();
-        m_rigidbody = GetComponent<Rigidbody>();
-        listColliders = GetComponentsInChildren<Collider>();
+        CacheComponents();
         
         // Rigidbodyをkinematicにし、Colliderを無効にする（フェード中は当たり判定を停止）
         if (m_rigidbody != null)
@@ -87,7 +80,7 @@ public class Stage5MidBoss : BaseEnemy
             m_rigidbody.isKinematic = true;
         }
         // 全てのColliderを無効にする
-        listColliders = SetCollidersToEnable(listColliders, false);
+        SetCollidersEnabled(false);
 
         if (fadeInOnSpawn)
         {
@@ -119,6 +112,12 @@ public class Stage5MidBoss : BaseEnemy
             StopCoroutine(movementCoroutine);
             movementCoroutine = null;
         }
+        
+        if (fadeOutCoroutine != null)
+        {
+            StopCoroutine(fadeOutCoroutine);
+            fadeOutCoroutine = null;
+        }
     }
 
     private IEnumerator FadeInRoutine()
@@ -145,7 +144,7 @@ public class Stage5MidBoss : BaseEnemy
             m_rigidbody.isKinematic = false;
         }
         // 全てのColliderを有効にする
-        listColliders = SetCollidersToEnable(listColliders, true);
+        SetCollidersEnabled(true);
         
         // BulletML開始
         m_bulletMlPlayer.StartBulletML();
@@ -159,19 +158,17 @@ public class Stage5MidBoss : BaseEnemy
     /// <summary>
     /// 全てのColliderを有効/無効にする
     /// </summary>
-    /// <param name="_listColliders"></param>
-    /// <param name="_enable"></param>
-    /// <returns></returns>
-    private Collider[] SetCollidersToEnable(Collider[] _listColliders, bool _enable)
+    private void SetCollidersEnabled(bool shouldEnable)
     {
-        for (int i = 0; i < _listColliders.Length; i++)
+        if (listColliders == null || listColliders.Length == 0) return;
+        for (int i = 0; i < listColliders.Length; i++)
         {
-            if (_listColliders[i] != null)
+            Collider col = listColliders[i];
+            if (col != null)
             {
-                _listColliders[i].enabled = _enable;
+                col.enabled = shouldEnable;
             }
         }
-        return _listColliders;
     }
 
     private void SetAlphaAll(float alpha)
@@ -180,11 +177,11 @@ public class Stage5MidBoss : BaseEnemy
         {
             for (int i = 0; i < listSpriteRenderers.Length; i++)
             {
-                var sr = listSpriteRenderers[i];
-                if (sr == null) continue;
-                var c = sr.color;
-                c.a = alpha;
-                sr.color = c;
+                SpriteRenderer spriteRenderer = listSpriteRenderers[i];
+                if (spriteRenderer == null) continue;
+                Color color = spriteRenderer.color;
+                color.a = alpha;
+                spriteRenderer.color = color;
             }
         }
 
@@ -192,18 +189,18 @@ public class Stage5MidBoss : BaseEnemy
         {
             for (int i = 0; i < listMaterials.Length; i++)
             {
-                var mat = listMaterials[i];
+                Material mat = listMaterials[i];
                 if (mat == null) continue;
 
                 if (mat.HasProperty("_BaseColor"))
                 {
-                    var c = mat.GetColor("_BaseColor");
+                    Color c = mat.GetColor("_BaseColor");
                     c.a = alpha;
                     mat.SetColor("_BaseColor", c);
                 }
                 else if (mat.HasProperty("_Color"))
                 {
-                    var c = mat.GetColor("_Color");
+                    Color c = mat.GetColor("_Color");
                     c.a = alpha;
                     mat.SetColor("_Color", c);
                 }
@@ -218,21 +215,46 @@ public class Stage5MidBoss : BaseEnemy
         for (int i = 0; i < listMaterials.Length; i++)
         {
             var mat = listMaterials[i];
-            if (mat == null || !mat.HasProperty("_Surface")) continue;
-            
-            // Transparentモード(1)に設定
-            mat.SetFloat("_Surface", 1f);
-            
-            // レンダーキューも設定
+            if (mat == null) continue;
+
+            bool isUrp = mat.HasProperty("_Surface");
+
+            if (isUrp)
+            {
+                // URP Lit/Unlit 等
+                mat.SetFloat("_Surface", 1f); // Transparent
+                if (mat.HasProperty("_Blend"))
+                {
+                    // 0:Alpha, 1:Premultiply, 2:Add, 3:Multiply
+                    mat.SetFloat("_Blend", 0f);
+                }
+                if (mat.HasProperty("_AlphaClip"))
+                {
+                    mat.SetFloat("_AlphaClip", 0f);
+                }
+                mat.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+                mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                mat.DisableKeyword("_ALPHATEST_ON");
+            }
+            else
+            {
+                // Built-in Standard などの一般マテリアル
+                if (mat.HasProperty("_Mode"))
+                {
+                    // 0:Opaque,1:Cutout,2:Fade,3:Transparent（Standard想定）
+                    mat.SetFloat("_Mode", 3f);
+                }
+                mat.EnableKeyword("_ALPHABLEND_ON");
+                mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                mat.DisableKeyword("_ALPHATEST_ON");
+            }
+
+            // 共通設定
+            if (mat.HasProperty("_SrcBlend")) mat.SetFloat("_SrcBlend", (float)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            if (mat.HasProperty("_DstBlend")) mat.SetFloat("_DstBlend", (float)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            if (mat.HasProperty("_ZWrite")) mat.SetFloat("_ZWrite", 0f);
+
             mat.renderQueue = 3000; // Transparent queue
-            
-            // アルファブレンディング用の設定
-            if (mat.HasProperty("_SrcBlend"))
-                mat.SetFloat("_SrcBlend", (float)UnityEngine.Rendering.BlendMode.SrcAlpha);
-            if (mat.HasProperty("_DstBlend"))
-                mat.SetFloat("_DstBlend", (float)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-            if (mat.HasProperty("_ZWrite"))
-                mat.SetFloat("_ZWrite", 0f);
         }
     }
 
@@ -274,17 +296,61 @@ public class Stage5MidBoss : BaseEnemy
             mat.renderQueue = 2000; // Geometry queue
             
             // ブレンドモード設定（可能な場合）
-            if (mat.HasProperty("_SrcBlend"))
-                mat.SetFloat("_SrcBlend", (float)UnityEngine.Rendering.BlendMode.One);
-            if (mat.HasProperty("_DstBlend"))
-                mat.SetFloat("_DstBlend", (float)UnityEngine.Rendering.BlendMode.Zero);
-            if (mat.HasProperty("_ZWrite"))
-                mat.SetFloat("_ZWrite", 1f);
+            if (mat.HasProperty("_SrcBlend")) mat.SetFloat("_SrcBlend", (float)UnityEngine.Rendering.BlendMode.One);
+            if (mat.HasProperty("_DstBlend")) mat.SetFloat("_DstBlend", (float)UnityEngine.Rendering.BlendMode.Zero);
+            if (mat.HasProperty("_ZWrite")) mat.SetFloat("_ZWrite", 1f);
             
             // 古いシェーダー用のモード設定
             if (mat.HasProperty("_Mode"))
                 mat.SetFloat("_Mode", 0f); // Opaque mode for Standard shader
         }
+    }
+
+    // 初期化: 視覚要素の収集
+    private void InitializeVisualAssets()
+    {
+        listSpriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+
+        var listMaterialTemp = new List<Material>();
+
+        // 通常のRenderer（MeshRenderer等）を取得
+        Renderer[] renderers = GetComponentsInChildren<Renderer>(true);
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            Material[] materials = renderers[i].materials;
+            for (int j = 0; j < materials.Length; j++)
+            {
+                if (materials[j] != null)
+                {
+                    listMaterialTemp.Add(materials[j]);
+                }
+            }
+        }
+
+        // SkinnedMeshRenderer も重複無く収集
+        SkinnedMeshRenderer[] skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>(true);
+        for (int i = 0; i < skinnedMeshRenderers.Length; i++)
+        {
+            Material[] materials = skinnedMeshRenderers[i].materials;
+            for (int j = 0; j < materials.Length; j++)
+            {
+                Material mat = materials[j];
+                if (mat != null && !listMaterialTemp.Contains(mat))
+                {
+                    listMaterialTemp.Add(mat);
+                }
+            }
+        }
+
+        listMaterials = listMaterialTemp.ToArray();
+    }
+
+    // 初期化: コンポーネントのキャッシュ
+    private void CacheComponents()
+    {
+        if (m_animator == null) m_animator = GetComponent<Animator>();
+        if (m_rigidbody == null) m_rigidbody = GetComponent<Rigidbody>();
+        listColliders = GetComponentsInChildren<Collider>(true);
     }
 
     // BaseEnemy の抽象メソッド実装
@@ -304,10 +370,7 @@ public class Stage5MidBoss : BaseEnemy
             return;
         }
 
-        if (movementCoroutine != null)
-        {
-            StopCoroutine(movementCoroutine);
-        }
+        if (movementCoroutine != null) StopCoroutine(movementCoroutine);
         
         currentPointIndex = 0;
         isMovementStarted = true;
@@ -440,6 +503,43 @@ public class Stage5MidBoss : BaseEnemy
         {
             enemyShooter.Fire();
         }
+    }
+
+    /// <summary>
+    /// 透明化を開始する
+    /// </summary>
+    private void StartFadeOut()
+    {
+        if (fadeOutCoroutine != null)
+        {
+            StopCoroutine(fadeOutCoroutine);
+        }
+        
+        // 透明化開始前にマテリアルをTransparentモードに設定
+        SetMaterialsToTransparent();
+        StopMovement();
+        
+        isFadingOut = true;
+        fadeOutCoroutine = StartCoroutine(FadeOutRoutine());
+    }
+
+    /// <summary>
+    /// 透明化のコルーチン
+    /// </summary>
+    private IEnumerator FadeOutRoutine()
+    {
+        float elapsed = 0f;
+        while (elapsed < fadeOutDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / fadeOutDuration);
+            float alpha = Mathf.Lerp(1f, 0f, t);
+            SetAlphaAll(alpha);
+            yield return null;
+        }
+        
+        // 完全に透明になったらオブジェクトを破棄
+        Destroy(gameObject);
     }
 
     protected override void Explosion(float maxHp)
