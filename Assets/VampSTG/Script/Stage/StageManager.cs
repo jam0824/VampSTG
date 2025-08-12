@@ -15,6 +15,9 @@ public class StageManager : MonoBehaviour
     [SerializeField] public float minDistance = 5f;    // プレイヤーから最低この距離以上
     [SerializeField] public float maxDistance = 15f;   // プレイヤーから最大この距離以内
     [SerializeField] public GameObject enemyPool;  //敵をまとめる場所
+    [Header("敵の事前ロード数(敵1種類当たり)")]
+    [SerializeField] int spawnNum = 3;
+
 
     [Header("Item Settings")]
     [SerializeField] float initialDropRate      = 0.10f;    //最初のアイテムドロップ率は10%
@@ -249,7 +252,7 @@ public class StageManager : MonoBehaviour
             return;
         }
         List<GameObject> listPoolEnemies = GetListPoolEnemies(gameObject);
-        SpawnEnemies(enemyPool, listPoolEnemies);
+        SpawnEnemies(enemyPool, listPoolEnemies, spawnNum);
     }
 
     List<GameObject> GetListPoolEnemies(GameObject parentObject)
@@ -271,13 +274,21 @@ public class StageManager : MonoBehaviour
         }
         return listPoolEnemies;
     }
-
-    void SpawnEnemies(GameObject enemyPool, List<GameObject> listPoolEnemies)
+    /// <summary>
+    /// 事前の敵ロード
+    /// </summary>
+    /// <param name="enemyPool"></param>
+    /// <param name="listPoolEnemies"></param>
+    /// <param name="spawnNum"></param>
+    void SpawnEnemies(GameObject enemyPool, List<GameObject> listPoolEnemies, int spawnNum)
     {
         foreach (GameObject enemy in listPoolEnemies)
         {
-            GameObject instanceEnemy = Instantiate(enemy, enemyPool.transform);
-            instanceEnemy.SetActive(false);
+            for(int i = 0; i < spawnNum; i++){
+                GameObject instanceEnemy = Instantiate(enemy, enemyPool.transform);
+                instanceEnemy.SetActive(false);
+            }
+            
         }
     }
 }

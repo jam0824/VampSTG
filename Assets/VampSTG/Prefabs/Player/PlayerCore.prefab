@@ -301,7 +301,7 @@ MonoBehaviour:
   blinkInterval: 0.1
   effectOffset: 0
   baseStarOffset: 3
-  isMuteki: 1
+  isMuteki: 0
   isDead: 0
   powerMagnification: 1
   speedMagnification: 1

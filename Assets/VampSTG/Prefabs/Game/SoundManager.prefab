@@ -48,3 +48,5 @@ MonoBehaviour:
   audioRoot: {fileID: 0}
   maxSimultaneousSE: 20
   maxSameAudioClip: 8
+  itemGetSe: {fileID: 8300000, guid: 712a233605023fc4bb57467784f125e1, type: 3}
+  itemGetSeVolume: 1

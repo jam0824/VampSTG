@@ -6761,9 +6761,17 @@ PrefabInstance:
       value: 2400
       objectReference: {fileID: 0}
     - target: {fileID: 456613506231661902, guid: fc24602b790d111439584095127ae706, type: 3}
+      propertyPath: maxHp
+      value: 2400
+      objectReference: {fileID: 0}
+    - target: {fileID: 456613506231661902, guid: fc24602b790d111439584095127ae706, type: 3}
       propertyPath: m_attackPoint
       value: 
       objectReference: {fileID: 9171586956274683965}
+    - target: {fileID: 456613506231661902, guid: fc24602b790d111439584095127ae706, type: 3}
+      propertyPath: fadeOutStartTime
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 456613506231661902, guid: fc24602b790d111439584095127ae706, type: 3}
       propertyPath: offsetExplosionY
       value: 5

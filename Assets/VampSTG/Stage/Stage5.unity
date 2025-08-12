@@ -681,10 +681,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
-    - target: {fileID: 1728734414301923596, guid: 6040f625da83d5a4dbc2fb739e0c7d83, type: 3}
-      propertyPath: itemGetSe
-      value: 
-      objectReference: {fileID: 8300000, guid: 712a233605023fc4bb57467784f125e1, type: 3}
     - target: {fileID: 8971736159576262417, guid: 6040f625da83d5a4dbc2fb739e0c7d83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1118,21 +1114,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2480739635674573957, guid: 9e52654f4645e2643acb63865d10af88, type: 3}
-      propertyPath: maxHp
-      value: 2400
-      objectReference: {fileID: 0}
-    - target: {fileID: 2480739635674573957, guid: 9e52654f4645e2643acb63865d10af88, type: 3}
-      propertyPath: fadeOutStartTime
-      value: 55
-      objectReference: {fileID: 0}
     - target: {fileID: 5394504471699534388, guid: 9e52654f4645e2643acb63865d10af88, type: 3}
       propertyPath: m_Name
       value: MidBoss
-      objectReference: {fileID: 0}
-    - target: {fileID: 5875023173736230418, guid: 9e52654f4645e2643acb63865d10af88, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1256,10 +1240,6 @@ PrefabInstance:
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 179951996}
-    - target: {fileID: 8599660483143945015, guid: 6d94ae26e4a503a4bbdc14b3f5bf5ef0, type: 3}
-      propertyPath: isSpawnEnemey
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8955943594946782619, guid: 6d94ae26e4a503a4bbdc14b3f5bf5ef0, type: 3}
       propertyPath: 'gameObjects.Array.data[0]'
       value: 

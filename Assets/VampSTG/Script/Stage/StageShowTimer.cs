@@ -31,6 +31,7 @@ public class StageShowTimer : MonoBehaviour
             {
                 if(gameObject != null) gameObject.SetActive(true);
             }
+            isShow = true;
         }
     }
 }
