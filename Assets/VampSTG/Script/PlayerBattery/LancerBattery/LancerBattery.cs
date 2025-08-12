@@ -10,6 +10,7 @@ public class LancerBattery : BaseBattery
 
     [Header("子オブジェクトroot")]
     [SerializeField] private GameObject firePoint;
+    [SerializeField] private Transform[] lances; //それぞれのランスのTransformが入っている
 
     [Header("回転設定")]
     [Tooltip("X 軸周りの回転速度（度/秒）")]
@@ -24,7 +25,7 @@ public class LancerBattery : BaseBattery
     public override ConfigPlayerBullet configPlayerBullet { get; set; }
     private PlayerManager playerManager;
 
-    private Transform[] lances; //それぞれのランスのTransformが入っている
+    
 
 
     public override void getItem()
@@ -68,7 +69,7 @@ public class LancerBattery : BaseBattery
         gameObject.SetActive(true);
         SetDamage();
         playerManager = GameObject.FindWithTag("Core").GetComponent<PlayerManager>();
-        lances = GetChildTransforms(firePoint);
+        //lances = GetChildTransforms(firePoint);
         DisplayLance(firePoint, "Battery1");
         StartCoroutine(RotateLoop());
     }
@@ -142,11 +143,11 @@ public class LancerBattery : BaseBattery
     {
         while (true)
         {
-            ToggleLanceColliders(lances, true); //当たり判定ON
+            //ToggleLanceColliders(lances, true); //当たり判定ON
             SoundManager.Instance.PlaySE(bulletSe, bulletSeVolume);
             yield return StartCoroutine(RotateOneFullTurn());
-            ToggleLanceColliders(lances, true); //当たり判定OFF
             ClearHitEnemyList();
+            //ToggleLanceColliders(lances, false); //当たり判定OFF
             yield return new WaitForSeconds(restTime);
         }
     }
@@ -155,6 +156,7 @@ public class LancerBattery : BaseBattery
     /// ヒット済み敵リストをクリアする
     /// </summary>
     private void ClearHitEnemyList(){
+
         foreach (var t in lances)
         {
             t.gameObject.GetComponent<ConfigPlayerBullet>().clearHitEnemyList();

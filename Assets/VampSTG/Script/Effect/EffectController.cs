@@ -259,7 +259,7 @@ public class EffectController : MonoBehaviour
         // _playerBulletPoolから同じ名前の非アクティブなオブジェクトを探す
         if (_playerBulletPool != null)
         {
-            bullet = FindInactivePooledObject(_playerBulletPool, obj.name);
+            bullet = VampSTGUtils.FindInactivePooledObject(_playerBulletPool, obj.name);
         }
         
         if (bullet != null)
@@ -297,7 +297,7 @@ public class EffectController : MonoBehaviour
         // _enemyBulletPoolから同じ名前の非アクティブなオブジェクトを探す
         if (_enemyBulletPool != null)
         {
-            bullet = FindInactivePooledObject(_enemyBulletPool, obj.name);
+            bullet = VampSTGUtils.FindInactivePooledObject(_enemyBulletPool, obj.name);
         }
         
         if (bullet != null)
@@ -320,28 +320,6 @@ public class EffectController : MonoBehaviour
         }
         
         return bullet;
-    }
-    
-    /// <summary>
-    /// プールから指定した名前の非アクティブなオブジェクトを探す
-    /// </summary>
-    /// <param name="pool"></param>
-    /// <param name="objectName"></param>
-    /// <returns></returns>
-    GameObject FindInactivePooledObject(GameObject pool, string objectName)
-    {
-        for (int i = 0; i < pool.transform.childCount; i++)
-        {
-            Transform child = pool.transform.GetChild(i);
-            
-            // 名前が一致し、かつ非アクティブなオブジェクトを探す
-            if (child.name.Contains(objectName) && !child.gameObject.activeInHierarchy)
-            {
-                return child.gameObject;
-            }
-        }
-        
-        return null; // 見つからない場合
     }
 
     /// <summary>

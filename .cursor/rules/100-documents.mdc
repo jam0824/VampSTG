@@ -5,3 +5,4 @@ alwaysApply: true
 - README.mdの場所 : /
 - Testsの場所 : /Tests
 - Scriptの場所 : /Assets/VampSTG/Script
+- 汎用のUtilityの場所 : /Assets/VampSTG/Script/Game/VampSTGUtils.cs

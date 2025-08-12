@@ -56,6 +56,8 @@ public class StageManager : MonoBehaviour
 
         AddItemsFromGameManager();  //GameManagerのアイテムを追加
 
+        InitEnemyPool();    //出現する敵を1体ずつ作っておきロードしておく
+
         SoundManager.Instance.PlayBGM(bgm, bgmVol);
 
         allElapsedTime = 0f;
@@ -101,7 +103,7 @@ public class StageManager : MonoBehaviour
             return;
         }
 
-        int enemyCount = enemyPool.transform.childCount;
+        int enemyCount = GetEnemyCount();
         float ratio = Mathf.Clamp01(enemyCount / (float)maxEnemiesForMinRate);
 
         // minRate/initialRate を maxEnemies までに掛け合わせる
@@ -116,7 +118,11 @@ public class StageManager : MonoBehaviour
             dropRate *= 2f;
         }
         //Debug.Log("dropRate: " + dropRate.ToString("F3"));
-        if (Random.value >= dropRate) return;
+        //アイテムがもらえないときは明確にnullを設定しておく
+        if (Random.value >= dropRate) {
+            enemyComponent.item = null;
+            return;
+        }
 
         int index = Random.Range(0, items.Count);
         Debug.Log("ドロップ予定アイテム: " + items[index].type);
@@ -129,6 +135,15 @@ public class StageManager : MonoBehaviour
         GameManager.Instance.AddStageAllItemCount();
     }
 
+    int GetEnemyCount()
+    {
+        int count = 0;
+        foreach (Transform child in enemyPool.transform){
+            if(child.gameObject.activeSelf) count++;
+        }
+        return count;
+    }
+
     /// <summary>
     /// enemyPool 配下のすべての Enemy の hp を 0 にする
     /// </summary>
@@ -136,13 +151,14 @@ public class StageManager : MonoBehaviour
     {
         if (enemyPool == null)
         {
-            Debug.LogWarning("enemyPool がアサインされていません");
+            Debug.LogError("enemyPool がアサインされていません");
             return;
         }
 
         // 子オブジェクトを順に走査
         foreach (Transform child in enemyPool.transform)
         {
+            if(!child.gameObject.activeSelf) continue;
             var enemyComp = child.GetComponent<BaseEnemy>();
             if (enemyComp != null)
             {
@@ -223,5 +239,45 @@ public class StageManager : MonoBehaviour
         items.AddRange(validItemDataList);
         
         Debug.Log($"{logPrefix}から{validItemDataList.Count}個のアイテムを追加しました。合計アイテム数: {items.Count}");
+    }
+
+    void InitEnemyPool()
+    {
+        if (enemyPool == null)
+        {
+            Debug.LogError("EnemyPool が見つかりません");
+            return;
+        }
+        List<GameObject> listPoolEnemies = GetListPoolEnemies(gameObject);
+        SpawnEnemies(enemyPool, listPoolEnemies);
+    }
+
+    List<GameObject> GetListPoolEnemies(GameObject parentObject)
+    {
+        List<GameObject> listPoolEnemies = new List<GameObject>();
+        List<Transform> childTransforms = VampSTGUtils.GetAllChildTransforms(parentObject.transform);
+        foreach (Transform childTransform in childTransforms)
+        {
+            StageWave stageWave = childTransform.GetComponent<StageWave>();
+            if(stageWave == null) continue;
+            GameObject[] enemies = stageWave.enemies;
+            foreach (GameObject enemy in enemies)
+            {
+                if (!listPoolEnemies.Contains(enemy))
+                {
+                    listPoolEnemies.Add(enemy);
+                }
+            }
+        }
+        return listPoolEnemies;
+    }
+
+    void SpawnEnemies(GameObject enemyPool, List<GameObject> listPoolEnemies)
+    {
+        foreach (GameObject enemy in listPoolEnemies)
+        {
+            GameObject instanceEnemy = Instantiate(enemy, enemyPool.transform);
+            instanceEnemy.SetActive(false);
+        }
     }
 }

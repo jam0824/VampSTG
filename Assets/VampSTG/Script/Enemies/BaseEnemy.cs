@@ -8,7 +8,7 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
 {
     [Header("基本設定")]
     [SerializeField] public float hp = 10;
-    protected float maxHp = 10;
+    [SerializeField] protected float maxHp = 10;
     
     [Header("エフェクト")]
     [SerializeField] protected GameObject explosion;
@@ -42,14 +42,28 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
 
     protected virtual void Start()
     {
+        hp = maxHp;
         // プレイヤー参照を取得
         var playerObj = GameObject.FindWithTag("Core");
         if (playerObj != null)
             playerTransform = playerObj.transform;
             
-        maxHp = hp;
-        GameManager.Instance.AddStageAllHp(maxHp);
-        
+        Init();
+        // 子クラス固有の初期化
+        OnStart();
+    }
+    protected virtual void OnEnable()
+    {
+        Init();
+        OnStart();
+    }
+
+    protected virtual void Init()
+    {
+        hp = maxHp;
+        isDead = false;
+        isAttackAnimation = false;
+
         // 攻撃設定の初期化
         if (isAttack)
         {
@@ -57,15 +71,11 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
             StartCoroutine(AttackCoroutine());
             if (animator == null) animator = GetComponent<Animator>();
         }
-
         // 特定のアイテムが設定されている場合は、それを親クラスのitemプロパティに設定
         if (specificItem != null)
         {
             item = specificItem;
         }
-        
-        // 子クラス固有の初期化
-        OnStart();
     }
 
     protected virtual void Update()
@@ -177,7 +187,9 @@ public abstract class BaseEnemy : MonoBehaviour, IEnemy
         AddKillCount();
         AddScore(maxHp);
         ApearItem(item);
-        Destroy(gameObject);
+        StopAllCoroutines();
+        GameManager.Instance.AddStageAllHp(maxHp);
+        gameObject.SetActive(false);
     }
 
     protected virtual void Explosion(float maxHp)

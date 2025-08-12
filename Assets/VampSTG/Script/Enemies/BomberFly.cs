@@ -37,6 +37,7 @@ public class BomberFly : BaseEnemy
         {
             flashLight.enabled = false;
         }
+        isFlashing = false;
     }
 
     /// <summary>
@@ -207,7 +208,7 @@ public class BomberFly : BaseEnemy
         AddKillCount();
         AddScore(maxHp);
         ApearItem(item);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     /// <summary>

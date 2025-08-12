@@ -17,6 +17,10 @@ public class GroundEnemy : BaseEnemy
 
     protected override void OnStart()
     {
+
+        isMoving = false;
+        isRotating = false;
+        
         // BGスクロールスピードを取得
         stageManager = GameObject.Find("StageManager").GetComponent<StageManager>();
         

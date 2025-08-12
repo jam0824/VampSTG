@@ -123,10 +123,25 @@ public class StageWave : MonoBehaviour
         // Y軸反転設定に応じて回転を決定
         Quaternion spawnRotation = isYAxisReverse ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
         
-        GameObject enemy = Instantiate(SpawnRandomEnemy(spawnPos), spawnPos, spawnRotation);
+        GameObject enemy = SetEnemy(SpawnRandomEnemy(spawnPos), spawnPos, spawnRotation);
+
         stageManager.AddItem(enemy);
         enemy.transform.SetParent(stageManager.enemyPool.transform); //親をEnemyPoolにする
         GameManager.Instance.AddStageAllEnemyCount();
+    }
+
+    GameObject SetEnemy(GameObject _enemy, Vector3 _spawnPos, Quaternion _spawnRotation){
+        GameObject enemy = VampSTGUtils.FindInactivePooledObject(stageManager.enemyPool, _enemy.name);
+        if(enemy == null){
+            enemy = Instantiate(_enemy, _spawnPos, _spawnRotation);
+        }
+        else
+        {
+            enemy.transform.position = _spawnPos;
+            enemy.transform.rotation = _spawnRotation;
+            enemy.SetActive(true);
+        }
+        return enemy;
     }
 
     /// <summary>

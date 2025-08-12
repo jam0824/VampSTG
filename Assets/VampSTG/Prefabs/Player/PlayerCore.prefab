@@ -301,10 +301,13 @@ MonoBehaviour:
   blinkInterval: 0.1
   effectOffset: 0
   baseStarOffset: 3
-  isMuteki: 0
+  isMuteki: 1
   isDead: 0
   powerMagnification: 1
   speedMagnification: 1
+  damageRumbleLow: 0.9
+  damageRumbleHigh: 1
+  damageRumbleDuration: 0.5
 --- !u!114 &3943161310262532458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -959,6 +962,18 @@ PrefabInstance:
       propertyPath: bulletSeVolume
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7025012440731434387, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+      propertyPath: lances.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025012440731434387, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+      propertyPath: 'lances.Array.data[0]'
+      value: 
+      objectReference: {fileID: 6830752778528058750}
+    - target: {fileID: 7025012440731434387, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+      propertyPath: 'lances.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1300667636872623635}
     - target: {fileID: 7762126218942278170, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -966,6 +981,10 @@ PrefabInstance:
     - target: {fileID: 7762126218942278170, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762126218942278170, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+      propertyPath: m_TagString
+      value: PlayerBullet
       objectReference: {fileID: 0}
     - target: {fileID: 9192453516011549053, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
       propertyPath: m_Name
@@ -980,6 +999,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+--- !u!4 &1300667636872623635 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7759275071630520254, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+  m_PrefabInstance: {fileID: 8764741281998379437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6830752778528058750 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2839845794483958995, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}
+  m_PrefabInstance: {fileID: 8764741281998379437}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6852567207760132097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2791009470933590444, guid: ac671a1822cb5a4468ed48159b5b241b, type: 3}

@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "D:\\UnityMyProjects\\VampSTG2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\stage\\stagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\stage\\stagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|d:\\unitymyprojects\\vampstg2\\assets\\vampstg\\script\\enemies\\enemyshooter\\nwayshooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\enemies\\enemyshooter\\nwayshooter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|d:\\unitymyprojects\\vampstg2\\assets\\vampstg\\script\\enemies\\baseenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\enemies\\baseenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\enemies\\baseenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\enemies\\ienemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\enemies\\ienemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\stage\\stagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|solutionrelative:assets\\vampstg\\script\\stage\\stagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1056206C-1EF9-2D12-487F-1243E19ACAEB}|VampSTG.csproj|D:\\UnityMyProjects\\VampSTG2\\assets\\vampstg\\script\\enemies\\groundenemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,24 +58,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "NwayShooter.cs",
               "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\EnemyShooter\\NwayShooter.cs",
               "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Enemies\\EnemyShooter\\NwayShooter.cs",
               "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\EnemyShooter\\NwayShooter.cs",
               "RelativeToolTip": "Assets\\VampSTG\\Script\\Enemies\\EnemyShooter\\NwayShooter.cs",
-              "ViewState": "AQIAALQAAAAAAAAAAAAQwNAAAAAkAAAA",
+              "ViewState": "AQIAALQAAAAAAAAAAAAxwNAAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-25T13:36:19.603Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Egg.cs",
               "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Boss\\Stage3Gastaroid\\Egg.cs",
               "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Boss\\Stage3Gastaroid\\Egg.cs",
@@ -87,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IEnemy.cs",
               "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\IEnemy.cs",
               "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Enemies\\IEnemy.cs",
@@ -99,15 +99,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "StageManager.cs",
               "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Stage\\StageManager.cs",
               "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Stage\\StageManager.cs",
               "ToolTip": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Stage\\StageManager.cs",
               "RelativeToolTip": "Assets\\VampSTG\\Script\\Stage\\StageManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHQAAABEAAAA",
+              "ViewState": "AQIAANMAAAAAAAAAAAAAAOoAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T05:56:44.381Z"
+              "WhenOpened": "2025-06-01T05:56:44.381Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -123,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BaseEnemy.cs",
               "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Enemies\\BaseEnemy.cs",
               "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Enemies\\BaseEnemy.cs",
@@ -131,8 +132,7 @@
               "RelativeToolTip": "Assets\\VampSTG\\Script\\Enemies\\BaseEnemy.cs",
               "ViewState": "AQIAAHkAAAAAAAAAAAAiwJMAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T22:34:33.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T22:34:33.946Z"
             },
             {
               "$type": "Document",
@@ -148,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DousaTes.cs",
               "DocumentMoniker": "D:\\UnityMyProjects\\VampSTG2\\Assets\\VampSTG\\Script\\Prisoner\\DousaTes.cs",
               "RelativeDocumentMoniker": "Assets\\VampSTG\\Script\\Prisoner\\DousaTes.cs",

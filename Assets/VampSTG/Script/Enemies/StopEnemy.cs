@@ -12,6 +12,11 @@ public class StopEnemy : BaseEnemy
     
     private bool hasReachedStopPosition = false;        // ストップ位置に到達したかのフラグ
 
+    protected override void OnStart()
+    {
+        hasReachedStopPosition = false;
+    }
+
     /// <summary>
     /// 移動処理の実装
     /// </summary>

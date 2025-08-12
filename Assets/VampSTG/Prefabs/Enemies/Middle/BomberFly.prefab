@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 50
+  maxHp: 50
   explosion: {fileID: 551982064899135214, guid: 1fd2e3131adf9b44f9dda20d8ea5b0bf, type: 3}
   explosionSe: {fileID: 8300000, guid: 080918ba88a52e845be577a1b0d4433d, type: 3}
   explosionSeVolume: 1

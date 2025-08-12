@@ -817,17 +817,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
-  moveSpeed: 1
-  rotateSpeed: 180
-  stopProbability: 0.8
-  moveCheckInterval: 2
-  scrollSpeed: 0.6
+  maxHp: 3
   explosion: {fileID: 0}
+  explosionSe: {fileID: 0}
+  explosionSeVolume: 1
   offsetExplosionY: 0
   isAttack: 1
   attackInterval: 5
   attackAnimationWait: 0.5
+  isDirectionAttack: 0
+  attackDirection: 0
   animator: {fileID: 6685712025421717537}
+  fromBossDamage: 5
+  specificItem: {fileID: 0}
+  moveSpeed: 1
+  rotateSpeed: 180
+  stopProbability: 0.8
+  moveCheckInterval: 2
 --- !u!114 &152152743273359063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,9 +849,14 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8459538307677788719, guid: 8a7dc4e51db79fd44bb06a1c6422cd61, type: 3}
   firePoint: {fileID: 1063206831984633288}
   bulletSpeed: 1
-  bulletLifeTime: 30
   numberOfBullets: 5
   totalSpreadAngle: 90
+  isContinuousFire: 0
+  continuousFireCount: 3
+  continuousFireInterval: 0.2
+  muzzleFirePrefab: {fileID: 0}
+  muzzleFireSe: {fileID: 0}
+  muzzleFireSeVolume: 0.8
   core: {fileID: 0}
 --- !u!54 &8572872769360602366
 Rigidbody:

@@ -40,6 +40,11 @@ public class LifterHuman : BaseEnemy
     #region 初期化・基本更新
     protected override void OnStart()
     {
+        isNearPlayer = false;
+        floatTimer = 0f;
+        sideTimer = 0f;
+        currentRotation = transform.eulerAngles;
+
         // 基準位置を初期位置に設定
         basePosition = transform.position;
         
@@ -201,7 +206,7 @@ public class LifterHuman : BaseEnemy
         ApearItem(item);
         
         // オブジェクトを削除
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     /// <summary>

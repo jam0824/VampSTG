@@ -287,7 +287,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 3
+  maxHp: 3
   explosion: {fileID: 0}
+  explosionSe: {fileID: 0}
+  explosionSeVolume: 1
   offsetExplosionY: 0
   isAttack: 1
   attackInterval: 6
@@ -296,6 +299,7 @@ MonoBehaviour:
   attackDirection: 0
   animator: {fileID: 6909347806528313984}
   fromBossDamage: 5
+  specificItem: {fileID: 0}
   moveSpeed: 1
   rotateSpeed: 90
   stopDistance: 3
@@ -314,7 +318,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8052689336147358366, guid: 79cfbb3a4e8919e4d8a4de28c62367aa, type: 3}
   firePoint: {fileID: 7331379250962456862}
   bulletSpeed: 1
-  bulletLifeTime: 30
   numberOfBullets: 1
   totalSpreadAngle: 60
   isContinuousFire: 0

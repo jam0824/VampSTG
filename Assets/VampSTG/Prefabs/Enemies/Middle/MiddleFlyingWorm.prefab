@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 60
+  maxHp: 60
   explosion: {fileID: 0}
   explosionSe: {fileID: 0}
   explosionSeVolume: 1

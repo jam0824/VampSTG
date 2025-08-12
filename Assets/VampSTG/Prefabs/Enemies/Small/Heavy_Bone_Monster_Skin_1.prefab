@@ -1487,15 +1487,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
-  moveSpeed: 1
-  rotateSpeed: 90
-  stopDistance: 0.1
+  maxHp: 5
   explosion: {fileID: 0}
+  explosionSe: {fileID: 0}
+  explosionSeVolume: 1
   offsetExplosionY: 0
   isAttack: 0
   attackInterval: 4
   attackAnimationWait: 0.5
+  isDirectionAttack: 0
+  attackDirection: 0
   animator: {fileID: 0}
+  fromBossDamage: 5
+  specificItem: {fileID: 0}
+  moveSpeed: 1
+  rotateSpeed: 90
+  stopDistance: 0.1
 --- !u!1 &6755440093819205295
 GameObject:
   m_ObjectHideFlags: 0
