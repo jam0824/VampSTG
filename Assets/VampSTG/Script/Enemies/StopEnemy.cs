@@ -14,7 +14,7 @@ public class StopEnemy : BaseEnemy
 
     protected override void OnStart()
     {
-        hasReachedStopPosition = false;
+        
     }
 
     /// <summary>

@@ -58,7 +58,7 @@ public class Stage5MidBoss : BaseEnemy
         InitializeVisualAssets();
     }
 
-    private void Update()
+    protected override void Update()
     {
         // 生存時間を更新
         lifeTimeElapsed += Time.deltaTime;
@@ -70,8 +70,9 @@ public class Stage5MidBoss : BaseEnemy
         }
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        if(isDead) return;
         CacheComponents();
         
         // Rigidbodyをkinematicにし、Colliderを無効にする（フェード中は当たり判定を停止）
@@ -99,7 +100,7 @@ public class Stage5MidBoss : BaseEnemy
         }
     }
 
-    private void OnDisable()
+    private void OnDisable()    
     {
         if (fadeCoroutine != null)
         {
@@ -503,6 +504,18 @@ public class Stage5MidBoss : BaseEnemy
         {
             enemyShooter.Fire();
         }
+    }
+
+    protected override void enemyDie()
+    {
+        isDead = true;
+        Explosion(maxHp);
+        AddKillCount();
+        AddScore(maxHp);
+        ApearItem(item);
+        StopAllCoroutines();
+        GameManager.Instance.AddStageAllHp(maxHp);
+        Destroy(gameObject);
     }
 
     /// <summary>
